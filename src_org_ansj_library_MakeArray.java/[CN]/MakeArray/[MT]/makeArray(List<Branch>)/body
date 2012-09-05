@@ -1,8 +1,8 @@
 {
-  BufferedReader reader=IOUtil.getReader(arraysNumberPath,charEncoding);
+  BufferedReader reader=MyStaticValue.getNumberReader();
   makeASCIIArray(reader);
   reader.close();
-  reader=IOUtil.getReader(arraysEnglishPath,charEncoding);
+  reader=MyStaticValue.getEnglishReader();
   makeASCIIArray(reader);
   reader.close();
   makeBaseArray(all);

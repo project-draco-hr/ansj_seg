@@ -1,6 +1,6 @@
 {
   String split="\t";
-  BufferedReader reader=IOUtil.getReader("library/nature/nature.map","UTF-8");
+  BufferedReader reader=MyStaticValue.getNatureMapReader();
   String temp=null;
   String[] strs=null;
   int maxLength=0;
@@ -18,7 +18,7 @@
   }
   reader.close();
   NATURETABLE=new int[maxLength + 1][maxLength + 1];
-  reader=IOUtil.getReader("library/nature/nature.table","UTF-8");
+  reader=MyStaticValue.getNatureTableReader();
   int j=0;
   while ((temp=reader.readLine()) != null) {
     if (StringUtil.isBlank(temp))     continue;

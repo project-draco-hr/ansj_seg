@@ -1,0 +1,58 @@
+{
+  GetWordsImpl gwi=new GetWordsImpl(temp);
+  Graph gp=new Graph(temp);
+  int start=0;
+  int end=0;
+  int length=0;
+  length=temp.length();
+  String str=null;
+  char c=0;
+  for (int i=0; i < length; i++) {
+switch (status[temp.charAt(i)]) {
+case 0:
+      gp.addTerm(new Term(temp.charAt(i) + "",i,TermNatures.NULL));
+    break;
+case 4:
+  start=i;
+end=1;
+while (++i < length && status[temp.charAt(i)] == 4) {
+end++;
+}
+str=WordAlert.alertEnglish(temp,start,end);
+gp.addTerm(new Term(str,start,TermNatures.EN));
+i--;
+break;
+case 5:
+start=i;
+end=1;
+while (++i < length && status[temp.charAt(i)] == 5) {
+end++;
+}
+str=WordAlert.alertNumber(temp,start,end);
+gp.addTerm(new Term(str,start,TermNatures.NB));
+i--;
+break;
+default :
+start=i;
+end=i;
+c=temp.charAt(start);
+while (IN_SYSTEM[c]) {
+end++;
+if (++i >= length) break;
+c=temp.charAt(i);
+}
+str=temp.substring(start,end);
+while ((str=gwi.allWords()) != null) {
+gp.addTerm(new Term(str,gwi.getOffe(),gwi.getTermNatures()));
+}
+if (IN_SYSTEM[c] || status[c] > 3) {
+i-=1;
+}
+ else {
+gp.addTerm(new Term(String.valueOf(c),i,TermNatures.NULL));
+}
+break;
+}
+}
+return gp.getPath().merger().getResult();
+}

@@ -6,5 +6,6 @@
       sb.append("\n");
     }
   }
-  IOUtil.Writer(InitDictionary.arraysPath,charEncoding,sb.toString());
+  System.out.println("write ok in ./arrays.dic");
+  IOUtil.Writer("./arrays.dic",charEncoding,sb.toString());
 }

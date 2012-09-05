@@ -1,8 +1,8 @@
 {
-  BufferedReader reader=IOUtil.getReader(arraysPath,charEncoding);
+  BufferedReader reader=MyStaticValue.getArraysReader();
   initArraySize(reader);
   reader.close();
-  reader=IOUtil.getReader(arraysPath,charEncoding);
+  reader=MyStaticValue.getArraysReader();
   initArrays(reader);
   reader.close();
 }

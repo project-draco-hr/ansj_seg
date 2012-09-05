@@ -1,0 +1,3 @@
+{
+  return DicReader.getReader("nature/nature.map");
+}

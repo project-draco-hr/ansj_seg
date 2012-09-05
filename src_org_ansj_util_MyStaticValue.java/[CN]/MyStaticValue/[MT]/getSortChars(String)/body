@@ -1,5 +1,0 @@
-{
-  char[] chars=str.toCharArray();
-  java.util.Arrays.sort(chars);
-  return chars;
-}
