@@ -1,0 +1,30 @@
+{
+  if (!isBack || i == chars.length - 1) {
+    i=root - 1;
+  }
+  for (i++; i < chars.length; i++) {
+    branch=branch.get(chars[i]);
+    if (branch == null) {
+      root++;
+      branch=FOREST;
+      i=root - 1;
+      isBack=false;
+      continue;
+    }
+switch (branch.getStatus()) {
+case 2:
+      isBack=true;
+    offe=tempOffe + root;
+  return new String(chars,root,i - root + 1);
+case 3:
+offe=tempOffe + root;
+str=new String(chars,root,i - root + 1);
+branch=FOREST;
+isBack=false;
+root++;
+return str;
+}
+}
+tempOffe+=chars.length;
+return null;
+}

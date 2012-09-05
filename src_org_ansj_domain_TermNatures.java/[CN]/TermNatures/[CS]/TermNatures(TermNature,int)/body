@@ -1,0 +1,6 @@
+{
+  termNatures=new TermNature[1];
+  termNature.frequency=allFreq;
+  this.termNatures[0]=termNature;
+  this.allFreq=allFreq;
+}

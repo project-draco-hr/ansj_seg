@@ -1,0 +1,8 @@
+{
+  int begin=this.getBeginFreq();
+  int end=this.getEndFreq();
+  double score=factory * freq + begin + end;
+  Term term=new Term(sb.toString(),index,TermNatures.NR);
+  term.selfScore=score;
+  return term;
+}

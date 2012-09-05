@@ -1,0 +1,39 @@
+{
+  if ((this.branch=this.get(branch.getC())) != null) {
+switch (branch.getStatus()) {
+case 1:
+      if (this.branch.getStatus() == 2) {
+        this.branch.setStatus(2);
+      }
+    if (this.branch.getStatus() == 3) {
+      this.branch.setStatus(2);
+    }
+  break;
+case 2:
+this.branch.setStatus(2);
+case 3:
+if (this.branch.getStatus() == 2) {
+this.branch.setStatus(2);
+}
+if (this.branch.getStatus() == 1) {
+this.branch.setStatus(2);
+}
+}
+if (branch.getNatures() != null) {
+if (this.branch.getNatures() == null) {
+this.branch.setNatures(branch.getNatures());
+}
+ else {
+this.branch.getNatures().putAll(branch.getNatures());
+}
+}
+return this.branch;
+}
+index++;
+if ((index + 1) > branches.length) {
+branches=Arrays.copyOf(branches,index + 1);
+}
+branches[index]=branch;
+AnsjArrays.sort(branches);
+return branch;
+}

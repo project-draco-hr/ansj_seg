@@ -1,0 +1,6 @@
+{
+  double score=MathUtil.compuScoreFreq(from,this);
+  if (this.from == null || this.getScore() <= score) {
+    this.setFromAndScore(from,score);
+  }
+}

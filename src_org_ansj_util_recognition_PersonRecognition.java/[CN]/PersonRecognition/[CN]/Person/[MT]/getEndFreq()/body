@@ -1,0 +1,10 @@
+{
+  if (end.getTermNatures().personAttr.hm == null) {
+    return 1;
+  }
+  Integer temp1=end.getTermNatures().personAttr.hm.get(12);
+  Integer temp2=end.getTermNatures().personAttr.hm.get(11);
+  if (temp1 == null)   temp1=1;
+  if (temp2 == null)   temp2=1;
+  return Math.max(temp1,temp2);
+}

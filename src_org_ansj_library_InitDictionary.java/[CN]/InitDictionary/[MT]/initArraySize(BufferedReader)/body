@@ -1,0 +1,14 @@
+{
+  String temp=null;
+  String last=null;
+  while ((temp=reader.readLine()) != null) {
+    last=temp;
+  }
+  String[] strs=last.split("	");
+  int arrayLength=Integer.parseInt(strs[0]) + 1;
+  base=new int[arrayLength];
+  check=new int[arrayLength];
+  status=new byte[arrayLength];
+  words=new String[arrayLength];
+  termNatures=new TermNatures[arrayLength];
+}

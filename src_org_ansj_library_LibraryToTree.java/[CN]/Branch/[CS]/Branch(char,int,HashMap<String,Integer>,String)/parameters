@@ -1,0 +1,4 @@
+char c
+int status
+HashMap<String,Integer> nature
+String value

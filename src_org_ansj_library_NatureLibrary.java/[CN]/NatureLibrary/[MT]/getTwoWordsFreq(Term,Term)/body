@@ -1,0 +1,3 @@
+{
+  return TwoWordLibrary.getTwoWordFreq(from,to);
+}

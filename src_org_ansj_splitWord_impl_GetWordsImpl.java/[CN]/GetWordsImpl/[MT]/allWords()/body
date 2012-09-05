@@ -1,0 +1,48 @@
+{
+  for (; i < charsLength; i++) {
+    charHashCode=chars.charAt(i);
+    end++;
+switch (getStatement()) {
+case 0:
+      if (baseValue == chars.charAt(i)) {
+        str="" + chars.charAt(i);
+        offe=i;
+        start=++i;
+        end=0;
+        baseValue=0;
+        tempBaseValue=baseValue;
+        return str;
+      }
+ else {
+        i=start;
+        start++;
+        end=0;
+        baseValue=0;
+        break;
+      }
+case 2:
+    i++;
+  offe=start;
+tempBaseValue=baseValue;
+return words[tempBaseValue];
+case 3:
+offe=start;
+start++;
+i=start;
+end=0;
+tempBaseValue=baseValue;
+baseValue=0;
+return words[tempBaseValue];
+}
+}
+if (start++ != i) {
+i=start;
+baseValue=0;
+return allWords();
+}
+start=0;
+end=0;
+baseValue=0;
+i=0;
+return null;
+}

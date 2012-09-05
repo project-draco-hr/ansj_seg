@@ -1,0 +1,8 @@
+{
+  BufferedReader reader=IOUtil.getReader(arraysPath,charEncoding);
+  initArraySize(reader);
+  reader.close();
+  reader=IOUtil.getReader(arraysPath,charEncoding);
+  initArrays(reader);
+  reader.close();
+}

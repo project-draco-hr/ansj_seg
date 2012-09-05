@@ -1,0 +1,5 @@
+{
+  WoodInterface t=x[a];
+  x[a]=x[b];
+  x[b]=t;
+}

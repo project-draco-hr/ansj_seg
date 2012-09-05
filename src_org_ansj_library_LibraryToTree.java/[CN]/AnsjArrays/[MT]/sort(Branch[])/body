@@ -1,0 +1,4 @@
+{
+  Branch[] aux=(Branch[])a.clone();
+  mergeSort(aux,a,0,a.length,0);
+}

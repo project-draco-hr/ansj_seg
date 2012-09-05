@@ -1,0 +1,20 @@
+{
+  if (term != null && term.getTermNatures().personAttr.hm != null) {
+    Branch temp=null;
+    List<Entry<Integer,Integer>> entries=null;
+    entries=term.getTermNatures().personAttr.getAttrList();
+    Person tempName=null;
+    for (    Entry<Integer,Integer> entry : entries) {
+      temp=branch.get(entry.getKey());
+      if (temp != null) {
+        if (temp.value > -1) {
+          Person value=new Person(name,term,entry.getValue());
+          Term result=value.getTerm(temp.value);
+          if (result != null)           TermUtil.insertTerm(terms,result);
+        }
+        tempName=new Person(name,term,entry.getValue());
+        termNext(term.getTo(),temp,tempName);
+      }
+    }
+  }
+}

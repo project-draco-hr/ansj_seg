@@ -1,0 +1,7 @@
+{
+  Term term=new Term(from.getName() + to.getName(),from.getOffe(),termNatures);
+  term.getTermNatures().numAttr=from.getTermNatures().numAttr;
+  TermUtil.termLink(term,to.getTo());
+  TermUtil.termLink(term.getFrom(),term);
+  return term;
+}

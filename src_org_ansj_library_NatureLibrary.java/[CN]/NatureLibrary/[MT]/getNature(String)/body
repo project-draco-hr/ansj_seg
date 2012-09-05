@@ -1,0 +1,9 @@
+{
+  Nature nature=NATUREMAP.get(natureStr);
+  if (nature == null) {
+    nature=new Nature(natureStr,LING,LING,LING);
+    NATUREMAP.put(natureStr,nature);
+    return nature;
+  }
+  return nature;
+}

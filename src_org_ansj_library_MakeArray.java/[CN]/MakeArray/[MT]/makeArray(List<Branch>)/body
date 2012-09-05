@@ -1,0 +1,10 @@
+{
+  BufferedReader reader=IOUtil.getReader(arraysNumberPath,charEncoding);
+  makeASCIIArray(reader);
+  reader.close();
+  reader=IOUtil.getReader(arraysEnglishPath,charEncoding);
+  makeASCIIArray(reader);
+  reader.close();
+  makeBaseArray(all);
+  writeLibrary();
+}

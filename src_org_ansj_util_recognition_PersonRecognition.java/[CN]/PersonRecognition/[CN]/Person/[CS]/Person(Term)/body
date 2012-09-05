@@ -1,0 +1,4 @@
+{
+  this.index=term.getOffe();
+  this.begin=term.getFrom();
+}

@@ -1,0 +1,10 @@
+{
+  Branch branch=new Branch(c,-1);
+  int index=Collections.binarySearch(all,branch);
+  if (index < 0) {
+    return null;
+  }
+ else {
+    return all.get(index);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  Term term=null;
+  if (terms[to] != null) {
+    term=terms[to];
+    if (term != null) {
+      term.setPathScoreByFreq(fromTerm);
+    }
+  }
+}

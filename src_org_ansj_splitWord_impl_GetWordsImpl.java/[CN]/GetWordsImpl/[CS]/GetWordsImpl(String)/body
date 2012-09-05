@@ -1,0 +1,4 @@
+{
+  InitDictionary.init();
+  setStr(str);
+}

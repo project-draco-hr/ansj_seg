@@ -1,0 +1,6 @@
+{
+  this.natureStr=natureStr;
+  this.index=index;
+  this.natureIndex=natureIndex;
+  this.allFrequency=allFrequency;
+}

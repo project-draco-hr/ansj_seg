@@ -1,0 +1,15 @@
+{
+  int tempBase=0;
+  if (chars.length == 2) {
+    return chars[0];
+  }
+  for (int i=0; i < chars.length - 1; i++) {
+    if (i == 0) {
+      tempBase+=chars[i];
+    }
+ else {
+      tempBase=base[tempBase] + chars[i];
+    }
+  }
+  return tempBase;
+}

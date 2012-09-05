@@ -1,0 +1,9 @@
+{
+  List<Branch> all=branch.all;
+  for (  Branch branch2 : all) {
+    if (branch2.value > -1) {
+      System.out.println(branch2.value);
+    }
+    print(branch2);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (terms[term.getOffe()] == null) {
+    terms[term.getOffe()]=term;
+  }
+ else {
+    terms[term.getOffe()]=term.setNext(terms[term.getOffe()]);
+  }
+}

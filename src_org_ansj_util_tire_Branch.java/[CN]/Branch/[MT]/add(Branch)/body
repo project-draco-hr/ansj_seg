@@ -1,0 +1,15 @@
+{
+  int index=Collections.binarySearch(all,branch);
+  if (index < 0) {
+    all.add(branch);
+    Collections.sort(all);
+  }
+ else {
+    Branch temp=all.get(index);
+    if (branch.value >= 0) {
+      temp.value=branch.value;
+    }
+    branch=temp;
+  }
+  return branch;
+}

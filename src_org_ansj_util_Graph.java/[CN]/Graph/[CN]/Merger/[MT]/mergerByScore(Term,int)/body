@@ -1,0 +1,10 @@
+{
+  Term term=null;
+  if (terms[to] != null) {
+    term=terms[to];
+    while (term != null) {
+      term.setPathPersonScore(fromTerm);
+      term=term.getNext();
+    }
+  }
+}

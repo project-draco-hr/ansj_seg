@@ -1,0 +1,4 @@
+{
+  is=getInputStream(path);
+  return new BufferedReader(new InputStreamReader(is,charEncoding));
+}

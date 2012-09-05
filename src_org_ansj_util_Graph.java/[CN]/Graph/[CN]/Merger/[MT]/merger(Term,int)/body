@@ -1,0 +1,14 @@
+{
+  Term term=null;
+  if (terms[to] != null) {
+    term=terms[to];
+    while (term != null) {
+      term.setPathScore(fromTerm);
+      term=term.getNext();
+    }
+  }
+ else {
+    terms[to]=new Term(String.valueOf(str.charAt(to)),to,TermNatures.NULL);
+    terms[to].setPathScore(fromTerm);
+  }
+}

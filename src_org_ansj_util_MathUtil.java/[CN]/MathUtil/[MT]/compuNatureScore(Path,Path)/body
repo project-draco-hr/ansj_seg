@@ -1,0 +1,5 @@
+{
+  int twoNatureFreq=NatureLibrary.getTwoNatureFreq(from,to);
+  double b=Math.log((0.9 * twoNatureFreq) / (to.getTermNature().frequency + 1) + 0.1 * to.getTermNature().frequency / (to.getTermNature().nature.allFrequency + 1));
+  return b;
+}

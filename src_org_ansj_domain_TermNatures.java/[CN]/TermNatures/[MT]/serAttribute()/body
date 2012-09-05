@@ -1,0 +1,30 @@
+{
+  TermNature termNature=null;
+  int max=0;
+  NumNatureAttr numNatureAttr=null;
+  for (int i=0; i < termNatures.length; i++) {
+    termNature=termNatures[i];
+    allFreq+=termNature.frequency;
+    max=Math.max(max,termNature.frequency);
+switch (termNature.nature.index) {
+case 18:
+      if (numNatureAttr == null) {
+        numNatureAttr=new NumNatureAttr();
+      }
+    numNatureAttr.numFreq=termNature.frequency;
+  break;
+case 29:
+if (numNatureAttr == null) {
+  numNatureAttr=new NumNatureAttr();
+}
+numNatureAttr.numEndFreq=termNature.frequency;
+break;
+}
+}
+if (numNatureAttr != null) {
+if (max == numNatureAttr.numFreq) {
+numNatureAttr.flag=true;
+}
+this.numAttr=numNatureAttr;
+}
+}

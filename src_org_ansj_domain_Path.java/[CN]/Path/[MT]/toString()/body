@@ -1,0 +1,3 @@
+{
+  return this.term.getName() + "/" + this.tn.nature.natureStr;
+}

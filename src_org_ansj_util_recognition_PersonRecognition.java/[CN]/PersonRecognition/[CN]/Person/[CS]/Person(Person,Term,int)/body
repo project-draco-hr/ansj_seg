@@ -1,0 +1,8 @@
+{
+  this.index=name.index;
+  this.begin=name.begin;
+  this.sb.append(name.sb);
+  this.sb.append(term.getName());
+  this.end=term.getTo();
+  this.freq+=freq;
+}

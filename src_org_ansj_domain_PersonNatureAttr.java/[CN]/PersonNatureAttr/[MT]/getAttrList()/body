@@ -1,0 +1,5 @@
+{
+  List<Entry<Integer,Integer>> all=new ArrayList<Entry<Integer,Integer>>();
+  all.addAll(hm.entrySet());
+  return all;
+}

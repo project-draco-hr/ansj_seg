@@ -1,0 +1,5 @@
+{
+  termNatures=new TermNature[1];
+  this.termNatures[0]=termNature;
+  serAttribute();
+}

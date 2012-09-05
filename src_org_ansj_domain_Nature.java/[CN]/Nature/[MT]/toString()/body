@@ -1,0 +1,3 @@
+{
+  return natureStr + ":" + index+ ":"+ natureIndex;
+}

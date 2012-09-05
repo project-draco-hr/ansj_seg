@@ -1,0 +1,68 @@
+{
+  if (content == null || content.trim().length() == 0) {
+    return Collections.EMPTY_LIST;
+  }
+  List<Segement> result=new ArrayList<Segement>();
+  char[] chars=content.toCharArray();
+  StringBuilder sb=new StringBuilder();
+  WoodInterface head=FOREST;
+  int start=0;
+  int end=1;
+  int index=0;
+  boolean isBack=false;
+  int length=chars.length;
+  for (int i=0; i < length; i++) {
+    index++;
+    head=head.get(chars[i]);
+    if (head == null) {
+      if (isBack) {
+        if (sb.length() > 0) {
+          result.add(new Segement(sb.toString(),start - sb.length()));
+          sb=new StringBuilder();
+        }
+        result.add(new Segement(new String(chars,start,end),start,"userDefine"));
+        start=start + end;
+        i=start - 1;
+        isBack=false;
+      }
+ else {
+        sb.append(chars,start,end);
+        i=start;
+        start++;
+      }
+      head=FOREST;
+      index=0;
+      end=1;
+      continue;
+    }
+switch (head.getStatus()) {
+case 1:
+      break;
+case 2:
+    end=index;
+  isBack=true;
+break;
+case 3:
+if (sb.length() > 0) {
+result.add(new Segement(sb.toString(),start - sb.length()));
+sb=new StringBuilder();
+}
+result.add(new Segement(new String(chars,start,index),start,"userDefine"));
+start=start + index;
+index=0;
+end=1;
+isBack=false;
+head=FOREST;
+break;
+}
+}
+if (head != FOREST) {
+sb.append(chars,start,index);
+result.add(new Segement(sb.toString(),start));
+sb=new StringBuilder();
+}
+if (sb.length() > 0) {
+result.add(new Segement(sb.toString(),start));
+}
+return result;
+}

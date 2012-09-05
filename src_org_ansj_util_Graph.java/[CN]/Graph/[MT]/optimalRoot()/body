@@ -1,0 +1,15 @@
+{
+  Term to=end;
+  Term from=null;
+  while ((from=to.getFrom()) != null) {
+    for (int i=from.getOffe() + 1; i < to.getOffe(); i++) {
+      terms[i]=null;
+    }
+    if (from.getOffe() > -1) {
+      terms[from.getOffe()]=from;
+    }
+    from.setNext(null);
+    to=setToAndfrom(to,from);
+  }
+  return root;
+}

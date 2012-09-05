@@ -1,0 +1,4 @@
+String natureStr
+int index
+int natureIndex
+int allFrequency

@@ -1,0 +1,18 @@
+{
+  if ((c >= 'a' && c <= 'z')) {
+    return true;
+  }
+switch (c) {
+case '.':
+    return true;
+case '-':
+  return true;
+case '/':
+return true;
+case '#':
+return true;
+case '?':
+return true;
+}
+return false;
+}

@@ -1,0 +1,15 @@
+{
+  long start=System.currentTimeMillis();
+  File[] files=new File("/Users/ansj/Documents/??????/SogouCA.WWW08").listFiles();
+  for (int i=0; i < files.length; i++) {
+    if (!files[i].getName().endsWith(".txt")) {
+      continue;
+    }
+    Reader reader=new InputStreamReader(new FileInputStream(files[i]),"GBK");
+    Analysis toAnalysis=new ToAnalysis(reader);
+    Term next=null;
+    while ((next=toAnalysis.next()) != null) {
+    }
+  }
+  System.out.println(System.currentTimeMillis() - start);
+}

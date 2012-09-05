@@ -1,0 +1,4 @@
+{
+  this.nature=NatureLibrary.getNature(natureStr);
+  this.frequency=frequency;
+}

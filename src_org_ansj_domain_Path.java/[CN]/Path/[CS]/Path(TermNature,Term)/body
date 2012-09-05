@@ -1,0 +1,4 @@
+{
+  this.tn=termNature;
+  this.term=term;
+}

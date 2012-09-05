@@ -1,0 +1,5 @@
+{
+  if (from == null || to == null)   return;
+  from.setTo(to);
+  to.setFrom(from);
+}

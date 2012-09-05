@@ -1,0 +1,3 @@
+{
+  return from.getTermNatures().allFreq + term.getTermNatures().allFreq;
+}

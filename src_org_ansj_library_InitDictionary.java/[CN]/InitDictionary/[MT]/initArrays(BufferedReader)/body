@@ -1,0 +1,28 @@
+{
+  HashMap<String,PersonNatureAttr> personMap=new PersonLibrary().getPersonMap();
+  PersonNatureAttr personAttr=null;
+  String temp=null;
+  String[] strs=null;
+  int num=0;
+  while ((temp=reader.readLine()) != null) {
+    strs=temp.split("	");
+    num=Integer.parseInt(strs[0]);
+    base[num]=Integer.parseInt(strs[2]);
+    check[num]=Integer.parseInt(strs[3]);
+    status[num]=Byte.parseByte(strs[4]);
+    if (!"null".equals(strs[5])) {
+      words[num]=strs[1];
+      if (status[num] < 4) {
+        for (int i=0; i < strs[1].length(); i++) {
+          IN_SYSTEM[strs[1].charAt(i)]=true;
+        }
+      }
+      TermNatures tn=new TermNatures(TermNature.setNatureStrToArray(strs[5]));
+      if ((personAttr=personMap.get(strs[1])) != null) {
+        tn.setPersonNatureAttr(personAttr);
+      }
+      termNatures[num]=tn;
+    }
+  }
+  reader.close();
+}

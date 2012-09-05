@@ -1,0 +1,3 @@
+{
+  return this.getTermNature().nature.natureStr;
+}

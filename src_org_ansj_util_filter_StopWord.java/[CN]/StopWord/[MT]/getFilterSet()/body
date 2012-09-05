@@ -1,0 +1,6 @@
+{
+  if (hs != null) {
+    return hs;
+  }
+  return init();
+}
