@@ -14,12 +14,12 @@
     }
  else {
       if (sb != null) {
-        TermUtil.insertTerm(terms,new Term(sb.toString(),begin,TermNatures.NB));
+        TermUtil.insertTermNum(terms,new Term(sb.toString(),begin,TermNatures.NB));
         sb=null;
       }
     }
   }
   if (sb != null) {
-    TermUtil.insertTerm(terms,new Term(sb.toString(),begin,TermNatures.NB));
+    TermUtil.insertTermNum(terms,new Term(sb.toString(),begin,TermNatures.NB));
   }
 }

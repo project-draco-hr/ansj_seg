@@ -1,12 +1,13 @@
 {
   Term term=null;
+  Term to=null;
   for (int i=0; i < terms.length - 1; i++) {
     term=terms[i];
-    if (term != null && term.getTo() != null) {
-      if (term.getTermNatures().numAttr.flag && term.getTo().getTermNatures().numAttr.numEndFreq > -1) {
-        terms[i]=TermUtil.makeNewTermNum(term,term.getTo(),TermNatures.NB);
-        terms[term.getTo().getOffe()]=null;
-        i=term.getToValue();
+    if (term != null && (to=terms[term.getToValue()]) != null) {
+      if (term.getTermNatures().numAttr.flag && to.getTermNatures().numAttr.numEndFreq > -1) {
+        terms[i]=TermUtil.makeNewTermNum(term,to,TermNatures.NB);
+        terms[to.getOffe()]=null;
+        i=to.getOffe();
       }
     }
   }
