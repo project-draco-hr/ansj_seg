@@ -42,8 +42,9 @@ if (++i >= length) break;
 c=temp.charAt(i);
 }
 str=temp.substring(start,end);
+gwi.setStr(str);
 while ((str=gwi.allWords()) != null) {
-gp.addTerm(new Term(str,gwi.getOffe(),gwi.getTermNatures()));
+gp.addTerm(new Term(str,gwi.offe + start,gwi.getTermNatures()));
 }
 if (IN_SYSTEM[c] || status[c] > 3) {
 i-=1;
