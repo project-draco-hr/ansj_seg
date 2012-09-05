@@ -55,7 +55,7 @@
       while ((term=udf.next()) != null) {
         all.add(term);
       }
-      System.out.println("===========\t" + all);
+      System.out.println(all);
     }
   }
   System.out.println(System.currentTimeMillis() - start);
