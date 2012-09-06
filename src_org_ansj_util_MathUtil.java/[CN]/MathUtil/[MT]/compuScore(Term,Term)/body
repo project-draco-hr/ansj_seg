@@ -3,7 +3,7 @@
   if (frequency < 0) {
     return from.getScore() + MAX_FREQUENCE;
   }
-  int nTwoWordsFreq=NatureLibrary.getTwoWordsFreq(from,to);
+  int nTwoWordsFreq=TwoWordLibrary.getTwoWordFreq(from,to);
   double value=-Math.log(dSmoothingPara * frequency / (MAX_FREQUENCE + 80000) + (1 - dSmoothingPara) * ((1 - dTemp) * nTwoWordsFreq / frequency + dTemp));
   if (value < 0)   value+=frequency;
   if (value < 0) {

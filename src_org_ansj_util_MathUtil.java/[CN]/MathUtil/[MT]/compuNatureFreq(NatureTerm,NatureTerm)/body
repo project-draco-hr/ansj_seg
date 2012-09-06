@@ -1,0 +1,8 @@
+{
+  double twoWordFreq=NatureLibrary.getTwoNatureFreq(from.termNature.nature,to.termNature.nature);
+  if (twoWordFreq == 0) {
+    twoWordFreq=Math.log(from.selfScore + to.selfScore);
+  }
+  double score=from.score + Math.log((from.selfScore + to.selfScore) * twoWordFreq) + to.selfScore;
+  return score;
+}
