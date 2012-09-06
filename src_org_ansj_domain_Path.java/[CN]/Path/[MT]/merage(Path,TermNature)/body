@@ -1,7 +1,0 @@
-{
-  this.getTerm().merage(to.getTerm());
-  this.setTo(to.getTo());
-  this.getTo().setFrom(this);
-  this.tn=termNature;
-  return this;
-}

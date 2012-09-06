@@ -1,5 +1,0 @@
-{
-  this.from=from;
-  this.score=score;
-  this.index=from.index + 1;
-}
