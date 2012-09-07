@@ -9,6 +9,7 @@
     Analysis toAnalysis=new ToAnalysis(reader);
     Term next=null;
     while ((next=toAnalysis.next()) != null) {
+      if (next.getTermNatures().termNatures[0] == TermNature.NR)       System.out.println(next.getName());
     }
   }
   System.out.println(System.currentTimeMillis() - start);
