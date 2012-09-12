@@ -1,0 +1,23 @@
+{
+  BufferedReader br=null;
+  try {
+    pnMap=new HashMap<String,PersonNatureAttr>();
+    br=MyStaticValue.getPersonReader();
+    String temp=null;
+    String[] strs=null;
+    PersonNatureAttr pna=null;
+    while ((temp=br.readLine()) != null) {
+      pna=new PersonNatureAttr();
+      strs=temp.split("\t");
+      pna=pnMap.get(strs[0]);
+      if (pna == null) {
+        pna=new PersonNatureAttr();
+      }
+      pna.addFreq(Integer.parseInt(strs[1]),Integer.parseInt(strs[2]));
+      pnMap.put(strs[0],pna);
+    }
+  }
+  finally {
+    if (br != null)     br.close();
+  }
+}

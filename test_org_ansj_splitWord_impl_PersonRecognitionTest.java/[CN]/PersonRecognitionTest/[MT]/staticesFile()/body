@@ -1,0 +1,44 @@
+{
+  BufferedReader reader=IOUtil.getReader("/Users/ansj/Documents/??????/??????/library/name_split.dic","UTF-8");
+  HashMap<String,int[]> hm=new HashMap<String,int[]>();
+  String temp=null;
+  String[] strs=null;
+  int[] ints=null;
+  int min=0;
+  while ((temp=reader.readLine()) != null) {
+    strs=temp.split(" ");
+    for (int i=0; i < strs.length; i++) {
+      min=Math.min(i,4);
+      if ((ints=hm.get(strs[i])) != null) {
+        ints[min]++;
+      }
+ else {
+        ints=new int[5];
+        ints[min]++;
+        hm.put(strs[min],ints);
+      }
+    }
+  }
+  reader=IOUtil.getReader("/Users/ansj/Documents/??????/??????/library/name_temp.dic","UTF-8");
+  while ((temp=reader.readLine()) != null) {
+    strs=temp.split("\t");
+    if (strs.length < 3)     continue;
+    if (Integer.parseInt(strs[1]) == 23) {
+      min=1;
+    }
+ else {
+      min=2;
+    }
+    int freq=Integer.parseInt(strs[2]);
+    if ((ints=hm.get(strs[0])) != null) {
+      ints[min]+=freq;
+    }
+ else {
+      ints=new int[5];
+      ints[min]+=freq;
+      hm.put(strs[min],ints);
+    }
+  }
+  StringBuilder sb=new StringBuilder();
+  IOUtil.Writer("/Users/ansj/Documents/??????/??????/library/name_result.dic","UTF-8",sb.toString());
+}

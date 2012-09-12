@@ -1,0 +1,4 @@
+{
+  InputStream in=DicReader.class.getResourceAsStream(name);
+  return in;
+}

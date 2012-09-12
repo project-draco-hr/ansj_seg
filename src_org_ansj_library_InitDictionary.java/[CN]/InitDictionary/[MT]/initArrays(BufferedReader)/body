@@ -1,5 +1,5 @@
 {
-  HashMap<String,PersonNatureAttr> personMap=new PersonLibrary().getPersonMap();
+  HashMap<String,PersonNatureAttr> personMap=PersonAttrLibrary.getPersonMap();
   PersonNatureAttr personAttr=null;
   String temp=null;
   String[] strs=null;

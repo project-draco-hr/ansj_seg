@@ -1,0 +1,6 @@
+{
+  if (locFreq == null)   return 0;
+  if (length > 3)   length=3;
+  if (loc > 4)   loc=4;
+  return locFreq[length][loc];
+}

@@ -1,9 +1,10 @@
 {
+  rmLittlePath();
   walkPath();
   NumRecognition.recogntionNM(terms);
   rmLittlePath();
   NumRecognition.recogntionNQ(terms);
-  new PersonRecognition().recognition(terms);
+  new PersonRecognition(terms).recogntion();
   walkPathByScore();
   new UserDefineRecognition(terms).recongnitionTerm();
   rmLittlePath();

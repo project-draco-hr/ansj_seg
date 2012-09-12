@@ -1,0 +1,28 @@
+{
+  Term term=null;
+  Term tempTerm=null;
+  List<Term> termList=new ArrayList<Term>();
+  int beginFreq=10;
+  for (int i=0; i < terms.length; i++) {
+    term=terms[i];
+    if (term == null) {
+      continue;
+    }
+    term.score=0;
+    term.selfScore=0;
+    for (int j=0; j < 4; j++) {
+      if (term.getTermNatures().personAttr.getFreq(j,0) > 300) {
+        tempTerm=nameFind(i,beginFreq,j);
+        if (tempTerm != null)         termList.add(tempTerm);
+      }
+ else       if (term.getName().length() > 2 && term.getTermNatures().personAttr.getFreq(j,0) > 0) {
+        j=3;
+        tempTerm=nameFind(i,beginFreq,j);
+      }
+    }
+    for (    Term term2 : termList) {
+      TermUtil.insertTerm(terms,term2);
+    }
+    beginFreq=term.getTermNatures().personAttr.begin + 1;
+  }
+}

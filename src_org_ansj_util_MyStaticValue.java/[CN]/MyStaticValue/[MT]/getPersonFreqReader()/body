@@ -1,0 +1,3 @@
+{
+  return DicReader.getReader("person/name_freq.dic");
+}

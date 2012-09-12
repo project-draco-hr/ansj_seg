@@ -1,0 +1,17 @@
+{
+switch (index) {
+case 11:
+    this.end+=freq;
+  allFreq+=freq;
+break;
+case 12:
+this.end+=freq;
+this.begin+=freq;
+allFreq+=freq;
+break;
+case 44:
+this.split+=freq;
+allFreq+=freq;
+break;
+}
+}

@@ -1,0 +1,14 @@
+{
+  String str=null;
+  BufferedReader reader=IOUtil.getReader("/Users/ansj/Documents/??????/??????/library/name.dic","UTF-8");
+  HashMap<String,Integer> hm=new HashMap();
+  StringBuilder sb=new StringBuilder();
+  while ((str=reader.readLine()) != null) {
+    List<Term> terms=ToAnalysis.paser(str);
+    if (terms.size() == 1 || terms.size() > 11)     continue;
+    sb.append(terms);
+    sb.append("\n");
+  }
+  reader.close();
+  IOUtil.Writer("/Users/ansj/Documents/??????/??????/library/name_split.dic","UTF-8",sb.toString());
+}
