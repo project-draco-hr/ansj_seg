@@ -6,7 +6,7 @@
   while ((str=reader.readLine()) != null) {
     List<Term> terms=ToAnalysis.paser(str);
     if (terms.size() == 1 || terms.size() > 11)     continue;
-    sb.append(terms);
+    sb.append(terms.toString().replace(", "," ").replace("[","").replace("]",""));
     sb.append("\n");
   }
   reader.close();

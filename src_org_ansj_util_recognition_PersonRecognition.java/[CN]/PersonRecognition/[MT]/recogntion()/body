@@ -10,19 +10,27 @@
     }
     term.score=0;
     term.selfScore=0;
-    for (int j=0; j < 4; j++) {
-      if (term.getTermNatures().personAttr.getFreq(j,0) > 300) {
+    for (int j=3; j > -1; j--) {
+      if (term.getTermNatures().personAttr.getFreq(j,0) > 500 || (j > 1 && term.getName().length() == 2 && term.getTermNatures().personAttr.getFreq(j,0) > 0)) {
         tempTerm=nameFind(i,beginFreq,j);
-        if (tempTerm != null)         termList.add(tempTerm);
+        if (tempTerm != null) {
+          termList.add(tempTerm);
+          if (tempTerm.getName().length() > 4 && skip) {
+            for (int j2=i; j2 < tempTerm.getToValue(); j2++) {
+              if (terms[j2] != null) {
+                terms[j2].score=0;
+                terms[j2].selfScore=0;
+              }
+            }
+            i=tempTerm.getToValue() - 1;
+            break;
+          }
+        }
       }
- else       if (term.getName().length() > 2 && term.getTermNatures().personAttr.getFreq(j,0) > 0) {
-        j=3;
-        tempTerm=nameFind(i,beginFreq,j);
-      }
-    }
-    for (    Term term2 : termList) {
-      TermUtil.insertTerm(terms,term2);
     }
     beginFreq=term.getTermNatures().personAttr.begin + 1;
+  }
+  for (  Term term2 : termList) {
+    TermUtil.insertTerm(terms,term2);
   }
 }
