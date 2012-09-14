@@ -1,0 +1,27 @@
+{
+  BufferedReader reader=IOUtil.getReader(base + "/asian_name_split.dic","UTF-8");
+  HashMap<String,Entry> hm=new HashMap<String,Entry>();
+  String temp=null;
+  String[] strs=null;
+  int min=0;
+  Entry entry=null;
+  while ((temp=reader.readLine()) != null) {
+    strs=temp.split(" ");
+    for (int i=0; i < strs.length; i++) {
+      entry=hm.get(strs[i]);
+      if (entry == null) {
+        entry=new Entry();
+      }
+      entry.add(strs.length,i);
+      hm.put(strs[i],entry);
+    }
+  }
+  HashMap<String,int[][]> result=new HashMap<String,int[][]>();
+  Set<java.util.Map.Entry<String,Entry>> entrySet=hm.entrySet();
+  for (  java.util.Map.Entry<String,Entry> entry2 : entrySet) {
+    result.put(entry2.getKey(),entry2.getValue().ints);
+  }
+  IOUtil.WriterObj(base + "/asian_name_freq.data",result);
+  System.out.println(result.get("???"));
+  System.out.println(result.get("???"));
+}

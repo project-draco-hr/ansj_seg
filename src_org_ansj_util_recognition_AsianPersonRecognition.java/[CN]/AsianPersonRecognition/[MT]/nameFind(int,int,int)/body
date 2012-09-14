@@ -1,0 +1,67 @@
+{
+  StringBuilder sb=new StringBuilder();
+  int undefinite=0;
+  skip=false;
+  PersonNatureAttr pna=null;
+  int index=0;
+  int freq=0;
+  double allFreq=0;
+  Term term=null;
+  int i=offe;
+  for (; i < terms.length; i++) {
+    if (terms[i] == null) {
+      continue;
+    }
+    term=terms[i];
+    pna=term.getTermNatures().personAttr;
+    if ((freq=pna.getFreq(size,index)) == 0) {
+      if (size == 3 && sb.length() > 4) {
+        break;
+      }
+ else {
+        return null;
+      }
+    }
+    if (pna.allFreq > 0) {
+      undefinite++;
+    }
+    sb.append(term.getName());
+    allFreq+=Math.log(term.getTermNatures().allFreq + 1);
+    allFreq+=-Math.log((double)(freq));
+    index++;
+    if (index == size + 2) {
+      break;
+    }
+  }
+  double score=-Math.log(factory[size]);
+  score+=allFreq;
+  double endFreq=0;
+  boolean flag=true;
+  while (flag) {
+    i++;
+    if (i >= terms.length) {
+      endFreq=10;
+      flag=false;
+    }
+ else     if (terms[i] != null) {
+      int twoWordFreq=TwoWordLibrary.getTwoWordFreq(term,terms[i]);
+      if (twoWordFreq > 2) {
+        return null;
+      }
+      endFreq=terms[i].getTermNatures().personAttr.end + 1;
+      flag=false;
+    }
+  }
+  score-=Math.log(endFreq);
+  score-=Math.log(beginFreq);
+  if (score > -3) {
+    return null;
+  }
+  if (allFreq > 0 && undefinite > 0) {
+    return null;
+  }
+  skip=undefinite == 0;
+  term=new Term(sb.toString(),offe,TermNatures.NR);
+  term.selfScore=score;
+  return term;
+}

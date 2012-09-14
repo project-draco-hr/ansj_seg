@@ -1,0 +1,55 @@
+{
+  BufferedReader br=IOUtil.getReader("data/28288???????????????.txt","GBK");
+  String temp_str=null;
+  int line_number=0;
+  int ansj_term_number=0;
+  int result_num=0;
+  double P=0.0;
+  double R=0.0;
+  double F=0.0;
+  int allError=0;
+  int allSuccess=0;
+  String[] had_words_array=null;
+  String body=null;
+  String[] result=null;
+  while ((temp_str=br.readLine()) != null) {
+    int error=0;
+    int success=0;
+    body=temp_str.replace(" ","");
+    result=temp_str.split(" ");
+    had_words_array=new String[body.length()];
+    int offe=0;
+    for (int i=0; i < result.length; i++) {
+      had_words_array[offe]=result[i];
+      offe+=result[i].length();
+    }
+    List<Term> paser=ToAnalysis.paser(body);
+    for (    Term term : paser) {
+      if (had_words_array[term.getOffe()] == null) {
+        error++;
+      }
+ else       if (had_words_array[term.getOffe()].equalsIgnoreCase(term.getName())) {
+        success++;
+      }
+ else {
+        success++;
+      }
+    }
+    ansj_term_number+=paser.size();
+    result_num+=result.length;
+    allError+=error;
+    allSuccess+=success;
+    if (error > 0) {
+      System.out.println("example:" + temp_str);
+      System.out.println(" result:" + paser.toString().replace("[","").replace("]","").replace(",",""));
+    }
+    line_number++;
+  }
+  P=allSuccess / (double)ansj_term_number;
+  R=allSuccess / (double)result_num;
+  F=(2 * P * R) / (P + R);
+  System.out.println("P:" + P);
+  System.out.println("R:" + R);
+  System.out.println("?????????????????????--" + F);
+  br.close();
+}

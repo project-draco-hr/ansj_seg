@@ -1,0 +1,28 @@
+{
+  BufferedReader reader=IOUtil.getReader(base + "/asian_name_split.dic","UTF-8");
+  HashMap<String,int[]> hm=new HashMap<String,int[]>();
+  String temp=null;
+  int C2=0, C3=0, C4=0;
+  while ((temp=reader.readLine()) != null) {
+    if (StringUtil.isBlank(temp))     continue;
+    temp=temp.replace(" ","");
+switch (temp.length()) {
+case 2:
+      C2++;
+    break;
+case 3:
+  C3++;
+break;
+case 4:
+C4++;
+break;
+default :
+System.out.println("error out of freq!");
+break;
+}
+}
+double sum=C2 + C3 + C4;
+System.out.println(C2 / sum);
+System.out.println(C3 / sum);
+System.out.println(C4 / sum);
+}
