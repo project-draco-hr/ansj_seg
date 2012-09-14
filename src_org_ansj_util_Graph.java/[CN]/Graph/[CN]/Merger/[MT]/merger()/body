@@ -1,4 +1,5 @@
 {
+  rmLittlePath();
   walkPath();
   NumRecognition.recogntionNM(terms);
   rmLittlePath();

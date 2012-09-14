@@ -11,7 +11,7 @@
       temp=terms[j];
       if (temp != null && temp.getToValue() > maxTo) {
         flag=true;
-        i=temp.getToValue();
+        i=temp.getToValue() - 1;
         break;
       }
     }

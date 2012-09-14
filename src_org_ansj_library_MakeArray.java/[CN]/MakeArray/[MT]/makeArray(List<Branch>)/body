@@ -7,4 +7,5 @@
   reader.close();
   makeBaseArray(all);
   writeLibrary();
+  reader.close();
 }

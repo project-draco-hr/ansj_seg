@@ -15,12 +15,7 @@
     term=terms[i];
     pna=term.getTermNatures().personAttr;
     if ((freq=pna.getFreq(size,index)) == 0) {
-      if (size == 3 && sb.length() > 4) {
-        break;
-      }
- else {
-        return null;
-      }
+      return null;
     }
     if (pna.allFreq > 0) {
       undefinite++;

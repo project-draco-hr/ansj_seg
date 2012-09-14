@@ -55,5 +55,5 @@ gp.addTerm(new Term(String.valueOf(c),i,TermNatures.NULL));
 break;
 }
 }
-return gp.getPath().merger();
+return gp.getPath().indexMerger();
 }
