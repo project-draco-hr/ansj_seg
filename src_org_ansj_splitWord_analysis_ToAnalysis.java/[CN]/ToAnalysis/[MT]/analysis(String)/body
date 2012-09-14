@@ -55,6 +55,6 @@ gp.addTerm(new Term(String.valueOf(c),i,TermNatures.NULL));
 break;
 }
 }
-List<Term> result=gp.getPath().merger().getResult();
+List<Term> result=gp.getPath().merger();
 terms.addAll(result);
 }

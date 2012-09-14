@@ -1,12 +1,9 @@
 {
-  walkPath();
+  rmLittlePath();
   NumRecognition.recogntionNM(terms);
   rmLittlePath();
-  NumRecognition.recogntionNQ(terms);
   new AsianPersonRecognition(terms).recogntion();
-  walkPathByScore();
   new UserDefineRecognition(terms).recongnitionTerm();
   rmLittlePath();
-  walkPathByFreq();
-  return getResult();
+  return getIndexResult();
 }
