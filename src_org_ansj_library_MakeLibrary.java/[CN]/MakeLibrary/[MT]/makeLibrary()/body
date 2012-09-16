@@ -1,4 +1,0 @@
-{
-  BufferedReader reader=IOUtil.getReader(path,charEncoding);
-  sortLibrary(reader);
-}

@@ -1,5 +1,0 @@
-{
-  rangeCheck(a.length,fromIndex,toIndex);
-  WoodInterface[] aux=copyOfRange(a,fromIndex,toIndex);
-  mergeSort(aux,a,fromIndex,toIndex,-fromIndex);
-}

@@ -1,7 +1,0 @@
-{
-  is=getInputStream(path);
-  if (is != null) {
-    return new RandomAccessFile(new File(path),"r");
-  }
-  return null;
-}

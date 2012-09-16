@@ -1,4 +1,0 @@
-U[] original
-int from
-int to
-Class<? extends T[]> newType
