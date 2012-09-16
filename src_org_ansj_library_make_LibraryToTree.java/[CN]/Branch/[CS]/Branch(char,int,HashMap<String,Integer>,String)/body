@@ -1,0 +1,6 @@
+{
+  this.c=c;
+  this.status=(byte)status;
+  this.natures=nature;
+  this.value=value;
+}

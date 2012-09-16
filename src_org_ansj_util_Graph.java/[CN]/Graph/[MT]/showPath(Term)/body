@@ -1,8 +1,0 @@
-{
-  if (term.getFrom() != null) {
-    showPath(term.getFrom());
-  }
-  if (term.getOffe() < terms.length - 1) {
-    sb.append(term.toString());
-  }
-}

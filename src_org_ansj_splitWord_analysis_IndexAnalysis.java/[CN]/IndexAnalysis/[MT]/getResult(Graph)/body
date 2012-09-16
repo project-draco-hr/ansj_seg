@@ -1,0 +1,32 @@
+{
+  Merger merger=new Merger(){
+    public List<Term> merger(){
+      graph.rmLittlePath();
+      NumRecognition.recogntionNM(graph.terms);
+      graph.rmLittlePath();
+      new AsianPersonRecognition(graph.terms).recogntion();
+      new UserDefineRecognition(graph.terms).recongnitionTerm();
+      graph.rmLittlePath();
+      return result();
+    }
+    /** 
+ * ???????????????
+ * @return
+ */
+    private List<Term> result(){
+      List<Term> all=new LinkedList<Term>();
+      Term term=null;
+      int length=graph.terms.length - 1;
+      for (int i=0; i < length; i++) {
+        term=graph.terms[i];
+        if (term == null) {
+          continue;
+        }
+        all.add(term);
+      }
+      return all;
+    }
+  }
+;
+  return merger.merger();
+}

@@ -1,6 +1,5 @@
 {
   BufferedReader reader=IOUtil.getReader(base + "/asian_name_split.dic","UTF-8");
-  HashMap<String,int[]> hm=new HashMap<String,int[]>();
   String temp=null;
   int C2=0, C3=0, C4=0;
   while ((temp=reader.readLine()) != null) {

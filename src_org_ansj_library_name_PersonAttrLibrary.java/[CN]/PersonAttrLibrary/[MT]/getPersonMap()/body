@@ -3,7 +3,6 @@
     return pnMap;
   }
   init1();
-  PersonNatureAttr personNatureAttr=pnMap.get("???");
   init2();
   return pnMap;
 }

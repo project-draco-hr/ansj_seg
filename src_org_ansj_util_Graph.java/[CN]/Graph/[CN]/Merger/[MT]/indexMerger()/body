@@ -1,9 +1,0 @@
-{
-  rmLittlePath();
-  NumRecognition.recogntionNM(terms);
-  rmLittlePath();
-  new AsianPersonRecognition(terms).recogntion();
-  new UserDefineRecognition(terms).recongnitionTerm();
-  rmLittlePath();
-  return getIndexResult();
-}

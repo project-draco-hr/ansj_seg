@@ -1,0 +1,8 @@
+{
+  if (AnsjArrays.binarySearch(branches,c) > -1) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}

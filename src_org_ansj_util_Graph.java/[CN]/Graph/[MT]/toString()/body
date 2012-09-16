@@ -1,4 +1,0 @@
-{
-  showPath(end.getTo());
-  return sb.toString();
-}

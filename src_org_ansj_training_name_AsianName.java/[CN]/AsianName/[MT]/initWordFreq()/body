@@ -3,7 +3,6 @@
   HashMap<String,Entry> hm=new HashMap<String,Entry>();
   String temp=null;
   String[] strs=null;
-  int min=0;
   Entry entry=null;
   while ((temp=reader.readLine()) != null) {
     strs=temp.split(" ");
@@ -22,6 +21,4 @@
     result.put(entry2.getKey(),entry2.getValue().ints);
   }
   IOUtil.WriterObj(base + "/asian_name_freq.data",result);
-  System.out.println(result.get("???"));
-  System.out.println(result.get("???"));
 }

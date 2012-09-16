@@ -1,0 +1,4 @@
+{
+  analysis(temp);
+  return terms;
+}

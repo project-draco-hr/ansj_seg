@@ -1,0 +1,11 @@
+{
+  BufferedReader reader=MyStaticValue.getNumberReader();
+  makeASCIIArray(reader);
+  reader.close();
+  reader=MyStaticValue.getEnglishReader();
+  makeASCIIArray(reader);
+  reader.close();
+  makeBaseArray(all);
+  writeLibrary();
+  reader.close();
+}

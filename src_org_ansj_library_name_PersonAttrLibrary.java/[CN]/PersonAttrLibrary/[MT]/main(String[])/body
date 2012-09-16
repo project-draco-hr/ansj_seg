@@ -1,4 +1,0 @@
-{
-  HashMap<String,PersonNatureAttr> personMap=new PersonAttrLibrary().getPersonMap();
-  System.out.println(personMap.size());
-}

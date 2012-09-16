@@ -1,0 +1,14 @@
+{
+  int beginNext=end;
+  for (int i=begin; i < end; i++) {
+    Branch[] branches=all.get(i).branches;
+    for (int j=0; j < branches.length; j++) {
+      all.add(branches[j]);
+    }
+  }
+  int endNext=all.size();
+  if (begin != end) {
+    treeToLibrary(all,beginNext,endNext);
+  }
+  return all;
+}

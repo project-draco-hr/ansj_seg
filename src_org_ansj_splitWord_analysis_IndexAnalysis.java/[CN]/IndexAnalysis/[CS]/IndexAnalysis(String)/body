@@ -1,3 +1,0 @@
-{
-  br=new BufferedReader(new StringReader(str));
-}
