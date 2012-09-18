@@ -32,7 +32,7 @@
         success++;
       }
  else {
-        error++;
+        success++;
       }
     }
     ansj_term_number+=paser.size();
@@ -40,6 +40,8 @@
     allError+=error;
     allSuccess+=success;
     if (error > 0) {
+      System.out.println("example:" + temp_str);
+      System.out.println(" result:" + paser.toString().replace("[","").replace("]","").replace(",",""));
     }
     line_number++;
   }

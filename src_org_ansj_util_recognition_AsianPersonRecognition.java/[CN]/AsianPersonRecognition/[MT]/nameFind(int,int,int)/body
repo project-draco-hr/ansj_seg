@@ -28,7 +28,7 @@
       break;
     }
   }
-  double score=-Math.log(factory[size]);
+  double score=-Math.log(FACTORY[size]);
   score+=allFreq;
   double endFreq=0;
   boolean flag=true;

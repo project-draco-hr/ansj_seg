@@ -3,8 +3,6 @@
     @Override public List<Term> merger(){
       graph.walkPath();
       NumRecognition.recogntionNM(graph.terms);
-      graph.rmLittlePath();
-      NumRecognition.recogntionNQ(graph.terms);
       new AsianPersonRecognition(graph.terms).recogntion();
       graph.walkPathByScore();
       new UserDefineRecognition(graph.terms).recongnitionTerm();

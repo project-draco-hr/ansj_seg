@@ -1,25 +1,41 @@
 {
   StringBuilder sb=null;
-  int begin=0;
-  for (int i=0; i < terms.length; i++) {
-    if (terms[i] != null && terms[i].getTermNatures().numAttr.flag && terms[i].getNext() == null) {
-      if (sb == null) {
-        sb=new StringBuilder(terms[i].getName());
-        begin=i;
-      }
+  int length=terms.length - 1;
+  int begin=-1;
+  Term from=null;
+  Term to=null;
+  for (int i=0; i < length; i++) {
+    if (terms[i] == null) {
+      continue;
+    }
+    if (terms[i].getTermNatures().numAttr.flag) {
+      from=terms[i].getFrom();
+      sb=new StringBuilder();
+      begin=i;
+      do {
+        if (terms[i] == null) {
+          i++;
+          continue;
+        }
  else {
+          to=terms[i].getTo();
+        }
         sb.append(terms[i].getName());
         terms[i]=null;
+        i++;
+      }
+ while (i < length && (terms[i] == null || terms[i].getTermNatures().numAttr.flag));
+      if (i < length && terms[i].getTermNatures().numAttr.numEndFreq > -1) {
+        sb.append(terms[i].getName());
+        to=terms[i].getTo();
+        terms[i]=null;
+      }
+      if (sb.length() > 1) {
+        Term term=new Term(sb.toString(),begin,TermNatures.NB);
+        TermUtil.termLink(from,term);
+        TermUtil.termLink(term,to);
+        TermUtil.insertTermNum(terms,term);
       }
     }
- else {
-      if (sb != null) {
-        TermUtil.insertTermNum(terms,new Term(sb.toString(),begin,TermNatures.NB));
-        sb=null;
-      }
-    }
-  }
-  if (sb != null) {
-    TermUtil.insertTermNum(terms,new Term(sb.toString(),begin,TermNatures.NB));
   }
 }
