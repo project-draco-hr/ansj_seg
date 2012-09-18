@@ -1,4 +1,10 @@
 {
+  if (hasNum || term.getTermNatures().numAttr.numFreq > 0) {
+    hasNum=true;
+  }
+  if (hasPerson || term.getTermNatures().personAttr.flag) {
+    hasPerson=true;
+  }
   if (terms[term.getOffe()] == null) {
     terms[term.getOffe()]=term;
   }

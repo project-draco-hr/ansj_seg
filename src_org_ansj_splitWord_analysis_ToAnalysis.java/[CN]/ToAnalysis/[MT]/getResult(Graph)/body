@@ -2,9 +2,13 @@
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
       graph.walkPath();
-      NumRecognition.recogntionNM(graph.terms);
-      new AsianPersonRecognition(graph.terms).recogntion();
-      graph.walkPathByScore();
+      if (graph.hasNum) {
+        NumRecognition.recogntionNM(graph.terms);
+      }
+      if (graph.hasPerson) {
+        new AsianPersonRecognition(graph.terms).recogntion();
+        graph.walkPathByScore();
+      }
       new UserDefineRecognition(graph.terms).recongnitionTerm();
       graph.rmLittlePath();
       graph.walkPathByFreq();
