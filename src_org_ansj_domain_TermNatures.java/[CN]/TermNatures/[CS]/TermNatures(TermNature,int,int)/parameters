@@ -1,2 +1,3 @@
 TermNature termNature
 int allFreq
+int id

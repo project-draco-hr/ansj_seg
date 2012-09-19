@@ -17,7 +17,7 @@
           IN_SYSTEM[strs[1].charAt(i)]=true;
         }
       }
-      TermNatures tn=new TermNatures(TermNature.setNatureStrToArray(strs[5]));
+      TermNatures tn=new TermNatures(TermNature.setNatureStrToArray(strs[5]),num);
       if ((personAttr=personMap.get(strs[1])) != null) {
         tn.setPersonNatureAttr(personAttr);
       }
