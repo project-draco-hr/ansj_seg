@@ -1,0 +1,5 @@
+{
+  this.name=term.getName();
+  this.maxNature=term.maxNature;
+  this.weight=term.weight;
+}

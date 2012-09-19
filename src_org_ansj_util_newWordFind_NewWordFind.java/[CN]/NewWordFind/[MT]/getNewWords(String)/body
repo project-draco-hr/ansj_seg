@@ -1,0 +1,25 @@
+{
+  TreeSet<NewTerm> score=new TreeSet<NewTerm>();
+  HashMap<String,NewTerm> hash=new HashMap<String,NewTerm>();
+  LinkedList<NewTerm> all=listTerm(content);
+  for (int i=1; i < 5; i++) {
+    HashMap<String,Map<String,List<NewTerm>>> hm=makeIndex(all);
+    if (mergerTop(hm)) {
+      break;
+    }
+    NewTerm tempTerm;
+    for (    NewTerm charcterTerm : all) {
+      if (charcterTerm.getVersion() > 0) {
+        if ((tempTerm=hash.get(charcterTerm.getName())) != null) {
+          tempTerm.updateScore(charcterTerm);
+        }
+ else {
+          hash.put(charcterTerm.getName(),new NewTerm(charcterTerm));
+        }
+      }
+    }
+    clearn(all);
+  }
+  score.addAll(hash.values());
+  return score;
+}

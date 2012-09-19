@@ -1,0 +1,21 @@
+{
+  List<Term> resultList=new ArrayList<Term>();
+  List<Term> terms=ToAnalysis.paser(content);
+  new NatureRecognition(terms).recogntion();
+  resultList.addAll(terms);
+  Iterator<Term> iterator=resultList.iterator();
+  LinkedList<NewTerm> all=new LinkedList<NewTerm>();
+  Term term=null;
+  while (iterator.hasNext()) {
+    term=iterator.next();
+    String natureStr=term.getNatrue().natureStr;
+    if (hs.contains(term.getName()) || natureStr.equals("null") || natureStr.contains("w")|| natureStr.equals("r")|| natureStr.contains("m")|| natureStr.contains("q")|| natureStr.toString().contains("a")|| natureStr.contains("f")) {
+      iterator.remove();
+      continue;
+    }
+ else {
+      all.add(new NewTerm(term));
+    }
+  }
+  return all;
+}

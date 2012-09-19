@@ -1,0 +1,43 @@
+{
+  NewTerm term=null;
+  Iterator<NewTerm> iterator=all.iterator();
+  HashMap<String,Map<String,List<NewTerm>>> hm=new HashMap<String,Map<String,List<NewTerm>>>();
+  Map<String,List<NewTerm>> tempBegin=null;
+  NewTerm tempTerm=null;
+  List<NewTerm> chartCharcterTerms;
+  while (iterator.hasNext()) {
+    term=iterator.next();
+    if (term.isRemove()) {
+      iterator.remove();
+      continue;
+    }
+    if (tempTerm == null) {
+      tempTerm=term;
+    }
+ else {
+      String name=term.getName();
+      if (tempTerm.getOffe() + tempTerm.getName().length() != term.getOffe()) {
+        tempTerm=term;
+        continue;
+      }
+      tempBegin=hm.get(tempTerm.getName());
+      term.setFrom(tempTerm);
+      if (tempBegin == null) {
+        tempBegin=new HashMap<String,List<NewTerm>>();
+        chartCharcterTerms=new ArrayList<NewTerm>();
+        chartCharcterTerms.add(term);
+        tempBegin.put(term.getName(),chartCharcterTerms);
+      }
+ else {
+        chartCharcterTerms=tempBegin.get(name);
+        if (chartCharcterTerms == null) {
+          chartCharcterTerms=new ArrayList<NewTerm>();
+          tempBegin.put(term.getName(),chartCharcterTerms);
+        }
+        chartCharcterTerms.add(term);
+      }
+      hm.put(tempTerm.getName(),tempBegin);
+    }
+  }
+  return hm;
+}

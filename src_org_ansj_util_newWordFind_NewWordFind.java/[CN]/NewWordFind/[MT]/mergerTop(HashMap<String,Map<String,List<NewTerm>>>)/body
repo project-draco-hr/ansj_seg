@@ -1,0 +1,35 @@
+{
+  List<List<NewTerm>> all=new ArrayList<List<NewTerm>>();
+  for (  Map<String,List<NewTerm>> index : hm.values()) {
+    for (    List<NewTerm> segement : index.values()) {
+      all.add(segement);
+    }
+  }
+  Object temp=null;
+  List<NewTerm> tempI;
+  List<NewTerm> tempJ;
+  Object[] array=all.toArray();
+  for (int i=0; i < array.length; i++) {
+    for (int j=i; j < array.length; j++) {
+      tempI=(List<NewTerm>)array[i];
+      tempJ=(List<NewTerm>)array[j];
+      if (tempI.size() < tempJ.size()) {
+        temp=array[i];
+        array[i]=array[j];
+        array[j]=temp;
+      }
+    }
+  }
+  List<NewTerm> merger;
+  int min=Math.min(array.length,5);
+  if (min < 1) {
+    return true;
+  }
+  for (int i=0; i < min; i++) {
+    merger=(List<NewTerm>)array[i];
+    for (    NewTerm charcterTerm : merger) {
+      charcterTerm.mergerFrom();
+    }
+  }
+  return false;
+}

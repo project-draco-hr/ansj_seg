@@ -1,0 +1,8 @@
+{
+  if (this.weight <= o.weight) {
+    return 1;
+  }
+ else {
+    return -1;
+  }
+}
