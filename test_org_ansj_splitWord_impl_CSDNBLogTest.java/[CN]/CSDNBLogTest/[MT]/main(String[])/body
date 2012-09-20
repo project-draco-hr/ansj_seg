@@ -15,20 +15,31 @@
   long length=0;
   int i=0;
   List<Term> all=null;
+  HashMap<String,Integer> hm=new HashMap<String,Integer>();
+  Integer num=null;
   while ((content=reader.readLine()) != null) {
     i++;
     length+=content.length();
-    all=ToAnalysis.paser(content);
-    size+=all.size();
-    for (    Term term : all) {
-      if (!hs.contains(term.getName())) {
-        resultSize++;
+    TreeSet<NewTerm> newWords=NewWordFind.getNewWords(content);
+    for (    NewTerm newTerm : newWords) {
+      if ((num=hm.get(newTerm.getName())) != null) {
+        hm.put(newTerm.getName(),++num);
+      }
+ else {
+        hm.put(newTerm.getName(),1);
       }
     }
     if (i % 10000 == 0) {
       break;
     }
   }
+  Set<Entry<String,Integer>> entrySet=hm.entrySet();
+  StringBuilder sb=new StringBuilder();
+  for (  Entry<String,Integer> entry : entrySet) {
+    sb.append(entry.getKey() + "\t" + entry.getValue());
+    sb.append("\n");
+  }
+  IOUtil.Writer("/Users/ansj/Documents/temp/newWord.txt","UTF-8",sb.toString());
   System.out.println(size + "\t" + resultSize);
   System.out.println((length * (long)1000) / (System.currentTimeMillis() - start));
   System.out.println(System.currentTimeMillis() - start);
