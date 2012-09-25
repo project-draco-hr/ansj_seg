@@ -1,4 +1,0 @@
-{
-  System.out.println(Math.log(397));
-  System.out.println(Math.log(949));
-}
