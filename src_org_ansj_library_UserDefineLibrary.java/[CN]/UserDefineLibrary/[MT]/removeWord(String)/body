@@ -1,0 +1,3 @@
+{
+  Library.removeWord(FOREST,word);
+}
