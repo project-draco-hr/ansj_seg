@@ -1,0 +1,11 @@
+{
+  TreeSet<Character> hs=new TreeSet<Character>();
+  for (  NameChar nc : PRLIST) {
+    for (    char c : nc.chars) {
+      hs.add(c);
+    }
+  }
+  for (  Character character : hs) {
+    System.out.print(character);
+  }
+}

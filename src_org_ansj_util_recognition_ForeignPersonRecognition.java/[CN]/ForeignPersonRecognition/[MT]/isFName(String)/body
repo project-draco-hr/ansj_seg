@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < name.length(); i++) {
+    if (!INNAME.contains(name.charAt(i))) {
+      return false;
+    }
+  }
+  return true;
+}

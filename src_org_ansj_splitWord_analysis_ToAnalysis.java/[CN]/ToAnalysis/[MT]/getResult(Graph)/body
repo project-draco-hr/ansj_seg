@@ -8,6 +8,7 @@
       if (graph.hasPerson) {
         new AsianPersonRecognition(graph.terms).recogntion();
         graph.walkPathByScore();
+        new ForeignPersonRecognition(graph.terms).recogntion();
       }
       new UserDefineRecognition(graph.terms).recongnitionTerm();
       graph.rmLittlePath();

@@ -3,4 +3,7 @@
   this.name=name;
   this.offe=offe;
   this.termNatures=termNatures;
+  if (termNatures == TermNatures.NR || termNatures == TermNatures.NULL || termNatures.personAttr != PersonNatureAttr.NULL) {
+    isFName=ForeignPersonRecognition.isFName(this.name);
+  }
 }
