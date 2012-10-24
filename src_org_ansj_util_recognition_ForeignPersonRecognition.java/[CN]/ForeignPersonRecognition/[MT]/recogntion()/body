@@ -14,6 +14,7 @@
     if (term.isFName) {
       boolean flag=validate(name);
       if (flag) {
+        nameLength+=name.length();
         tempList.add(term);
       }
     }
@@ -21,7 +22,6 @@
       reset();
     }
  else     if (tempList.size() > 1) {
-      System.out.println(tempList);
       TermUtil.insertTerm(terms,tempList,TermNatures.NR);
       reset();
     }
