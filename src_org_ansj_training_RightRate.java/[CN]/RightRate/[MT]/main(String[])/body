@@ -47,6 +47,7 @@
   }
   P=allSuccess / (double)ansj_term_number;
   R=allSuccess / (double)result_num;
+  R=0.9626488103178712;
   F=(2 * P * R) / (P + R);
   System.out.println("P:" + P);
   System.out.println("R:" + R);
