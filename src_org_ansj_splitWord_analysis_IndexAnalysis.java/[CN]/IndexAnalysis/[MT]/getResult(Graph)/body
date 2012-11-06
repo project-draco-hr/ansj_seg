@@ -1,12 +1,11 @@
 {
   Merger merger=new Merger(){
     public List<Term> merger(){
-      graph.rmLittlePath();
+      graph.walkPath();
       NumRecognition.recogntionNM(graph.terms);
       graph.rmLittlePath();
       new AsianPersonRecognition(graph.terms).recogntion();
       new UserDefineRecognition(graph.terms).recongnitionTerm();
-      graph.rmLittleSinglePath();
       return result();
     }
     /** 
