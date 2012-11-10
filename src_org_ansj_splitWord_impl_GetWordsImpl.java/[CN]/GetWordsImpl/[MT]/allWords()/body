@@ -1,6 +1,6 @@
 {
   for (; i < charsLength; i++) {
-    charHashCode=chars.charAt(i);
+    charHashCode=conversion(chars.charAt(i));
     end++;
 switch (getStatement()) {
 case 0:

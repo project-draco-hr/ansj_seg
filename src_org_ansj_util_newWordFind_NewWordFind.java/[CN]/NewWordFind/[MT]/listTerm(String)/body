@@ -14,6 +14,9 @@
       continue;
     }
  else {
+      if (natureStr.equals("nr")) {
+        entryName.add(term.getName());
+      }
       all.add(new NewTerm(term));
     }
   }

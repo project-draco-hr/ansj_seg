@@ -1,0 +1,7 @@
+{
+  char value=IN_SYSTEM[c];
+  if (value == 0) {
+    return c;
+  }
+  return value;
+}
