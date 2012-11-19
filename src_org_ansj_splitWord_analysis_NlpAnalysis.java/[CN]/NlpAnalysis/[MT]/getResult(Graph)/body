@@ -1,0 +1,34 @@
+{
+  Merger merger=new Merger(){
+    @Override public List<Term> merger(){
+      graph.walkPath();
+      if (graph.hasNum) {
+        NumRecognition.recogntionNM(graph.terms);
+      }
+      if (graph.hasPerson) {
+        new AsianPersonRecognition(graph.terms).recogntion();
+        graph.walkPathByScore();
+        new ForeignPersonRecognition(graph.terms).recogntion();
+      }
+      graph.walkPathByScore();
+      new CompanyRecogntion(graph.terms).recogntion();
+      graph.walkPathByScore();
+      new UserDefineRecognition(graph.terms).recongnitionTerm();
+      graph.rmLittlePath();
+      graph.walkPathByFreq();
+      return getResult();
+    }
+    private List<Term> getResult(){
+      List<Term> result=new ArrayList<Term>();
+      int length=graph.terms.length - 1;
+      for (int i=0; i < length; i++) {
+        if (graph.terms[i] != null) {
+          result.add(graph.terms[i]);
+        }
+      }
+      return result;
+    }
+  }
+;
+  return merger.merger();
+}

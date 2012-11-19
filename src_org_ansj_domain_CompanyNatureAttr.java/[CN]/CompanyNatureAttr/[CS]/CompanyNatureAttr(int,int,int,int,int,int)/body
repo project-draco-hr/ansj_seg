@@ -1,0 +1,14 @@
+{
+  this.p=p;
+  this.b=b;
+  this.m=m;
+  this.e=e;
+  this.s=s;
+  this.allFreq=allFreq;
+  double all=p + b + m+ e+ s+ allFreq+ 1;
+  pb=p / all;
+  bb=b / all;
+  mb=m / all;
+  eb=e / all;
+  sb=s / all;
+}

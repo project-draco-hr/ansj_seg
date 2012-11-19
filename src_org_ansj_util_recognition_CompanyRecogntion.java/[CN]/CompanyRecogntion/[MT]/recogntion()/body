@@ -1,0 +1,23 @@
+{
+  Term term=null;
+  for (int i=0; i < terms.length; i++) {
+    term=terms[i];
+    if (term == null) {
+      continue;
+    }
+    term.selfScore=100;
+    term.score=0;
+    if (term.getTermNatures().companyAttr.b > 100) {
+      double tempScore=term.getTermNatures().companyAttr.bb;
+      offe=term.getOffe();
+      tempTerm=null;
+      beginTerm=term.getFrom();
+      recogntion(term,tempScore,1 - tempScore);
+      if (maxTerm != null) {
+        TermUtil.insertTerm(terms,maxTerm);
+        System.out.println(maxTerm + "\t" + maxTerm.selfScore);
+        maxTerm=null;
+      }
+    }
+  }
+}

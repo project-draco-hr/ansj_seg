@@ -1,0 +1,35 @@
+{
+  BufferedReader reader=DicReader.getReader("company/company.map");
+  String temp=null;
+  double[] factory=new double[51];
+  String[] strs=null;
+  int index=0;
+  float fac=0;
+  try {
+    while ((temp=reader.readLine()) != null) {
+      if (StringUtil.isBlank(temp=temp.trim())) {
+        continue;
+      }
+      strs=temp.split("\t");
+      index=Integer.parseInt(strs[0]);
+      fac=Float.parseFloat(strs[2]);
+      if (index > 50) {
+        index=50;
+      }
+      factory[index]+=fac;
+    }
+  }
+ catch (  IOException e) {
+    System.err.println("??????????????????????????????!");
+    e.printStackTrace();
+  }
+ finally {
+    try {
+      reader.close();
+    }
+ catch (    IOException e) {
+      e.printStackTrace();
+    }
+  }
+  return factory;
+}

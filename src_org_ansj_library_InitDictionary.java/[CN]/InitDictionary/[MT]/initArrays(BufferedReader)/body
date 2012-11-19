@@ -1,6 +1,8 @@
 {
-  HashMap<String,PersonNatureAttr> personMap=PersonAttrLibrary.getPersonMap();
+  HashMap<String,PersonNatureAttr> personMap=new PersonAttrLibrary().getPersonMap();
   PersonNatureAttr personAttr=null;
+  HashMap<String,CompanyNatureAttr> companyMap=new CompanyAttrLibrary().getCompanyMap();
+  CompanyNatureAttr companyAttr=null;
   String temp=null;
   String[] strs=null;
   int num=0;
@@ -20,6 +22,9 @@
       TermNatures tn=new TermNatures(TermNature.setNatureStrToArray(strs[5]),num);
       if ((personAttr=personMap.get(strs[1])) != null) {
         tn.setPersonNatureAttr(personAttr);
+      }
+      if ((companyAttr=companyMap.get(strs[1])) != null) {
+        tn.setCompanyAttr(companyAttr);
       }
       termNatures[num]=tn;
     }
@@ -46,8 +51,29 @@
       termNatures[c]=tn;
     }
   }
+  Set<Entry<String,CompanyNatureAttr>> cnSet=companyMap.entrySet();
+  for (  Entry<String,CompanyNatureAttr> entry : cnSet) {
+    if (entry.getKey().length() == 1) {
+      c=entry.getKey().charAt(0);
+      if (status[c] > 1) {
+        continue;
+      }
+      if (status[c] == 0) {
+        base[c]=c;
+        check[c]=-1;
+        status[c]=3;
+        words[c]=entry.getKey();
+      }
+      if ((tn=termNatures[c]) == null) {
+        tn=new TermNatures(TermNature.NULL);
+      }
+      tn.setCompanyAttr(entry.getValue());
+      termNatures[c]=tn;
+    }
+  }
   BufferedReader reader2=DicReader.getReader("jianFan.dic");
   while ((temp=reader2.readLine()) != null) {
+    temp=temp.trim();
     if (StringUtil.isBlank(temp)) {
       continue;
     }

@@ -1,0 +1,3 @@
+{
+  return DicReader.getReader("company/company.data");
+}

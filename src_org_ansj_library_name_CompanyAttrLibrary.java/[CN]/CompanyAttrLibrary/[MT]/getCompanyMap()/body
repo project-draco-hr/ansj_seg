@@ -1,0 +1,7 @@
+{
+  if (cnMap != null) {
+    return cnMap;
+  }
+  init();
+  return cnMap;
+}
