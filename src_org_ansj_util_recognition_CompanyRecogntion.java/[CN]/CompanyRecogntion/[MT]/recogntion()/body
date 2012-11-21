@@ -5,14 +5,14 @@
     if (term == null) {
       continue;
     }
-    term.selfScore=100;
+    term.selfScore=0;
     term.score=0;
     if (term.getTermNatures().companyAttr.b > 100) {
       double tempScore=term.getTermNatures().companyAttr.bb;
       offe=term.getOffe();
       tempTerm=null;
       beginTerm=term.getFrom();
-      recogntion(term,tempScore,1 - tempScore);
+      recogntion(term,Math.log(tempScore),1 - Math.log(tempScore));
       if (maxTerm != null) {
         TermUtil.insertTerm(terms,maxTerm);
         System.out.println(maxTerm + "\t" + maxTerm.selfScore);

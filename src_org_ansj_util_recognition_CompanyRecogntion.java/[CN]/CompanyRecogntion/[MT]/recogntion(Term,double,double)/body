@@ -4,8 +4,8 @@
   while ((term=term.getTo()) != null && (companyAttr=term.getTermNatures().companyAttr) != CompanyNatureAttr.NULL) {
     companyName+=term.getName();
     if (companyAttr.e > 50) {
-      score1*=term.getTermNatures().companyAttr.eb;
-      score2*=(1 - term.getTermNatures().companyAttr.eb);
+      score1+=Math.log(term.getTermNatures().companyAttr.eb);
+      score2+=Math.log(1 - term.getTermNatures().companyAttr.eb);
       tempTerm=new Term(companyName,offe,TermNatures.NT);
 {
         tempTerm.selfScore=(score1 / (score1 + score2));
@@ -23,17 +23,17 @@
  else {
             tempTerm.selfScore+=to.getTermNatures().companyAttr.sb;
           }
-          int length=companyName.length() > 50 ? 50 : companyName.length();
-          tempTerm.selfScore+=Math.log(FACTORY[length]);
-          tempTerm.selfScore=10 + tempTerm.selfScore;
-          if (maxTerm == null || maxTerm.selfScore < tempTerm.selfScore) {
+          if (maxTerm == null || maxTerm.selfScore > tempTerm.selfScore) {
             maxTerm=tempTerm;
           }
         }
       }
-      if (companyAttr.m > 50) {
-        score1*=term.getTermNatures().companyAttr.mb;
-        score2*=(1 - term.getTermNatures().companyAttr.mb);
+      if (companyAttr.mb > 0.02) {
+        score1+=Math.log(term.getTermNatures().companyAttr.mb);
+        score2+=Math.log((1 - term.getTermNatures().companyAttr.mb));
+      }
+ else {
+        return;
       }
     }
   }
