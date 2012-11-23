@@ -42,4 +42,18 @@
       tempStringMap.put(temp,branch);
     }
   }
+  if (tempStringMap.size() > 0) {
+    setBaseValue(tempStringMap,previous);
+    it=tempStringMap.values().iterator();
+    while (it.hasNext()) {
+      tempValueResult=it.next();
+      chars=tempValueResult.getValue().toCharArray();
+      tempBase=base[previous] + chars[chars.length - 1];
+      base[tempBase]=tempBase;
+      check[tempBase]=previous;
+      status[tempBase]=tempValueResult.getStatus();
+      words[tempBase]=tempValueResult.getValue();
+      natures[tempBase]=tempValueResult.getNatures();
+    }
+  }
 }
