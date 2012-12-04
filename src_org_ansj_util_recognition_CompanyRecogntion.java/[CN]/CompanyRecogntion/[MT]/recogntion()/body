@@ -7,12 +7,16 @@
     }
     term.selfScore=0;
     term.score=0;
-    if (term.getTermNatures().companyAttr.b > 100) {
+    if (term.getName().equals("??????")) {
+      System.out.println(12);
+    }
+    if (term.getTermNatures().companyAttr.bb < -0.005 && term.getTermNatures().companyAttr.b > 1000) {
+      System.out.println("----" + term + "\t"+ term.getTermNatures().companyAttr.bb);
       double tempScore=term.getTermNatures().companyAttr.bb;
       offe=term.getOffe();
       tempTerm=null;
       beginTerm=term.getFrom();
-      recogntion(term,Math.log(tempScore),1 - Math.log(tempScore));
+      recogntion(term,tempScore);
       if (maxTerm != null) {
         TermUtil.insertTerm(terms,maxTerm);
         System.out.println(maxTerm + "\t" + maxTerm.selfScore);

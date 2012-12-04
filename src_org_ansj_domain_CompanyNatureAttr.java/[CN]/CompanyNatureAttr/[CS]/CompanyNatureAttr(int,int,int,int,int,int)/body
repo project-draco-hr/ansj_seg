@@ -1,4 +1,5 @@
 {
+  allFreq++;
   this.p=p;
   this.b=b;
   this.m=m;
@@ -6,9 +7,9 @@
   this.s=s;
   this.allFreq=allFreq;
   double all=p + b + m+ e+ s+ allFreq+ 1;
-  pb=p / all;
-  bb=b / all;
-  mb=m / all;
-  eb=e / all;
-  sb=s / all;
+  pb=(p / all) * Math.log(1 - this.p / all);
+  bb=(b / all) * Math.log(1 - this.b / all);
+  mb=(m / all) * Math.log(1 - this.m / all);
+  eb=(e / all) * Math.log(1 - this.e / all);
+  sb=(s / all) * Math.log(1 - this.s / all);
 }

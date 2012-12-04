@@ -5,13 +5,13 @@
       if (graph.hasNum) {
         NumRecognition.recogntionNM(graph.terms);
       }
+      new CompanyRecogntion(graph.terms).recogntion();
+      graph.walkPathByScore();
       if (graph.hasPerson) {
         new AsianPersonRecognition(graph.terms).recogntion();
         graph.walkPathByScore();
         new ForeignPersonRecognition(graph.terms).recogntion();
       }
-      graph.walkPathByScore();
-      new CompanyRecogntion(graph.terms).recogntion();
       graph.walkPathByScore();
       new UserDefineRecognition(graph.terms).recongnitionTerm();
       graph.rmLittlePath();
