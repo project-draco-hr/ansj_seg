@@ -1,0 +1,22 @@
+{
+  Collection<Node> values=this.root.nodes.values();
+  for (  Node node : values) {
+    getWords(node,node.name);
+  }
+  List<Node> all=new ArrayList<Node>();
+  boolean flag=false;
+  for (Iterator<Node> iterator=result.iterator(); iterator.hasNext(); ) {
+    Node value=(Node)iterator.next();
+    flag=false;
+    for (    Node node : all) {
+      if (node.name.contains(value.name)) {
+        flag=true;
+        break;
+      }
+    }
+    if (!flag) {
+      all.add(value);
+    }
+  }
+  return all;
+}

@@ -1,0 +1,6 @@
+{
+  new NatureRecognition(terms).recognition();
+  PatTree pt=makePatTree(terms);
+  List<Node> words=pt.getWords();
+  return words;
+}

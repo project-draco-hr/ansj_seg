@@ -1,0 +1,50 @@
+{
+  if (branch == null) {
+    return;
+  }
+  int length=terms.length - 1;
+  for (int i=0; i < length; i++) {
+    if (terms[i] == null)     continue;
+    branch=branch.getBranch(terms[i].getName());
+    if (branch == null) {
+      if (offe != -1 && offe < endOffe) {
+        i=offe;
+        makeNewTerm();
+      }
+ else {
+        if (offe != -1) {
+          i=offe;
+        }
+        reset();
+      }
+    }
+ else     if (branch.getStatus() == 3) {
+      endOffe=i;
+      tempNatures=branch.getParam().getNature();
+      if (offe != -1 && offe < endOffe) {
+        i=offe;
+        makeNewTerm();
+      }
+ else {
+        reset();
+      }
+    }
+ else     if (branch.getStatus() == 2) {
+      endOffe=i;
+      if (offe == -1) {
+        offe=i;
+      }
+ else {
+        tempNatures=branch.getParam().getNature();
+      }
+    }
+ else     if (branch.getStatus() == 1) {
+      if (offe == -1) {
+        offe=i;
+      }
+    }
+  }
+  if (offe != -1 && offe < endOffe) {
+    makeNewTerm();
+  }
+}

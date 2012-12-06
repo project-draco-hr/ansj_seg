@@ -1,0 +1,4 @@
+String name
+double score
+int freq
+TermNatures nature

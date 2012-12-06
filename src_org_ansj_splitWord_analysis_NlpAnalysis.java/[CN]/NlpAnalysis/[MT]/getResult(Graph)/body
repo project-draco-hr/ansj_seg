@@ -3,20 +3,24 @@
     @Override public List<Term> merger(){
       graph.walkPath();
       if (graph.hasNum) {
-        NumRecognition.recogntionNM(graph.terms);
+        NumRecognition.recognition(graph.terms);
       }
-      new CompanyRecogntion(graph.terms).recogntion();
-      graph.walkPathByScore();
+      learn.learn(graph);
       if (graph.hasPerson) {
-        new AsianPersonRecognition(graph.terms).recogntion();
+        new AsianPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
-        new ForeignPersonRecognition(graph.terms).recogntion();
+        new ForeignPersonRecognition(graph.terms).recognition();
       }
       graph.walkPathByScore();
-      new UserDefineRecognition(graph.terms).recongnitionTerm();
+      new UserDefineRecognition(graph.terms).recognition();
       graph.rmLittlePath();
       graph.walkPathByFreq();
-      return getResult();
+      new NewWordRecognition(graph.terms,learn).recognition();
+      graph.rmLittlePath();
+      graph.walkPathByScore();
+      List<Term> result=getResult();
+      new NatureRecognition(result);
+      return result;
     }
     private List<Term> getResult(){
       List<Term> result=new ArrayList<Term>();

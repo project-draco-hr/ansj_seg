@@ -1,0 +1,6 @@
+{
+  this.name=name;
+  this.score=score;
+  this.freq=freq;
+  this.nature=nature;
+}

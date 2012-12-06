@@ -5,7 +5,7 @@
   while ((temp=reader.readLine()) != null) {
     sb.append(temp);
   }
-  List<Term> paser=NlpAnalysis.paser(sb.toString());
+  List<Term> paser=ToAnalysis.paser(sb.toString());
   new NatureRecognition(paser).recognition();
   System.out.println(paser);
 }

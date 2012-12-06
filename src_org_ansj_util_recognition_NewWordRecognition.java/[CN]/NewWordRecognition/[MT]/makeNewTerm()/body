@@ -1,0 +1,14 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (int j=offe; j <= endOffe; j++) {
+    if (terms[j] == null) {
+      continue;
+    }
+ else {
+      sb.append(terms[j].getName());
+    }
+  }
+  Term term=new Term(sb.toString(),offe,tempNatures);
+  TermUtil.insertTerm(terms,term);
+  reset();
+}

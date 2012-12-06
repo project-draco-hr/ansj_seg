@@ -8,17 +8,14 @@
       tempTerm=new Term(companyName,offe,TermNatures.NT);
       tempTerm.selfScore=score;
       if (beginTerm == null || beginTerm.getTermNatures() == TermNatures.BEGIN) {
-        System.out.println(tempTerm + "\t" + beginTerm+ "\t"+ beginTerm.getTermNatures().companyAttr.sb);
         tempTerm.selfScore+=beginTerm.getTermNatures().companyAttr.pb;
       }
       Term to=term.getTo();
       if (to == null || to.getTermNatures() == TermNatures.END) {
-        System.out.println(tempTerm + "\t" + to+ "\t"+ to.getTermNatures().companyAttr.sb);
         tempTerm.selfScore+=to.getTermNatures().companyAttr.sb;
       }
       int length=companyName.length() > 50 ? 50 : companyName.length();
       tempTerm.selfScore*=-Math.log(1 - FACTORY[length]);
-      System.out.println(tempTerm + "\t" + tempTerm.selfScore);
       if (maxTerm == null || maxTerm.selfScore > tempTerm.selfScore) {
         maxTerm=tempTerm;
       }

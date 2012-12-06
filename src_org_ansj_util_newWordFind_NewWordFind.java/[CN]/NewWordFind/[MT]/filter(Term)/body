@@ -1,0 +1,10 @@
+{
+  if (hs.contains(term.getName()) || term.getName().trim().length() == 0) {
+    return false;
+  }
+  String natureStr=term.getNatrue().natureStr;
+  if (natureStr == null || natureStr.contains("m") || "v".equals(natureStr)) {
+    return false;
+  }
+  return true;
+}

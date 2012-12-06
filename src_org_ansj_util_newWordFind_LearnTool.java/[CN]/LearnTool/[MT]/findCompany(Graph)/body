@@ -1,0 +1,7 @@
+{
+  List<NewWord> newWords=new CompanyRecogntion(graph.terms).getNewWords();
+  if (newWords.size() > 0)   System.out.println(newWords);
+  for (  NewWord newWord : newWords) {
+    addTerm(newWord);
+  }
+}

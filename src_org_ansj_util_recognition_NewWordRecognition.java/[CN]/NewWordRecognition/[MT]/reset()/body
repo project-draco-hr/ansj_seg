@@ -1,0 +1,6 @@
+{
+  offe=-1;
+  endOffe=-1;
+  tempNatures=null;
+  branch=forest;
+}

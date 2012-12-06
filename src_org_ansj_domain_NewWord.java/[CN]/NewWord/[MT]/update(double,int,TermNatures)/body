@@ -1,0 +1,7 @@
+{
+  this.score+=version;
+  this.freq+=i;
+  if (nw != null && !TermNatures.NW.equals(nw)) {
+    this.nature=nw;
+  }
+}

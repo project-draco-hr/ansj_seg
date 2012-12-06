@@ -1,0 +1,8 @@
+{
+  if (isCompany) {
+    findCompany(graph);
+  }
+  if (isNewWord) {
+    findNewWord(graph);
+  }
+}

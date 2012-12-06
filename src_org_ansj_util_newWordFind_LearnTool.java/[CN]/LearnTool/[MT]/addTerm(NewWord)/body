@@ -1,0 +1,13 @@
+{
+  SmartForest<NewWord> smartForest=null;
+  if ((smartForest=sf.getBranch(newWord.getName())) != null && smartForest.getParam() != null) {
+    newWord=smartForest.getParam();
+    newWord.update(newWord.getScore(),1,newWord.getNature());
+  }
+ else {
+    count++;
+synchronized (sf) {
+      sf.add(newWord.getName(),newWord);
+    }
+  }
+}

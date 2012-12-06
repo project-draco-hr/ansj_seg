@@ -1,0 +1,12 @@
+{
+  long start=System.currentTimeMillis();
+  LearnTool learn=new LearnTool();
+  BufferedReader materialsReader=IOUtil.getReader("/Users/ansj/Downloads/?????????.txt","GBK");
+  String temp=null;
+  while ((temp=materialsReader.readLine()) != null) {
+    List<Term> paser=NlpAnalysis.paser(temp,learn);
+  }
+  System.out.println("???????????????????????????: " + learn.count + " ??????!");
+  System.out.println(System.currentTimeMillis() - start);
+  System.out.println(learn.getTopTree(100));
+}
