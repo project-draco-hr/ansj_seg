@@ -1,6 +1,6 @@
 {
   Merger merger=new Merger(){
-    public List<Term> merger(){
+    @Override public List<Term> merger(){
       graph.walkPath();
       NumRecognition.recognition(graph.terms);
       graph.rmLittlePath();

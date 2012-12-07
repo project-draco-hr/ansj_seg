@@ -8,6 +8,7 @@
     return sortMapByValue;
   }
  else {
+    num=Math.min(num,sortMapByValue.size());
     return sortMapByValue.subList(0,num);
   }
 }

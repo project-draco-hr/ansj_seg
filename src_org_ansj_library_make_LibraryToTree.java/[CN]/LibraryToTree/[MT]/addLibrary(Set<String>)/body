@@ -33,7 +33,7 @@
         nature.put(temps[0],Integer.parseInt(temps[2]));
       }
       branch.add(new Branch(chars[i],status,nature,new String(chars,0,i + 1)));
-      branch=(Branch)branch.get(chars[i]);
+      branch=branch.get(chars[i]);
     }
     branch=head;
   }

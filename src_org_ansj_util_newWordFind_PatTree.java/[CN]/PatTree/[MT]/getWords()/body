@@ -6,7 +6,7 @@
   List<Node> all=new ArrayList<Node>();
   boolean flag=false;
   for (Iterator<Node> iterator=result.iterator(); iterator.hasNext(); ) {
-    Node value=(Node)iterator.next();
+    Node value=iterator.next();
     flag=false;
     for (    Node node : all) {
       if (node.name.contains(value.name)) {
