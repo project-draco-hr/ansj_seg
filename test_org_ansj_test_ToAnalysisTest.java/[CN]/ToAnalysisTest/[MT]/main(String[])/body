@@ -1,0 +1,20 @@
+{
+  long start=System.currentTimeMillis();
+  File[] files={new File("/Users/ansj/Documents/??????/?????????????????????????????????????????????.txt")};
+  int count=0;
+  for (int i=0; i < files.length; i++) {
+    if (!files[i].getName().endsWith(".txt")) {
+      continue;
+    }
+    Reader reader=new InputStreamReader(new FileInputStream(files[i]),"GBK");
+    Analysis toAnalysis=new ToAnalysis(reader);
+    Term next=null;
+    while ((next=toAnalysis.next()) != null) {
+      if (next.getTermNatures().termNatures[0] == TermNature.NR) {
+        count++;
+      }
+    }
+  }
+  System.out.println(count);
+  System.out.println(System.currentTimeMillis() - start);
+}

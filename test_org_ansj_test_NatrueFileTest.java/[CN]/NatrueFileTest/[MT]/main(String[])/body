@@ -1,0 +1,11 @@
+{
+  StringBuilder sb=new StringBuilder();
+  String temp=null;
+  BufferedReader reader=IOUtil.getReader("/Users/ansj/Downloads/???????????????????????????.txt","GBK");
+  while ((temp=reader.readLine()) != null) {
+    sb.append(temp);
+  }
+  List<Term> paser=ToAnalysis.paser(sb.toString());
+  new NatureRecognition(paser).recognition();
+  System.out.println(paser);
+}
