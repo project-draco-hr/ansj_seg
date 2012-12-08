@@ -3,48 +3,55 @@
     return;
   }
   int length=terms.length - 1;
+  Term term=null;
   for (int i=0; i < length; i++) {
-    if (terms[i] == null)     continue;
+    if (terms[i] == null) {
+      continue;
+    }
+ else {
+      from=terms[i].getFrom();
+      terms[i].score=0;
+      terms[i].selfScore=0;
+    }
     branch=branch.getBranch(terms[i].getName());
-    if (branch == null) {
-      if (offe != -1 && offe < endOffe) {
-        i=offe;
-        makeNewTerm();
-      }
- else {
-        if (offe != -1) {
-          i=offe;
-        }
-        reset();
-      }
+    if (branch == null || branch.getStatus() == 3) {
+      reset();
+      continue;
     }
- else     if (branch.getStatus() == 3) {
-      endOffe=i;
-      tempNatures=branch.getParam().getNature();
-      if (offe != -1 && offe < endOffe) {
-        i=offe;
-        makeNewTerm();
+    offe=i;
+    term=terms[i];
+    sb.append(term.getName());
+    boolean flag=true;
+    while (flag) {
+      term=term.getTo();
+      branch=branch.getBranch(term.getName());
+      if (branch == null) {
+        break;
       }
- else {
-        reset();
-      }
-    }
- else     if (branch.getStatus() == 2) {
-      endOffe=i;
-      if (offe == -1) {
-        offe=i;
-      }
- else {
-        tempNatures=branch.getParam().getNature();
-      }
-    }
- else     if (branch.getStatus() == 1) {
-      if (offe == -1) {
-        offe=i;
-      }
-    }
-  }
-  if (offe != -1 && offe < endOffe) {
-    makeNewTerm();
-  }
+switch (branch.getStatus()) {
+case 1:
+        sb.append(term.getName());
+      continue;
+case 2:
+    sb.append(term.getName());
+  score=branch.getParam().getScore();
+tempNatures=branch.getParam().getNature();
+to=term.getTo();
+makeNewTerm();
+break;
+case 3:
+sb.append(term.getName());
+score=branch.getParam().getScore();
+tempNatures=branch.getParam().getNature();
+to=term.getTo();
+makeNewTerm();
+flag=false;
+break;
+default :
+System.out.println("???????????????0????");
+break;
+}
+}
+reset();
+}
 }

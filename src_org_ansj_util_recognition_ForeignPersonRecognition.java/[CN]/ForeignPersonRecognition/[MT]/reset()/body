@@ -1,5 +1,4 @@
 {
   tempList.clear();
   prList=(LinkedList<NameChar>)PRLIST.clone();
-  nameLength=0;
 }

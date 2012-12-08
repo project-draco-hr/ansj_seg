@@ -1,7 +1,5 @@
 {
-  StringBuilder sb=null;
   int length=terms.length - 1;
-  int begin=-1;
   Term from=null;
   Term to=null;
   Term temp=null;
@@ -9,38 +7,35 @@
     if (terms[i] == null) {
       continue;
     }
-    if (terms[i].getTermNatures().numAttr.flag) {
+ else     if (".".equals(terms[i].getName())) {
+      to=terms[i].getTo();
       from=terms[i].getFrom();
-      sb=new StringBuilder();
-      begin=i;
-      do {
-        if (terms[i] == null) {
-          i++;
-          continue;
-        }
- else {
-          to=terms[i].getTo();
-        }
-        sb.append(terms[i].getName());
-        temp=terms[i];
+      if (from.getTermNatures().numAttr.flag && to.getTermNatures().numAttr.flag) {
+        from.setName(from.getName() + "." + to.getName());
+        TermUtil.termLink(from,to.getTo());
+        terms[to.getOffe()]=null;
         terms[i]=null;
-        i++;
+        i=from.getOffe() - 1;
       }
- while (i < length && (terms[i] == null || terms[i].getTermNatures().numAttr.flag));
-      if (i < length && terms[i].getTermNatures().numAttr.numEndFreq > 0) {
-        sb.append(terms[i].getName());
-        to=terms[i].getTo();
-        terms[i]=null;
+      continue;
+    }
+ else     if (!terms[i].getTermNatures().numAttr.flag) {
+      continue;
+    }
+    temp=terms[i];
+    while ((temp=temp.getTo()).getTermNatures().numAttr.flag) {
+      terms[i].setName(terms[i].getName() + temp.getName());
+    }
+    if (temp.getTermNatures().numAttr.numEndFreq > 0) {
+      terms[i].setName(terms[i].getName() + temp.getName());
+      temp=temp.getTo();
+    }
+    if (terms[i].getTo() != temp) {
+      TermUtil.termLink(terms[i],temp);
+      for (int j=i + 1; j < temp.getOffe(); j++) {
+        terms[j]=null;
       }
-      if (sb.length() > 1) {
-        Term term=new Term(sb.toString(),begin,TermNatures.NB);
-        TermUtil.termLink(from,term);
-        TermUtil.termLink(term,to);
-        TermUtil.insertTermNum(terms,term);
-      }
- else {
-        terms[temp.getOffe()]=temp;
-      }
+      i=temp.getOffe() - 1;
     }
   }
 }

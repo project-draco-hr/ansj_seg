@@ -6,12 +6,6 @@
         NumRecognition.recognition(graph.terms);
       }
       learn.learn(graph);
-      if (graph.hasPerson) {
-        new AsianPersonRecognition(graph.terms).recognition();
-        graph.walkPathByScore();
-        new ForeignPersonRecognition(graph.terms).recognition();
-      }
-      graph.walkPathByScore();
       new UserDefineRecognition(graph.terms).recognition();
       graph.rmLittlePath();
       graph.walkPathByFreq();
@@ -19,7 +13,7 @@
       graph.rmLittlePath();
       graph.walkPathByScore();
       List<Term> result=getResult();
-      new NatureRecognition(result);
+      new NatureRecognition(result).recognition();
       return result;
     }
     private List<Term> getResult(){

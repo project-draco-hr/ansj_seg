@@ -41,6 +41,9 @@ end++;
 if (++i >= length) break;
 c=temp.charAt(i);
 }
+if (start == end) {
+gp.addTerm(new Term(String.valueOf(c),i,TermNatures.NULL));
+}
 str=temp.substring(start,end);
 gwi.setStr(str);
 while ((str=gwi.allWords()) != null) {

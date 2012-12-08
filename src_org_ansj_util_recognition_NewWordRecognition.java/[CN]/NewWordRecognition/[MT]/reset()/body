@@ -1,6 +1,7 @@
 {
   offe=-1;
-  endOffe=-1;
   tempNatures=null;
   branch=forest;
+  score=0;
+  sb=new StringBuilder();
 }

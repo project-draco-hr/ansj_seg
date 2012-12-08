@@ -1,0 +1,7 @@
+{
+  this.freq+=i;
+  if (nw == null || !TermNatures.NW.equals(nw)) {
+    this.nature=nw;
+  }
+  this.score+=selfScore * i;
+}

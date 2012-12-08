@@ -1,4 +1,5 @@
 {
+  List<NewWord> all=new ArrayList<NewWord>();
   String name=null;
   Term term=null;
   reset();
@@ -21,8 +22,13 @@
       reset();
     }
  else     if (tempList.size() > 1) {
-      TermUtil.insertTerm(terms,tempList,TermNatures.NR);
+      StringBuilder sb=new StringBuilder();
+      for (      Term temp : tempList) {
+        sb.append(temp.getName());
+      }
+      all.add(new NewWord(sb.toString(),1,TermNatures.NR));
       reset();
     }
   }
+  return all;
 }

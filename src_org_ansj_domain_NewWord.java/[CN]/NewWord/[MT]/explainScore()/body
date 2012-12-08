@@ -1,0 +1,4 @@
+{
+  this.selfScore=MathUtil.scoreWord(this.name,this.nature);
+  this.score=selfScore;
+}

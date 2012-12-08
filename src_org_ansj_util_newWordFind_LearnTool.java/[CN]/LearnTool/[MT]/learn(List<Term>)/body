@@ -3,7 +3,7 @@
   if (newWords == null)   return;
   NewWord newWord=null;
   for (  Node node : newWords) {
-    newWord=new NewWord(node.getName(),-0.002 * (node.getCount() + 1),node.getCount() + 1,TermNatures.NW);
+    newWord=new NewWord(node.getName(),node.getCount() + 1,TermNatures.NW);
     addTerm(newWord);
   }
 }

@@ -5,7 +5,7 @@
 switch (getStatement()) {
 case 0:
       if (baseValue == chars.charAt(i)) {
-        str="" + chars.charAt(i);
+        str=String.valueOf(chars.charAt(i));
         offe=i;
         start=++i;
         end=0;
