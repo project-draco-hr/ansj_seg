@@ -6,7 +6,7 @@
       tempList.add(term);
     }
  else {
-      if (tempList.size() > 2) {
+      if (tempList.size() > 1) {
         pt.addList(tempList);
       }
       if (tempList.size() > 0) {
