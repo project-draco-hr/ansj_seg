@@ -1,0 +1,4 @@
+{
+  List<NewWord> newWords=new NewWordFind2().getNewWords(graph.terms);
+  addListToTerm(newWords);
+}

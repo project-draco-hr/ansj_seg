@@ -1,0 +1,3 @@
+{
+  return DicReader.getReader("newWord/new_word_freq.dic");
+}

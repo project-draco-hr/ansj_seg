@@ -10,7 +10,6 @@
     newWord.explainScore();
 synchronized (sf) {
       sf.add(newWord.getName(),newWord);
-      newWord.setName(null);
     }
   }
 }
