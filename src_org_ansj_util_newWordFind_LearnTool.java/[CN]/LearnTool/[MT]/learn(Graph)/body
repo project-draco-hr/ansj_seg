@@ -9,6 +9,6 @@
     findForeignPerson(graph);
   }
   if (isNewWord) {
-    findNewWord(graph);
+    findNewWord2(graph);
   }
 }

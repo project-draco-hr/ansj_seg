@@ -3,6 +3,8 @@
   PersonNatureAttr personAttr=null;
   HashMap<String,CompanyNatureAttr> companyMap=new CompanyAttrLibrary().getCompanyMap();
   CompanyNatureAttr companyAttr=null;
+  HashMap<String,NewWordNatureAttr> newWordMap=new NewWordAttrLibrary().getNewWordMap();
+  NewWordNatureAttr newWordAttr=null;
   String temp=null;
   String[] strs=null;
   int num=0;
@@ -25,6 +27,10 @@
       }
       if ((companyAttr=companyMap.get(strs[1])) != null) {
         tn.setCompanyAttr(companyAttr);
+      }
+      if ((newWordAttr=newWordMap.get(strs[1])) != null) {
+        newWordAttr.updateAll(tn.allFreq);
+        tn.setNewWordAttr(newWordAttr);
       }
       termNatures[num]=tn;
     }

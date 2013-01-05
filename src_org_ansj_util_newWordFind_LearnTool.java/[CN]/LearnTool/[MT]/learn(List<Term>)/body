@@ -1,9 +1,0 @@
-{
-  List<Node> newWords=new NewWordFind().getNewWords(list);
-  if (newWords == null)   return;
-  NewWord newWord=null;
-  for (  Node node : newWords) {
-    newWord=new NewWord(node.getName(),node.getCount() + 1,TermNatures.NW);
-    addTerm(newWord);
-  }
-}

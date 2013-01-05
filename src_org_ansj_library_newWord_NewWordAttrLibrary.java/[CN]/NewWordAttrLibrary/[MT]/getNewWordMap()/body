@@ -1,0 +1,7 @@
+{
+  if (nwMap != null) {
+    return nwMap;
+  }
+  init();
+  return nwMap;
+}
