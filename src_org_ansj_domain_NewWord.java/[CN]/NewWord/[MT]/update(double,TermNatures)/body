@@ -1,0 +1,6 @@
+{
+  this.score+=getScore(tn,score);
+  if (tn == null || !TermNatures.NW.equals(tn)) {
+    this.nature=tn;
+  }
+}

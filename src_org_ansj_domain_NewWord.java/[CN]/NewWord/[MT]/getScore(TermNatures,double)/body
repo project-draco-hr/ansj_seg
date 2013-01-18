@@ -1,0 +1,12 @@
+{
+  if (TermNature.NW.equals(nature)) {
+    return score * -1;
+  }
+ else   if (TermNature.NR.equals(nature)) {
+    return score * 100;
+  }
+ else   if (TermNature.NT.equals(nature)) {
+    return score * 10;
+  }
+  return score;
+}

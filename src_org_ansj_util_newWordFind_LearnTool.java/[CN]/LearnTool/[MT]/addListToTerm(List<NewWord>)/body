@@ -1,4 +1,5 @@
 {
+  if (newWords.size() == 0)   return;
   for (  NewWord newWord : newWords) {
     addTerm(newWord);
   }

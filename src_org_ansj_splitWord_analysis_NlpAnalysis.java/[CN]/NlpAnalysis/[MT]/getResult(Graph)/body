@@ -5,15 +5,15 @@
       if (graph.hasNum) {
         NumRecognition.recognition(graph.terms);
       }
+      List<Term> result=getResult();
+      new NatureRecognition(result).recognition();
       learn.learn(graph);
       new UserDefineRecognition(graph.terms).recognition();
       graph.rmLittlePath();
       graph.walkPathByFreq();
       new NewWordRecognition(graph.terms,learn).recognition();
-      graph.rmLittlePath();
       graph.walkPathByScore();
-      List<Term> result=getResult();
-      new NatureRecognition(result).recognition();
+      result=getResult();
       return result;
     }
     private List<Term> getResult(){

@@ -1,0 +1,16 @@
+{
+  Collection<Node> newWords=null;
+  try {
+    newWords=new NewWordDetection().getNewWords(graph);
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  if (newWords == null)   return;
+  NewWord newWord=null;
+  for (  Node node : newWords) {
+    newWord=new NewWord(node.getName(),TermNatures.NW);
+    newWord.update(node.getScore());
+    addTerm(newWord);
+  }
+}

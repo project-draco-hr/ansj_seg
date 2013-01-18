@@ -7,8 +7,13 @@
       continue;
     }
     term=terms[i];
-    if (tempList.size() == 0 && term.getTermNatures().personAttr.end > 10) {
-      continue;
+    if (tempList.size() == 0) {
+      if (term.getTermNatures().personAttr.end > 10) {
+        continue;
+      }
+      if ((terms[i].getName().length() == 1 && ISNOTFIRST.contains(terms[i].getName().charAt(0)))) {
+        continue;
+      }
     }
     name=term.getName();
     if (term.isFName) {

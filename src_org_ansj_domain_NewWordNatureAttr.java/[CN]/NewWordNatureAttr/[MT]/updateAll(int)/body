@@ -1,6 +1,3 @@
 {
-  this.all+=all * 10;
-  this.b=(b / all) * Math.log(1 - this.b / all);
-  this.m=(m / all) * Math.log(1 - this.m / all);
-  this.e=(e / all) * Math.log(1 - this.e / all);
+  this.all+=(allValue * 100);
 }
