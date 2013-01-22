@@ -1,0 +1,10 @@
+{
+  this.name=name;
+  this.nature=nature;
+  this.score=getScore(nature,score);
+  this.allFreq=freq;
+  averageScore=score;
+  if (allFreq > 2 || averageScore < -0.5) {
+    isActive=true;
+  }
+}

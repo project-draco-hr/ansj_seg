@@ -1,5 +1,0 @@
-{
-  this.name=name;
-  this.nature=nature;
-  this.score=getScore(nature,score);
-}

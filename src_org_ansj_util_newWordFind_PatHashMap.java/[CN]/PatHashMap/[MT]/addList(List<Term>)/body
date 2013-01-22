@@ -10,24 +10,22 @@
       all.add(terms.get(j));
       if (all.size() > 1) {
         double leftRightEntropy=MathUtil.leftRightEntropy(all);
-        if (leftRightEntropy > 0.1) {
-          allFreq++;
-          StringBuilder sb=new StringBuilder();
-          for (          Term term : all) {
-            sb.append(term.getName());
-          }
-          String name=sb.toString();
-          Node node=hm.get(name);
-          if (node == null) {
-            node=new Node(name);
-            node.score=leftRightEntropy;
-            node.freq=1;
-            hm.put(name,node);
-          }
+        allFreq++;
+        StringBuilder sb=new StringBuilder();
+        for (        Term term : all) {
+          sb.append(term.getName());
+        }
+        String name=sb.toString();
+        Node node=hm.get(name);
+        if (node == null) {
+          node=new Node(name);
+          node.score=leftRightEntropy;
+          node.freq=1;
+          hm.put(name,node);
+        }
  else {
-            node.score+=leftRightEntropy;
-            node.freq+=1;
-          }
+          node.score+=leftRightEntropy;
+          node.freq+=1;
         }
       }
     }

@@ -11,7 +11,7 @@
   for (int i=0; i < length; i++) {
     score-=TwoWordLibrary.getTwoWordFreq(all.get(i),all.get(i + 1));
   }
-  if (score < 0) {
+  if (score < -3) {
     return 0;
   }
   newWordAttr=first.getTermNatures().newWordAttr;
@@ -19,17 +19,12 @@
   newWordAttr=end.getTermNatures().newWordAttr;
   score+=getTermScore(newWordAttr,newWordAttr.getE());
   double midelScore=0;
-  int freq=1;
   Term term=null;
-  for (int i=0; i < all.size(); i++) {
+  for (int i=1; i < length; i++) {
     term=all.get(i);
-    if (term.getTermNatures() == TermNatures.NB || term.getTermNatures() == TermNatures.EN) {
-      return 0;
-    }
-    freq+=term.getTermNatures().allFreq;
     newWordAttr=term.getTermNatures().newWordAttr;
     midelScore+=getTermScore(newWordAttr,newWordAttr.getM());
   }
-  score=(score + midelScore) / freq;
+  score+=midelScore / (length);
   return score;
 }

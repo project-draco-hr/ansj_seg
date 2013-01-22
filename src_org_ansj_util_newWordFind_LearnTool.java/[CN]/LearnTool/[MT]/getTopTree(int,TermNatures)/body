@@ -1,0 +1,17 @@
+{
+  if (sf.branches == null) {
+    return null;
+  }
+  HashMap<String,Double> hm=new HashMap<String,Double>();
+  for (int i=0; i < sf.branches.length; i++) {
+    valueResult(sf.branches[i],hm,nature);
+  }
+  List<Entry<String,Double>> sortMapByValue=CollectionUtil.sortMapByValue(hm,-1);
+  if (num == 0) {
+    return sortMapByValue;
+  }
+ else {
+    num=Math.min(num,sortMapByValue.size());
+    return sortMapByValue.subList(0,num);
+  }
+}

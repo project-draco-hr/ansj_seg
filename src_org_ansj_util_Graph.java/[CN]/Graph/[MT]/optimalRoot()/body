@@ -9,7 +9,7 @@
       terms[from.getOffe()]=from;
     }
     from.setNext(null);
-    to=setToAndfrom(to,from);
+    to=TermUtil.setToAndfrom(to,from);
   }
   return root;
 }

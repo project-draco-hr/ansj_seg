@@ -9,8 +9,7 @@
   if (newWords == null)   return;
   NewWord newWord=null;
   for (  Node node : newWords) {
-    newWord=new NewWord(node.getName(),TermNatures.NW);
-    newWord.update(node.getScore());
+    newWord=new NewWord(node.getName(),TermNatures.NW,node.getScore(),node.getFreq());
     addTerm(newWord);
   }
 }

@@ -1,11 +1,11 @@
 {
-  if (TermNature.NW.equals(nature)) {
+  if (TermNatures.NW.equals(nature)) {
     return score * -1;
   }
- else   if (TermNature.NR.equals(nature)) {
+ else   if (TermNatures.NR.equals(nature)) {
     return score * 100;
   }
- else   if (TermNature.NT.equals(nature)) {
+ else   if (TermNatures.NT.equals(nature)) {
     return score * 10;
   }
   return score;

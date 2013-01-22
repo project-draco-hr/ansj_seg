@@ -1,2 +1,3 @@
 double score
 TermNatures tn
+int freq

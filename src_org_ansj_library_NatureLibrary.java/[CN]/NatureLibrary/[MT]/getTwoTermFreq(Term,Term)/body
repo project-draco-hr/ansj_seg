@@ -1,0 +1,8 @@
+{
+  Nature from=fromTerm.getNatrue();
+  Nature to=toTerm.getNatrue();
+  if (from.index < 0 || to.index < 0) {
+    return 0;
+  }
+  return NATURETABLE[from.index][to.index];
+}

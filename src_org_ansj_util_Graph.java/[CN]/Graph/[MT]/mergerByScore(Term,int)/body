@@ -3,7 +3,7 @@
   if (terms[to] != null) {
     term=terms[to];
     while (term != null) {
-      term.setPathPersonScore(fromTerm);
+      term.setPathSelfScore(fromTerm);
       term=term.getNext();
     }
   }

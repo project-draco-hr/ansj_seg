@@ -1,16 +1,4 @@
 {
   Collection<Node> values=hm.values();
-  Iterator<Node> iterator=values.iterator();
-  Node node=null;
-  double validate=allFreq / (double)values.size();
-  while (iterator.hasNext()) {
-    node=iterator.next();
-    if (!filter(node,validate)) {
-      iterator.remove();
-    }
- else {
-      node.score=-Math.log(node.score * 30);
-    }
-  }
   return values;
 }

@@ -1,0 +1,11 @@
+{
+  this.score+=getScore(tn,score);
+  this.allFreq+=freq;
+  this.averageScore=this.score / freq;
+  if (tn == null || !TermNatures.NW.equals(tn)) {
+    this.nature=tn;
+  }
+  if (allFreq > 2 || averageScore < -0.5) {
+    isActive=true;
+  }
+}

@@ -1,9 +1,13 @@
 {
+  int length=term.getName().length();
+  if (length > 1) {
+    return false;
+  }
   if (hs.contains(term.getName()) || term.getName().trim().length() == 0) {
     return false;
   }
   String natureStr=term.getNatrue().natureStr;
-  if ((natureStr == null || natureStr.contains("m") || "v".equals(natureStr)) && term.getTermNatures().allFreq > 1000 || ("d".equals(natureStr)) || "z".equals(natureStr)) {
+  if (natureStr.contains("m") || ("v".equals(natureStr) && term.getTermNatures().allFreq > 100 * length) || (("d".equals(natureStr)) && term.getTermNatures().allFreq > 1000)|| "z".equals(natureStr)|| term.getTermNatures() == TermNatures.NB || term.getTermNatures() == TermNatures.EN) {
     return false;
   }
   return true;

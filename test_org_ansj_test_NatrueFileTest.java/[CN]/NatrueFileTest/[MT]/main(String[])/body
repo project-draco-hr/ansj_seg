@@ -3,9 +3,12 @@
   String temp=null;
   BufferedReader reader=IOUtil.getReader("/Users/ansj/Downloads/???????????????????????????.txt","GBK");
   while ((temp=reader.readLine()) != null) {
-    sb.append(temp);
+    List<Term> paser=BaseAnalysis.paser(temp);
+    for (    Term term : paser) {
+      sb.append(term.getName());
+      sb.append("\t");
+    }
+    sb.append("\n");
   }
-  List<Term> paser=ToAnalysis.paser(sb.toString());
-  new NatureRecognition(paser).recognition();
-  System.out.println(paser);
+  IOUtil.Writer("/Users/ansj/Desktop/result.txt",IOUtil.UTF8,sb.toString());
 }
