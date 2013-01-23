@@ -1,0 +1,40 @@
+{
+  if (!file.canRead()) {
+    System.err.println("file in path " + file.getAbsolutePath() + " can not to read!");
+    return;
+  }
+  String temp=null;
+  BufferedReader br=null;
+  String[] strs=null;
+  Value value=null;
+  try {
+    br=IOUtil.getReader(new FileInputStream(file),"UTF-8");
+    while ((temp=br.readLine()) != null) {
+      if (StringUtil.isBlank(temp)) {
+        continue;
+      }
+ else {
+        strs=temp.split("\t");
+        if (strs.length != 3) {
+          value=new Value(strs[0],PARAMER);
+        }
+ else {
+          value=new Value(strs[0],strs[1],strs[2]);
+        }
+        Library.insertWord(FOREST,value);
+      }
+    }
+  }
+ catch (  UnsupportedEncodingException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+ finally {
+    if (br != null) {
+      IOUtil.close(br);
+    }
+    br=null;
+  }
+}

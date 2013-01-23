@@ -2,6 +2,6 @@
   List<Value> values=new ArrayList<Value>();
   values.add(new Value("????????????","userDefine","1000"));
   Forest makeForest=Library.makeForest(values);
-  GetWord word=makeForest.getWord("????????????");
+  GetWord word=FOREST.getWord("??????");
   System.out.println(word.getFrontWords());
 }
