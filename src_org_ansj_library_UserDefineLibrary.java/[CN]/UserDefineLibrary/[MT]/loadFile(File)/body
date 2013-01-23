@@ -32,9 +32,7 @@ catch (  IOException e) {
     e.printStackTrace();
   }
  finally {
-    if (br != null) {
-      IOUtil.close(br);
-    }
+    IOUtil.close(br);
     br=null;
   }
 }

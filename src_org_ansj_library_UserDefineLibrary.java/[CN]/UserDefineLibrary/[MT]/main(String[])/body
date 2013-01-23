@@ -4,4 +4,7 @@
   Forest makeForest=Library.makeForest(values);
   GetWord word=FOREST.getWord("??????");
   System.out.println(word.getFrontWords());
+  UserDefineLibrary.clear();
+  word=FOREST.getWord("??????");
+  System.out.println(word.getFrontWords());
 }
