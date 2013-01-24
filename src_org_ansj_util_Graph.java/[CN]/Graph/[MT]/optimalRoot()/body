@@ -1,5 +1,6 @@
 {
   Term to=end;
+  to.clearScore();
   Term from=null;
   while ((from=to.getFrom()) != null) {
     for (int i=from.getOffe() + 1; i < to.getOffe(); i++) {
@@ -9,7 +10,9 @@
       terms[from.getOffe()]=from;
     }
     from.setNext(null);
-    to=TermUtil.setToAndfrom(to,from);
+    from.setTo(to);
+    from.clearScore();
+    to=from;
   }
   return root;
 }

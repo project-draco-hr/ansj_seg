@@ -11,8 +11,7 @@
         new ForeignPersonRecognition(graph.terms).recognition();
       }
       new UserDefineRecognition(graph.terms).recognition();
-      graph.rmLittlePath();
-      graph.walkPathByFreq();
+      graph.walkPathByScore();
       return getResult();
     }
     private List<Term> getResult(){

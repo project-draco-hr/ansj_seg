@@ -9,8 +9,7 @@
       new NatureRecognition(result).recognition();
       learn.learn(graph);
       new UserDefineRecognition(graph.terms).recognition();
-      graph.rmLittlePath();
-      graph.walkPathByFreq();
+      graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();
       graph.walkPathByScore();
       result=getResult();
