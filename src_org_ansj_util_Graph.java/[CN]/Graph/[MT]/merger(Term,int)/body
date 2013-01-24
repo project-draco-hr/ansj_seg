@@ -8,7 +8,10 @@
     }
   }
  else {
-    terms[to]=new Term(String.valueOf(str.charAt(to)),to,TermNatures.NULL);
+    char c=str.charAt(to);
+    TermNatures tn=InitDictionary.termNatures[c];
+    if (tn == null)     tn=TermNatures.NULL;
+    terms[to]=new Term(String.valueOf(c),to,tn);
     terms[to].setPathScore(fromTerm);
   }
 }
