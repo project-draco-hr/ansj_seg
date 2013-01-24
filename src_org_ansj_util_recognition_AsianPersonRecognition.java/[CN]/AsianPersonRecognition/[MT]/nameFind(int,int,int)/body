@@ -39,7 +39,7 @@
       flag=false;
     }
  else     if (terms[i] != null) {
-      int twoWordFreq=TwoWordLibrary.getTwoWordFreq(term,terms[i]);
+      int twoWordFreq=NgramLibrary.getTwoWordFreq(term,terms[i]);
       if (twoWordFreq > 3) {
         return null;
       }

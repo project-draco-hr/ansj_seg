@@ -3,7 +3,6 @@
     @Override public List<Term> merger(){
       graph.walkPath();
       NumRecognition.recognition(graph.terms);
-      graph.rmLittlePath();
       new AsianPersonRecognition(graph.terms).recognition();
       new UserDefineRecognition(graph.terms).recognition();
       return result();

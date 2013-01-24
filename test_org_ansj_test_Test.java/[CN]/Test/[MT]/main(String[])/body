@@ -145,15 +145,18 @@
   ToAnalysis.paser("123??????234???????????? ??????!");
   long start=System.currentTimeMillis();
   int count=0;
-  for (int mm=0; mm < 10000; mm++) {
+  for (int mm=0; mm < 1; mm++) {
     for (    String string : all) {
       count+=string.length();
+      List list=new ArrayList();
       ToAnalysis udf=new ToAnalysis(new StringReader(string));
       Term term=null;
       while ((term=udf.next()) != null) {
+        list.add(term);
       }
+      new NatureRecognition(list).recognition();
+      System.out.println(list);
     }
   }
   System.out.println(System.currentTimeMillis() - start);
-  System.out.println(count / ((System.currentTimeMillis() - start) / 1000));
 }

@@ -33,11 +33,11 @@
       Arrays.sort(result[fromId]);
     }
   }
-  TwoWordLibrary.setBigramTables(result);
+  NgramLibrary.setBigramTables(result);
   Term _from=new Term("??????",0,new TermNatures(TermNature.NULL));
   _from.getTermNatures().id=101617;
   Term _to=new Term("??????",0,new TermNatures(TermNature.NULL));
   _to.getTermNatures().id=136991;
-  System.out.println(TwoWordLibrary.getTwoWordFreq(_from,_to));
+  System.out.println(NgramLibrary.getTwoWordFreq(_from,_to));
   IOUtil.WriterObj("data/bigramdict/bigramdict.data",result);
 }
