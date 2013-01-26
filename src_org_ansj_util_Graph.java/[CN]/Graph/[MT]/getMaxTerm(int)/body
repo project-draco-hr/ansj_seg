@@ -1,0 +1,15 @@
+{
+  Term maxTerm=terms[i];
+  if (maxTerm == null) {
+    return null;
+  }
+  int maxTo=maxTerm.getToValue();
+  Term term=maxTerm;
+  while ((term=term.getNext()) != null) {
+    if (maxTo < term.getToValue()) {
+      maxTo=term.getToValue();
+      maxTerm=term;
+    }
+  }
+  return maxTerm;
+}

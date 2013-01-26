@@ -1,0 +1,42 @@
+{
+  int maxTo=-1;
+  Term temp=null;
+  Term maxTerm=null;
+  boolean flag=false;
+  int length=terms.length - 1;
+  for (int i=0; i < length; i++) {
+    maxTerm=getMaxTerm(i);
+    if (maxTerm == null)     continue;
+    maxTo=maxTerm.getToValue();
+switch (maxTerm.getName().length()) {
+case 1:
+      continue;
+case 2:
+    if (terms[i + 1] == null) {
+      i=i + 1;
+      continue;
+    }
+}
+for (int j=i + 1; j < maxTo; j++) {
+  temp=getMaxTerm(j);
+  if (temp == null) {
+    continue;
+  }
+  if (maxTo < temp.getToValue()) {
+    maxTo=temp.getToValue();
+    flag=true;
+  }
+}
+if (flag) {
+  i=maxTo - 1;
+  flag=false;
+}
+ else {
+  maxTerm.setNext(null);
+  terms[i]=maxTerm;
+  for (int j=i + 1; j < maxTo; j++) {
+    terms[j]=null;
+  }
+}
+}
+}
