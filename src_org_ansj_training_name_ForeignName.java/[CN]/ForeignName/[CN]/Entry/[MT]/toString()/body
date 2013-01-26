@@ -1,3 +1,0 @@
-{
-  return local[0] + "\t" + local[1]+ "\t"+ local[2];
-}

@@ -30,10 +30,12 @@
         continue;
       }
  else {
-        length=result[fromId].length;
-        result[fromId]=Arrays.copyOf(result[fromId],length + 1);
-        result[fromId][length]=to;
-        Arrays.sort(result[fromId]);
+        BigramEntry[] newBranches=new BigramEntry[result[fromId].length + 1];
+        int insert=-(index + 1);
+        System.arraycopy(result[fromId],0,newBranches,0,insert);
+        System.arraycopy(result[fromId],insert,newBranches,insert + 1,result[fromId].length - insert);
+        newBranches[insert]=to;
+        result[fromId]=newBranches;
       }
     }
   }
