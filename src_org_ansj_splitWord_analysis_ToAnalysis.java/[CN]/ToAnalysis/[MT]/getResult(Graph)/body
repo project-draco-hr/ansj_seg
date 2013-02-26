@@ -9,6 +9,7 @@
         new AsianPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
         new ForeignPersonRecognition(graph.terms).recognition();
+        graph.walkPathByScore();
       }
       new UserDefineRecognition(graph.terms).recognition();
       graph.rmLittlePath();
