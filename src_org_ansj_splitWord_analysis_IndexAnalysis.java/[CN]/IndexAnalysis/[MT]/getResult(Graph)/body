@@ -14,13 +14,15 @@
     private List<Term> result(){
       List<Term> all=new LinkedList<Term>();
       Term term=null;
+      String temp=null;
       int length=graph.terms.length - 1;
       for (int i=0; i < length; i++) {
         term=graph.terms[i];
         while (term != null) {
           all.add(term);
+          temp=term.getName();
           term=term.getNext();
-          if (term == null || term.getName().length() == 1) {
+          if (term == null || term.getName().length() == 1 || temp.equals(term.getName())) {
             break;
           }
         }
