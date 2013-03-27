@@ -13,5 +13,4 @@
   term.setNature(termNatures.termNatures[0].nature);
   term.selfScore=-1 * tempFreq;
   TermUtil.insertTerm(terms,term);
-  reset();
 }
