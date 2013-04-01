@@ -1,0 +1,10 @@
+{
+  Forest forest=new Forest();
+  if (isSystem) {
+    initSystemLibrary(forest);
+  }
+  for (  String path : libraryPaths) {
+    loadLibrary(forest,path);
+  }
+  return forest;
+}

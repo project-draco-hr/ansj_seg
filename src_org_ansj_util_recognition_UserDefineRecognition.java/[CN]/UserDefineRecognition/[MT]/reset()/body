@@ -3,5 +3,5 @@
   endOffe=-1;
   tempFreq=50;
   tempNature=null;
-  branch=FOREST;
+  branch=forest;
 }

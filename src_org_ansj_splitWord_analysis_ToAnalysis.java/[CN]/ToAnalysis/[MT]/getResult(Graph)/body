@@ -11,7 +11,7 @@
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }
-      new UserDefineRecognition(graph.terms).recognition();
+      new UserDefineRecognition(graph.terms,forest).recognition();
       graph.rmLittlePath();
       graph.walkPathByScore();
       return getResult();

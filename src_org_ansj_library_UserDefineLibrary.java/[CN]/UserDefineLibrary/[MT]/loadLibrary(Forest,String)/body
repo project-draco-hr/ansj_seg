@@ -3,13 +3,13 @@
   if ((temp != null || (temp=MyStaticValue.rb.getString("userLibrary")) != null)) {
     file=new File(temp);
     if (file.isFile()) {
-      loadFile(file);
+      loadFile(forest,file);
     }
  else     if (file.isDirectory()) {
       File[] files=file.listFiles();
       for (int i=0; i < files.length; i++) {
         if (file.getName().trim().endsWith(".dic")) {
-          loadFile(files[i]);
+          loadFile(forest,files[i]);
         }
       }
     }
