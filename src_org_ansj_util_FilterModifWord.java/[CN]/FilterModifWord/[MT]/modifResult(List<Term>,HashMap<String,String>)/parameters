@@ -1,0 +1,2 @@
+List<Term> all
+HashMap<String,String> updateDic
