@@ -3,6 +3,6 @@
     return this.name + "/" + natrue.natureStr;
   }
  else {
-    return this.name;
+    return this.name + "/null";
   }
 }
