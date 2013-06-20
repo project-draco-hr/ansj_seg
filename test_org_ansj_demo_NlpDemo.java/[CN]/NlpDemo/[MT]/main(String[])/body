@@ -8,8 +8,8 @@
   learn.isForeignName=false;
   learn.isNewWord=false;
   for (  String string : value) {
-    List<Term> paser=NlpAnalysis.parse(string,learn);
-    System.out.println(paser);
+    List<Term> parse=NlpAnalysis.parse(string,learn);
+    System.out.println(parse);
   }
   System.out.println("???????????????????????????: " + learn.count + " ??????!");
   System.out.println(System.currentTimeMillis() - start);
