@@ -1,3 +1,0 @@
-{
-  return new BaseAnalysis().paserStr(str);
-}

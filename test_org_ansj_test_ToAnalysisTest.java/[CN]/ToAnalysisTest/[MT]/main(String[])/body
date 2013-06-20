@@ -1,7 +1,7 @@
 {
   File[] files={new File("/Users/ansj/Downloads/?????????.txt")};
   int count=0;
-  ToAnalysis.paser("??? 123 sf");
+  ToAnalysis.parse("??? 123 sf");
   long start=System.currentTimeMillis();
   LearnTool learn=new LearnTool();
   for (int i=0; i < files.length; i++) {

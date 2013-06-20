@@ -1,0 +1,3 @@
+{
+  return new ToAnalysis(forest).parseStr(str);
+}

@@ -1,6 +1,6 @@
 {
   String str="java@ID:6321-000301@??????";
-  List<Term> paser=BaseAnalysis.paser(str);
+  List<Term> paser=BaseAnalysis.parse(str);
   new NatureRecognition(paser).recognition();
   paser=mergerId(paser);
   System.out.println(paser);

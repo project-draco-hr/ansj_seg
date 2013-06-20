@@ -1,3 +1,0 @@
-{
-  return new NlpAnalysis(new LearnTool()).paserStr(str);
-}

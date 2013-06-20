@@ -2,12 +2,12 @@
   StringBuilder sb=new StringBuilder();
   String temp=null;
   BufferedReader reader=IOUtil.getReader("/Users/ansj/Downloads/3000_GB2312.txt","GBK");
-  ToAnalysis.paser("test 123 ???");
+  ToAnalysis.parse("test 123 ???");
   long start=System.currentTimeMillis();
   int allCount=0;
   while ((temp=reader.readLine()) != null) {
     allCount+=temp.length();
-    ToAnalysis.paser(temp);
+    ToAnalysis.parse(temp);
   }
   long end=System.currentTimeMillis();
   System.out.println(start - end);
