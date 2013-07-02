@@ -2,8 +2,8 @@
   Term term=null;
   String natureStr=null;
   int j=i + 1;
-  for (; j < paser.size(); j++) {
-    term=paser.get(j);
+  for (; j < parse.size(); j++) {
+    term=parse.get(j);
     natureStr=term.getNatrue().natureStr;
     if ("en".equals(natureStr) || "m".equals(natureStr) || "-".equals(term.getName())|| ":".equals(term.getName())) {
       sb.append(term.getName());
