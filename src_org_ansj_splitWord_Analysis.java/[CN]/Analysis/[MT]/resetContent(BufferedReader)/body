@@ -1,3 +1,5 @@
 {
+  this.offe=0;
+  this.tempLength=0;
   this.br=br;
 }
