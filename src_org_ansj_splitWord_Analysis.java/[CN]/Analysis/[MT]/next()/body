@@ -15,7 +15,7 @@
     }
   }
   offe+=tempLength;
-  analysis(temp);
+  analysisStr(temp);
   if (!terms.isEmpty()) {
     term=terms.poll();
     term.updateOffe(offe);

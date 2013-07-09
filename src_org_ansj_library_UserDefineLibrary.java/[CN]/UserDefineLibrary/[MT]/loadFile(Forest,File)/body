@@ -16,7 +16,7 @@
  else {
         strs=temp.split("\t");
         if (strs.length != 3) {
-          value=new Value(strs[0],PARAMER);
+          value=new Value(strs[0],DEFAULT_NATURE,DEFAULT_FREQ_STR);
         }
  else {
           value=new Value(strs[0],strs[1],strs[2]);

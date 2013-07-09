@@ -1,0 +1,29 @@
+{
+  String forestName=file.getName().split("-")[0];
+  Forest forest=getUserForestMap().get(forestName);
+  if (forest == null) {
+    forest=new Forest();
+    getUserForestMap().put(forestName,forest);
+  }
+  BufferedReader reader=null;
+  String temp=null;
+  try {
+    reader=IOUtil.getReader(new FileInputStream(file),IOUtil.UTF8);
+    while (StringUtil.isNotBlank((temp=reader.readLine()))) {
+      Library.insertWord(forest,temp.toLowerCase());
+    }
+  }
+ catch (  Exception e) {
+    System.err.println("init library error " + file.getName() + " the error is "+ e.getMessage());
+  }
+ finally {
+    if (reader != null) {
+      try {
+        reader.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+}

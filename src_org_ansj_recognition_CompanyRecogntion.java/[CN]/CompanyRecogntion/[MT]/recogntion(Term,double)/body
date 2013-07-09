@@ -1,0 +1,30 @@
+{
+  String companyName=term.getName();
+  CompanyNatureAttr companyAttr=null;
+  while ((term=term.getTo()) != null && (companyAttr=term.getTermNatures().companyAttr) != CompanyNatureAttr.NULL) {
+    companyName+=term.getName();
+    if (companyAttr.eb < -0.005 && companyAttr.e > 200) {
+      score+=term.getTermNatures().companyAttr.eb;
+      tempTerm=new Term(companyName,offe,TermNatures.NT);
+      tempTerm.selfScore=score;
+      if (beginTerm == null || beginTerm.getTermNatures() == TermNatures.BEGIN) {
+        tempTerm.selfScore+=beginTerm.getTermNatures().companyAttr.pb;
+      }
+      Term to=term.getTo();
+      if (to == null || to.getTermNatures() == TermNatures.END) {
+        tempTerm.selfScore+=to.getTermNatures().companyAttr.sb;
+      }
+      int length=companyName.length() > 50 ? 50 : companyName.length();
+      tempTerm.selfScore*=-Math.log(1 - FACTORY[length]);
+      if (maxTerm == null || maxTerm.selfScore > tempTerm.selfScore) {
+        maxTerm=tempTerm;
+      }
+    }
+    if (companyAttr.mb < -0.005 && companyAttr.m > 50) {
+      score+=term.getTermNatures().companyAttr.mb;
+    }
+ else {
+      return;
+    }
+  }
+}

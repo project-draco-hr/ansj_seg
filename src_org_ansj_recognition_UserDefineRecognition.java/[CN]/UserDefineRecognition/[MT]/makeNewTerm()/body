@@ -1,0 +1,16 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (int j=offe; j <= endOffe; j++) {
+    if (terms[j] == null) {
+      continue;
+    }
+ else {
+      sb.append(terms[j].getName());
+    }
+  }
+  TermNatures termNatures=new TermNatures(new TermNature(tempNature,tempFreq));
+  Term term=new Term(sb.toString(),offe,termNatures);
+  term.setNature(termNatures.termNatures[0].nature);
+  term.selfScore=-1 * tempFreq;
+  TermUtil.insertTerm(terms,term);
+}

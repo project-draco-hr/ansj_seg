@@ -1,0 +1,10 @@
+{
+  String name=term.getName();
+  for (int j=0; j < name.length(); j++) {
+    branch=branch.get(name.charAt(j));
+    if (branch == null) {
+      return null;
+    }
+  }
+  return branch;
+}

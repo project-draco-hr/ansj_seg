@@ -1,0 +1,21 @@
+{
+  String ambiguityLibrary=MyStaticValue.rb.getString("ambiguityLibrary");
+  if (StringUtil.isBlank(ambiguityLibrary)) {
+    System.err.println("init ambiguity  error :" + ambiguityLibrary + " because : not find that file or can not to read !");
+    return;
+  }
+  File file=new File(ambiguityLibrary);
+  if (file.isFile() && file.canRead()) {
+    try {
+      ambiguityForest=Library.makeForest(ambiguityLibrary);
+    }
+ catch (    Exception e) {
+      System.err.println("init ambiguity  error :" + ambiguityLibrary + " because : not find that file or can not to read !");
+      e.printStackTrace();
+    }
+    System.out.println("init redressLibrary ok!");
+  }
+ else {
+    System.err.println("init ambiguity  error :" + ambiguityLibrary + " because : not find that file or can not to read !");
+  }
+}

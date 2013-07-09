@@ -1,0 +1,31 @@
+{
+  Graph gp=new Graph(temp);
+  int startOffe=0;
+  if (UserDefineLibrary.ambiguityForest != null) {
+    GetWord gw=new GetWord(UserDefineLibrary.ambiguityForest,temp);
+    String[] params=null;
+    while ((gw.getAllWords()) != null) {
+      if (gw.offe > startOffe) {
+        analysis(gp,temp.substring(startOffe,gw.offe),startOffe);
+      }
+      params=gw.getParams();
+      startOffe=gw.offe;
+      for (int i=0; i < params.length; i+=2) {
+        System.out.println(params[i]);
+        gp.addTerm(new Term(params[i],startOffe,new TermNatures(new TermNature(params[i + 1],1))));
+        startOffe+=params[i].length();
+      }
+    }
+    if (startOffe == 0) {
+      analysis(gp,temp,startOffe);
+    }
+ else {
+      analysis(gp,temp.substring(startOffe,temp.length()),startOffe);
+    }
+  }
+ else {
+    analysis(gp,temp,startOffe);
+  }
+  List<Term> result=this.getResult(gp);
+  terms.addAll(result);
+}

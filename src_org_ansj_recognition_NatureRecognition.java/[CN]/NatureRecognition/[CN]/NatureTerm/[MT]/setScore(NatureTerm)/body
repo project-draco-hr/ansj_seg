@@ -1,0 +1,7 @@
+{
+  double tempScore=MathUtil.compuNatureFreq(natureTerm,this);
+  if (from == null || score < tempScore) {
+    this.score=tempScore;
+    this.from=natureTerm;
+  }
+}

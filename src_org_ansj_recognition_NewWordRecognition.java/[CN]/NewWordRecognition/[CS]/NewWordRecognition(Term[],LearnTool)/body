@@ -1,0 +1,5 @@
+{
+  this.terms=terms;
+  forest=learn.getForest();
+  branch=learn.getForest();
+}
