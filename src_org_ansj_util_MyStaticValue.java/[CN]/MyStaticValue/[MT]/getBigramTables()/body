@@ -5,7 +5,7 @@
     reader=IOUtil.getReader(DicReader.getInputStream("bigramdict.dic"),"UTF-8");
     String temp=null;
     String[] strs=null;
-    result=new BigramEntry[423152][0];
+    result=new BigramEntry[InitDictionary.arrayLength][0];
     int fromId=0;
     int toId=0;
     int freq=0;

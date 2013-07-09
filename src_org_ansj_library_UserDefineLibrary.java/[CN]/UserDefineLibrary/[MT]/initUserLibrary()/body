@@ -2,7 +2,6 @@
   try {
     long start=System.currentTimeMillis();
     FOREST=new Forest();
-    initSystemLibrary(FOREST);
     loadLibrary(FOREST,MyStaticValue.userDefinePath);
     System.out.println("init user library ok use time :" + (System.currentTimeMillis() - start));
   }

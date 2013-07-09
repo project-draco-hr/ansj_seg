@@ -1,3 +1,0 @@
-{
-  return DicReader.getReader("systemLibrary.dic");
-}

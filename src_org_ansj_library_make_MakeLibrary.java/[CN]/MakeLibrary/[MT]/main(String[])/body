@@ -1,5 +1,0 @@
-{
-  long start=System.currentTimeMillis();
-  makeLibrary();
-  System.out.println(System.currentTimeMillis() - start);
-}

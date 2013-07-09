@@ -1,7 +1,0 @@
-{
-  int i=AnsjArrays.binarySearch(branches,c);
-  if (i > -1) {
-    return branches[i];
-  }
-  return null;
-}
