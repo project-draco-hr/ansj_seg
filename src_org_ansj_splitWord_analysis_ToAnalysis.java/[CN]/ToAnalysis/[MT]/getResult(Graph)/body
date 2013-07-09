@@ -8,6 +8,7 @@
       if (graph.hasPerson) {
         new AsianPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
+        AsianPersonRecognition.nameAmbiguity(graph.terms);
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }

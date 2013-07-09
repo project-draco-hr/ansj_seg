@@ -1,9 +1,0 @@
-{
-  NatureTerm to=end[0];
-  NatureTerm from=null;
-  int index=natureTermTable.length - 1;
-  while ((from=to.from) != null && index > 0) {
-    terms.get(--index).setNature(from.termNature.nature);
-    to=from;
-  }
-}

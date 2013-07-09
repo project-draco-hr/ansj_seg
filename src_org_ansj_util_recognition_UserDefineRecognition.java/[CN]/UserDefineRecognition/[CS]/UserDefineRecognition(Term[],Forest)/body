@@ -1,7 +1,0 @@
-{
-  this.terms=terms;
-  if (forest != null) {
-    this.forest=forest;
-    branch=this.forest;
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return termNature.nature.natureStr + "/" + selfScore;
-}

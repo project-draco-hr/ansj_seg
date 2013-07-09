@@ -1,4 +1,8 @@
 {
-  System.out.println(ToAnalysis.parse("?????????"));
-  System.out.println('\000' == '\u0000');
+  LearnTool learn=new LearnTool();
+  NlpAnalysis nlpAnalysis=new NlpAnalysis(IOUtil.getReader("/Users/ansj/Documents/workspace/ElasticSearchServer/sub_test.txt",IOUtil.UTF8),learn);
+  while (nlpAnalysis.next() != null) {
+  }
+  List<Entry<String,Double>> topTree=learn.getTopTree(20);
+  System.out.println(topTree);
 }

@@ -1,4 +1,0 @@
-{
-  tempList.clear();
-  prList=(LinkedList<NameChar>)PRLIST.clone();
-}

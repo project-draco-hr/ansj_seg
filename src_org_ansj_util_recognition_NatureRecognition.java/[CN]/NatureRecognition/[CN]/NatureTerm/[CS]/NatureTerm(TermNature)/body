@@ -1,4 +1,0 @@
-{
-  this.termNature=termNature;
-  selfScore=termNature.frequency + 1;
-}

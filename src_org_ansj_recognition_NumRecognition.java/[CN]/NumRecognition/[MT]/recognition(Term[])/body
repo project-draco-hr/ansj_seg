@@ -7,7 +7,7 @@
     if (terms[i] == null) {
       continue;
     }
- else     if (".".equals(terms[i].getName())) {
+ else     if (".".equals(terms[i].getName()) || "???".equals(terms[i].getName())) {
       to=terms[i].getTo();
       from=terms[i].getFrom();
       if (from.getTermNatures().numAttr.flag && to.getTermNatures().numAttr.flag) {
