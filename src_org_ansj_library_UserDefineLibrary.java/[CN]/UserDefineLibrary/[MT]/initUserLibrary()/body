@@ -3,7 +3,6 @@
     long start=System.currentTimeMillis();
     FOREST=new Forest();
     loadLibrary(FOREST,MyStaticValue.userDefinePath);
-    System.out.println("init user library ok use time :" + (System.currentTimeMillis() - start));
   }
  catch (  Exception e) {
     e.printStackTrace();

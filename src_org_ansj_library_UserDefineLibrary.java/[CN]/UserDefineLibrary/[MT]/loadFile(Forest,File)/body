@@ -24,6 +24,7 @@
         Library.insertWord(forest,value);
       }
     }
+    System.out.println("init user userLibrary ok path is : " + file.getAbsolutePath());
   }
  catch (  UnsupportedEncodingException e) {
     e.printStackTrace();

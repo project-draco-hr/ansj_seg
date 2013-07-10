@@ -1,11 +1,8 @@
 {
   Map<String,Keyword> tm=new HashMap<String,Keyword>();
-  learn.isAsianName=false;
-  learn.isForeignName=false;
+  LearnTool learn=new LearnTool();
   List<Term> parse=NlpAnalysis.parse(content,learn);
-  System.out.println("====" + learn.getTopTree(100));
-  ;
-  new NatureRecognition(parse).recognition();
+  parse=NlpAnalysis.parse(content,learn);
   for (  Term term : parse) {
     int weight=getWeight(term,content.length(),titleLength);
     if (weight == 0)     continue;
