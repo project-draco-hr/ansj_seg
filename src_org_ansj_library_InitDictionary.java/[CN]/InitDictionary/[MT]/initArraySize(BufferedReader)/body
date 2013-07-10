@@ -5,7 +5,7 @@
     last=temp;
   }
   String[] strs=last.split("	");
-  int arrayLength=Integer.parseInt(strs[0]) + 1;
+  arrayLength=Integer.parseInt(strs[0]) + 1;
   base=new int[arrayLength];
   check=new int[arrayLength];
   status=new byte[arrayLength];

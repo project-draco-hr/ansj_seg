@@ -1,5 +1,0 @@
-{
-  rangeCheck(a.length,fromIndex,toIndex);
-  Branch[] aux=copyOfRange(a,fromIndex,toIndex);
-  mergeSort(aux,a,fromIndex,toIndex,-fromIndex);
-}
