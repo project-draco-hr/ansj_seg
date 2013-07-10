@@ -1,0 +1,29 @@
+{
+  Map<String,Keyword> tm=new HashMap<String,Keyword>();
+  learn.isAsianName=false;
+  learn.isForeignName=false;
+  List<Term> parse=NlpAnalysis.parse(content,learn);
+  System.out.println("====" + learn.getTopTree(100));
+  ;
+  new NatureRecognition(parse).recognition();
+  for (  Term term : parse) {
+    int weight=getWeight(term,content.length(),titleLength);
+    if (weight == 0)     continue;
+    Keyword keyword=tm.get(term.getName());
+    if (keyword == null) {
+      keyword=new Keyword(term.getName(),term.getNatrue().allFrequency,weight);
+      tm.put(term.getName(),keyword);
+    }
+ else {
+      keyword.updateWeight(1);
+    }
+  }
+  TreeSet<Keyword> treeSet=new TreeSet<Keyword>(tm.values());
+  ArrayList<Keyword> arrayList=new ArrayList<Keyword>(treeSet);
+  if (treeSet.size() < nKeyword) {
+    return arrayList;
+  }
+ else {
+    return arrayList.subList(0,nKeyword);
+  }
+}

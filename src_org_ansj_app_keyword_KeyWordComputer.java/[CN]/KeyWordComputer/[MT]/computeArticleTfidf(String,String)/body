@@ -1,0 +1,3 @@
+{
+  return computeArticleTfidf(title + "\t" + content,title.length());
+}

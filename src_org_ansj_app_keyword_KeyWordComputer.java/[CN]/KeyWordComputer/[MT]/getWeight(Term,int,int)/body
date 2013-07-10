@@ -1,0 +1,20 @@
+{
+  if (term.getName().matches("(?s)\\d.*")) {
+    return 0;
+  }
+  if (term.getName().trim().length() < 2) {
+    return 0;
+  }
+  String pos=term.getNatrue().natureStr;
+  if (!pos.startsWith("n") || "num".equals(pos)) {
+    return 0;
+  }
+  int weight=0;
+  if (term.getName().equals("?????????") && titleLength > term.getOffe()) {
+    return 20;
+  }
+  double position=(term.getOffe() + 0.0) / length;
+  if (position < 0.05)   return 10;
+  weight+=(5 - 5 * position);
+  return weight;
+}

@@ -1,0 +1,9 @@
+{
+  BufferedReader reader=IOUtil.getReader("/home/chong/workspace/summary/data/testArticle",IOUtil.UTF8);
+  String inString=null;
+  while ((inString=reader.readLine()) != null) {
+    List<Term> parse=ToAnalysis.parse(inString);
+    new NatureRecognition(parse).recognition();
+    System.out.println(new KeyWordComputer().computeArticleTfidf(inString));
+  }
+}

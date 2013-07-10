@@ -1,0 +1,8 @@
+{
+  if (this.score < o.score) {
+    return 1;
+  }
+ else {
+    return -1;
+  }
+}

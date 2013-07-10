@@ -1,0 +1,9 @@
+{
+  if (obj instanceof Keyword) {
+    Keyword k=(Keyword)obj;
+    return k.name.equals(name);
+  }
+ else {
+    return false;
+  }
+}
