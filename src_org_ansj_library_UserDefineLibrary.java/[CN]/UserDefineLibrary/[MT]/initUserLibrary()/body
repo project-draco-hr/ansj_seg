@@ -1,6 +1,5 @@
 {
   try {
-    long start=System.currentTimeMillis();
     FOREST=new Forest();
     loadLibrary(FOREST,MyStaticValue.userDefinePath);
   }
