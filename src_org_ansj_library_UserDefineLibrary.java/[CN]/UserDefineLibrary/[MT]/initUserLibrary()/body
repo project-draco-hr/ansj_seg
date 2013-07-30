@@ -1,7 +1,7 @@
 {
   try {
     FOREST=new Forest();
-    loadLibrary(FOREST,MyStaticValue.userDefinePath);
+    loadLibrary(FOREST,MyStaticValue.userLibrary);
   }
  catch (  Exception e) {
     e.printStackTrace();

@@ -1,5 +1,5 @@
 {
-  String ambiguityLibrary=MyStaticValue.rb.getString("ambiguityLibrary");
+  String ambiguityLibrary=MyStaticValue.ambiguityLibrary;
   if (StringUtil.isBlank(ambiguityLibrary)) {
     System.err.println("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
     return;
@@ -13,7 +13,7 @@
       System.err.println("init ambiguity  error :" + ambiguityLibrary + " because : not find that file or can not to read !");
       e.printStackTrace();
     }
-    System.out.println("init redressLibrary ok!");
+    System.out.println("init ambiguityLibrary ok!");
   }
  else {
     System.err.println("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");

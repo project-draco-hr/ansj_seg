@@ -9,7 +9,6 @@
     int fromId=0;
     int toId=0;
     int freq=0;
-    int length=0;
     BigramEntry to=null;
     while ((temp=reader.readLine()) != null) {
       if (StringUtil.isBlank(temp)) {

@@ -1,6 +1,6 @@
 {
   File file=null;
-  if ((path != null || (path=MyStaticValue.rb.getString("userLibrary")) != null)) {
+  if (path != null) {
     file=new File(path);
     if (!file.canRead() || file.isHidden()) {
       return;
