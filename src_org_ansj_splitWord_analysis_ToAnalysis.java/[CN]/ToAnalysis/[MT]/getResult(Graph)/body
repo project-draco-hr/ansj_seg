@@ -12,12 +12,21 @@
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }
-      for (      Forest forest : forests) {
-        new UserDefineRecognition(graph.terms,forest).recognition();
-        graph.rmLittlePath();
-        graph.walkPathByScore();
+      if (forests == null) {
+        userDefineRecognition(graph,null);
+      }
+ else {
+        for (        Forest forest : forests) {
+          if (forest == null)           continue;
+          userDefineRecognition(graph,forest);
+        }
       }
       return getResult();
+    }
+    private void userDefineRecognition(    final Graph graph,    Forest forest){
+      new UserDefineRecognition(graph.terms,forest).recognition();
+      graph.rmLittlePath();
+      graph.walkPathByScore();
     }
     private List<Term> getResult(){
       List<Term> result=new ArrayList<Term>();
