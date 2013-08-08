@@ -1,4 +1,0 @@
-{
-  super(reader);
-  this.forest=forest;
-}

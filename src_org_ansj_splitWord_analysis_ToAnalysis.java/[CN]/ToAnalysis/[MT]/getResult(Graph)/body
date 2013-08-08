@@ -12,9 +12,11 @@
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }
-      new UserDefineRecognition(graph.terms,forest).recognition();
-      graph.rmLittlePath();
-      graph.walkPathByScore();
+      for (      Forest forest : forests) {
+        new UserDefineRecognition(graph.terms,forest).recognition();
+        graph.rmLittlePath();
+        graph.walkPathByScore();
+      }
       return getResult();
     }
     private List<Term> getResult(){
