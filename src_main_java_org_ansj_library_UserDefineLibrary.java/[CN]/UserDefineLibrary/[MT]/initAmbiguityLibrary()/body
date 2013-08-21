@@ -4,6 +4,12 @@
     System.err.println("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
     return;
   }
+  try {
+    ambiguityLibrary=UserDefineLibrary.class.getResource("/" + ambiguityLibrary).getFile();
+  }
+ catch (  Exception exception) {
+    System.err.println("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
+  }
   File file=new File(ambiguityLibrary);
   if (file.isFile() && file.canRead()) {
     try {

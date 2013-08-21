@@ -1,9 +1,0 @@
-{
-  try {
-    FOREST=new Forest();
-    loadLibrary(FOREST,MyStaticValue.userLibrary);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

@@ -1,5 +1,11 @@
 {
   userLibraryPath=MyStaticValue.userLibraryPath;
+  try {
+    userLibraryPath=DicManager.class.getResource("/" + userLibraryPath).getFile();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
   if (StringUtil.isNotBlank(userLibraryPath)) {
     return;
   }
