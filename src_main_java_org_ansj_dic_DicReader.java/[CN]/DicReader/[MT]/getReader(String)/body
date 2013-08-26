@@ -1,5 +1,5 @@
 {
-  InputStream in=DicReader.class.getResourceAsStream(name);
+  InputStream in=DicReader.class.getResourceAsStream("/" + name);
   try {
     return new BufferedReader(new InputStreamReader(in,"UTF-8"));
   }
