@@ -3,6 +3,7 @@
   if (path != null) {
     file=new File(path);
     if (!file.canRead() || file.isHidden()) {
+      LIBRARYLOG.warning("init userLibrary  waring :" + path + " because : not find that file or can not to read !");
       return;
     }
     if (file.isFile()) {
@@ -17,7 +18,7 @@
       }
     }
  else {
-      System.err.println("init user library  error :" + path + " because : not find that file !");
+      LIBRARYLOG.warning("init user library  error :" + path + " because : not find that file !");
     }
   }
 }

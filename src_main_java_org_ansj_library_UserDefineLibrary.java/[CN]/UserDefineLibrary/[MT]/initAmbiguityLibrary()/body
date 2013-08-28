@@ -1,14 +1,14 @@
 {
   String ambiguityLibrary=MyStaticValue.ambiguityLibrary;
   if (StringUtil.isBlank(ambiguityLibrary)) {
-    System.err.println("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
+    LIBRARYLOG.warning("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
     return;
   }
   try {
-    ambiguityLibrary=UserDefineLibrary.class.getResource("/" + ambiguityLibrary).getFile();
+    ambiguityLibrary=MyStaticValue.ambiguityLibrary;
   }
  catch (  Exception exception) {
-    System.err.println("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
+    LIBRARYLOG.warning("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
   }
   File file=new File(ambiguityLibrary);
   if (file.isFile() && file.canRead()) {
@@ -16,12 +16,12 @@
       ambiguityForest=Library.makeForest(ambiguityLibrary);
     }
  catch (    Exception e) {
-      System.err.println("init ambiguity  error :" + ambiguityLibrary + " because : not find that file or can not to read !");
+      LIBRARYLOG.warning("init ambiguity  error :" + ambiguityLibrary + " because : not find that file or can not to read !");
       e.printStackTrace();
     }
-    System.out.println("init ambiguityLibrary ok!");
+    LIBRARYLOG.info("init ambiguityLibrary ok!");
   }
  else {
-    System.err.println("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
+    LIBRARYLOG.warning("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
   }
 }

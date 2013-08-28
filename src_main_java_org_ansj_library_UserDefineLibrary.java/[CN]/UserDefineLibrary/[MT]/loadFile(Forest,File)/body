@@ -1,6 +1,6 @@
 {
   if (!file.canRead()) {
-    System.err.println("file in path " + file.getAbsolutePath() + " can not to read!");
+    LIBRARYLOG.warning("file in path " + file.getAbsolutePath() + " can not to read!");
     return;
   }
   String temp=null;
@@ -24,7 +24,7 @@
         Library.insertWord(forest,value);
       }
     }
-    System.out.println("init user userLibrary ok path is : " + file.getAbsolutePath());
+    LIBRARYLOG.info("init user userLibrary ok path is : " + file.getAbsolutePath());
   }
  catch (  UnsupportedEncodingException e) {
     e.printStackTrace();
