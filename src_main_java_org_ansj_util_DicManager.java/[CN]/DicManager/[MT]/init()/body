@@ -6,7 +6,7 @@
  catch (  Exception e) {
     e.printStackTrace();
   }
-  if (StringUtil.isNotBlank(userLibraryPath)) {
+  if (StringUtil.isBlank(userLibraryPath)) {
     return;
   }
   files=new File(userLibraryPath).listFiles(new FilenameFilter(){
