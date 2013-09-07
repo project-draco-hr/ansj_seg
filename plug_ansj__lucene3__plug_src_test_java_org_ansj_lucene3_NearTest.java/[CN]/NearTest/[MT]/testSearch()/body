@@ -1,0 +1,17 @@
+{
+  String rules="\"??????????????????\"~10";
+  IndexReader reader=IndexReader.open(FSDirectory.open(new File("index")));
+  IndexSearcher searcher=new IndexSearcher(reader);
+  QueryParser parser=new QueryParser(Version.LUCENE_32,"test",new AnsjAnalysis());
+  Query query=parser.parse(rules);
+  System.out.println(query.toString());
+  TopDocs topDocs=searcher.search(query,10);
+  ScoreDoc[] docs=topDocs.scoreDocs;
+  System.out.println(docs.length);
+  for (  ScoreDoc scoreDoc : docs) {
+    Document doc=searcher.doc(scoreDoc.doc);
+    Explanation explain=searcher.explain(query,scoreDoc.doc);
+    System.out.println(explain);
+    System.out.println(doc);
+  }
+}

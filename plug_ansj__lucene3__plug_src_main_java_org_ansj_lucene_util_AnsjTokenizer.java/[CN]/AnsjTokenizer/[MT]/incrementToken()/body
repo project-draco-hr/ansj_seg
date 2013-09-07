@@ -1,0 +1,31 @@
+{
+  clearAttributes();
+  int position=0;
+  Term term=null;
+  String name=null;
+  int length=0;
+  do {
+    term=ta.next();
+    if (term == null) {
+      break;
+    }
+    length=term.getName().length();
+    if (pstemming && term.getTermNatures().termNatures[0] == TermNature.EN) {
+      System.out.println(pstemming);
+      name=stemmer.stem(term.getName());
+      term.setName(name);
+    }
+    position++;
+  }
+ while (filter != null && term != null && (filter.contains(term.getName()) || term.getName().length() > 30));
+  if (term != null) {
+    positionAttr.setPositionIncrement(position);
+    termAtt.copyBuffer(term.getName().toCharArray(),0,term.getName().length());
+    offsetAtt.setOffset(term.getOffe(),term.getOffe() + length);
+    return true;
+  }
+ else {
+    end();
+    return false;
+  }
+}

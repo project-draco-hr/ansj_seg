@@ -1,0 +1,6 @@
+{
+  super(input);
+  this.ta=ta;
+  this.filter=filter;
+  this.pstemming=pstemming;
+}

@@ -1,0 +1,15 @@
+{
+  IndexWriterConfig conf=new IndexWriterConfig(Version.LUCENE_32,new AnsjAnalysis());
+  Directory directory=FSDirectory.open(new File("c:/index"));
+  IndexWriter writer=new IndexWriter(directory,conf);
+  String str="?????????;??????????????????";
+  String[] values=str.split(";");
+  for (  String value : values) {
+    Document doc=new Document();
+    Field field=new Field("test",value,Store.YES,Index.ANALYZED_NO_NORMS,TermVector.WITH_POSITIONS_OFFSETS);
+    doc.add(field);
+    writer.addDocument(doc);
+    writer.commit();
+  }
+  writer.close();
+}

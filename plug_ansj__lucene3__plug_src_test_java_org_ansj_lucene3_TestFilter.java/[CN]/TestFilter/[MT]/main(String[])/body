@@ -1,0 +1,16 @@
+{
+  HashSet<String> filter=new HashSet<String>();
+  filter.add("???");
+  filter.add("???");
+  AnsjAnalysis analyzer=new AnsjAnalysis(filter,false);
+  TokenStream ts=analyzer.tokenStream("hello",new StringReader("??????"));
+  Token token;
+  try {
+    while (ts.incrementToken()) {
+      System.out.println(ts.getAttribute(TermAttribute.class).term());
+    }
+  }
+ catch (  IOException ioe) {
+    ioe.printStackTrace();
+  }
+}

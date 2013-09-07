@@ -1,0 +1,4 @@
+{
+  super.reset();
+  ta.resetContent(new BufferedReader(this.input));
+}

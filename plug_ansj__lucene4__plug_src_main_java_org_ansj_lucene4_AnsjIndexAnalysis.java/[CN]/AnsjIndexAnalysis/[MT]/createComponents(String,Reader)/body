@@ -1,0 +1,4 @@
+{
+  Tokenizer tokenizer=new AnsjTokenizer(new IndexAnalysis(reader),reader,filter,pstemming);
+  return new TokenStreamComponents(tokenizer);
+}

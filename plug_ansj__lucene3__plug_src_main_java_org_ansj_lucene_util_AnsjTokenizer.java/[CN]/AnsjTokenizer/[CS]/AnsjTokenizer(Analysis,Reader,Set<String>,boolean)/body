@@ -1,0 +1,9 @@
+{
+  super(input);
+  ta=analysis;
+  termAtt=addAttribute(CharTermAttribute.class);
+  offsetAtt=addAttribute(OffsetAttribute.class);
+  positionAttr=addAttribute(PositionIncrementAttribute.class);
+  this.filter=filter;
+  this.pstemming=pstemming;
+}
