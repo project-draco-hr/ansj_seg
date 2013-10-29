@@ -1,3 +1,0 @@
-{
-  this.processRequest(req,resp);
-}
