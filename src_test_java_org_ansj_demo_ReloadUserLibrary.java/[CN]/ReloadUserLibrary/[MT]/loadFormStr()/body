@@ -1,0 +1,5 @@
+{
+  Forest forest=new Forest();
+  Library.insertWord(forest,"??????  nature  1000");
+  UserDefineLibrary.FOREST=forest;
+}

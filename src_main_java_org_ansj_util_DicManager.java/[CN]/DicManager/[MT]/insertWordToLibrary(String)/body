@@ -1,3 +1,0 @@
-{
-  insertWordToLibrary(word,DEFAULT_NATURE,DEFAULT_FREQ);
-}

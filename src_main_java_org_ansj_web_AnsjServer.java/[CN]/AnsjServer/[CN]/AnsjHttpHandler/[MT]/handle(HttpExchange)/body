@@ -1,0 +1,24 @@
+{
+  try {
+    String responseMsg="????????????Ansj????????????!\ndemo:http://localhost:8888/?input=????????????&method=to";
+    Map<String,String> paramers=parseParamers(httpExchange);
+    String input=paramers.get("input");
+    String method=paramers.get("method");
+    if (StringUtil.isNotBlank(input)) {
+      responseMsg=AnsjServlet.processRequest(input,method);
+    }
+    writeToClient(httpExchange,responseMsg);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    try {
+      writeToClient(httpExchange,e.getMessage());
+    }
+ catch (    IOException e1) {
+      e1.printStackTrace();
+    }
+  }
+ finally {
+    httpExchange.close();
+  }
+}

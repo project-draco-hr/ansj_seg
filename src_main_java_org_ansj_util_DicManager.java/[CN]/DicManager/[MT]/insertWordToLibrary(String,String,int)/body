@@ -1,3 +1,0 @@
-{
-  Library.insertWord(forest,new Value(word.toLowerCase(),nature,String.valueOf(freq)));
-}

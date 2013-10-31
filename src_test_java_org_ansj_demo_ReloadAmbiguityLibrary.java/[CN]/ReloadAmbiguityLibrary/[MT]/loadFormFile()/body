@@ -1,0 +1,4 @@
+{
+  Forest forest=Library.makeForest("new_Library_Path");
+  UserDefineLibrary.ambiguityForest=forest;
+}

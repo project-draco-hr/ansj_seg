@@ -1,22 +1,9 @@
 {
   MyStaticValue.LIBRARYLOG.info("starting ansj http server");
-  Server server=new Server();
-  QueuedThreadPool threadPool=new QueuedThreadPool();
-  threadPool.setMaxThreads(SERVER_MAX_THREADS);
-  threadPool.setMinThreads(SERVER_MIN_THREADS);
-  threadPool.setName("AnsjHttpServer");
-  server.setThreadPool(threadPool);
-  SelectChannelConnector connector=new SelectChannelConnector();
-  connector.setPort(serverPort);
-  server.addConnector(connector);
-  ServletHolder servletHolder=new ServletHolder((Servlet)new AnsjServlet());
-  ContextHandlerCollection contexts=new ContextHandlerCollection();
-  ServletContextHandler context=new ServletContextHandler(contexts,"");
-  context.addServlet(servletHolder,"/segment");
-  HandlerCollection handlers=new HandlerCollection();
-  handlers.setHandlers(new Handler[]{contexts});
-  server.setHandler(handlers);
-  server.start();
-  MyStaticValue.LIBRARYLOG.info("ansj http server started");
-  server.join();
+  HttpServerProvider provider=HttpServerProvider.provider();
+  HttpServer httpserver=provider.createHttpServer(new InetSocketAddress(serverPort),100);
+  httpserver.createContext("/",new AnsjHttpHandler());
+  httpserver.setExecutor(null);
+  httpserver.start();
+  System.out.println("server started");
 }
