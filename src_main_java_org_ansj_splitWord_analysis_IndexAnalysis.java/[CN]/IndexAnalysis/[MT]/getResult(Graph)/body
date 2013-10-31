@@ -2,9 +2,17 @@
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
       graph.walkPath();
-      NumRecognition.recognition(graph.terms);
-      new AsianPersonRecognition(graph.terms).recognition();
-      new UserDefineRecognition(graph.terms).recognition();
+      if (MyStaticValue.isNumRecognition)       NumRecognition.recognition(graph.terms);
+      if (MyStaticValue.isNameRecognition)       new AsianPersonRecognition(graph.terms).recognition();
+      if (forests == null) {
+        new UserDefineRecognition(graph.terms).recognition();
+      }
+ else {
+        for (        Forest forest : forests) {
+          if (forest == null)           continue;
+          new UserDefineRecognition(graph.terms,forest).recognition();
+        }
+      }
       return result();
     }
     /** 

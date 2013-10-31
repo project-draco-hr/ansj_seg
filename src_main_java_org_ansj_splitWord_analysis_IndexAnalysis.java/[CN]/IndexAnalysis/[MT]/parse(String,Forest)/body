@@ -1,0 +1,3 @@
+{
+  return new IndexAnalysis(forests).parseStr(str);
+}

@@ -5,7 +5,7 @@
       if (graph.hasNum) {
         NumRecognition.recognition(graph.terms);
       }
-      if (graph.hasPerson) {
+      if (graph.hasPerson && MyStaticValue.isNameRecognition) {
         new AsianPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
         AsianPersonRecognition.nameAmbiguity(graph.terms);
