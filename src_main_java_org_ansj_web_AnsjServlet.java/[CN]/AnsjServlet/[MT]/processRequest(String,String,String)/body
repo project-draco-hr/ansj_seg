@@ -7,7 +7,7 @@
     method=AnsjMethod.TO;
   }
   Boolean nature=true;
-  if (strNature.toLowerCase().equals("false")) {
+  if (strNature != null && strNature.toLowerCase().equals("false")) {
     nature=false;
   }
   List<Term> terms=null;
