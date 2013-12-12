@@ -1,7 +1,7 @@
 {
   checkValue=baseValue;
   baseValue=base[checkValue] + charHashCode;
-  if (check[baseValue] == checkValue || check[baseValue] == -1) {
+  if (baseValue < arrayLength && (check[baseValue] == checkValue || check[baseValue] == -1)) {
     return status[baseValue];
   }
   return 0;

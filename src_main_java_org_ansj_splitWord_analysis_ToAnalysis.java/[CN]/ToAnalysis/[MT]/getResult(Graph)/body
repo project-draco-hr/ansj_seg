@@ -2,7 +2,7 @@
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
       graph.walkPath();
-      if (graph.hasNum) {
+      if (MyStaticValue.isNumRecognition && graph.hasNum) {
         NumRecognition.recognition(graph.terms);
       }
       if (graph.hasPerson && MyStaticValue.isNameRecognition) {

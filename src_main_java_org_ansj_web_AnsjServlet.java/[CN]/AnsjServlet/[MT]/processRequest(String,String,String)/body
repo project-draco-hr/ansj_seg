@@ -6,6 +6,10 @@
  else {
     method=AnsjMethod.TO;
   }
+  Boolean nature=true;
+  if (strNature != null && strNature.toLowerCase().equals("false")) {
+    nature=false;
+  }
   List<Term> terms=null;
 switch (method) {
 case TO:
@@ -20,10 +24,16 @@ terms=BaseAnalysis.parse(input);
 if (terms == null) {
 return "Failed to parse input";
 }
+if (nature) {
 new NatureRecognition(terms).recognition();
+}
 StringBuilder sb=new StringBuilder();
 for (Term term : terms) {
-sb.append(term.getName() + "/" + term.getNatrue().natureStr+ " ");
+String tmp=term.getName();
+if (nature) {
+tmp+="/" + term.getNatrue().natureStr;
+}
+sb.append(tmp + " ");
 }
 return sb.toString();
 }
