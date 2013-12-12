@@ -11,7 +11,7 @@
       learn.learn(graph);
       List<String> words=sw.cut(graph.str);
       for (      String word : words) {
-        if (word.length() == 1 || word.endsWith(".")) {
+        if (word.length() == 1 || word.endsWith(".") || StringUtil.isBlank(word)) {
           continue;
         }
         learn.addTerm(new NewWord(word,TermNatures.NW,-word.length(),word.length()));

@@ -8,16 +8,14 @@
   }
   try {
     LIBRARYLOG.info("begin init crf model!");
-    model=new BayesModel(DicReader.getInputStream("crf/template.ftl"));
-    model.loadModel(DicReader.getInputStream("crf/bayes.model"));
+    model=Model.loadModel(DicReader.getInputStream("crf/template.ftl"),DicReader.getInputStream("crf/bayes.model"));
     LIBRARYLOG.info("load crf model ok!");
   }
- catch (  IOException e) {
+ catch (  Exception e) {
     e.printStackTrace();
   }
-catch (  ClassNotFoundException e) {
-    e.printStackTrace();
+ finally {
+    LOCK.unlock();
   }
-  LOCK.unlock();
   return model;
 }

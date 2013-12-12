@@ -1,8 +1,8 @@
 {
-  String key=new String(chars);
-  Feature feature=myGrad.get(key);
-  if (feature == null) {
+  SmartForest<double[][]> sf=smartForest;
+  sf=sf.getBranch(chars);
+  if (sf == null) {
     return null;
   }
-  return feature.w[featureIndex];
+  return sf.getParam()[featureIndex];
 }

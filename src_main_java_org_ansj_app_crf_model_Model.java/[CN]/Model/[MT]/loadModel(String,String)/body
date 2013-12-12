@@ -1,0 +1,3 @@
+{
+  return loadModel(new FileInputStream(templatePath),new FileInputStream(modelPath));
+}
