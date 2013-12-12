@@ -1,0 +1,13 @@
+{
+  double[] tagScore=new double[Model.TAG_NUM];
+  Template t=model.template;
+  char[] chars=null;
+  for (int i=0; i < t.ft.length; i++) {
+    chars=new char[t.ft[i].length];
+    for (int j=0; j < chars.length; j++) {
+      chars[j]=getElement(elements,index + t.ft[i][j]).name;
+    }
+    MatrixUtil.dot(tagScore,model.getFeature(i,chars));
+  }
+  elements.get(index).tagScore=tagScore;
+}

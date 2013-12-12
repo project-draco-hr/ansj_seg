@@ -1,0 +1,39 @@
+{
+  Merger merger=new Merger(){
+    @Override public List<Term> merger(){
+      graph.walkPath();
+      if (graph.hasNum) {
+        NumRecognition.recognition(graph.terms);
+      }
+      List<Term> result=getResult();
+      new NatureRecognition(result).recognition();
+      SplitWord sw=new SplitWord(model);
+      learn.learn(graph);
+      List<String> words=sw.cut(graph.str);
+      for (      String word : words) {
+        if (word.length() == 1 || word.endsWith(".")) {
+          continue;
+        }
+        learn.addTerm(new NewWord(word,TermNatures.NW,-word.length(),word.length()));
+      }
+      new UserDefineRecognition(graph.terms).recognition();
+      graph.walkPathByScore();
+      new NewWordRecognition(graph.terms,learn).recognition();
+      graph.walkPathByScore();
+      result=getResult();
+      return result;
+    }
+    private List<Term> getResult(){
+      List<Term> result=new ArrayList<Term>();
+      int length=graph.terms.length - 1;
+      for (int i=0; i < length; i++) {
+        if (graph.terms[i] != null) {
+          result.add(graph.terms[i]);
+        }
+      }
+      return result;
+    }
+  }
+;
+  return merger.merger();
+}

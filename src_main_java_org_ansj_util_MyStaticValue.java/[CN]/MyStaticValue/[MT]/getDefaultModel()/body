@@ -1,0 +1,23 @@
+{
+  if (model != null) {
+    return model;
+  }
+  LOCK.lock();
+  if (model != null) {
+    return model;
+  }
+  try {
+    LIBRARYLOG.info("begin init crf model!");
+    model=new BayesModel(DicReader.getInputStream("crf/template.ftl"));
+    model.loadModel(DicReader.getInputStream("crf/bayes.model"));
+    LIBRARYLOG.info("load crf model ok!");
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+catch (  ClassNotFoundException e) {
+    e.printStackTrace();
+  }
+  LOCK.unlock();
+  return model;
+}

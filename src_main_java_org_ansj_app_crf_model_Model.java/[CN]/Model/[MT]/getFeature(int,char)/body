@@ -1,0 +1,8 @@
+{
+  String key=new String(chars);
+  Feature feature=myGrad.get(key);
+  if (feature == null) {
+    return null;
+  }
+  return feature.w[featureIndex];
+}

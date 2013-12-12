@@ -1,0 +1,13 @@
+{
+  BufferedReader br=null;
+  try {
+    br=new BufferedReader(new InputStreamReader(templateStream));
+    return parse(br);
+  }
+ catch (  Exception e) {
+  }
+ finally {
+    br.close();
+  }
+  return null;
+}

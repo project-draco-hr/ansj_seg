@@ -1,0 +1,11 @@
+{
+  if (i < 0) {
+    return new Element('B');
+  }
+ else   if (i >= elements.size()) {
+    return new Element('E');
+  }
+ else {
+    return elements.get(i);
+  }
+}

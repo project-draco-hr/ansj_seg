@@ -1,0 +1,15 @@
+{
+  logNormalizeSTATUS();
+  Iterator<Entry<String,Feature>> iterator=myGrad.entrySet().iterator();
+  System.out.println("????????????" + myGrad.size());
+  while (iterator.hasNext()) {
+    Feature feature=iterator.next().getValue();
+    if (feature.value < 50) {
+      iterator.remove();
+    }
+ else {
+      feature.logNormalize();
+    }
+  }
+  System.out.println("???????????????" + myGrad.size());
+}

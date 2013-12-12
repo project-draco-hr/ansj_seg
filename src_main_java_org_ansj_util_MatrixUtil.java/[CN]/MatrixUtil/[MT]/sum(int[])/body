@@ -1,0 +1,7 @@
+{
+  int value=0;
+  for (  int d : dbs) {
+    value+=d;
+  }
+  return value;
+}

@@ -1,0 +1,3 @@
+{
+  return new CRFAnalysis(null,null).parseStr(str);
+}

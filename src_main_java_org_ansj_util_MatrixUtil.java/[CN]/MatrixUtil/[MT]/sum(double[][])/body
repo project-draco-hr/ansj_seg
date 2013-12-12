@@ -1,0 +1,7 @@
+{
+  double value=0;
+  for (  double[] dbs : w) {
+    value+=sum(dbs);
+  }
+  return value;
+}

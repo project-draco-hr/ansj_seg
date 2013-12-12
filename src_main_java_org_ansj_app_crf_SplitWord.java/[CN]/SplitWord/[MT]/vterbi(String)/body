@@ -1,0 +1,27 @@
+{
+  List<Element> elements=WordAlert.str2Elements(line);
+  int length=elements.size();
+  if (length == 1) {
+    elements.get(0).updateTag(0);
+    return elements;
+  }
+  for (int i=0; i < length; i++) {
+    computeTagScore(elements,i);
+  }
+  for (int i=1; i < length; i++) {
+    elements.get(i).maxFrom(model,elements.get(i - 1));
+  }
+  Element next=elements.get(elements.size() - 1);
+  Element self=null;
+  int maxStatus=next.tagScore[0] > next.tagScore[3] ? 0 : 3;
+  next.updateTag(maxStatus);
+  maxStatus=next.from[maxStatus];
+  for (int i=elements.size() - 2; i > 0; i--) {
+    self=elements.get(i);
+    self.updateTag(maxStatus);
+    maxStatus=self.from[self.getTag()];
+    next=self;
+  }
+  elements.get(0).updateTag(maxStatus);
+  return elements;
+}

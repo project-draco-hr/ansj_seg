@@ -1,0 +1,20 @@
+{
+  List<Element> elements=WordAlert.str2Elements(word);
+switch (elements.size()) {
+case 0:
+    break;
+case 1:
+  list.add(elements.get(0).updateTag(S));
+break;
+case 2:
+list.add(elements.get(0).updateTag(B));
+list.add(elements.get(1).updateTag(E));
+default :
+list.add(elements.get(0).updateTag(B));
+for (int i=1; i < elements.size() - 1; i++) {
+list.add(elements.get(i).updateTag(M));
+}
+list.add(elements.get(elements.size() - 1).updateTag(E));
+break;
+}
+}

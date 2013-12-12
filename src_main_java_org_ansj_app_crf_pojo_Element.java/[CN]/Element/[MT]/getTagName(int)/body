@@ -1,0 +1,14 @@
+{
+switch (tag) {
+case 0:
+    return 'S';
+case 1:
+  return 'B';
+case 2:
+return 'M';
+case 3:
+return 'E';
+default :
+return '?';
+}
+}

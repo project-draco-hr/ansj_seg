@@ -1,0 +1,7 @@
+{
+  double value=0;
+  for (  double d : dbs) {
+    value+=d;
+  }
+  return value;
+}

@@ -1,0 +1,11 @@
+{
+  double sum=MatrixUtil.sum(w);
+  for (int i=0; i < w.length; i++) {
+    for (int j=0; j < w[i].length; j++) {
+      w[i][j]=w[i][j] / sum;
+      if (w[i][j] > 0) {
+        w[i][j]=-w[i][j] * Math.log(w[i][j]);
+      }
+    }
+  }
+}

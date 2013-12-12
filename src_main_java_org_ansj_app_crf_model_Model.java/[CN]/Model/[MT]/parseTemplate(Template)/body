@@ -1,0 +1,10 @@
+{
+  left_list=new ArrayList<Element>(template.right);
+  for (int i=0; i < template.left; i++) {
+    left_list.add(BEGIN);
+  }
+  right_list=new ArrayList<Element>(template.right);
+  for (int i=0; i < template.right; i++) {
+    right_list.add(END);
+  }
+}

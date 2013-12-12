@@ -1,0 +1,19 @@
+{
+  BufferedReader reader=IOUtil.getReader("/home/ansj/??????/data/corpus/sport/sports.sohu.com.txt","utf-8");
+  String temp=null;
+  List<Term> parse=CRFAnalysis.parse("??????123??????");
+  BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/ansj/??????/data/corpus/sport/sports.sohu.com.txt.result")));
+  LearnTool learn=new LearnTool();
+  int len=0;
+  long start=System.currentTimeMillis();
+  while ((temp=reader.readLine()) != null) {
+    len+=temp.length();
+    parse=CRFAnalysis.parse(temp,learn);
+    bw.write(parse.toString());
+    bw.write("\n");
+  }
+  System.out.println(len);
+  System.out.println(System.currentTimeMillis() - start);
+  bw.flush();
+  bw.close();
+}

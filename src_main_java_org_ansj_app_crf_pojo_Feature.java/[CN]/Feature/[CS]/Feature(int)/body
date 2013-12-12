@@ -1,0 +1,3 @@
+{
+  w=new double[featureNum][0];
+}

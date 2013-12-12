@@ -1,0 +1,12 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append("left:" + left);
+  sb.append("\t");
+  sb.append("rightr:" + right);
+  sb.append("\n");
+  for (  int[] ints : ft) {
+    sb.append(Arrays.toString(ints));
+    sb.append("\n");
+  }
+  return sb.toString();
+}

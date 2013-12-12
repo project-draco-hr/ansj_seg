@@ -1,0 +1,10 @@
+{
+  String[] split=line.split(splitStr);
+  List<Element> list=new ArrayList<Element>(line.length() + template.left + template.right);
+  list.addAll(left_list);
+  for (  String term : split) {
+    makeWordToTempFeature(list,term);
+  }
+  list.addAll(right_list);
+  return list;
+}

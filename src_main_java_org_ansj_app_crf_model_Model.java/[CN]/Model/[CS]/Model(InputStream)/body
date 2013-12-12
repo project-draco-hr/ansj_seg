@@ -1,0 +1,7 @@
+{
+  if (templateStream != null) {
+    template=Template.parse(templateStream);
+    parseTemplate(template);
+  }
+  featureTagCount=new double[template.ft.length][TAG_NUM];
+}
