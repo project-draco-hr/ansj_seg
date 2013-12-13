@@ -1,5 +1,0 @@
-{
-  PatHashMap pt=makePatHash(graph);
-  Collection<Node> words=pt.getWords();
-  return words;
-}
