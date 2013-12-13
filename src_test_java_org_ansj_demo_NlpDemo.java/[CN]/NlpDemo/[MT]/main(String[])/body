@@ -6,7 +6,6 @@
   learn.isAsianName=false;
   learn.isCompany=false;
   learn.isForeignName=false;
-  learn.isNewWord=false;
   for (  String string : value) {
     List<Term> parse=NlpAnalysis.parse(string,learn);
     System.out.println(parse);

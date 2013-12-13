@@ -1,7 +1,6 @@
 {
   this.name=name;
   this.nature=nature;
-  this.score=getScore(nature,score);
+  this.score=score;
   this.allFreq=freq;
-  averageScore=score;
 }

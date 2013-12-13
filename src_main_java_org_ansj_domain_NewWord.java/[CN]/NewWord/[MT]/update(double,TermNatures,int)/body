@@ -1,8 +1,7 @@
 {
-  this.score+=getScore(tn,score);
+  this.score+=score * freq;
   this.allFreq+=freq;
-  this.averageScore=this.score / freq;
-  if (tn == null || !TermNatures.NW.equals(tn)) {
+  if (TermNatures.NW.equals(this.nature) || !TermNatures.NW.equals(tn)) {
     this.nature=tn;
   }
 }

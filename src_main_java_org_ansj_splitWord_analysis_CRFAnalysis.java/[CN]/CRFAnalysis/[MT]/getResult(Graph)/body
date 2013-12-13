@@ -9,15 +9,21 @@
       new NatureRecognition(result).recognition();
       SplitWord sw=new SplitWord(model);
       learn.learn(graph);
+      new UserDefineRecognition(graph.terms).recognition();
+      graph.walkPathByScore();
       List<String> words=sw.cut(graph.str);
       for (      String word : words) {
         if (word.length() == 1 || word.endsWith(".") || StringUtil.isBlank(word)) {
           continue;
         }
-        learn.addTerm(new NewWord(word,TermNatures.NW,-word.length(),word.length()));
+        if (InitDictionary.isInSystemDic(word) || UserDefineLibrary.contains(word)) {
+          continue;
+        }
+        if (word.charAt(word.length() - 1) < 256) {
+          continue;
+        }
+        learn.addTerm(new NewWord(word,TermNatures.NW,-1,word.length()));
       }
-      new UserDefineRecognition(graph.terms).recognition();
-      graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();
       graph.walkPathByScore();
       result=getResult();
