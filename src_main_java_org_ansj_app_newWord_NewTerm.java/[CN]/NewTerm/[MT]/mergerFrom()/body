@@ -1,8 +1,0 @@
-{
-  if (from == null || from.version > this.version)   return;
-  this.name=from.name + this.getName();
-  this.offe=from.offe;
-  from.isRemove=true;
-  this.version=from.version + 1;
-  this.from=from.from;
-}

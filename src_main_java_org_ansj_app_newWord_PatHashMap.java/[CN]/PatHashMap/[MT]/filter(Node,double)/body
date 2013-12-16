@@ -1,8 +1,0 @@
-{
-  if (node.freq < validate && node.score < 1) {
-    return false;
-  }
- else {
-    return true;
-  }
-}

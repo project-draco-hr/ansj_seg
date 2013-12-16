@@ -1,4 +1,0 @@
-{
-  List<NewWord> newWords=new ForeignPersonRecognition(graph.terms).getNewWords();
-  addListToTerm(newWords);
-}

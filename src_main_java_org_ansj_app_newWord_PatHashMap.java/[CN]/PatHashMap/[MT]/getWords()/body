@@ -1,4 +1,0 @@
-{
-  Collection<Node> values=hm.values();
-  return values;
-}

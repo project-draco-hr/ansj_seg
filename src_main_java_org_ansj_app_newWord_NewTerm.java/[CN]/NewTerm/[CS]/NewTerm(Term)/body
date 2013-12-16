@@ -1,6 +1,0 @@
-{
-  super();
-  this.name=term.getName();
-  this.offe=term.getOffe();
-  this.maxNature=term.getNatrue();
-}
