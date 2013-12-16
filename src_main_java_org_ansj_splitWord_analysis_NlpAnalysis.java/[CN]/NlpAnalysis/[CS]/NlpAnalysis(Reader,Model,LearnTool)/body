@@ -1,0 +1,15 @@
+{
+  super(reader);
+  if (model == null) {
+    this.model=MyStaticValue.getDefaultModel();
+  }
+ else {
+    this.model=model;
+  }
+  if (learn == null) {
+    this.learn=new LearnTool();
+  }
+ else {
+    this.learn=learn;
+  }
+}

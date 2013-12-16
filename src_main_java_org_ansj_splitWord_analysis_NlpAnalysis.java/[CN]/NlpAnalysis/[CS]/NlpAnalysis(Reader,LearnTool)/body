@@ -1,4 +1,0 @@
-{
-  super(reader);
-  this.learn=learn;
-}

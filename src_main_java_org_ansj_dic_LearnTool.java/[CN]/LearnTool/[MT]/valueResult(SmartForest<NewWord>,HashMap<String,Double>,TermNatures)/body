@@ -1,0 +1,22 @@
+{
+  if (smartForest == null || smartForest.branches == null) {
+    return;
+  }
+  for (int i=0; i < smartForest.branches.length; i++) {
+    NewWord param=smartForest.branches[i].getParam();
+    if (smartForest.branches[i].getStatus() == 3) {
+      if (nature == null || param.getNature().equals(nature)) {
+        hm.put(param.getName(),param.getScore());
+      }
+    }
+ else     if (smartForest.branches[i].getStatus() == 2) {
+      if (nature == null || param.getNature().equals(nature)) {
+        hm.put(param.getName(),param.getScore());
+      }
+      valueResult(smartForest.branches[i],hm,nature);
+    }
+ else {
+      valueResult(smartForest.branches[i],hm,nature);
+    }
+  }
+}

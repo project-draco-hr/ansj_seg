@@ -1,0 +1,11 @@
+{
+  if (isCompany) {
+    findCompany(graph);
+  }
+  if (isAsianName) {
+    findAsianPerson(graph);
+  }
+  if (isForeignName) {
+    findForeignPerson(graph);
+  }
+}

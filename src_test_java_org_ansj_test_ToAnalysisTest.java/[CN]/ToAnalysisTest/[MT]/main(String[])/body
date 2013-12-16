@@ -9,7 +9,7 @@
       continue;
     }
     Reader reader=new InputStreamReader(new FileInputStream(files[i]),"GBK");
-    Analysis toAnalysis=new NlpAnalysis(reader,learn);
+    Analysis toAnalysis=new NlpAnalysis(reader,null,learn);
     Term next=null;
     while ((next=toAnalysis.next()) != null) {
       if ("nw".equals(next.getNatrue().natureStr)) {

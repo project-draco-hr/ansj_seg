@@ -7,10 +7,25 @@
       }
       List<Term> result=getResult();
       new NatureRecognition(result).recognition();
+      SplitWord sw=new SplitWord(model);
       learn.learn(graph);
       new UserDefineRecognition(graph.terms).recognition();
       graph.walkPathByScore();
+      List<String> words=sw.cut(graph.str);
+      for (      String word : words) {
+        if (word.length() == 1 || word.endsWith(".") || StringUtil.isBlank(word)) {
+          continue;
+        }
+        if (InitDictionary.isInSystemDic(word) || UserDefineLibrary.contains(word)) {
+          continue;
+        }
+        if (word.charAt(0) < 256 || word.charAt(word.length() - 1) < 256) {
+          continue;
+        }
+        learn.addTerm(new NewWord(word,TermNatures.NW,-1,word.length()));
+      }
       new NewWordRecognition(graph.terms,learn).recognition();
+      graph.rmLittlePathByScore();
       graph.walkPathByScore();
       result=getResult();
       return result;
@@ -19,9 +34,10 @@
       List<Term> result=new ArrayList<Term>();
       int length=graph.terms.length - 1;
       for (int i=0; i < length; i++) {
-        if (graph.terms[i] != null) {
-          result.add(graph.terms[i]);
+        if (graph.terms[i] == null) {
+          continue;
         }
+        result.add(graph.terms[i]);
       }
       return result;
     }

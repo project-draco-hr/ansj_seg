@@ -1,0 +1,3 @@
+{
+  return new NlpAnalysis(model,learn).parseStr(str);
+}
