@@ -1,5 +1,5 @@
 {
-  if (args.length < 1) {
+  if (args == null || args.length < 1) {
     System.err.println("Usage: AnsjServer <serverPort> so by default 8888");
     args=new String[]{"8888"};
   }

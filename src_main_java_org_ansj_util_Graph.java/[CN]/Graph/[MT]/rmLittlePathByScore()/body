@@ -1,10 +1,23 @@
 {
   int maxTo=-1;
   Term temp=null;
-  double maxScore=0;
   for (int i=0; i < terms.length; i++) {
-    if (terms[i] == null)     continue;
+    if (terms[i] == null) {
+      continue;
+    }
+    Term maxTerm=null;
+    double maxScore=0;
     Term term=terms[i];
+    do {
+      if (maxTerm == null || maxScore > term.getScore()) {
+        maxTerm=term;
+      }
+ else       if (maxScore == term.getScore() && maxTerm.getName().length() < term.getName().length()) {
+        maxTerm=term;
+      }
+    }
+ while ((term=term.getNext()) != null);
+    term=maxTerm;
     do {
       maxTo=term.getToValue();
       maxScore=term.score;
@@ -16,7 +29,7 @@
           continue;
         }
         do {
-          if (temp.getToValue() > maxTo || temp.score > maxScore) {
+          if (temp.getToValue() > maxTo || temp.score < maxScore) {
             flag=false;
             break out;
           }
