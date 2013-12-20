@@ -1,0 +1,12 @@
+{
+  allFeatureCount++;
+  featureTagCount[fIndex][sta]++;
+  tagCount[sta]++;
+  String name=new String(chars);
+  Feature feature=lineGrad.get(name);
+  if (feature == null) {
+    feature=new Feature(template.ft.length);
+    lineGrad.put(name,feature);
+  }
+  feature.update(fIndex,sta,1);
+}

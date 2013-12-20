@@ -1,0 +1,3 @@
+{
+  init(splitStr,templateStream,modelType);
+}

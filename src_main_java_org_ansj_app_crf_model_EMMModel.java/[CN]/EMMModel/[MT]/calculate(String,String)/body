@@ -1,0 +1,13 @@
+{
+  List<Element> list=this.parseLine(line,splitStr);
+  int size=list.size() - template.right;
+  status[0][list.get(template.left).getTag()]++;
+  for (int index=template.left; index < size; index++) {
+    status[list.get(index).getTag()][list.get(index + 1).getTag()]++;
+    updateFeature(list,index);
+  }
+  if (maxSize > 0 && myGrad.size() > maxSize) {
+    remove(removeSize);
+    System.out.println("?????????????????????");
+  }
+}

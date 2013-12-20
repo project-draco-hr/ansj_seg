@@ -1,4 +1,0 @@
-{
-  this.splitStr=splitStr;
-  this.model=model;
-}

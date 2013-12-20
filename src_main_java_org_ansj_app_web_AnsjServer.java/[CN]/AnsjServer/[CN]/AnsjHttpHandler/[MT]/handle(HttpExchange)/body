@@ -1,5 +1,10 @@
 {
   try {
+    String path=httpExchange.getRequestURI().getPath();
+    if (path != null && path.startsWith("/page")) {
+      writeToClient(httpExchange,readFileToString(path));
+      return;
+    }
     String responseMsg="????????????Ansj????????????!\ndemo:http://localhost:8888/?input=????????????&method=to";
     Map<String,String> paramers=parseParamers(httpExchange);
     String input=paramers.get("input");

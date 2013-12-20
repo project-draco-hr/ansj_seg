@@ -1,0 +1,9 @@
+{
+  lineGrad=new HashMap<String,Feature>();
+  int size=list.size() - template.right;
+  for (int index=template.left; index < size; index++) {
+    status[list.get(index).getTag()][list.get(index + 1).getTag()]++;
+    updateFeature(list,index);
+  }
+  double norm=calcBack(template.left,list.get(template.left).getTag(),list);
+}

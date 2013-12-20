@@ -1,0 +1,4 @@
+{
+  super(templatePath);
+  this.myGrad=new HashMap<String,Feature>();
+}

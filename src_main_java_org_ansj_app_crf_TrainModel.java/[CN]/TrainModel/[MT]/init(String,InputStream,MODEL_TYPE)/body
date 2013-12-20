@@ -1,0 +1,11 @@
+{
+  this.splitStr=splitStr;
+switch (modelType) {
+case CRF:
+    this.model=new CRFModel(templateStream);
+  break;
+case EMM:
+this.model=new EMMModel(templateStream);
+break;
+}
+}

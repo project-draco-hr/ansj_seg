@@ -1,0 +1,3 @@
+{
+  init(splitStr,IOUtil.getInputStream(templatePath),modelType);
+}

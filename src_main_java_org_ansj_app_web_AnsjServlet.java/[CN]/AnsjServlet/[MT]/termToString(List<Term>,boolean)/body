@@ -1,0 +1,20 @@
+{
+  if (terms == null) {
+    return "Failed to parse input";
+  }
+  if (nature) {
+    new NatureRecognition(terms).recognition();
+  }
+  StringBuilder sb=new StringBuilder();
+  for (  Term term : terms) {
+    String tmp=term.getName();
+    if (nature) {
+      tmp+="/" + term.getNatrue().natureStr;
+      if (term.getNatrue().natureStr == null || term.getNatrue().natureStr.equals("null")) {
+        continue;
+      }
+    }
+    sb.append(tmp + "\t");
+  }
+  return sb.toString();
+}

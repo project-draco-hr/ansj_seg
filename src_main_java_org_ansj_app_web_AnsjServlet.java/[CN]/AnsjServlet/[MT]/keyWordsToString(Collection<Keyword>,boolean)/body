@@ -1,0 +1,11 @@
+{
+  StringBuilder sb=new StringBuilder();
+  for (  Keyword k : keyWords) {
+    String tmp=k.getName();
+    if (nature) {
+      tmp+="/" + k.getScore();
+    }
+    sb.append(tmp + "\t");
+  }
+  return sb.toString();
+}
