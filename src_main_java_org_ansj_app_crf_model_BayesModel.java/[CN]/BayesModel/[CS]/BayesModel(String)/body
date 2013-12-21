@@ -1,4 +1,0 @@
-{
-  super(template);
-  this.myGrad=new HashMap<String,Feature>();
-}
