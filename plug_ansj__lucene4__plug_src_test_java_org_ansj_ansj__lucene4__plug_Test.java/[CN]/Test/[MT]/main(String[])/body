@@ -1,0 +1,5 @@
+{
+  Term term=new Term("category","/technology/computers/programming");
+  SpanQuery query=new SpanTermQuery(term);
+  System.out.println(query);
+}
