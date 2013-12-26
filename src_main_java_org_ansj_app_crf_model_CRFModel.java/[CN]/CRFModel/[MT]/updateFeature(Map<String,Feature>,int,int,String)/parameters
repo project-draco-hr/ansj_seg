@@ -1,0 +1,4 @@
+Map<String,Feature> grad
+int fIndex
+int sta
+String name

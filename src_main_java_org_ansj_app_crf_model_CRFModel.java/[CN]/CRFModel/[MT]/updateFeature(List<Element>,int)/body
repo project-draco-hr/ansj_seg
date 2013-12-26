@@ -1,11 +1,6 @@
 {
-  int sta=list.get(index).getTag();
-  char[] chars=null;
-  for (int i=0; i < template.ft.length; i++) {
-    chars=new char[template.ft[i].length];
-    for (int j=0; j < chars.length; j++) {
-      chars[j]=list.get(index + template.ft[i][j]).name;
-    }
-    updateFeature(i,sta,chars);
+  List<TempFeature> tempFeatures=this.getTempFeatures(list,index);
+  for (  TempFeature tempFeature : tempFeatures) {
+    updateFeature(lineGrad,tempFeature.index,tempFeature.sta,tempFeature.name);
   }
 }

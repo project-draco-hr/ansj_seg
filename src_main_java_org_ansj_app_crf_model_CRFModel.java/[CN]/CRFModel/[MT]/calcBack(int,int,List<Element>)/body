@@ -1,3 +1,8 @@
 {
+  if (index >= list.size()) {
+    return 0;
+  }
+  calcBack(index + 1,list.get(index + 1).getTag(),list);
+  List<TempFeature> tempFeatures=this.getTempFeatures(list,index);
   return 0;
 }

@@ -3,5 +3,4 @@
     template=Template.parse(templatePath);
     parseTemplate(template);
   }
-  featureTagCount=new double[template.ft.length][TAG_NUM];
 }

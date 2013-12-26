@@ -1,0 +1,6 @@
+{
+  super();
+  this.name=new String(chars);
+  this.index=index;
+  this.sta=sta;
+}

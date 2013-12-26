@@ -1,0 +1,13 @@
+{
+  List<TempFeature> tempFeatures=new ArrayList<TempFeature>(template.ft.length);
+  int sta=list.get(index).getTag();
+  char[] chars=null;
+  for (int i=0; i < template.ft.length; i++) {
+    chars=new char[template.ft[i].length];
+    for (int j=0; j < chars.length; j++) {
+      chars[j]=list.get(index + template.ft[i][j]).name;
+    }
+    tempFeatures.add(new TempFeature(chars,i,sta));
+  }
+  return tempFeatures;
+}

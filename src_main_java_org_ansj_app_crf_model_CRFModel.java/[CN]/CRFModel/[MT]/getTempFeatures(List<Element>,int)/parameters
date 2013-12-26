@@ -1,3 +1,2 @@
-int index
-int sta
 List<Element> list
+int index

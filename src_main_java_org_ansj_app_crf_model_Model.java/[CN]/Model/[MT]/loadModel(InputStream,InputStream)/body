@@ -9,6 +9,9 @@
       @Override protected void compute(){
         throw new RuntimeException("you can not to calculate ,this model only use by cut ");
       }
+      @Override public void writeModel(      String path) throws FileNotFoundException, IOException {
+        throw new RuntimeException("you can not to save ,this model only use by cut ");
+      }
     }
 ;
     model.smartForest=new SmartForest<double[][]>(0.8);

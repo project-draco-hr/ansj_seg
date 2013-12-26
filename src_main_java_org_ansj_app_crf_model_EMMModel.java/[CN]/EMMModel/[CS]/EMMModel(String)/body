@@ -1,4 +1,5 @@
 {
-  super(template);
+  super(templatePath);
   this.myGrad=new HashMap<String,Feature>();
+  featureTagCount=new double[template.ft.length][TAG_NUM];
 }

@@ -1,0 +1,6 @@
+{
+  super();
+  this.name=name;
+  this.index=index;
+  this.sta=sta;
+}
