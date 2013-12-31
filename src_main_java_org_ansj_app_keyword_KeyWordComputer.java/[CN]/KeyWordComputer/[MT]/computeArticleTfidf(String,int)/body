@@ -2,7 +2,6 @@
   Map<String,Keyword> tm=new HashMap<String,Keyword>();
   LearnTool learn=new LearnTool();
   List<Term> parse=NlpAnalysis.parse(content,learn);
-  parse=NlpAnalysis.parse(content,learn);
   for (  Term term : parse) {
     int weight=getWeight(term,content.length(),titleLength);
     if (weight == 0)     continue;
@@ -17,7 +16,7 @@
   }
   TreeSet<Keyword> treeSet=new TreeSet<Keyword>(tm.values());
   ArrayList<Keyword> arrayList=new ArrayList<Keyword>(treeSet);
-  if (treeSet.size() < nKeyword) {
+  if (treeSet.size() <= nKeyword) {
     return arrayList;
   }
  else {
