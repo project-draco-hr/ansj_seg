@@ -1,0 +1,4 @@
+{
+  w=new double[featureNum][0];
+  this.tagNum=tagNum;
+}

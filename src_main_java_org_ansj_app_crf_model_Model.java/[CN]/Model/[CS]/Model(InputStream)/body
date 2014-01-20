@@ -1,6 +1,0 @@
-{
-  if (templateStream != null) {
-    template=Template.parse(templateStream);
-    parseTemplate(template);
-  }
-}

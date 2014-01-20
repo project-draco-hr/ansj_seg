@@ -23,6 +23,9 @@ case KEYWORD:
 KeyWordComputer keyWordComputer=new KeyWordComputer(10);
 keyWords=keyWordComputer.computeArticleTfidf(input);
 break;
+case INDEX:
+terms=IndexAnalysis.parse(input);
+break;
 default :
 terms=BaseAnalysis.parse(input);
 }

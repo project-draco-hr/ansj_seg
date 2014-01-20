@@ -1,0 +1,6 @@
+{
+  WapitiCRFModel model=new WapitiCRFModel();
+  model.maxSize=maxSzie;
+  model.parseFile(modelPath,templatePath);
+  return model;
+}

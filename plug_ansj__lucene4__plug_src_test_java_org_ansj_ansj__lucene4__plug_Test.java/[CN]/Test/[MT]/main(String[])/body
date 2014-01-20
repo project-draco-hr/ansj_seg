@@ -1,5 +1,9 @@
 {
   Term term=new Term("category","/technology/computers/programming");
   SpanQuery query=new SpanTermQuery(term);
+  FieldValueFilter fvf=new FieldValueFilter("_id");
+  FilteredQuery filteredQuery=new FilteredQuery(query,fvf);
+  System.out.println(filteredQuery);
+  System.out.println(fvf);
   System.out.println(query);
 }

@@ -1,6 +1,0 @@
-{
-  List<TempFeature> tempFeatures=this.getTempFeatures(list,index);
-  for (  TempFeature tempFeature : tempFeatures) {
-    updateFeature(lineGrad,tempFeature.index,tempFeature.sta,tempFeature.name);
-  }
-}

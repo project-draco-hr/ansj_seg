@@ -1,0 +1,7 @@
+{
+  if (statusMap.containsKey(sta)) {
+    return;
+  }
+  statusMap.put(sta,tagNum);
+  tagNum++;
+}

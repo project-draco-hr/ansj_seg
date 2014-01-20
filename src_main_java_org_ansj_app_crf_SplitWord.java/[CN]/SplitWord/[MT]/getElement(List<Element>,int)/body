@@ -1,9 +1,9 @@
 {
   if (i < 0) {
-    return new Element('B');
+    return new Element((char)('B' + i));
   }
  else   if (i >= elements.size()) {
-    return new Element('E');
+    return new Element((char)('B' + i - elements.size() + 1));
   }
  else {
     return elements.get(i);

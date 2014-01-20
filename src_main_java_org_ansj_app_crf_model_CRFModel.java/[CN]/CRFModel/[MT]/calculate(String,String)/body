@@ -1,4 +1,0 @@
-{
-  List<Element> list=this.parseLine(line,splitStr);
-  calcGradient(list);
-}

@@ -1,4 +1,7 @@
 {
+  if (sw == null) {
+    sw=new SplitWord(model);
+  }
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
       graph.walkPath();
@@ -7,7 +10,6 @@
       }
       List<Term> result=getResult();
       new NatureRecognition(result).recognition();
-      SplitWord sw=new SplitWord(model);
       learn.learn(graph);
       new UserDefineRecognition(graph.terms).recognition();
       graph.walkPathByScore();

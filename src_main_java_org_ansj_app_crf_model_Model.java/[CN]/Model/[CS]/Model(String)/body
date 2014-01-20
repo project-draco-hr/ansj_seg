@@ -1,6 +1,0 @@
-{
-  if (templatePath != null) {
-    template=Template.parse(templatePath);
-    parseTemplate(template);
-  }
-}

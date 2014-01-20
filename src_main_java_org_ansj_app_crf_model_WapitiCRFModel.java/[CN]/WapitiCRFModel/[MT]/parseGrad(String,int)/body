@@ -1,0 +1,14 @@
+{
+  String[] split=temp.split("\t");
+  int mIndex=split[0].indexOf(":");
+  String name=fixName(split[0].substring(mIndex + 1));
+  int fIndex=Integer.parseInt(split[0].substring(1,mIndex));
+  int sta=statusMap.get(split[2]);
+  double step=Double.parseDouble(split[3]);
+  Feature feature=myGrad.get(name);
+  if (feature == null) {
+    feature=new Feature(featureNum,tagNum);
+    myGrad.put(name,feature);
+  }
+  feature.update(fIndex,sta,step);
+}

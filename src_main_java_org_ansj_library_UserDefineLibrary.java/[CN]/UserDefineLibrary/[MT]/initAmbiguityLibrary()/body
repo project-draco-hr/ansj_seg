@@ -4,24 +4,19 @@
     LIBRARYLOG.warning("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
     return;
   }
-  try {
-    ambiguityLibrary=MyStaticValue.ambiguityLibrary;
-  }
- catch (  Exception exception) {
-    LIBRARYLOG.warning("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
-  }
+  ambiguityLibrary=MyStaticValue.ambiguityLibrary;
   File file=new File(ambiguityLibrary);
   if (file.isFile() && file.canRead()) {
     try {
       ambiguityForest=Library.makeForest(ambiguityLibrary);
     }
  catch (    Exception e) {
-      LIBRARYLOG.warning("init ambiguity  error :" + ambiguityLibrary + " because : not find that file or can not to read !");
+      LIBRARYLOG.warning("init ambiguity  error :" + new File(ambiguityLibrary).getAbsolutePath() + " because : not find that file or can not to read !");
       e.printStackTrace();
     }
     LIBRARYLOG.info("init ambiguityLibrary ok!");
   }
  else {
-    LIBRARYLOG.warning("init ambiguity  waring :" + ambiguityLibrary + " because : not find that file or can not to read !");
+    LIBRARYLOG.warning("init ambiguity  waring :" + new File(ambiguityLibrary).getAbsolutePath() + " because : not find that file or can not to read !");
   }
 }

@@ -1,0 +1,10 @@
+{
+  leftList=new ArrayList<Element>(Math.abs(left));
+  for (int i=left; i < 0; i++) {
+    leftList.add(new Element((char)('B' + i)));
+  }
+  rightList=new ArrayList<Element>(right);
+  for (int i=1; i < right + 1; i++) {
+    rightList.add(new Element((char)('B' + i)));
+  }
+}

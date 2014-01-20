@@ -1,7 +1,4 @@
 {
-  if (isCompany) {
-    findCompany(graph);
-  }
   if (isAsianName) {
     findAsianPerson(graph);
   }

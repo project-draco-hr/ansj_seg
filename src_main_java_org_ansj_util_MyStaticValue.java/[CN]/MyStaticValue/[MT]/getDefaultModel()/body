@@ -8,7 +8,7 @@
   }
   try {
     LIBRARYLOG.info("begin init crf model!");
-    model=Model.loadModel(DicReader.getInputStream("crf/template.ftl"),DicReader.getInputStream("crf/bayes.model"));
+    model=Model.loadModel(DicReader.getInputStream("crf/crf.model"));
     LIBRARYLOG.info("load crf model ok!");
   }
  catch (  Exception e) {
