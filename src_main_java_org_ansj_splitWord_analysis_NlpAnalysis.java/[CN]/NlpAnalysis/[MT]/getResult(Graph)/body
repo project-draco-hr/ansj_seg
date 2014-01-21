@@ -1,6 +1,6 @@
 {
   if (sw == null) {
-    sw=new SplitWord(model);
+    sw=defaultSlitWord;
   }
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
@@ -11,8 +11,6 @@
       List<Term> result=getResult();
       new NatureRecognition(result).recognition();
       learn.learn(graph);
-      new UserDefineRecognition(graph.terms).recognition();
-      graph.walkPathByScore();
       List<String> words=sw.cut(graph.str);
       for (      String word : words) {
         if (word.length() == 1 || word.endsWith(".") || StringUtil.isBlank(word)) {
@@ -28,6 +26,8 @@
       }
       new NewWordRecognition(graph.terms,learn).recognition();
       graph.rmLittlePathByScore();
+      graph.walkPathByScore();
+      new UserDefineRecognition(graph.terms).recognition();
       graph.walkPathByScore();
       result=getResult();
       return result;

@@ -1,0 +1,21 @@
+{
+  if (bigSplitWord != null) {
+    return bigSplitWord;
+  }
+  LOCK.lock();
+  if (bigSplitWord != null) {
+    return bigSplitWord;
+  }
+  try {
+    LIBRARYLOG.info("begin init crf big model!");
+    bigSplitWord=new SplitWord(Model.loadModel(DicReader.getInputStream("crf/big.model")));
+    LIBRARYLOG.info("load crf crf big ok!");
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+ finally {
+    LOCK.unlock();
+  }
+  return bigSplitWord;
+}

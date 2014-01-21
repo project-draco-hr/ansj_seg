@@ -1,9 +1,6 @@
 {
-  if (model == null) {
-    this.model=MyStaticValue.getDefaultModel();
-  }
- else {
-    this.model=model;
+  if (model != null) {
+    sw=new SplitWord(model);
   }
   if (learn == null) {
     this.learn=new LearnTool();

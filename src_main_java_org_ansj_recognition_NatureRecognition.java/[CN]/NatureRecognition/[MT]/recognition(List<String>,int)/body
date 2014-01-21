@@ -1,0 +1,22 @@
+{
+  List<Term> terms=new ArrayList<Term>(words.size());
+  int tempOffe=0;
+  String[] params=null;
+  for (  String word : words) {
+    int wordId=InitDictionary.getWordId(word);
+    TermNatures tn=null;
+    if (wordId != 0) {
+      tn=InitDictionary.termNatures[wordId];
+    }
+ else     if ((params=UserDefineLibrary.getParams(word)) != null) {
+      tn=new TermNatures(new TermNature(params[0],1));
+    }
+    if (tn == null) {
+      tn=TermNatures.NW;
+    }
+    terms.add(new Term(word,offe + tempOffe,tn));
+    tempOffe+=word.length();
+  }
+  new NatureRecognition(terms).recognition();
+  return terms;
+}

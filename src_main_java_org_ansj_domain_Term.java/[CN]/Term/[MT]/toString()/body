@@ -1,6 +1,11 @@
 {
   if (nature != null && !"null".equals(nature.natureStr)) {
-    return this.name + "/" + nature.natureStr;
+    if (this.getSubTerm() != null) {
+      return this.getSubTerm().toString() + "/" + nature.natureStr;
+    }
+ else {
+      return this.name + "/" + nature.natureStr;
+    }
   }
  else {
     return this.name;
