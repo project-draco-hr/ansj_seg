@@ -22,11 +22,11 @@
         if (word.charAt(0) < 256 || word.charAt(word.length() - 1) < 256) {
           continue;
         }
-        learn.addTerm(new NewWord(word,TermNatures.NW,-1,word.length()));
+        learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw"),-word.length()));
       }
       new NewWordRecognition(graph.terms,learn).recognition();
-      graph.rmLittlePathByScore();
       graph.walkPathByScore();
+      AsianPersonRecognition.nameAmbiguity(graph.terms);
       new UserDefineRecognition(graph.terms).recognition();
       graph.walkPathByScore();
       result=getResult();

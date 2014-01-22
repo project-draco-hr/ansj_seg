@@ -1,0 +1,8 @@
+{
+  super();
+  this.name=name;
+  this.offe=offe;
+  TermNature termNature=new TermNature(natureStr,natureFreq);
+  this.nature=termNature.nature;
+  this.termNatures=new TermNatures(termNature);
+}

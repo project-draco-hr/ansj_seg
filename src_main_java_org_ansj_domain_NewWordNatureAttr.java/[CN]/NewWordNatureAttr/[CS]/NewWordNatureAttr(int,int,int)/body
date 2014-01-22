@@ -1,6 +1,0 @@
-{
-  this.all+=b + m + e;
-  this.b=b;
-  this.m=m;
-  this.e=e;
-}

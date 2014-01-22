@@ -10,7 +10,6 @@
   long start=System.currentTimeMillis();
   LearnTool learn=new LearnTool();
   learn.isAsianName=false;
-  learn.isCompany=false;
   learn.isForeignName=false;
   for (  String string : value) {
     List<Term> parse=NlpAnalysis.parse(string,learn);

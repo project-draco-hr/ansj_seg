@@ -1,6 +1,0 @@
-{
-  if (newWordAttr == NewWordNatureAttr.NULL) {
-    return 3;
-  }
-  return (freq / (double)(newWordAttr.getAll() + 1)) * Math.log(500000 / (double)(newWordAttr.getAll() + 1));
-}

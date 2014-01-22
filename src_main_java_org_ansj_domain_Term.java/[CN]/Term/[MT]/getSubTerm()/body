@@ -1,16 +1,3 @@
 {
-  if (subTerm != null) {
-    return subTerm;
-  }
-  if (this.getName().length() > 3 && (this.termNatures == TermNatures.NT || this.termNatures == TermNatures.NW)) {
-    List<String> words=MyStaticValue.getMinSplitWord().cut(this.getName());
-    if (words.size() == 1) {
-      return null;
-    }
-    subTerm=NatureRecognition.recognition(words,this.offe);
-    return subTerm;
-  }
- else {
-    return null;
-  }
+  return subTerm;
 }

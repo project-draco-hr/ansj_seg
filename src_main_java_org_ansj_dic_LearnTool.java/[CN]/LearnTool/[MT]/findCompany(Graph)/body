@@ -1,4 +1,0 @@
-{
-  List<NewWord> newWords=new CompanyRecogntion(graph.terms).getNewWords();
-  addListToTerm(newWords);
-}

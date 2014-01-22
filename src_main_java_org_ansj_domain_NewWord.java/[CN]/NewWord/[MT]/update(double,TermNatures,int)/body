@@ -1,7 +1,0 @@
-{
-  this.score+=score * freq;
-  this.allFreq+=freq;
-  if (TermNatures.NW.equals(this.nature) || !TermNatures.NW.equals(tn)) {
-    this.nature=tn;
-  }
-}

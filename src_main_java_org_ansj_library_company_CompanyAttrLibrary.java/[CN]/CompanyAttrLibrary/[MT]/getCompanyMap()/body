@@ -2,6 +2,12 @@
   if (cnMap != null) {
     return cnMap;
   }
-  init();
+  try {
+    init();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    cnMap=new HashMap<String,int[]>();
+  }
   return cnMap;
 }

@@ -1,10 +1,6 @@
 {
   HashMap<String,PersonNatureAttr> personMap=new PersonAttrLibrary().getPersonMap();
   PersonNatureAttr personAttr=null;
-  HashMap<String,CompanyNatureAttr> companyMap=new CompanyAttrLibrary().getCompanyMap();
-  CompanyNatureAttr companyAttr=null;
-  HashMap<String,NewWordNatureAttr> newWordMap=new NewWordAttrLibrary().getNewWordMap();
-  NewWordNatureAttr newWordAttr=null;
   String temp=null;
   String[] strs=null;
   int num=0;
@@ -24,13 +20,6 @@
       TermNatures tn=new TermNatures(TermNature.setNatureStrToArray(strs[5]),num);
       if ((personAttr=personMap.get(strs[1])) != null) {
         tn.setPersonNatureAttr(personAttr);
-      }
-      if ((companyAttr=companyMap.get(strs[1])) != null) {
-        tn.setCompanyAttr(companyAttr);
-      }
-      if ((newWordAttr=newWordMap.get(strs[1])) != null) {
-        newWordAttr.updateAll(tn.allFreq);
-        tn.setNewWordAttr(newWordAttr);
       }
       termNatures[num]=tn;
     }
@@ -54,26 +43,6 @@
         tn=new TermNatures(TermNature.NR);
       }
       tn.setPersonNatureAttr(entry.getValue());
-      termNatures[c]=tn;
-    }
-  }
-  Set<Entry<String,CompanyNatureAttr>> cnSet=companyMap.entrySet();
-  for (  Entry<String,CompanyNatureAttr> entry : cnSet) {
-    if (entry.getKey().length() == 1) {
-      c=entry.getKey().charAt(0);
-      if (status[c] > 1) {
-        continue;
-      }
-      if (status[c] == 0) {
-        base[c]=c;
-        check[c]=-1;
-        status[c]=3;
-        words[c]=entry.getKey();
-      }
-      if ((tn=termNatures[c]) == null) {
-        tn=new TermNatures(TermNature.NULL);
-      }
-      tn.setCompanyAttr(entry.getValue());
       termNatures[c]=tn;
     }
   }

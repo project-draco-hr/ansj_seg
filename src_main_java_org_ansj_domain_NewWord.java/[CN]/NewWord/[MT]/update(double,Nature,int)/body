@@ -1,0 +1,7 @@
+{
+  this.score-=freq;
+  this.allFreq+=freq;
+  if ("nw".equals(this.nature.natureStr) || !"nw".equals(tn.natureStr)) {
+    this.nature=tn;
+  }
+}

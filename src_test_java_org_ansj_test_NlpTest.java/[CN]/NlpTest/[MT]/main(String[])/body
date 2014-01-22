@@ -148,7 +148,6 @@
   int count=0;
   for (int mm=0; mm < 1; mm++) {
     for (    String string : all) {
-      count+=string.length();
       System.out.println(NlpAnalysis.parse(string));
     }
   }

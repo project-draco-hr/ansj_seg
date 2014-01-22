@@ -1,7 +1,7 @@
 {
   if (nature != null && !"null".equals(nature.natureStr)) {
-    if (this.getSubTerm() != null) {
-      return this.getSubTerm().toString() + "/" + nature.natureStr;
+    if (this.subTerm != null) {
+      return this.subTerm.toString() + "/" + nature.natureStr;
     }
  else {
       return this.name + "/" + nature.natureStr;

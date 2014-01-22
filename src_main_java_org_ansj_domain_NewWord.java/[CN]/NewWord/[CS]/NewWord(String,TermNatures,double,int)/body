@@ -1,6 +1,0 @@
-{
-  this.name=name;
-  this.nature=nature;
-  this.score=score;
-  this.allFreq=freq;
-}

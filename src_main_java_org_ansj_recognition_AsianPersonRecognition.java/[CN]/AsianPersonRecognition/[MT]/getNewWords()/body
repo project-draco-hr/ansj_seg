@@ -2,7 +2,7 @@
   List<NewWord> all=new ArrayList<NewWord>();
   List<Term> termList=recogntion_();
   for (  Term term2 : termList) {
-    all.add(new NewWord(term2.getName(),TermNatures.NR,term2.selfScore,1));
+    all.add(new NewWord(term2.getName(),NatureLibrary.getNature("nr"),term2.selfScore));
   }
   return all;
 }

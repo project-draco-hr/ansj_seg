@@ -1,0 +1,29 @@
+{
+  String name=term.getName();
+  int offe=term.getOffe();
+  if (name.length() <= 3) {
+    return;
+  }
+  List<String> words=MyStaticValue.getMinSplitWord().cut(name);
+  if (words.size() == 1) {
+    return;
+  }
+  if (ForeignPersonRecognition.isFName(name)) {
+    term.setNature(NatureLibrary.getNature("nrf"));
+    return;
+  }
+  List<Term> subTerm=NatureRecognition.recognition(words,offe);
+  term.setSubTerm(subTerm);
+  Term first=subTerm.get(0);
+  Term last=subTerm.get(subTerm.size() - 1);
+  int[] is=companyMap.get(first.getName());
+  int all=0;
+  is=companyMap.get(last.getName());
+  if (is != null) {
+    all+=is[1];
+  }
+  if (all > 1000) {
+    term.setNature(NatureLibrary.getNature("nt"));
+    return;
+  }
+}

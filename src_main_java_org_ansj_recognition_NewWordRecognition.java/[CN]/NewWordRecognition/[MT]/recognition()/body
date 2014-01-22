@@ -38,14 +38,14 @@ case 1:
 case 2:
     sb.append(term.getName());
   score=branch.getParam().getScore();
-tempNatures=branch.getParam().getNature();
+tempNature=branch.getParam().getNature();
 to=term.getTo();
 makeNewTerm();
 continue;
 case 3:
 sb.append(term.getName());
 score=branch.getParam().getScore();
-tempNatures=branch.getParam().getNature();
+tempNature=branch.getParam().getNature();
 to=term.getTo();
 makeNewTerm();
 flag=false;
