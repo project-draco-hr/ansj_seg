@@ -1,4 +1,7 @@
 {
+  if (!Nature.NW.equals(term.getNatrue())) {
+    return;
+  }
   String name=term.getName();
   int offe=term.getOffe();
   if (name.length() <= 3) {

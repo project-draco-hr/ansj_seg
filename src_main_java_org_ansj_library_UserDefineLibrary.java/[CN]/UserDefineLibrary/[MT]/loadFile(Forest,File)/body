@@ -15,6 +15,10 @@
       }
  else {
         strs=temp.split("\t");
+        strs[0]=strs[0].toLowerCase();
+        if (InitDictionary.getWordId(strs[0]) > 0) {
+          continue;
+        }
         if (strs.length != 3) {
           value=new Value(strs[0],DEFAULT_NATURE,DEFAULT_FREQ_STR);
         }

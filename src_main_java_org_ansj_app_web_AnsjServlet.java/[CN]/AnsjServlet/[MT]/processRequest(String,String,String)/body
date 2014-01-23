@@ -23,7 +23,7 @@ case MIN_NLP:
 terms=NlpAnalysis.parse(input);
 String str=terms.toString();
 if (str.length() > 4) {
-return str.substring(1,str.length() - 2);
+return str.substring(1,str.length() - 1);
 }
 case KEYWORD:
 KeyWordComputer keyWordComputer=new KeyWordComputer(10);
@@ -36,7 +36,7 @@ default :
 terms=BaseAnalysis.parse(input);
 }
 if (terms != null) {
-return termToString(terms,nature);
+return termToString(terms,nature,method);
 }
 if (keyWords != null) {
 return keyWordsToString(keyWords,nature);
