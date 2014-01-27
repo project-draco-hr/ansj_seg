@@ -1,8 +1,0 @@
-{
-  StringBuilder sb=new StringBuilder();
-  for (  Term term : parse) {
-    sb.append(term.getName());
-    sb.append(" ");
-  }
-  return sb.toString();
-}
