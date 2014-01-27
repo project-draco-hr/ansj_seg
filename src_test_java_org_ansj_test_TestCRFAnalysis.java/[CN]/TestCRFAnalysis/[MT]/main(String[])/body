@@ -1,19 +1,24 @@
 {
   BufferedReader reader=IOUtil.getReader("/home/ansj/??????/data/corpus/sport/sports.sohu.com.txt","utf-8");
   String temp=null;
-  List<Term> parse=NlpAnalysis.parse("??????123??????");
+  MyStaticValue.getBigSplitWord();
+  List<Term> parse=NlpAnalysis.parse("??????123???????????????????????????????????????123");
   BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(new FileOutputStream("/home/ansj/??????/data/corpus/sport/sports.sohu.com.txt.result")));
   LearnTool learn=new LearnTool();
   int len=0;
   long start=System.currentTimeMillis();
+  int k=0;
   while ((temp=reader.readLine()) != null) {
+    if (k++ > 10000) {
+      break;
+    }
     len+=temp.length();
     parse=NlpAnalysis.parse(temp,learn);
     bw.write(parse.toString());
     bw.write("\n");
   }
-  System.out.println(len);
-  System.out.println(System.currentTimeMillis() - start);
+  System.out.println(len / (System.currentTimeMillis() - start) * 1000);
+  System.out.println(learn.getTopTree(100));
   bw.flush();
   bw.close();
 }

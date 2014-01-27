@@ -13,22 +13,19 @@
       learn.learn(graph);
       List<String> words=sw.cut(graph.str);
       for (      String word : words) {
-        if (word.length() == 1 || word.endsWith(".") || StringUtil.isBlank(word)) {
+        if (word.length() < 2) {
           continue;
         }
         if (InitDictionary.isInSystemDic(word) || UserDefineLibrary.contains(word)) {
           continue;
         }
-        if (word.charAt(0) < 256 || word.charAt(word.length() - 1) < 256) {
-          continue;
-        }
         learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw"),-word.length()));
       }
+      new UserDefineRecognition(graph.terms).recognition();
+      graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();
       graph.walkPathByScore();
       AsianPersonRecognition.nameAmbiguity(graph.terms);
-      new UserDefineRecognition(graph.terms).recognition();
-      graph.walkPathByScore();
       result=getResult();
       return result;
     }

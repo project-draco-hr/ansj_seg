@@ -1,15 +1,16 @@
 {
-  if (bigSplitWord != null) {
-    return bigSplitWord;
+  if (crfSplitWord != null) {
+    return crfSplitWord;
   }
   LOCK.lock();
-  if (bigSplitWord != null) {
-    return bigSplitWord;
+  if (crfSplitWord != null) {
+    return crfSplitWord;
   }
   try {
+    long start=System.currentTimeMillis();
     LIBRARYLOG.info("begin init crf big model!");
-    bigSplitWord=new SplitWord(Model.loadModel(DicReader.getInputStream("crf/big.model")));
-    LIBRARYLOG.info("load crf crf big ok!");
+    crfSplitWord=new SplitWord(Model.loadModel(DicReader.getInputStream("crf/crf.model")));
+    LIBRARYLOG.info("load crf crf big use time:" + (System.currentTimeMillis() - start));
   }
  catch (  Exception e) {
     e.printStackTrace();
@@ -17,5 +18,5 @@
  finally {
     LOCK.unlock();
   }
-  return bigSplitWord;
+  return crfSplitWord;
 }
