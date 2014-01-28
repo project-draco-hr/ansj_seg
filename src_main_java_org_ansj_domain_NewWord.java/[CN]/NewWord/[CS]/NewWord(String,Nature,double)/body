@@ -1,7 +1,4 @@
 {
-  if (score > 0) {
-    System.out.println(name);
-  }
   this.name=name;
   this.nature=nature;
   this.score=score;

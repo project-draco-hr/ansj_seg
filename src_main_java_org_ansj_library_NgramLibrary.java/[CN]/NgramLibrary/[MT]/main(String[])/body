@@ -1,7 +1,0 @@
-{
-  Term from=new Term("???",0,new TermNatures(TermNature.NULL));
-  from.getTermNatures().id=InitDictionary.getWordId(from.getName());
-  Term to=new Term("??????",0,new TermNatures(TermNature.NULL));
-  to.getTermNatures().id=InitDictionary.getWordId(to.getName());
-  System.out.println(getTwoWordFreq(from,to));
-}

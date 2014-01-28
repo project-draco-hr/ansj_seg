@@ -21,7 +21,7 @@
       writeToClient(httpExchange,e.getMessage());
     }
  catch (    IOException e1) {
-      e1.printStackTrace();
+      System.out.println("eee");
     }
   }
  finally {

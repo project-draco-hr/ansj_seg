@@ -1,13 +1,8 @@
 {
-  if (nature != null && !"null".equals(nature.natureStr)) {
-    if (this.subTerm != null) {
-      return this.subTerm.toString() + "/" + nature.natureStr;
-    }
- else {
-      return this.name + "/" + nature.natureStr;
-    }
+  if (this.subTerm != null) {
+    return this.subTerm.toString() + "/" + nature.natureStr;
   }
  else {
-    return this.name;
+    return this.name + "/" + nature.natureStr;
   }
 }
