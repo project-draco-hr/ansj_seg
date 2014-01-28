@@ -1,8 +1,3 @@
 {
-  if (this.subTerm != null) {
-    return this.subTerm.toString() + "/" + nature.natureStr;
-  }
- else {
-    return this.name + "/" + nature.natureStr;
-  }
+  return this.name + "/" + nature.natureStr;
 }

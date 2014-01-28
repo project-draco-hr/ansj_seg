@@ -1,0 +1,20 @@
+{
+  String newWord="???????????????";
+  String nature="aaaaa";
+  String str="????????????2012?????????????????????????????????????????????";
+  UserDefineLibrary.insertWord(newWord,nature,1000);
+  List<Term> parse=ToAnalysis.parse(str);
+  HashMap<String,Term> hs=new HashMap<String,Term>();
+  for (  Term term : parse) {
+    hs.put(term.getName(),term);
+  }
+  Assert.assertTrue(hs.containsKey(newWord));
+  Assert.assertEquals(hs.get(newWord).getNatrue().natureStr,nature);
+  UserDefineLibrary.removeWord(newWord);
+  parse=ToAnalysis.parse(str);
+  hs=new HashMap<String,Term>();
+  for (  Term term : parse) {
+    hs.put(term.getName(),term);
+  }
+  Assert.assertTrue(!hs.containsKey(newWord));
+}

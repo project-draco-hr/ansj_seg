@@ -2,9 +2,6 @@
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
       graph.walkPath();
-      if (graph.hasNum) {
-        NumRecognition.recognition(graph.terms);
-      }
       return getResult();
     }
     private List<Term> getResult(){

@@ -1,3 +1,0 @@
-{
-  return new NlpAnalysis(model,null).parseStr(str);
-}

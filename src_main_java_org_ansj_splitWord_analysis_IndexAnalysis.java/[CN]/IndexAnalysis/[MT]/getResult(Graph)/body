@@ -4,15 +4,7 @@
       graph.walkPath();
       if (MyStaticValue.isNumRecognition)       NumRecognition.recognition(graph.terms);
       if (MyStaticValue.isNameRecognition)       new AsianPersonRecognition(graph.terms).recognition();
-      if (forests == null) {
-        new UserDefineRecognition(graph.terms).recognition();
-      }
- else {
-        for (        Forest forest : forests) {
-          if (forest == null)           continue;
-          new UserDefineRecognition(graph.terms,forest).recognition();
-        }
-      }
+      new UserDefineRecognition(graph.terms,forests).recognition();
       return result();
     }
     /** 

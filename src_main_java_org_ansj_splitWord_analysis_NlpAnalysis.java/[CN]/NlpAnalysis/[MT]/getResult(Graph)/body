@@ -1,7 +1,4 @@
 {
-  if (sw == null) {
-    sw=defaultSlitWord;
-  }
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
       graph.walkPath();
@@ -10,8 +7,11 @@
       }
       List<Term> result=getResult();
       new NatureRecognition(result).recognition();
+      if (learn == null) {
+        learn=new LearnTool();
+      }
       learn.learn(graph);
-      List<String> words=sw.cut(graph.str);
+      List<String> words=DEFAULT_SLITWORD.cut(graph.str);
       for (      String word : words) {
         if (word.length() < 2) {
           continue;
@@ -21,7 +21,7 @@
         }
         learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw"),-word.length()));
       }
-      new UserDefineRecognition(graph.terms).recognition();
+      new UserDefineRecognition(graph.terms,forests).recognition();
       graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();
       graph.walkPathByScore();

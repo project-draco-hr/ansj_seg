@@ -12,19 +12,11 @@
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }
-      if (forests == null) {
-        userDefineRecognition(graph,null);
-      }
- else {
-        for (        Forest forest : forests) {
-          if (forest == null)           continue;
-          userDefineRecognition(graph,forest);
-        }
-      }
+      userDefineRecognition(graph,forests);
       return getResult();
     }
-    private void userDefineRecognition(    final Graph graph,    Forest forest){
-      new UserDefineRecognition(graph.terms,forest).recognition();
+    private void userDefineRecognition(    final Graph graph,    Forest... forests){
+      new UserDefineRecognition(graph.terms,forests).recognition();
       graph.rmLittlePath();
       graph.walkPathByScore();
     }

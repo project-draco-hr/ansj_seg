@@ -1,5 +1,4 @@
 {
-  StringBuilder sb=new StringBuilder();
   String temp=null;
   BufferedReader reader=IOUtil.getReader("/Users/ansj/Downloads/3000_GB2312.txt","GBK");
   ToAnalysis.parse("test 123 ???");
@@ -7,7 +6,8 @@
   int allCount=0;
   while ((temp=reader.readLine()) != null) {
     allCount+=temp.length();
-    ToAnalysis.parse(temp);
+    System.out.println(ToAnalysis.parse(temp));
+    ;
   }
   long end=System.currentTimeMillis();
   System.out.println(start - end);

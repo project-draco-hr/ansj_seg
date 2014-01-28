@@ -1,0 +1,5 @@
+{
+  this.forests=forests;
+  this.learn=learn;
+  super.resetContent(reader);
+}

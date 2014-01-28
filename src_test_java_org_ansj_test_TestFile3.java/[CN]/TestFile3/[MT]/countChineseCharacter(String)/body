@@ -1,8 +1,0 @@
-{
-  int count=0;
-  Matcher matcher=Pattern.compile("[\\u4e00-\\u9fa5]").matcher(s);
-  while (matcher.find()) {
-    count++;
-  }
-  return count;
-}

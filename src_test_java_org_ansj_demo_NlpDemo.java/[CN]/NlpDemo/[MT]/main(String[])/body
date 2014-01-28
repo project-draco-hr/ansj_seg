@@ -11,6 +11,7 @@
   LearnTool learn=new LearnTool();
   learn.isAsianName=false;
   learn.isForeignName=false;
+  learn.isAsianName=false;
   for (  String string : value) {
     List<Term> parse=NlpAnalysis.parse(string,learn);
     System.out.println(parse);
