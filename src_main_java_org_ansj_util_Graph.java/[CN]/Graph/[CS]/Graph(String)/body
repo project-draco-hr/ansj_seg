@@ -1,8 +1,8 @@
 {
-  this.str=str;
-  int size=str.length();
-  terms=new Term[size + 1];
-  end=new Term(E,size,TermNatures.END);
+  realStr=str;
+  this.chars=InitDictionary.conversion(str);
+  terms=new Term[chars.length + 1];
+  end=new Term(E,chars.length,TermNatures.END);
   root=new Term(B,-1,TermNatures.BEGIN);
-  terms[size]=end;
+  terms[chars.length]=end;
 }

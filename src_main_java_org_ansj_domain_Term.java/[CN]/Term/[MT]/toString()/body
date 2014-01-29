@@ -1,3 +1,6 @@
 {
+  if ("null".equals(nature.natureStr)) {
+    return name;
+  }
   return this.name + "/" + nature.natureStr;
 }

@@ -6,7 +6,7 @@
     String[] params=null;
     while ((gw.getAllWords()) != null) {
       if (gw.offe > startOffe) {
-        analysis(gp,temp.substring(startOffe,gw.offe),startOffe);
+        analysis(gp,startOffe,gw.offe);
       }
       params=gw.getParams();
       startOffe=gw.offe;
@@ -15,15 +15,10 @@
         startOffe+=params[i].length();
       }
     }
-    if (startOffe == 0) {
-      analysis(gp,temp,startOffe);
-    }
- else {
-      analysis(gp,temp.substring(startOffe,temp.length()),startOffe);
-    }
   }
- else {
-    analysis(gp,temp,startOffe);
+  int endOffe=gp.chars.length - startOffe;
+  if (endOffe > 0) {
+    analysis(gp,startOffe,endOffe);
   }
   List<Term> result=this.getResult(gp);
   terms.addAll(result);

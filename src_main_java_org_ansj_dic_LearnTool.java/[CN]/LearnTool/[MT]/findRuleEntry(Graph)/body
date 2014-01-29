@@ -1,4 +1,4 @@
 {
-  List<NewWord> newWords=RulePecognition.recognition(graph);
+  List<NewWord> newWords=RuleRecognition.recognition(graph);
   addListToTerm(newWords);
 }

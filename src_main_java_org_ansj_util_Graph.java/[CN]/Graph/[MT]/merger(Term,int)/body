@@ -8,7 +8,7 @@
     }
   }
  else {
-    char c=str.charAt(to);
+    char c=chars[to];
     TermNatures tn=InitDictionary.termNatures[c];
     if (tn == null) {
       tn=TermNatures.NW;

@@ -1,11 +1,11 @@
 {
   for (; i < charsLength; i++) {
-    charHashCode=conversion(chars.charAt(i));
+    charHashCode=chars[i];
     end++;
 switch (getStatement()) {
 case 0:
-      if (baseValue == chars.charAt(i)) {
-        str=String.valueOf(chars.charAt(i));
+      if (baseValue == chars[i]) {
+        str=String.valueOf(chars[i]);
         offe=i;
         start=++i;
         end=0;

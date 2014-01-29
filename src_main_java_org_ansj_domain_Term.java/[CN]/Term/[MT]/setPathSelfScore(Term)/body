@@ -1,6 +1,6 @@
 {
-  double score=this.selfScore + from.getScore();
-  if (this.from == null || this.getScore() > score) {
+  double score=this.selfScore + from.score;
+  if (this.from == null || this.score > score) {
     this.setFromAndScore(from,score);
   }
 }

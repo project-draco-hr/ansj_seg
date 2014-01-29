@@ -1,12 +1,8 @@
 {
   Term temp=terms[term.getOffe()];
-  if (temp == null) {
-    terms[term.getOffe()]=term;
+  Term last=temp;
+  while ((temp=temp.getNext()) != null) {
+    last=temp;
   }
- else {
-    if (temp.getNext() != null) {
-      term.setNext(temp.getNext());
-    }
-    temp.setNext(term);
-  }
+  last.setNext(term);
 }

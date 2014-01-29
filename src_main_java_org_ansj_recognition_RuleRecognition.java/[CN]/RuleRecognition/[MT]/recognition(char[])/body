@@ -3,8 +3,8 @@
   StringBuilder sb=null;
   String name;
   List<NewWord> result=new ArrayList<NewWord>();
-  for (int i=0; i < str.length(); i++) {
-    name=String.valueOf(str.charAt(i));
+  for (int i=0; i < chars.length; i++) {
+    name=String.valueOf(chars[i]);
     if (end == null) {
       if ((end=ruleMap.get(name)) != null) {
         sb=new StringBuilder();

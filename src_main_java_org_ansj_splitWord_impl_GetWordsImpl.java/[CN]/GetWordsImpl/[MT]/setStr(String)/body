@@ -1,5 +1,3 @@
 {
-  this.chars=chars;
-  charsLength=chars.length();
-  checkValue=0;
+  setChars(str.toCharArray(),0,str.length());
 }

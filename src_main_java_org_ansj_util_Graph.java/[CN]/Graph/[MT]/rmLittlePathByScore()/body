@@ -9,10 +9,10 @@
     double maxScore=0;
     Term term=terms[i];
     do {
-      if (maxTerm == null || maxScore > term.getScore()) {
+      if (maxTerm == null || maxScore > term.score) {
         maxTerm=term;
       }
- else       if (maxScore == term.getScore() && maxTerm.getName().length() < term.getName().length()) {
+ else       if (maxScore == term.score && maxTerm.getName().length() < term.getName().length()) {
         maxTerm=term;
       }
     }

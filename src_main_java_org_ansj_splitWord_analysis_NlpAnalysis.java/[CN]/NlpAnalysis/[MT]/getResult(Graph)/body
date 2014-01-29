@@ -11,12 +11,9 @@
         learn=new LearnTool();
       }
       learn.learn(graph);
-      List<String> words=DEFAULT_SLITWORD.cut(graph.str);
+      List<String> words=DEFAULT_SLITWORD.cut(graph.chars);
       for (      String word : words) {
-        if (word.length() < 2) {
-          continue;
-        }
-        if (InitDictionary.isInSystemDic(word) || UserDefineLibrary.contains(word)) {
+        if (word.length() < 2 || InitDictionary.isInSystemDic(word) || UserDefineLibrary.contains(word) || WordAlert.isRuleWord(word)) {
           continue;
         }
         learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw"),-word.length()));
