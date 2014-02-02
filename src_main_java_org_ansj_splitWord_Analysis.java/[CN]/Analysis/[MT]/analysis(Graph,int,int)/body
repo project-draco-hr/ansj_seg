@@ -7,7 +7,7 @@
   for (int i=startOffe; i < endOffe; i++) {
 switch (status[chars[i]]) {
 case 0:
-      gp.addTerm(new Term(chars[i] + "",i,TermNatures.NW));
+      gp.addTerm(new Term(chars[i] + "",i,TermNatures.NULL));
     break;
 case 4:
   start=i;
@@ -42,9 +42,9 @@ if (start == end) {
 gp.addTerm(new Term(String.valueOf(c),i,TermNatures.NULL));
 continue;
 }
-gwi.setChars(chars,start,end - start);
+gwi.setChars(chars,start,end);
 while ((str=gwi.allWords()) != null) {
-gp.addTerm(new Term(str,gwi.offe + start,gwi.getTermNatures()));
+gp.addTerm(new Term(str,gwi.offe,gwi.getTermNatures()));
 }
 if (IN_SYSTEM[c] > 0 || status[c] > 3) {
 i-=1;

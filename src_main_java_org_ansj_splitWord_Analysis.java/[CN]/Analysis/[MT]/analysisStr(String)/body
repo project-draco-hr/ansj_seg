@@ -2,7 +2,7 @@
   Graph gp=new Graph(temp);
   int startOffe=0;
   if (UserDefineLibrary.ambiguityForest != null) {
-    GetWord gw=new GetWord(UserDefineLibrary.ambiguityForest,temp);
+    GetWord gw=new GetWord(UserDefineLibrary.ambiguityForest,gp.chars);
     String[] params=null;
     while ((gw.getAllWords()) != null) {
       if (gw.offe > startOffe) {
@@ -16,9 +16,8 @@
       }
     }
   }
-  int endOffe=gp.chars.length - startOffe;
-  if (endOffe > 0) {
-    analysis(gp,startOffe,endOffe);
+  if (startOffe < gp.chars.length - 1) {
+    analysis(gp,startOffe,gp.chars.length);
   }
   List<Term> result=this.getResult(gp);
   terms.addAll(result);

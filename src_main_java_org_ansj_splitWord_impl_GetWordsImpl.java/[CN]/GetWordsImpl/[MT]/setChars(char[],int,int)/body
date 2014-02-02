@@ -1,5 +1,7 @@
 {
   this.chars=chars;
+  i=start;
+  this.start=start;
   charsLength=end;
   checkValue=0;
 }

@@ -158,7 +158,9 @@
   ToAnalysis.parse("123??????234???????????? ??????!");
   long start=System.currentTimeMillis();
   for (  String string : all) {
-    System.out.println(ToAnalysis.parse(string));
+    List<Term> parse=ToAnalysis.parse(string);
+    new NatureRecognition(parse).recognition();
+    System.out.println(parse);
     System.out.println(NlpAnalysis.parse(string));
   }
   System.out.println(System.currentTimeMillis() - start);

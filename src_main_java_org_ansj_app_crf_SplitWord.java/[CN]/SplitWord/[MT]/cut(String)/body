@@ -1,31 +1,3 @@
 {
-  if (StringUtil.isBlank(line)) {
-    return Collections.emptyList();
-  }
-  List<Element> elements=vterbi(line);
-  LinkedList<String> result=new LinkedList<String>();
-  Element e=null;
-  int begin=0;
-  int end=0;
-  for (int i=0; i < elements.size(); i++) {
-    e=elements.get(i);
-switch (fixTag(e.getTag())) {
-case 0:
-      end+=e.len;
-    result.add(line.substring(begin,end));
-  begin=end;
-break;
-case 1:
-end+=e.len;
-while (fixTag((e=elements.get(++i)).getTag()) != 3) {
-end+=e.len;
-}
-end+=e.len;
-result.add(line.substring(begin,end));
-begin=end;
-default :
-break;
-}
-}
-return result;
+  return cut(line.toCharArray());
 }
