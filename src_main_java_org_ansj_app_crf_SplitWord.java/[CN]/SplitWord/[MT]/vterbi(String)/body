@@ -1,5 +1,5 @@
 {
-  List<Element> elements=WordAlert.str2Elements(chars);
+  List<Element> elements=WordAlert.str2Elements(line);
   int length=elements.size();
   if (length == 1) {
     elements.get(0).updateTag(revTagConver[0]);
