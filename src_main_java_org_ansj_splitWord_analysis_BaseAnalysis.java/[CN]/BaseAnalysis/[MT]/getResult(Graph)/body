@@ -12,6 +12,7 @@
           result.add(graph.terms[i]);
         }
       }
+      setRealName(graph,result);
       return result;
     }
   }

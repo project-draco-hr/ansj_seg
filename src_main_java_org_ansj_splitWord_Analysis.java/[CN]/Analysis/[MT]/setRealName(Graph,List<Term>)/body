@@ -1,0 +1,9 @@
+{
+  if (!MyStaticValue.isRealName) {
+    return;
+  }
+  String str=graph.realStr;
+  for (  Term term : result) {
+    term.setRealName(str.substring(term.getOffe(),term.getOffe() + term.getName().length()));
+  }
+}

@@ -24,6 +24,7 @@
       graph.walkPathByScore();
       AsianPersonRecognition.nameAmbiguity(graph.terms);
       result=getResult();
+      setRealName(graph,result);
       return result;
     }
     private List<Term> getResult(){

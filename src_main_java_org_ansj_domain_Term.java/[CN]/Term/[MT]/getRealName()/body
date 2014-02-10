@@ -1,0 +1,6 @@
+{
+  if (realName == null) {
+    return name;
+  }
+  return realName;
+}
