@@ -1,15 +1,14 @@
 {
-  String temp=null;
-  BufferedReader reader=IOUtil.getReader("/Users/ansj/Downloads/3000_GB2312.txt","GBK");
-  ToAnalysis.parse("test 123 ???");
+  BufferedReader reader=IOUtil.getReader("/home/ansj/?????????/corpus/result.txt","utf-8");
+  NlpAnalysis.parse("test 123 ???");
+  Analysis na=new ToAnalysis(reader);
   long start=System.currentTimeMillis();
   int allCount=0;
-  while ((temp=reader.readLine()) != null) {
-    allCount+=temp.length();
-    System.out.println(ToAnalysis.parse(temp));
-    ;
+  Term term=null;
+  while ((term=na.next()) != null) {
+    allCount+=term.getName().length();
   }
   long end=System.currentTimeMillis();
-  System.out.println(start - end);
+  System.out.println(end - start);
   System.out.println("??? " + allCount + " ???????????????????????????:"+ (allCount * 1000.0 / (end - start)));
 }
