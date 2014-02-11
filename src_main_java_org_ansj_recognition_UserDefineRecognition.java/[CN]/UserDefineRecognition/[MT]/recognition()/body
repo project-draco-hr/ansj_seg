@@ -3,6 +3,7 @@
     if (forest == null) {
       continue;
     }
+    reset();
     this.forest=forest;
     branch=forest;
     int length=terms.length - 1;

@@ -1,0 +1,6 @@
+{
+  SmartForest<NewWord> branch=sf.getBranch(name);
+  if (branch != null && branch.getParam() != null) {
+    branch.getParam().setActive(true);
+  }
+}
