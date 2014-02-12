@@ -1,6 +1,6 @@
 {
   this.terms=terms;
-  if (forests != null) {
+  if (forests != null && forests.length > 0) {
     this.forests=forests;
   }
 }
