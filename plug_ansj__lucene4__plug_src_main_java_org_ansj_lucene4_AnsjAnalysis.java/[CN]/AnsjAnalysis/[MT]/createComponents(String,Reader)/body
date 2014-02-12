@@ -1,4 +1,4 @@
 {
-  Tokenizer tokenizer=new AnsjTokenizer(new ToAnalysis(reader),reader,filter,pstemming);
+  Tokenizer tokenizer=new AnsjTokenizer(new ToAnalysis(new BufferedReader(reader)),reader,filter,pstemming);
   return new TokenStreamComponents(tokenizer);
 }
