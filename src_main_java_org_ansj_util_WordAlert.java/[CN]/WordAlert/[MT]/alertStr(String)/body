@@ -1,7 +1,14 @@
 {
   char[] chars=new char[str.length()];
+  char c=0;
   for (int i=0; i < chars.length; i++) {
-    chars[i]=CHARCOVER[str.charAt(i)];
+    c=CHARCOVER[str.charAt(i)];
+    if (c > 0) {
+      chars[i]=c;
+    }
+ else {
+      chars[i]=str.charAt(i);
+    }
   }
   return chars;
 }
