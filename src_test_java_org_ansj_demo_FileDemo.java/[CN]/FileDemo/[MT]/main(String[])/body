@@ -1,12 +1,15 @@
 {
-  BufferedReader reader=IOUtil.getReader("/home/ansj/?????????/corpus/result.txt","utf-8");
-  NlpAnalysis.parse("test 123 ???");
-  Analysis na=new ToAnalysis(reader);
+  BufferedReader reader=IOUtil.getReader("/Users/ansj/Documents/temp/test.txt","utf-8");
+  ToAnalysis.parse("test 123 ???");
+  Analysis na=new BaseAnalysis(reader);
   long start=System.currentTimeMillis();
   int allCount=0;
   Term term=null;
   while ((term=na.next()) != null) {
     allCount+=term.getName().length();
+    if (allCount > 30000000) {
+      break;
+    }
   }
   long end=System.currentTimeMillis();
   System.out.println(end - start);
