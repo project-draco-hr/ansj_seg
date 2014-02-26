@@ -1,4 +1,5 @@
 {
+  isTag=true;
   for (  String natureStr : filterNatures) {
     FILTER.add(TAG + natureStr);
   }
