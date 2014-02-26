@@ -2,5 +2,10 @@
   super();
   this.name=name;
   this.offe=offe;
-  if (termNatures != null)   this.termNatures=termNatures;
+  if (termNatures != null) {
+    this.termNatures=termNatures;
+    if (termNatures.nature != null) {
+      this.nature=termNatures.nature;
+    }
+  }
 }
