@@ -3,7 +3,10 @@
     @Override public List<Term> merger(){
       graph.walkPath();
       if (MyStaticValue.isNumRecognition)       NumRecognition.recognition(graph.terms);
-      if (MyStaticValue.isNameRecognition)       new AsianPersonRecognition(graph.terms).recognition();
+      if (MyStaticValue.isNameRecognition) {
+        new AsianPersonRecognition(graph.terms).recognition();
+        new ForeignPersonRecognition(graph.terms).recognition();
+      }
       new UserDefineRecognition(graph.terms,forests).recognition();
       return result();
     }
@@ -18,12 +21,28 @@
       int length=graph.terms.length - 1;
       for (int i=0; i < length; i++) {
         term=graph.terms[i];
-        while (term != null) {
+        if (term == null) {
+          continue;
+        }
+        if (term.getNext() == null) {
           result.add(term);
-          temp=term.getName();
-          term=term.getNext();
-          if (term == null || term.getName().length() == 1 || temp.equals(term.getName())) {
-            break;
+          if (term.getName().length() > 3) {
+            GetWordsImpl gwi=new GetWordsImpl(term.getName());
+            while ((temp=gwi.allWords()) != null) {
+              if (temp.length() > 1 && temp.length() < term.getName().length()) {
+                result.add(new Term(temp,gwi.offe + term.getOffe(),TermNatures.NULL));
+              }
+            }
+          }
+        }
+ else {
+          while (term != null) {
+            result.add(term);
+            temp=term.getName();
+            term=term.getNext();
+            if (term == null || term.getName().length() == 1 || temp.equals(term.getName())) {
+              break;
+            }
           }
         }
       }
