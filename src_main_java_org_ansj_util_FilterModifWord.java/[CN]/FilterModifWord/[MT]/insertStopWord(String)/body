@@ -1,3 +1,5 @@
 {
-  FILTER.add(filterWord);
+  for (  String word : filterWord) {
+    FILTER.add(word);
+  }
 }

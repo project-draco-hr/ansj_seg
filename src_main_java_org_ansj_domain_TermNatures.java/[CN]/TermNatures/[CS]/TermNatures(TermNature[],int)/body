@@ -1,5 +1,16 @@
 {
   this.id=id;
   this.termNatures=termNatures;
+  int maxFreq=-1;
+  TermNature termNature=null;
+  for (int i=0; i < termNatures.length; i++) {
+    if (maxFreq < termNatures[i].frequency) {
+      maxFreq=termNatures[i].frequency;
+      termNature=termNatures[i];
+    }
+  }
+  if (termNature != null) {
+    this.nature=termNature.nature;
+  }
   serAttribute();
 }
