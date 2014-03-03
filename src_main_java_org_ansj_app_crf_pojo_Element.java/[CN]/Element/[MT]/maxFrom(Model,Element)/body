@@ -5,9 +5,9 @@
   double[] pTagScore=element.tagScore;
   double rate=0;
   for (int i=0; i < this.tagScore.length; i++) {
-    double maxValue=0;
+    double maxValue=MIN;
     for (int j=0; j < pTagScore.length; j++) {
-      if ((rate=model.tagRate(j,i)) == 0) {
+      if ((rate=model.tagRate(j,i)) <= 0) {
         continue;
       }
       double value=(pTagScore[j] + tagScore[i]) + rate;
