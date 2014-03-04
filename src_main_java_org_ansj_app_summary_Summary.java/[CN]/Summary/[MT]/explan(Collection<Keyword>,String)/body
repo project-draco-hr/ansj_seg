@@ -1,0 +1,7 @@
+{
+  List<Sentence> sentences=toSentenceList(content.toCharArray());
+  for (  Sentence sentence : sentences) {
+    System.out.println(sentence);
+  }
+  return null;
+}

@@ -1,0 +1,32 @@
+{
+  StringBuilder sb=new StringBuilder();
+  List<Sentence> sentences=new ArrayList<Sentence>();
+  for (int i=0; i < chars.length; i++) {
+    sb.append(chars[i]);
+switch (chars[i]) {
+case '.':
+      if (i < chars.length - 1 && chars[i + 1] > 128) {
+        sentences.add(new Sentence(sb.toString()));
+        sb=new StringBuilder();
+      }
+    break;
+case ';':
+  sentences.add(new Sentence(sb.toString()));
+sb=new StringBuilder();
+break;
+case '!':
+sentences.add(new Sentence(sb.toString()));
+sb=new StringBuilder();
+break;
+case '?':
+sentences.add(new Sentence(sb.toString()));
+sb=new StringBuilder();
+break;
+case '\n':
+sentences.add(new Sentence(sb.toString()));
+sb=new StringBuilder();
+break;
+}
+}
+return sentences;
+}

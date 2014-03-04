@@ -1,0 +1,5 @@
+{
+  KeyWordComputer kc=new KeyWordComputer();
+  Collection<Keyword> keyword=kc.computeArticleTfidf(content);
+  return explan(keyword,content);
+}
