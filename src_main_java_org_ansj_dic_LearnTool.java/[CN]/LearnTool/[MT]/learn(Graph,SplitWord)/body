@@ -1,4 +1,5 @@
 {
+  this.splitWord=splitWord;
   if (isAsianName) {
     findAsianPerson(graph);
   }
