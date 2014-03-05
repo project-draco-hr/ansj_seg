@@ -23,7 +23,7 @@
       graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();
       graph.walkPathByScore();
-      AsianPersonRecognition.nameAmbiguity(graph.terms);
+      NameFix.nameAmbiguity(graph.terms);
       result=getResult();
       for (      Term term : result) {
         learn.active(term.getName());

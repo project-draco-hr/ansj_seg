@@ -1,3 +1,0 @@
-{
-  return recognition(graph.chars);
-}
