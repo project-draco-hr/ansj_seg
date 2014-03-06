@@ -11,6 +11,9 @@
   }
   int weight=0;
   if (titleLength > term.getOffe()) {
+    return 50;
+  }
+ else   if (length / 5.0 > term.getOffe()) {
     return 20;
   }
   double position=(term.getOffe() + 0.0) / length;

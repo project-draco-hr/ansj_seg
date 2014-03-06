@@ -1,0 +1,4 @@
+int len
+boolean isSplitSummary
+String title
+String content

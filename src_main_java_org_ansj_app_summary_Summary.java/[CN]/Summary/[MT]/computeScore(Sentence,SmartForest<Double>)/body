@@ -1,6 +1,0 @@
-{
-  SmartGetWord<Double> sgw=new SmartGetWord<Double>(forest,sentence.value);
-  while (sgw.getFrontWords() != null) {
-    sentence.score+=sgw.getParam();
-  }
-}

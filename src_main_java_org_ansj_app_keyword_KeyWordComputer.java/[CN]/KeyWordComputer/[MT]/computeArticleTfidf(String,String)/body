@@ -1,3 +1,9 @@
 {
+  if (StringUtil.isBlank(title)) {
+    title="";
+  }
+  if (StringUtil.isBlank(content)) {
+    content="";
+  }
   return computeArticleTfidf(title + "\t" + content,title.length());
 }

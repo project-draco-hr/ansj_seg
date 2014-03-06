@@ -25,6 +25,10 @@ case KEYWORD:
 KeyWordComputer keyWordComputer=new KeyWordComputer(10);
 keyWords=keyWordComputer.computeArticleTfidf(input);
 break;
+case SUMMARY:
+SummaryComputer sc=new SummaryComputer(null,input);
+Summary summary=sc.toSummary();
+return new TagContent("<font color=\"red\">","</font>").tagContent(summary);
 case INDEX:
 terms=IndexAnalysis.parse(input);
 break;

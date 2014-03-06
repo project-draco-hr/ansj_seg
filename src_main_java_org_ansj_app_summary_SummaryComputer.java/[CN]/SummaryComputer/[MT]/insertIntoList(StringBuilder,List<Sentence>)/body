@@ -1,0 +1,6 @@
+{
+  String content=sb.toString().trim();
+  if (content.length() > 0) {
+    sentences.add(new Sentence(content));
+  }
+}

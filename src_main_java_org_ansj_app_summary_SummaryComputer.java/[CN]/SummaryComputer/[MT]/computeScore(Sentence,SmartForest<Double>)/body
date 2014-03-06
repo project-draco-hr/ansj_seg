@@ -1,0 +1,12 @@
+{
+  SmartGetWord<Double> sgw=new SmartGetWord<Double>(forest,sentence.value);
+  while (sgw.getFrontWords() != null) {
+    sentence.score+=sgw.getParam();
+  }
+  if (sentence.score == 0) {
+    sentence.score=sentence.value.length() * -0.005;
+  }
+ else {
+    sentence.score/=Math.log(sentence.value.length() + 3);
+  }
+}

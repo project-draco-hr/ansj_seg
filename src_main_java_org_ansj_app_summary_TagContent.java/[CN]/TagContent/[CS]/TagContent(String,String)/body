@@ -1,0 +1,4 @@
+{
+  this.beginTag=beginTag;
+  this.endTag=endTag;
+}

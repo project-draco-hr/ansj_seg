@@ -1,0 +1,4 @@
+{
+  this.keyWords=keyWords;
+  this.summary=summary;
+}

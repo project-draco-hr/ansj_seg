@@ -1,0 +1,5 @@
+{
+  this.len=len;
+  this.title=title;
+  this.content=content;
+}

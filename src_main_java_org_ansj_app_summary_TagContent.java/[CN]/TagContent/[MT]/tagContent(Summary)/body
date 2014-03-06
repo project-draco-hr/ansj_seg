@@ -1,0 +1,3 @@
+{
+  return tagContent(summary.getKeyWords(),summary.getSummary());
+}
