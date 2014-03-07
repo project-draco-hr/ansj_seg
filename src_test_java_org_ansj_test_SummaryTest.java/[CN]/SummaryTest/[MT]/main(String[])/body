@@ -1,0 +1,14 @@
+{
+  String content=IOUtil.getContent("//home/ansj/??????/data/corpus/sport/??????/1soccer.sports.sohu.com.txt","utf-8");
+  BufferedReader br=new BufferedReader(new StringReader(content));
+  TagContent tw=new TagContent("<begin>","<end>");
+  while ((content=br.readLine()) != null) {
+    String title=null;
+    SummaryComputer summaryComputer=new SummaryComputer(300,title,content);
+    Summary summary=summaryComputer.toSummary();
+    System.out.println(content);
+    System.out.println(summary.getKeyWords());
+    String tagContent=tw.tagContent(summary);
+    System.out.println(tagContent);
+  }
+}
