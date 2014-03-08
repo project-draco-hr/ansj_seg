@@ -14,7 +14,7 @@
  else {
       tmp=term.getName();
     }
-    if (nature) {
+    if (nature && !"null".equals(term.getNatrue().natureStr)) {
       tmp+="/" + term.getNatrue().natureStr;
     }
     sb.append(tmp + "\t");

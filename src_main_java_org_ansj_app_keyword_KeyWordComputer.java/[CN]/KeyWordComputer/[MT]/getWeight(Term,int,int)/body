@@ -9,15 +9,8 @@
   if (!pos.startsWith("n") || "num".equals(pos)) {
     return 0;
   }
-  int weight=0;
   if (titleLength > term.getOffe()) {
-    return 50;
+    return Math.log(length + 3) * 10;
   }
- else   if (length / 5.0 > term.getOffe()) {
-    return 20;
-  }
-  double position=(term.getOffe() + 0.0) / length;
-  if (position < 0.05)   return 10;
-  weight+=(5 - 5 * position);
-  return weight;
+  return Math.log(length / (term.getOffe() + 1) + 3);
 }

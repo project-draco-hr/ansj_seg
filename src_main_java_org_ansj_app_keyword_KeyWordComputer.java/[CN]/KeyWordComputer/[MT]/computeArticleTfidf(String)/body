@@ -1,3 +1,3 @@
 {
-  return computeArticleTfidf(content,30);
+  return computeArticleTfidf(content,0);
 }
