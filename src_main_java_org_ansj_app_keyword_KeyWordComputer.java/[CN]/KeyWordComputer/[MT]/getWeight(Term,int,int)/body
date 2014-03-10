@@ -6,11 +6,15 @@
     return 0;
   }
   String pos=term.getNatrue().natureStr;
-  if (!pos.startsWith("n") || "num".equals(pos)) {
+  Double posScore=POS_SCORE.get(pos);
+  if (posScore == null) {
+    posScore=1.0;
+  }
+ else   if (posScore == 0) {
     return 0;
   }
   if (titleLength > term.getOffe()) {
-    return 100;
+    return 5 * posScore;
   }
-  return (length - term.getOffe()) / 6 * 100;
+  return (length - term.getOffe()) * posScore / (double)length;
 }
