@@ -1,0 +1,10 @@
+{
+  if (keywords == null) {
+    keywords=new ArrayList<Keyword>();
+  }
+  if (keywords.size() == 0) {
+    KeyWordComputer kc=new KeyWordComputer(10);
+    keywords=kc.computeArticleTfidf(title,content);
+  }
+  return explan(keywords,content);
+}
