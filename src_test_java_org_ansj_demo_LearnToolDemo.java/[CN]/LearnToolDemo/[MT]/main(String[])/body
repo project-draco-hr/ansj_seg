@@ -5,4 +5,18 @@
   NlpAnalysis.parse("????????????????????????????????????",learnTool);
   System.out.println(learnTool.getTopTree(10));
   System.out.println(learnTool.getTopTree(10,Nature.NR));
+  List<Entry<String,Double>> topTree=learnTool.getTopTree(0);
+  StringBuilder sb=new StringBuilder();
+  for (  Entry<String,Double> entry : topTree) {
+    sb.append(entry.getKey() + "\t" + entry.getValue()+ "\n");
+  }
+  IOUtil.Writer("/home/ansj/temp/learnTool.snap",IOUtil.UTF8,sb.toString());
+  sb=null;
+  learnTool=new LearnTool();
+  HashMap<String,Double> loadMap=IOUtil.loadMap("/home/ansj/temp/learnTool.snap",IOUtil.UTF8,String.class,Double.class);
+  for (  Entry<String,Double> entry : loadMap.entrySet()) {
+    learnTool.addTerm(new NewWord(entry.getKey(),Nature.NW,entry.getValue()));
+    learnTool.active(entry.getKey());
+  }
+  System.out.println(learnTool.getTopTree(10));
 }
