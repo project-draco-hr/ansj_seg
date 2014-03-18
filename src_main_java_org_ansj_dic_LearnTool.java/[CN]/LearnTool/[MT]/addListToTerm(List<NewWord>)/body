@@ -1,7 +1,6 @@
 {
   if (newWords.size() == 0)   return;
   for (  NewWord newWord : newWords) {
-    newWord.setScore(-splitWord.cohesion(newWord.getName()));
     addTerm(newWord);
   }
 }

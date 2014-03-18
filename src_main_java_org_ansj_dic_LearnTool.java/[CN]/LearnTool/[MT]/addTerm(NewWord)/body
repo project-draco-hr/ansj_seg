@@ -3,10 +3,11 @@
   SmartForest<NewWord> smartForest=null;
   if ((smartForest=sf.getBranch(newWord.getName())) != null && smartForest.getParam() != null) {
     temp=smartForest.getParam();
-    temp.update(newWord.getScore(),newWord.getNature(),newWord.getAllFreq());
+    temp.update(newWord.getNature(),newWord.getAllFreq());
   }
  else {
     count++;
+    newWord.setScore(-splitWord.cohesion(newWord.getName()));
 synchronized (sf) {
       sf.add(newWord.getName(),newWord);
     }
