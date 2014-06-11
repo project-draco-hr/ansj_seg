@@ -1,0 +1,4 @@
+{
+  PorterStemmer ps=new PorterStemmer();
+  System.out.println(ps.stem("apache"));
+}

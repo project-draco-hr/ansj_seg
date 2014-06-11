@@ -1,0 +1,20 @@
+{
+  MyStaticValue.userLibrary="/home/ansj/workspace/ansj_seg/library/default.dic";
+  HashSet<String> hs=new HashSet<String>();
+  hs.add("???");
+  Analyzer analyzer=new AnsjIndexAnalysis(hs,false);
+  Directory directory=null;
+  IndexWriter iwriter=null;
+  String text="???????????????????????????????????????";
+  IndexWriterConfig ic=new IndexWriterConfig(Version.LUCENE_44,analyzer);
+  directory=new RAMDirectory();
+  iwriter=new IndexWriter(directory,ic);
+  addContent(iwriter,text);
+  iwriter.commit();
+  iwriter.close();
+  System.out.println("??????????????????");
+  Analyzer queryAnalyzer=new AnsjAnalysis(hs,false);
+  ;
+  System.out.println("index ok to search!");
+  search(queryAnalyzer,directory,"\"????????????\"~1");
+}
