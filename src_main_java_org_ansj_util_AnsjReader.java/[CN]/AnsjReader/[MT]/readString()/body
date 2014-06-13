@@ -5,7 +5,7 @@
       return;
     }
     len=in.read(cb);
-    if (len == 0) {
+    if (len <= 0) {
       isRead=false;
       return;
     }
@@ -18,20 +18,36 @@
     if (c != '\r' && c != '\n') {
       break;
     }
+    if (!firstRead) {
+      i++;
+      tempStart++;
+      offe=i;
+      tempOffe=offe;
+      isRead=false;
+      return;
+    }
+    tempStart++;
     start++;
   }
+  if (i == len) {
+    isRead=true;
+    offe=0;
+    return;
+  }
+  firstRead=false;
   offe=i;
   for (; i < len; i++) {
     c=cb[i];
-    if (c == '\r' || c == '\n') {
+    if (c == '\n' || c == '\r') {
       isRead=false;
       break;
     }
   }
   tempOffe=offe;
   tempLen=i - offe;
-  if (offe == len) {
+  if (i == len) {
     if (len < cb.length) {
+      isRead=false;
       offe=-1;
     }
  else {
