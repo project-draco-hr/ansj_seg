@@ -2,7 +2,7 @@
   Term to=end;
   to.clearScore();
   Term from=null;
-  while ((from=to.getFrom()) != null) {
+  while ((from=to.from()) != null) {
     for (int i=from.getOffe() + 1; i < to.getOffe(); i++) {
       terms[i]=null;
     }

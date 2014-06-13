@@ -1,0 +1,31 @@
+{
+  ensureOpen();
+  start=tempStart;
+  StringBuilder sb=null;
+  while (true) {
+    tempLen=0;
+    ok=false;
+    readString();
+    if (!isRead && tempLen == 0) {
+      if (sb != null) {
+        return sb.toString();
+      }
+      return null;
+    }
+    if (!isRead) {
+      tempStart+=tempLen;
+      if (sb == null) {
+        return new String(cb,tempOffe,tempLen);
+      }
+ else {
+        sb.append(cb,tempOffe,tempLen);
+        return sb.toString();
+      }
+    }
+    if (sb == null) {
+      sb=new StringBuilder();
+    }
+    sb.append(cb,tempOffe,tempLen);
+    tempStart+=tempLen;
+  }
+}

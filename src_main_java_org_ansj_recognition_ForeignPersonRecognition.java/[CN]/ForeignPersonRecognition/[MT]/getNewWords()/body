@@ -9,7 +9,7 @@
     }
     term=terms[i];
     if (tempList.size() == 0) {
-      if (term.getTermNatures().personAttr.end > 10) {
+      if (term.termNatures().personAttr.end > 10) {
         continue;
       }
       if ((terms[i].getName().length() == 1 && ISNOTFIRST.contains(terms[i].getName().charAt(0)))) {
@@ -17,7 +17,7 @@
       }
     }
     name=term.getName();
-    if (term.getTermNatures() == TermNatures.NR || term.getTermNatures() == TermNatures.NW || name.length() == 1) {
+    if (term.termNatures() == TermNatures.NR || term.termNatures() == TermNatures.NW || name.length() == 1) {
       boolean flag=validate(name);
       if (flag) {
         tempList.add(term);

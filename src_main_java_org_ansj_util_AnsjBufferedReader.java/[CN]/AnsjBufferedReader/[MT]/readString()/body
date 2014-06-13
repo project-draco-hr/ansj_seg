@@ -1,0 +1,44 @@
+{
+  if (offe <= 0) {
+    if (offe == -1) {
+      isRead=false;
+      return;
+    }
+    len=in.read(cb);
+    if (len == 0) {
+      isRead=false;
+      return;
+    }
+  }
+  isRead=true;
+  char c=0;
+  int i=offe;
+  for (; i < len; i++) {
+    c=cb[i];
+    if (c != '\r' && c != '\n') {
+      break;
+    }
+    start++;
+  }
+  offe=i;
+  for (; i < len; i++) {
+    c=cb[i];
+    if (c == '\r' || c == '\n') {
+      isRead=false;
+      break;
+    }
+  }
+  tempOffe=offe;
+  tempLen=i - offe;
+  if (offe == len) {
+    if (len < cb.length) {
+      offe=-1;
+    }
+ else {
+      offe=0;
+    }
+  }
+ else {
+    offe=i;
+  }
+}

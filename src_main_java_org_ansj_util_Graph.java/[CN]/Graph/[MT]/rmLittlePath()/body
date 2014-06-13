@@ -7,7 +7,7 @@
   for (int i=0; i < length; i++) {
     maxTerm=getMaxTerm(i);
     if (maxTerm == null)     continue;
-    maxTo=maxTerm.getToValue();
+    maxTo=maxTerm.toValue();
 switch (maxTerm.getName().length()) {
 case 1:
       continue;
@@ -22,8 +22,8 @@ for (int j=i + 1; j < maxTo; j++) {
   if (temp == null) {
     continue;
   }
-  if (maxTo < temp.getToValue()) {
-    maxTo=temp.getToValue();
+  if (maxTo < temp.toValue()) {
+    maxTo=temp.toValue();
     flag=true;
   }
 }

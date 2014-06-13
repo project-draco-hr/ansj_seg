@@ -13,7 +13,7 @@
       continue;
     }
     term=terms[i];
-    pna=term.getTermNatures().personAttr;
+    pna=term.termNatures().personAttr;
     if ((freq=pna.getFreq(size,index)) == 0) {
       return null;
     }
@@ -21,7 +21,7 @@
       undefinite++;
     }
     sb.append(term.getName());
-    allFreq+=Math.log(term.getTermNatures().allFreq + 1);
+    allFreq+=Math.log(term.termNatures().allFreq + 1);
     allFreq+=-Math.log((freq));
     index++;
     if (index == size + 2) {
@@ -43,7 +43,7 @@
       if (twoWordFreq > 3) {
         return null;
       }
-      endFreq=terms[i].getTermNatures().personAttr.end + 1;
+      endFreq=terms[i].termNatures().personAttr.end + 1;
       flag=false;
     }
   }
@@ -57,6 +57,6 @@
   }
   skip=undefinite == 0;
   term=new Term(sb.toString(),offe,TermNatures.NR);
-  term.selfScore=score;
+  term.selfScore(score);
   return term;
 }

@@ -3,9 +3,9 @@
     if (term == null) {
       continue;
     }
-    System.out.print(term.getName() + "\t" + term.selfScore+ " ,");
+    System.out.print(term.getName() + "\t" + term.selfScore()+ " ,");
     if ((term=term.getNext()) != null) {
-      System.out.print(term + "\t" + term.selfScore+ " ,");
+      System.out.print(term + "\t" + term.selfScore()+ " ,");
     }
     System.out.println();
   }

@@ -2,7 +2,7 @@
   if (term.getName().trim().length() < 2) {
     return 0;
   }
-  String pos=term.getNatrue().natureStr;
+  String pos=term.natrue().natureStr;
   Double posScore=POS_SCORE.get(pos);
   if (posScore == null) {
     posScore=1.0;

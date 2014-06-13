@@ -3,8 +3,8 @@
   mergerByScore(root,0);
   for (int i=0; i < terms.length; i++) {
     term=terms[i];
-    while (term != null && term.getFrom() != null && term != end) {
-      int to=term.getToValue();
+    while (term != null && term.from() != null && term != end) {
+      int to=term.toValue();
       mergerByScore(term,to);
       term=term.getNext();
     }

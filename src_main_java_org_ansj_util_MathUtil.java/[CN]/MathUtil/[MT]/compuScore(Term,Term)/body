@@ -1,12 +1,14 @@
 {
-  double frequency=from.getTermNatures().allFreq + 1;
+  double frequency=from.termNatures().allFreq + 1;
   if (frequency < 0) {
-    return from.score + MAX_FREQUENCE;
+    double score=from.score() + MAX_FREQUENCE;
+    from.score(score);
+    return score;
   }
   int nTwoWordsFreq=NgramLibrary.getTwoWordFreq(from,to);
   double value=-Math.log(dSmoothingPara * frequency / (MAX_FREQUENCE + 80000) + (1 - dSmoothingPara) * ((1 - dTemp) * nTwoWordsFreq / frequency + dTemp));
   if (value < 0) {
     value+=frequency;
   }
-  return from.score + value;
+  return from.score() + value;
 }

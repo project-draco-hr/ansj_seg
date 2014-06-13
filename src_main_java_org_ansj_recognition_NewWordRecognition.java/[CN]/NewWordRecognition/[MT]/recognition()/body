@@ -9,9 +9,9 @@
       continue;
     }
  else {
-      from=terms[i].getFrom();
-      terms[i].score=0;
-      terms[i].selfScore=0;
+      from=terms[i].from();
+      terms[i].score(0);
+      terms[i].selfScore(0);
     }
     branch=branch.getBranch(terms[i].getName());
     if (branch == null || branch.getStatus() == 3) {
@@ -22,11 +22,11 @@
     term=terms[i];
     sb.append(term.getName());
     if (branch.getStatus() == 2) {
-      term.selfScore=branch.getParam().getScore();
+      term.selfScore(branch.getParam().getScore());
     }
     boolean flag=true;
     while (flag) {
-      term=term.getTo();
+      term=term.to();
       branch=branch.getBranch(term.getName());
       if (branch == null) {
         break;
@@ -39,14 +39,14 @@ case 2:
     sb.append(term.getName());
   score=branch.getParam().getScore();
 tempNature=branch.getParam().getNature();
-to=term.getTo();
+to=term.to();
 makeNewTerm();
 continue;
 case 3:
 sb.append(term.getName());
 score=branch.getParam().getScore();
 tempNature=branch.getParam().getNature();
-to=term.getTo();
+to=term.to();
 makeNewTerm();
 flag=false;
 break;

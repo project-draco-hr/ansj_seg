@@ -1,6 +1,6 @@
 {
   List<Term> subTerm=new ArrayList<Term>(3);
-  while ((from=from.getTo()) != to) {
+  while ((from=from.to()) != to) {
     subTerm.add(from);
   }
   return subTerm;

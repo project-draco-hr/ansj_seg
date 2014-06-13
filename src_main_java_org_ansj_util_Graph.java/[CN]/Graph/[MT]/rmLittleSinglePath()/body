@@ -3,11 +3,11 @@
   Term temp=null;
   for (int i=0; i < terms.length; i++) {
     if (terms[i] == null)     continue;
-    maxTo=terms[i].getToValue();
+    maxTo=terms[i].toValue();
     if (maxTo - i == 1 || i + 1 == terms.length)     continue;
     for (int j=i; j < maxTo; j++) {
       temp=terms[j];
-      if (temp != null && temp.getToValue() <= maxTo && temp.getName().length() == 1) {
+      if (temp != null && temp.toValue() <= maxTo && temp.getName().length() == 1) {
         terms[j]=null;
       }
     }

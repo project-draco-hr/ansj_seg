@@ -9,7 +9,7 @@
     hs.put(term.getName(),term);
   }
   Assert.assertTrue(hs.containsKey(newWord));
-  Assert.assertEquals(hs.get(newWord).getNatrue().natureStr,nature);
+  Assert.assertEquals(hs.get(newWord).natrue().natureStr,nature);
   UserDefineLibrary.removeWord(newWord);
   parse=ToAnalysis.parse(str);
   hs=new HashMap<String,Term>();

@@ -1,5 +1,5 @@
 {
-  if (!Nature.NW.equals(term.getNatrue())) {
+  if (!Nature.NW.equals(term.natrue())) {
     return;
   }
   String name=term.getName();
