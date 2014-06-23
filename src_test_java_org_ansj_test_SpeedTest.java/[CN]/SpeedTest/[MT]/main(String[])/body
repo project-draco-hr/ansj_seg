@@ -1,0 +1,14 @@
+{
+  ToAnalysis.parse("test---aaaa??????????????????");
+  BufferedReader reader=IOUtil.getReader("/home/ansj/data/allSportsArticle",IOUtil.UTF8);
+  long start=System.currentTimeMillis();
+  long allCount=0;
+  ToAnalysis toAnalysis=new ToAnalysis(IOUtil.getReader("/home/ansj/data/allSportsArticle",IOUtil.UTF8));
+  Term term=null;
+  while ((term=toAnalysis.next()) != null) {
+    allCount+=term.getName().length();
+  }
+  long end=System.currentTimeMillis();
+  System.out.println(start - end);
+  System.out.println("??? " + allCount + " ???????????????????????????:"+ (allCount * 1000 / (end - start)));
+}

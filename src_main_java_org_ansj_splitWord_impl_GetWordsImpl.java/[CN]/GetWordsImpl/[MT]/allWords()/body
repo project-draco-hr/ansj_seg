@@ -24,7 +24,7 @@ case 2:
     i++;
   offe=start;
 tempBaseValue=baseValue;
-return words[tempBaseValue];
+return DATDictionary.getItem(tempBaseValue).name;
 case 3:
 offe=start;
 start++;
@@ -32,7 +32,7 @@ i=start;
 end=0;
 tempBaseValue=baseValue;
 baseValue=0;
-return words[tempBaseValue];
+return DATDictionary.getItem(tempBaseValue).name;
 }
 }
 if (start++ != i) {

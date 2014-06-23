@@ -1,0 +1,4 @@
+{
+  this.name=split[0];
+  this.param=split[1];
+}

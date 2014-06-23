@@ -1,0 +1,12 @@
+{
+  super();
+  this.name=name;
+  this.offe=offe;
+  this.item=item;
+  if (item.termNatures != null) {
+    this.termNatures=item.termNatures;
+    if (termNatures.nature != null) {
+      this.nature=termNatures.nature;
+    }
+  }
+}

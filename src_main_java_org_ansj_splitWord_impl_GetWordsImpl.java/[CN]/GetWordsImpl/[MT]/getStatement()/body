@@ -1,8 +1,8 @@
 {
   checkValue=baseValue;
-  baseValue=base[checkValue] + charHashCode;
-  if (baseValue < arrayLength && (check[baseValue] == checkValue || check[baseValue] == -1)) {
-    return status[baseValue];
+  baseValue=DATDictionary.getItem(checkValue).base + charHashCode;
+  if (baseValue < DATDictionary.arrayLength && (DATDictionary.getItem(baseValue).check == checkValue || DATDictionary.getItem(baseValue).check == -1)) {
+    return DATDictionary.getItem(baseValue).status;
   }
   return 0;
 }

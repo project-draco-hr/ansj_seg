@@ -1,8 +1,0 @@
-{
-  BufferedReader reader=MyStaticValue.getArraysReader();
-  initArraySize(reader);
-  reader.close();
-  reader=MyStaticValue.getArraysReader();
-  initArrays(reader);
-  reader.close();
-}

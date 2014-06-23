@@ -16,7 +16,7 @@
  else {
         strs=temp.split("\t");
         strs[0]=strs[0].toLowerCase();
-        if (MyStaticValue.isSkipUserDefine && InitDictionary.getWordId(strs[0]) > 0) {
+        if (MyStaticValue.isSkipUserDefine && DATDictionary.getId(strs[0]) > 0) {
           continue;
         }
         if (strs.length != 3) {

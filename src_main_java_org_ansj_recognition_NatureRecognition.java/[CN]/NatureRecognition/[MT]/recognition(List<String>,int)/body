@@ -3,10 +3,10 @@
   int tempOffe=0;
   String[] params=null;
   for (  String word : words) {
-    int wordId=InitDictionary.getWordId(word);
+    AnsjItem ansjItem=DATDictionary.getItem(word);
     TermNatures tn=null;
-    if (wordId != 0) {
-      tn=InitDictionary.termNatures[wordId];
+    if (ansjItem.termNatures != TermNatures.NULL) {
+      tn=ansjItem.termNatures;
     }
  else     if ((params=UserDefineLibrary.getParams(word)) != null) {
       tn=new TermNatures(new TermNature(params[0],1));

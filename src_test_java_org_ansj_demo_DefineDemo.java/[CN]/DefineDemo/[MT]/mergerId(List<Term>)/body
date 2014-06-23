@@ -9,7 +9,7 @@
       int end=mergerId(parse,sb,i);
       System.out.println(end);
       if (end > 0) {
-        newTerm=new Term(sb.toString(),term.getOffe(),null);
+        newTerm=new Term(sb.toString(),term.getOffe(),TermNatures.NULL);
         newTerm.setNature(userIdNature);
         result.add(newTerm);
         i=end;

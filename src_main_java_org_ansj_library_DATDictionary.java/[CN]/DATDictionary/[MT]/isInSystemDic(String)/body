@@ -1,0 +1,4 @@
+{
+  Item item=DAT.getItem(word);
+  return item != null && item.status > 1;
+}

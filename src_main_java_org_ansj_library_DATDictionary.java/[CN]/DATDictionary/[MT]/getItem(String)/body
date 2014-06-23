@@ -1,0 +1,7 @@
+{
+  AnsjItem item=DAT.getItem(str);
+  if (item == null) {
+    return AnsjItem.NULL;
+  }
+  return item;
+}

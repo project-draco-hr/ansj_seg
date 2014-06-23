@@ -1,0 +1,24 @@
+{
+  BufferedReader br=IOUtil.getReader("train_file/dic.txt","utf-8");
+  String temp=null;
+  TreeMap<String,TreeMap<String,Integer>> dic=new TreeMap<String,TreeMap<String,Integer>>();
+  while ((temp=br.readLine()) != null) {
+    if (temp.indexOf('#') > -1) {
+      continue;
+    }
+    temp=temp.replace(String.valueOf(((char)0)),"");
+    String[] split=temp.split("\t");
+    if (dic.containsKey(split[1])) {
+      if (dic.get(split[1]).containsKey(split[0])) {
+        System.out.println("err");
+      }
+      dic.get(split[1]).put(split[0],Integer.parseInt(split[2]));
+    }
+ else {
+      TreeMap<String,Integer> tm=new TreeMap<String,Integer>();
+      tm.put(split[0],Integer.parseInt(split[2]));
+      dic.put(split[1],tm);
+    }
+  }
+  IOUtil.writeMap(dic,"train_file/library.txt",IOUtil.UTF8);
+}

@@ -1,0 +1,44 @@
+{
+  BufferedReader reader=null;
+  try {
+    reader=IOUtil.getReader(DicReader.getInputStream("bigramdict.dic"),"UTF-8");
+    String temp=null;
+    String[] strs=null;
+    int freq=0;
+    while ((temp=reader.readLine()) != null) {
+      if (StringUtil.isBlank(temp)) {
+        continue;
+      }
+      strs=temp.split("\t");
+      freq=Integer.parseInt(strs[1]);
+      strs=strs[0].split("@");
+      AnsjItem fromItem=DATDictionary.getItem(strs[0]);
+      AnsjItem toItem=DATDictionary.getItem(strs[1]);
+      if (fromItem == AnsjItem.NULL && strs[0].contains("#")) {
+        fromItem=AnsjItem.BEGIN;
+      }
+      if (toItem == AnsjItem.NULL && strs[1].contains("#")) {
+        toItem=AnsjItem.END;
+      }
+      if (fromItem == AnsjItem.NULL || toItem == AnsjItem.NULL) {
+        continue;
+      }
+      if (fromItem.bigramEntryMap == null) {
+        fromItem.bigramEntryMap=new HashMap<Integer,Integer>();
+      }
+      fromItem.bigramEntryMap.put(toItem.index,freq);
+    }
+  }
+ catch (  NumberFormatException e) {
+    e.printStackTrace();
+  }
+catch (  UnsupportedEncodingException e) {
+    e.printStackTrace();
+  }
+catch (  IOException e) {
+    e.printStackTrace();
+  }
+ finally {
+    IOUtil.close(reader);
+  }
+}

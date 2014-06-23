@@ -1,0 +1,7 @@
+{
+  Item item=(AnsjItem)DAT.getDAT()[c];
+  if (item == null) {
+    return 0;
+  }
+  return item.status;
+}

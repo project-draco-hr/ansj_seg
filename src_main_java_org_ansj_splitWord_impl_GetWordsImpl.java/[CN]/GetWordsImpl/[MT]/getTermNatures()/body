@@ -1,7 +1,0 @@
-{
-  TermNatures tns=termNatures[tempBaseValue];
-  if (tns == null) {
-    return TermNatures.NW;
-  }
-  return tns;
-}
