@@ -20,11 +20,13 @@
       Term term=null;
       String temp=null;
       int length=graph.terms.length - 1;
+      Set<String> filter=new HashSet<String>();
       for (int i=0; i < length; i++) {
         term=graph.terms[i];
         if (term == null) {
           continue;
         }
+        filter.add(term.getName());
         result.add(term);
       }
       for (int i=0; i < length; i++) {
@@ -35,6 +37,7 @@
         term=term.getNext();
         while (term != null) {
           result.add(term);
+          filter.add(term.getName());
           temp=term.getName();
           term=term.getNext();
           if (term == null || term.getName().length() == 1 || temp.equals(term.getName())) {
@@ -46,7 +49,8 @@
         if (term2.getName().length() >= 3) {
           GetWordsImpl gwi=new GetWordsImpl(term2.getName());
           while ((temp=gwi.allWords()) != null) {
-            if (temp.length() > 1 && temp.length() < term2.getName().length()) {
+            if (!filter.contains(temp) && temp.length() < term2.getName().length()) {
+              filter.add(temp);
               last.add(new Term(temp,gwi.offe + term2.getOffe(),TermNatures.NULL));
             }
           }
