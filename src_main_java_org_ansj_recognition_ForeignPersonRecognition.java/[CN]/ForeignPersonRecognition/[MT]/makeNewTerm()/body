@@ -1,0 +1,8 @@
+{
+  StringBuilder sb=new StringBuilder();
+  int offe=tempList.get(0).getOffe();
+  for (  Term term : tempList) {
+    sb.append(term.getName());
+  }
+  return new Term(sb.toString(),offe,TermNatures.NR);
+}
