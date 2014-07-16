@@ -3,7 +3,7 @@
   if (path != null) {
     file=new File(path);
     if (!file.canRead() || file.isHidden()) {
-      LIBRARYLOG.warning("init userLibrary  waring :" + new File(path).getAbsolutePath() + " because : not find that file or can not to read !");
+      LIBRARYLOG.warning("init userLibrary  warning :" + new File(path).getAbsolutePath() + " because : file not found or failed to read !");
       return;
     }
     if (file.isFile()) {
