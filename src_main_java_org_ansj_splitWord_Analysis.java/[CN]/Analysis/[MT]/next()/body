@@ -1,4 +1,5 @@
 {
+  Term term=null;
   if (!terms.isEmpty()) {
     term=terms.poll();
     term.updateOffe(offe);

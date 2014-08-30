@@ -1,0 +1,4 @@
+{
+  this.offe=0;
+  this.br=new AnsjReader(reader,buffer);
+}

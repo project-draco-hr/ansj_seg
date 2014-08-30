@@ -1,8 +1,12 @@
 {
   Graph gp=new Graph(temp);
   int startOffe=0;
-  if (UserDefineLibrary.ambiguityForest != null) {
-    GetWord gw=new GetWord(UserDefineLibrary.ambiguityForest,gp.chars);
+  Forest forset=UserDefineLibrary.ambiguityForest;
+  if (this.ambiguityForest != null) {
+    forset=this.ambiguityForest;
+  }
+  if (forset != null) {
+    GetWord gw=new GetWord(forset,gp.chars);
     String[] params=null;
     while ((gw.getAllWords()) != null) {
       if (gw.offe > startOffe) {
