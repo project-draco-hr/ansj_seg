@@ -1,10 +1,13 @@
 {
-  graph.rmLittlePath();
   List<Term> result=new LinkedList<Term>();
   int length=graph.terms.length - 1;
+  Term term=null;
   for (int i=0; i < length; i++) {
-    if (graph.terms[i] != null) {
-      result.add(graph.terms[i]);
+    if ((term=graph.terms[i]) != null) {
+      result.add(term);
+      while ((term=term.getNext()) != null) {
+        result.add(term);
+      }
     }
   }
   return result;
