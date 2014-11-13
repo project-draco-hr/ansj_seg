@@ -7,4 +7,7 @@
     name=split[1];
     termNatures=new TermNatures(TermNature.setNatureStrToArray(split[5]),index);
   }
+ else {
+    termNatures=new TermNatures(TermNature.NULL);
+  }
 }
