@@ -5,7 +5,7 @@
   for (  String word : words) {
     AnsjItem ansjItem=DATDictionary.getItem(word);
     TermNatures tn=null;
-    if (ansjItem.termNatures != TermNatures.NULL) {
+    if (ansjItem != AnsjItem.NULL) {
       tn=ansjItem.termNatures;
     }
  else     if ((params=UserDefineLibrary.getParams(word)) != null) {
