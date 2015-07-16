@@ -1,2 +1,14 @@
 {
+  ResourceBundle rb=null;
+  try {
+    rb=ResourceBundle.getBundle("library");
+  }
+ catch (  Exception e) {
+    File find=FileFinder.find("library.properties");
+    rb=new PropertyResourceBundle(IOUtil.getReader(find.getAbsolutePath(),System.getProperty("file.encoding")));
+  }
+  if (rb.containsKey("userLibrary"))   System.out.println(rb.getString("userLibrary"));
+  if (rb.containsKey("ambiguityLibrary"))   System.out.println(rb.getString("ambiguityLibrary"));
+  if (rb.containsKey("isSkipUserDefine"))   System.out.println(Boolean.valueOf(rb.getString("isSkipUserDefine")));
+  if (rb.containsKey("isRealName"))   System.out.println(Boolean.valueOf(rb.getString("isRealName")));
 }
