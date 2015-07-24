@@ -1,5 +1,5 @@
 {
-  for (  WoodInterface forest : forests) {
+  for (  Forest forest : forests) {
     if (forest == null) {
       continue;
     }

@@ -1,5 +1,5 @@
 {
-  WoodInterface temp=FOREST;
+  Forest temp=FOREST;
   for (int i=0; i < word.length(); i++) {
     temp=temp.get(word.charAt(i));
     if (temp == null) {

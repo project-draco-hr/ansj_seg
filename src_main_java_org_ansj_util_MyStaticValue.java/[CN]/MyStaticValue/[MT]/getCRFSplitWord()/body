@@ -3,13 +3,13 @@
     return crfSplitWord;
   }
   LOCK.lock();
-  if (crfSplitWord != null) {
+  if (crfSplitWord != null || StringUtil.isBlank(crfModel)) {
     return crfSplitWord;
   }
   try {
     long start=System.currentTimeMillis();
     LIBRARYLOG.info("begin init crf model!");
-    crfSplitWord=new SplitWord(Model.loadModel(DicReader.getInputStream("crf/crf.model")));
+    crfSplitWord=new SplitWord(Model.loadModel(crfModel));
     LIBRARYLOG.info("load crf crf use time:" + (System.currentTimeMillis() - start));
   }
  catch (  Exception e) {

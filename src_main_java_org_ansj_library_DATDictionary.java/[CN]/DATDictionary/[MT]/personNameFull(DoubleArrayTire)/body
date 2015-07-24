@@ -8,10 +8,10 @@
     temp=entry.getKey();
     if (temp.length() == 1 && (ansjItem=(AnsjItem)dat.getDAT()[temp.charAt(0)]) == null) {
       ansjItem=new AnsjItem();
-      ansjItem.base=c;
-      ansjItem.check=-1;
-      ansjItem.status=3;
-      ansjItem.name=temp;
+      ansjItem.setBase(c);
+      ansjItem.setCheck(-1);
+      ansjItem.setStatus((byte)3);
+      ansjItem.setName(temp);
       dat.getDAT()[temp.charAt(0)]=ansjItem;
     }
  else {
