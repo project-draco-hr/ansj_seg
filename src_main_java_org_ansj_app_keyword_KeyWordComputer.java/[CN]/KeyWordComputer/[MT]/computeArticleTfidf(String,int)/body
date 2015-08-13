@@ -4,6 +4,10 @@
   for (  Term term : parse) {
     double weight=getWeight(term,content.length(),titleLength);
     if (weight == 0)     continue;
+    char c=WordAlert.CharCover(term.getName().charAt(0));
+    if (c >= '0' && c <= '9') {
+      continue;
+    }
     Keyword keyword=tm.get(term.getName());
     if (keyword == null) {
       keyword=new Keyword(term.getName(),term.natrue().allFrequency,weight);
