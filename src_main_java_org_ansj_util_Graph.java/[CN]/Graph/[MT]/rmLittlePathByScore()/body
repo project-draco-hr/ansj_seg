@@ -16,7 +16,7 @@
         maxTerm=term;
       }
     }
- while ((term=term.getNext()) != null);
+ while ((term=term.next()) != null);
     term=maxTerm;
     do {
       maxTo=term.toValue();
@@ -34,7 +34,7 @@
             break out;
           }
         }
- while ((temp=temp.getNext()) != null);
+ while ((temp=temp.next()) != null);
       }
       if (flag) {
         for (int j=i + 1; j < maxTo; j++) {
@@ -42,6 +42,6 @@
         }
       }
     }
- while ((term=term.getNext()) != null);
+ while ((term=term.next()) != null);
   }
 }

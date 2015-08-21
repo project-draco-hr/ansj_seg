@@ -1,4 +1,8 @@
 {
   this.name=this.name + to.getName();
+  if (StringUtil.isNotBlank(this.realName) && StringUtil.isNotBlank(to.getRealName())) {
+    this.realName=this.realName + to.getRealName();
+  }
+  this.setTo(to.to);
   return this;
 }

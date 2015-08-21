@@ -4,7 +4,7 @@
     term=terms[to];
     while (term != null) {
       term.setPathScore(fromTerm);
-      term=term.getNext();
+      term=term.next();
     }
   }
  else {

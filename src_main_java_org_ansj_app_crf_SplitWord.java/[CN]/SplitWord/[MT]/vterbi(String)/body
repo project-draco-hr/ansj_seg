@@ -1,5 +1,5 @@
 {
-  List<Element> elements=WordAlert.str2Elements(line);
+  List<Element> elements=str2Elements(line);
   int length=elements.size();
   if (length == 0) {
     return elements;

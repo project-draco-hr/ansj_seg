@@ -2,7 +2,7 @@
   if (word.length() == 0) {
     return Integer.MIN_VALUE;
   }
-  List<Element> elements=WordAlert.str2Elements(word);
+  List<Element> elements=str2Elements(word);
   for (int i=0; i < elements.size(); i++) {
     computeTagScore(elements,i);
   }

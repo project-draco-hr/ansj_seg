@@ -1,0 +1,37 @@
+{
+  String end=null;
+  String name;
+  LinkedList<Term> mergeList=null;
+  List<Term> result=new LinkedList<>();
+  for (  Term term : terms) {
+    name=term.getName();
+    if (end == null) {
+      if ((end=ruleMap.get(name)) != null) {
+        mergeList=new LinkedList<>();
+        mergeList.add(term);
+      }
+ else {
+        result.add(term);
+      }
+    }
+ else {
+      mergeList.add(term);
+      if (end.equals(name)) {
+        Term ft=mergeList.pollFirst();
+        for (        Term sub : mergeList) {
+          ft.merage(sub);
+        }
+        ft.setNature(nature);
+        result.add(ft);
+        mergeList=null;
+        end=null;
+      }
+    }
+  }
+  if (mergeList != null) {
+    for (    Term term : result) {
+      result.add(term);
+    }
+  }
+  return result;
+}

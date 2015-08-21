@@ -1,0 +1,14 @@
+{
+  for (  Term term : terms) {
+    if (!"@".equals(term.getName())) {
+      continue;
+    }
+  }
+  for (Iterator<Term> iterator=terms.iterator(); iterator.hasNext(); ) {
+    Term term=(Term)iterator.next();
+    if (term.getName() == null) {
+      iterator.remove();
+    }
+  }
+  return terms;
+}

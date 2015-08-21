@@ -6,7 +6,7 @@
     while (term != null && term.from() != null && term != end) {
       int to=term.toValue();
       merger(term,to);
-      term=term.getNext();
+      term=term.next();
     }
   }
   optimalRoot();
