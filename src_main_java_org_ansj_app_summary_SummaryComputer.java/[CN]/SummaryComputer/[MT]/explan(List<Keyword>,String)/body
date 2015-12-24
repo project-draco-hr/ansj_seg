@@ -37,9 +37,6 @@
         break;
       }
     }
- else {
-      break;
-    }
   }
   StringBuilder sb=new StringBuilder();
   for (int i=maxIndex; i < sentences.size(); i++) {
