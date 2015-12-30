@@ -1,0 +1,18 @@
+{
+  MyStaticValue.LIBRARYLOG.info("to down library ! please wait a moment");
+  URL url=new URL("http://maven.nlpcn.org/down/library.zip");
+  URLConnection conn=url.openConnection();
+  long length=conn.getContentLength();
+  InputStream openStream=conn.getInputStream();
+  byte[] bytes=new byte[10240];
+  int temp=0;
+  FileOutputStream fos=new FileOutputStream("library.zip");
+  int len=0;
+  while ((temp=openStream.read(bytes)) != -1) {
+    fos.write(bytes,0,temp);
+    len+=temp;
+    MyStaticValue.LIBRARYLOG.info("down " + len + "/"+ length);
+  }
+  fos.flush();
+  fos.close();
+}

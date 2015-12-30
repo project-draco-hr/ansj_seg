@@ -13,8 +13,7 @@
     LIBRARYLOG.info("load crf crf use time:" + (System.currentTimeMillis() - start));
   }
  catch (  Exception e) {
-    LIBRARYLOG.warning("not find crf model , so instance a empty one !");
-    crfSplitWord=new SplitWord();
+    LIBRARYLOG.warning("!!!!!!!!!!  not find crf model you can run DownLibrary.main(null) to down !\n or you can visit http://maven.nlpcn.org/down/library.zip to down it ! ");
   }
  finally {
     LOCK.unlock();

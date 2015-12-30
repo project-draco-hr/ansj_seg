@@ -11,12 +11,14 @@
         learn=new LearnTool();
       }
       learn.learn(graph,DEFAULT_SLITWORD);
-      List<String> words=DEFAULT_SLITWORD.cut(graph.chars);
-      for (      String word : words) {
-        if (word.length() < 2 || DATDictionary.isInSystemDic(word) || isRuleWord(word)) {
-          continue;
+      if (DEFAULT_SLITWORD != null) {
+        List<String> words=DEFAULT_SLITWORD.cut(graph.chars);
+        for (        String word : words) {
+          if (word.length() < 2 || DATDictionary.isInSystemDic(word) || isRuleWord(word)) {
+            continue;
+          }
+          learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw")));
         }
-        learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw")));
       }
       new UserDefineRecognition(graph.terms,forests).recognition();
       graph.rmLittlePath();
