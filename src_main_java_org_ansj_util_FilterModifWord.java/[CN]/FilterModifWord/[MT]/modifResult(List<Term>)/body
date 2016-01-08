@@ -6,7 +6,6 @@
         continue;
       }
       if ((stopwordPattern != null) && stopwordPattern.matcher(term.getName()).matches()) {
-        System.out.println(term.getName());
         continue;
       }
       String[] params=UserDefineLibrary.getParams(term.getName());
