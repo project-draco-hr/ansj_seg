@@ -5,6 +5,10 @@
       if (FILTER.size() > 0 && (FILTER.contains(term.getName()) || (isTag && FILTER.contains(TAG + term.natrue().natureStr)))) {
         continue;
       }
+      if ((stopwordPattern != null) && stopwordPattern.matcher(term.getName()).matches()) {
+        System.out.println(term.getName());
+        continue;
+      }
       String[] params=UserDefineLibrary.getParams(term.getName());
       if (params != null) {
         term.setNature(new Nature(params[0]));

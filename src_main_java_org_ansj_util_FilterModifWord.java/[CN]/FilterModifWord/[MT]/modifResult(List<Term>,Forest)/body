@@ -5,6 +5,10 @@
       if (FILTER.size() > 0 && (FILTER.contains(term.getName()) || FILTER.contains(TAG + term.natrue().natureStr))) {
         continue;
       }
+      if ((stopwordPattern != null) && stopwordPattern.matcher(term.getName()).matches()) {
+        System.out.println(term.getName());
+        continue;
+      }
       for (      Forest forest : forests) {
         String[] params=UserDefineLibrary.getParams(forest,term.getName());
         if (params != null) {
