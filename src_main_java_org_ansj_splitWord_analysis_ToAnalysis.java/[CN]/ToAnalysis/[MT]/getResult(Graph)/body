@@ -1,7 +1,6 @@
 {
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
-      userDefineRecognition(graph,forests);
       graph.walkPath();
       if (MyStaticValue.isNumRecognition && graph.hasNum) {
         NumRecognition.recognition(graph.terms);
@@ -13,6 +12,7 @@
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }
+      userDefineRecognition(graph,forests);
       return getResult();
     }
     private void userDefineRecognition(    final Graph graph,    Forest... forests){
