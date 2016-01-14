@@ -20,7 +20,7 @@
           learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw")));
         }
       }
-      new UserDefineRecognition(graph.terms,forests).recognition();
+      new UserDefineRecognition(graph.terms,2,forests).recognition();
       graph.rmLittlePath();
       graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();

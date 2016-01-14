@@ -1,4 +1,0 @@
-{
-  this.forests=forests;
-  super.resetContent(new AnsjReader(reader));
-}

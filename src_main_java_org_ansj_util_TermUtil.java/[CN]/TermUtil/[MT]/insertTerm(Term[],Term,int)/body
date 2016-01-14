@@ -1,0 +1,41 @@
+{
+  Term self=terms[term.getOffe()];
+  if (self == null) {
+    terms[term.getOffe()]=term;
+    return;
+  }
+  int len=term.getName().length();
+  if (self.getName().length() == len) {
+    if (type == 1) {
+      term.setNext(self.next());
+      terms[term.getOffe()]=term;
+    }
+ else     if (type == 2) {
+      self.score(self.score() + term.score());
+      self.selfScore(self.selfScore() + term.selfScore());
+    }
+    return;
+  }
+  Term next=self;
+  Term before=self;
+  while ((next=before.next()) != null) {
+    if (next.getName().length() == len) {
+      if (type == 1) {
+        term.setNext(next.next());
+        before.setNext(term);
+      }
+ else       if (type == 2) {
+        next.score(next.score() + term.score());
+        next.selfScore(next.selfScore() + term.selfScore());
+      }
+      return;
+    }
+ else     if (next.getName().length() > len) {
+      before.setNext(term);
+      term.setNext(next);
+      return;
+    }
+    before=next;
+  }
+  before.setNext(term);
+}

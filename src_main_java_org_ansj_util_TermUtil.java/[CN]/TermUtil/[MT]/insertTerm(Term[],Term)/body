@@ -1,8 +1,0 @@
-{
-  Term temp=terms[term.getOffe()];
-  Term last=temp;
-  while ((temp=temp.next()) != null) {
-    last=temp;
-  }
-  last.setNext(term);
-}

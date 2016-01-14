@@ -3,13 +3,9 @@
   if (maxTerm == null) {
     return null;
   }
-  int maxTo=maxTerm.toValue();
   Term term=maxTerm;
   while ((term=term.next()) != null) {
-    if (maxTo < term.toValue()) {
-      maxTo=term.toValue();
-      maxTerm=term;
-    }
+    maxTerm=term;
   }
   return maxTerm;
 }

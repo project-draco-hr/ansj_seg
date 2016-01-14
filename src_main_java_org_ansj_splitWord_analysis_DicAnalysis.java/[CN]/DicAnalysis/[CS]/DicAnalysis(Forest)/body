@@ -1,6 +1,0 @@
-{
-  if (forests == null) {
-    forests=new Forest[]{UserDefineLibrary.FOREST};
-  }
-  this.forests=forests;
-}

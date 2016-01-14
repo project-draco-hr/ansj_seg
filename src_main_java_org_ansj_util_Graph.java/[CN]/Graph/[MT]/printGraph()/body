@@ -4,7 +4,7 @@
       continue;
     }
     System.out.print(term.getName() + "\t" + term.selfScore()+ " ,");
-    if ((term=term.next()) != null) {
+    while ((term=term.next()) != null) {
       System.out.print(term + "\t" + term.selfScore()+ " ,");
     }
     System.out.println();

@@ -1,2 +1,3 @@
 Term[] terms
+int type
 Forest forests
