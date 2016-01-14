@@ -5,7 +5,13 @@
     from.score(score);
     return score;
   }
-  int nTwoWordsFreq=NgramLibrary.getTwoWordFreq(from,to);
+  double nTwoWordsFreq=NgramLibrary.getTwoWordFreq(from,to);
+  if (relationMap != null) {
+    Double d=relationMap.get(from.getName() + TAB + to.getName());
+    if (d != null) {
+      nTwoWordsFreq+=d;
+    }
+  }
   double value=-Math.log(dSmoothingPara * frequency / (MAX_FREQUENCE + 80000) + (1 - dSmoothingPara) * ((1 - dTemp) * nTwoWordsFreq / frequency + dTemp));
   if (value < 0) {
     value+=frequency;

@@ -1,13 +1,3 @@
 {
-  Term term=null;
-  merger(root,0);
-  for (int i=0; i < terms.length; i++) {
-    term=terms[i];
-    while (term != null && term.from() != null && term != end) {
-      int to=term.toValue();
-      merger(term,to);
-      term=term.next();
-    }
-  }
-  optimalRoot();
+  walkPath(null);
 }

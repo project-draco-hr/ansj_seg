@@ -1,5 +1,5 @@
 {
-  double score=MathUtil.compuScore(from,this);
+  double score=MathUtil.compuScore(from,this,relationMap);
   if (this.from == null || this.score >= score) {
     this.setFromAndScore(from,score);
   }

@@ -3,7 +3,7 @@
   if (terms[to] != null) {
     term=terms[to];
     while (term != null) {
-      term.setPathScore(fromTerm);
+      term.setPathScore(fromTerm,relationMap);
       term=term.next();
     }
   }
@@ -14,6 +14,6 @@
       tn=TermNatures.NULL;
     }
     terms[to]=new Term(String.valueOf(c),to,tn);
-    terms[to].setPathScore(fromTerm);
+    terms[to].setPathScore(fromTerm,relationMap);
   }
 }

@@ -1,25 +1,31 @@
 {
   Merger merger=new Merger(){
     @Override public List<Term> merger(){
-      graph.walkPath();
-      if (graph.hasNum) {
-        NumRecognition.recognition(graph.terms);
-      }
-      List<Term> result=getResult();
-      new NatureRecognition(result).recognition();
       if (learn == null) {
         learn=new LearnTool();
       }
       learn.learn(graph,DEFAULT_SLITWORD);
+      MapCount<String> mc=null;
       if (DEFAULT_SLITWORD != null) {
+        mc=new MapCount<String>();
         List<String> words=DEFAULT_SLITWORD.cut(graph.chars);
+        String temp=null;
         for (        String word : words) {
+          if (temp != null) {
+            mc.add(temp + TAB + word);
+          }
+          temp=word;
           if (word.length() < 2 || DATDictionary.isInSystemDic(word) || isRuleWord(word)) {
             continue;
           }
           learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw")));
         }
       }
+      graph.walkPath(mc.get());
+      if (graph.hasNum) {
+        NumRecognition.recognition(graph.terms);
+      }
+      List<Term> result=getResult();
       new UserDefineRecognition(graph.terms,2,forests).recognition();
       graph.rmLittlePath();
       graph.walkPathByScore();
