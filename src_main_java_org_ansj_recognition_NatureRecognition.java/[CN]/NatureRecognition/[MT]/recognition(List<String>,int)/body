@@ -1,25 +1,8 @@
 {
   List<Term> terms=new ArrayList<Term>(words.size());
   int tempOffe=0;
-  String[] params=null;
   for (  String word : words) {
-    AnsjItem ansjItem=DATDictionary.getItem(word);
-    TermNatures tn=null;
-    if (ansjItem != AnsjItem.NULL) {
-      tn=ansjItem.termNatures;
-    }
- else     if ((params=UserDefineLibrary.getParams(word)) != null) {
-      tn=new TermNatures(new TermNature(params[0],1));
-    }
- else     if (WordAlert.isEnglish(word)) {
-      tn=TermNatures.EN;
-    }
- else     if (WordAlert.isNumber(word)) {
-      tn=TermNatures.M;
-    }
- else {
-      tn=TermNatures.NULL;
-    }
+    TermNatures tn=getTermNatures(word);
     terms.add(new Term(word,offe + tempOffe,tn));
     tempOffe+=word.length();
   }

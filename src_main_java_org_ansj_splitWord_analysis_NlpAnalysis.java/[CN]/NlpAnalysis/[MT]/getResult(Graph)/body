@@ -15,7 +15,8 @@
             mc.add(temp + TAB + word);
           }
           temp=word;
-          if (word.length() < 2 || DATDictionary.isInSystemDic(word) || isRuleWord(word)) {
+          TermNatures termNatures=NatureRecognition.getTermNatures(word);
+          if (word.length() < 2 || termNatures != null || isRuleWord(word)) {
             continue;
           }
           learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw")));
