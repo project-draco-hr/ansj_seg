@@ -4,22 +4,47 @@
       if (learn == null) {
         learn=new LearnTool();
       }
+      graph.walkPath();
       learn.learn(graph,DEFAULT_SLITWORD);
-      MapCount<String> mc=null;
+      if (graph.hasPerson && MyStaticValue.isNameRecognition) {
+        new AsianPersonRecognition(graph.terms).recognition();
+        graph.walkPathByScore();
+        NameFix.nameAmbiguity(graph.terms);
+        new ForeignPersonRecognition(graph.terms).recognition();
+        graph.walkPathByScore();
+      }
+      MapCount<String> mc=new MapCount<String>();
       if (DEFAULT_SLITWORD != null) {
-        mc=new MapCount<String>();
         List<String> words=DEFAULT_SLITWORD.cut(graph.chars);
         String temp=null;
+        TermNatures tempTermNatures=null;
+        int tempOff=0;
         for (        String word : words) {
-          if (temp != null) {
-            mc.add(temp + TAB + word);
+          AnsjItem item=DATDictionary.getItem(word);
+          Term term=null;
+          if (item != null) {
+            term=new Term(word,tempOff,DATDictionary.getItem(word));
+          }
+ else {
+            TermNatures termNatures=NatureRecognition.getTermNatures(word);
+            if (termNatures != null) {
+              term=new Term(word,tempOff,termNatures);
+            }
+ else {
+              term=new Term(word,tempOff,TermNatures.NW);
+            }
+          }
+          TermUtil.insertTerm(graph.terms,term,2);
+          tempOff+=word.length();
+          if (temp != null && tempTermNatures != TermNatures.NW && term.termNatures() != TermNatures.NW) {
+            mc.add(temp + TAB + word,10);
           }
           temp=word;
-          TermNatures termNatures=NatureRecognition.getTermNatures(word);
-          if (word.length() < 2 || termNatures != null || isRuleWord(word)) {
+          tempTermNatures=term.termNatures();
+          if (word.length() < 2 || isRuleWord(word)) {
             continue;
           }
-          learn.addTerm(new NewWord(word,NatureLibrary.getNature("nw")));
+          learn.addTerm(new NewWord(word,Nature.NW));
         }
       }
       graph.walkPath(mc.get());
@@ -32,7 +57,6 @@
       graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();
       graph.walkPathByScore();
-      NameFix.nameAmbiguity(graph.terms);
       result=getResult();
       for (      Term term : result) {
         learn.active(term.getName());
