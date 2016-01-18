@@ -22,12 +22,12 @@
         for (        String word : words) {
           AnsjItem item=DATDictionary.getItem(word);
           Term term=null;
-          if (item != null) {
+          if (item != AnsjItem.NULL) {
             term=new Term(word,tempOff,DATDictionary.getItem(word));
           }
  else {
             TermNatures termNatures=NatureRecognition.getTermNatures(word);
-            if (termNatures != null) {
+            if (termNatures != TermNatures.NULL) {
               term=new Term(word,tempOff,termNatures);
             }
  else {
@@ -36,8 +36,13 @@
           }
           TermUtil.insertTerm(graph.terms,term,2);
           tempOff+=word.length();
-          if (temp != null && tempTermNatures != TermNatures.NW && term.termNatures() != TermNatures.NW) {
-            mc.add(temp + TAB + word,10);
+          if (temp != null) {
+            if (tempTermNatures != TermNatures.NW && term.termNatures() != TermNatures.NW) {
+              mc.add(temp + TAB + word,CRF_WEIGHT);
+            }
+          }
+ else           if (term.termNatures() != TermNatures.NW) {
+            mc.add("???##???" + TAB + word,CRF_WEIGHT);
           }
           temp=word;
           tempTermNatures=term.termNatures();
@@ -45,6 +50,9 @@
             continue;
           }
           learn.addTerm(new NewWord(word,Nature.NW));
+        }
+        if (tempTermNatures != TermNatures.NW) {
+          mc.add(temp + TAB + "???##???",CRF_WEIGHT);
         }
       }
       graph.walkPath(mc.get());

@@ -5,10 +5,5 @@
   if (!hasPerson && term.termNatures().personAttr.flag) {
     hasPerson=true;
   }
-  if (terms[term.getOffe()] == null) {
-    terms[term.getOffe()]=term;
-  }
- else {
-    terms[term.getOffe()].setNext(term);
-  }
+  TermUtil.insertTerm(terms,term,1);
 }
