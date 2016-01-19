@@ -1,0 +1,8 @@
+{
+  if (lALogger != null) {
+    lALogger.log(null,FQCN,LocationAwareLogger.INFO_INT,msg,null,null);
+  }
+ else {
+    logger.info(msg);
+  }
+}

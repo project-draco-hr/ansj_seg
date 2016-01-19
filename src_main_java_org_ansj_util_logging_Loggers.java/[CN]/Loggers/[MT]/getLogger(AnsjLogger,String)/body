@@ -1,0 +1,3 @@
+{
+  return AnsjLoggerFactory.getLogger(parentLogger.getPrefix(),getLoggerName(parentLogger.getName() + s));
+}

@@ -1,0 +1,4 @@
+{
+  LogRecord record=new ESLogRecord(Level.INFO,msg);
+  logger.log(record);
+}

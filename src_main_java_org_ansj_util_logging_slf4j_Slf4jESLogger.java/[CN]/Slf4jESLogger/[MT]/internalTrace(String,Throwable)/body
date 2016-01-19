@@ -1,0 +1,8 @@
+{
+  if (lALogger != null) {
+    lALogger.log(null,FQCN,LocationAwareLogger.TRACE_INT,msg,null,cause);
+  }
+ else {
+    logger.trace(msg);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return defaultFactory.newInstance(prefix == null ? null : prefix.intern(),name.intern());
+}
