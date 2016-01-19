@@ -1,0 +1,21 @@
+{
+  MyStaticValue.userLibrary="/home/ansj/workspace/ansj_seg/library/default.dic";
+  HashSet<String> hs=new HashSet<String>();
+  hs.add("???");
+  Analyzer analyzer=new AnsjAnalyzer();
+  Directory directory=null;
+  IndexWriter iwriter=null;
+  String text="?????????????????? 10???*6??? ";
+  UserDefineLibrary.insertWord("?????????","n",1000);
+  IndexWriterConfig ic=new IndexWriterConfig(analyzer);
+  directory=new RAMDirectory();
+  iwriter=new IndexWriter(directory,ic);
+  addContent(iwriter,text);
+  iwriter.commit();
+  iwriter.close();
+  System.out.println("??????????????????");
+  Analyzer queryAnalyzer=new AnsjAnalyzer("user",hs);
+  ;
+  System.out.println("index ok to search!");
+  search(queryAnalyzer,directory,"\"??????????????????\"");
+}

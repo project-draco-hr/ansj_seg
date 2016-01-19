@@ -1,0 +1,4 @@
+{
+  PrefixQuery pq=new PrefixQuery(new Term("name","??????"));
+  System.out.println(pq);
+}
