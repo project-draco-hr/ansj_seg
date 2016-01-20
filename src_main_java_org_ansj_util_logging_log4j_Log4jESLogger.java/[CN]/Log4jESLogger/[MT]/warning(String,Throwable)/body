@@ -1,0 +1,3 @@
+{
+  this.internalWarn(string,cause);
+}
