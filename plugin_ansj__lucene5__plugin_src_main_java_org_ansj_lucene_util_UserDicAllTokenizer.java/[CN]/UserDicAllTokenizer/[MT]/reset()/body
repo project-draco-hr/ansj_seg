@@ -1,4 +1,0 @@
-{
-  super.reset();
-  ta.resetContent(new AnsjReader(this.input));
-}
