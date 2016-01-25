@@ -7,6 +7,9 @@
  else   if ("index".equalsIgnoreCase(type)) {
     tokenizer=new AnsjTokenizer(new IndexAnalysis(reader),filter);
   }
+ else   if ("all".equalsIgnoreCase(type)) {
+    tokenizer=UserDicAllTokenizer(reader);
+  }
  else {
     tokenizer=new AnsjTokenizer(new ToAnalysis(reader),filter);
   }

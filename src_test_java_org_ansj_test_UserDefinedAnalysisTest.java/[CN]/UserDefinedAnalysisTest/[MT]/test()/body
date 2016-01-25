@@ -3,7 +3,7 @@
   String nature="aaaaa";
   String str="????????????2012?????????????????????????????????????????????";
   UserDefineLibrary.insertWord(newWord,nature,1000);
-  List<Term> parse=ToAnalysis.parse(str);
+  List<Term> parse=UserDefineAnalysis.parse(str);
   HashMap<String,Term> hs=new HashMap<String,Term>();
   for (  Term term : parse) {
     hs.put(term.getName(),term);
@@ -11,7 +11,7 @@
   Assert.assertTrue(hs.containsKey(newWord));
   Assert.assertEquals(hs.get(newWord).natrue().natureStr,nature);
   UserDefineLibrary.removeWord(newWord);
-  parse=ToAnalysis.parse(str);
+  parse=UserDefineAnalysis.parse(str);
   hs=new HashMap<String,Term>();
   for (  Term term : parse) {
     hs.put(term.getName(),term);

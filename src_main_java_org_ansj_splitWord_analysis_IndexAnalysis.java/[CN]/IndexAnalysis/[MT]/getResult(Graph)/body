@@ -12,13 +12,7 @@
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }
-      userDefineRecognition(graph,forests);
       return result();
-    }
-    private void userDefineRecognition(    final Graph graph,    Forest... forests){
-      new UserDefineRecognition(graph.terms,0,forests).recognition();
-      graph.rmLittlePath();
-      graph.walkPathByScore();
     }
     /** 
  * ???????????????
@@ -26,21 +20,26 @@
  */
     private List<Term> result(){
       String temp=null;
+      Set<String> set=new HashSet<String>();
       List<Term> result=new LinkedList<Term>();
       int length=graph.terms.length - 1;
       for (int i=0; i < length; i++) {
         if (graph.terms[i] != null) {
           result.add(graph.terms[i]);
+          set.add(graph.terms[i].getName() + graph.terms[i].getOffe());
         }
       }
       LinkedList<Term> last=new LinkedList<Term>();
-      for (      Term term : result) {
-        if (term.getName().length() >= 3) {
-          GetWordsImpl gwi=new GetWordsImpl(term.getName());
-          while ((temp=gwi.allWords()) != null) {
-            if (temp.length() < term.getName().length() && temp.length() > 1) {
-              last.add(new Term(temp,gwi.offe + term.getOffe(),TermNatures.NULL));
-            }
+      Forest[] tempForests=DEFAULT_FORESTS;
+      if (forests != null && forests.length > 0) {
+        tempForests=forests;
+      }
+      char[] chars=graph.chars;
+      for (      Forest forest : tempForests) {
+        GetWord word=forest.getWord(chars);
+        while ((temp=word.getAllWords()) != null) {
+          if (!set.contains(temp + word.offe)) {
+            last.add(new Term(temp,word.offe,TermNatures.NULL));
           }
         }
       }
