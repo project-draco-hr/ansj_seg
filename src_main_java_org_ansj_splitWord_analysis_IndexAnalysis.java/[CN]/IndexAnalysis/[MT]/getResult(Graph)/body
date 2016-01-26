@@ -12,7 +12,13 @@
         new ForeignPersonRecognition(graph.terms).recognition();
         graph.walkPathByScore();
       }
+      userDefineRecognition(graph,forests);
       return result();
+    }
+    private void userDefineRecognition(    final Graph graph,    Forest... forests){
+      new UserDefineRecognition(graph.terms,0,forests).recognition();
+      graph.rmLittlePath();
+      graph.walkPathByScore();
     }
     /** 
  * ???????????????
