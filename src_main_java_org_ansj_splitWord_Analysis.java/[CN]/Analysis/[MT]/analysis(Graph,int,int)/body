@@ -7,7 +7,14 @@
   for (int i=startOffe; i < endOffe; i++) {
 switch (status(chars[i])) {
 case 0:
-      gp.addTerm(new Term(String.valueOf(chars[i]),i,TermNatures.NULL));
+      if (Character.isHighSurrogate(chars[i]) && (i + 1) < endOffe && Character.isLowSurrogate(chars[i + 1])) {
+        str=new String(Arrays.copyOfRange(chars,i,i + 2));
+        gp.addTerm(new Term(str,i,TermNatures.NULL));
+        i++;
+      }
+ else {
+        gp.addTerm(new Term(String.valueOf(chars[i]),i,TermNatures.NULL));
+      }
     break;
 case 4:
   start=i;
@@ -46,7 +53,7 @@ gwi.setChars(chars,start,end);
 while ((str=gwi.allWords()) != null) {
 gp.addTerm(new Term(str,gwi.offe,gwi.getItem()));
 }
-if (IN_SYSTEM[c] > 0 || status(c) > 3) {
+if (IN_SYSTEM[c] > 0 || status(c) > 3 || Character.isHighSurrogate(chars[i])) {
 i-=1;
 }
  else {
