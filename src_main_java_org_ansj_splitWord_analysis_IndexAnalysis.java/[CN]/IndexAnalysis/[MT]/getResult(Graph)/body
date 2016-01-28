@@ -45,7 +45,8 @@
         GetWord word=forest.getWord(chars);
         while ((temp=word.getAllWords()) != null) {
           if (!set.contains(temp + word.offe)) {
-            last.add(new Term(temp,word.offe,TermNatures.NULL));
+            set.add(temp + word.offe);
+            last.add(new Term(temp,word.offe,word.getParam(0),ObjConver.getIntValue(word.getParam(1))));
           }
         }
       }
