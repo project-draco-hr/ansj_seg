@@ -1,8 +1,9 @@
 {
   String name=term.getName();
+  SmartForest<String[]> sf=branch;
   for (int j=0; j < name.length(); j++) {
-    branch=branch.get(name.charAt(j));
-    if (branch == null) {
+    sf=sf.get(name.charAt(j));
+    if (sf == null) {
       return null;
     }
   }
