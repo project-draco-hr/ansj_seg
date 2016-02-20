@@ -25,8 +25,8 @@
       }
  else       if (branch.getStatus() == 3) {
         endOffe=i;
-        tempNature=branch.getParams()[0];
-        tempFreq=getInt(branch.getParams()[1],50);
+        tempNature=branch.getParam()[0];
+        tempFreq=getInt(branch.getParam()[1],50);
         if (offe != -1 && offe < endOffe) {
           i=offe;
           makeNewTerm();
@@ -42,8 +42,8 @@
           offe=i;
         }
  else {
-          tempNature=branch.getParams()[0];
-          tempFreq=getInt(branch.getParams()[1],50);
+          tempNature=branch.getParam()[0];
+          tempFreq=getInt(branch.getParam()[1],50);
           if (flag) {
             makeNewTerm();
           }
