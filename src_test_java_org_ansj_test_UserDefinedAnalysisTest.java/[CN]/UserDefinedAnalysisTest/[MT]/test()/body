@@ -9,9 +9,10 @@
   for (  Term term : parse) {
     hs.put(term.getName(),term);
   }
-  System.out.println(parse);
   Assert.assertTrue(hs.containsKey(newWord));
   Assert.assertEquals(hs.get(newWord).natrue().natureStr,nature);
+  Library.insertWord(UserDefineLibrary.FOREST,new Value("?????????","UserDefined","1000"));
+  Assert.assertEquals(UserDefineAnalysis.parse("?????????????????????").get(0).getName(),"?????????");
   UserDefineLibrary.removeWord(newWord);
   parse=UserDefineAnalysis.parse(str);
   hs=new HashMap<String,Term>();
