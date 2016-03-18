@@ -1,3 +1,0 @@
-{
-  return AnsjLoggerFactory.getLogger(getLoggerName(buildClassLoggerName(clazz)));
-}
