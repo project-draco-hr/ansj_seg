@@ -1,7 +1,7 @@
 {
   String ambiguityLibrary=MyStaticValue.ambiguityLibrary;
   if (StringUtil.isBlank(ambiguityLibrary)) {
-    LIBRARYLOG.warning("init ambiguity  warning :" + ambiguityLibrary + " because : file not found or failed to read !");
+    LIBRARYLOG.warn("init ambiguity  warning :" + ambiguityLibrary + " because : file not found or failed to read !");
     return;
   }
   ambiguityLibrary=MyStaticValue.ambiguityLibrary;
@@ -11,12 +11,12 @@
       ambiguityForest=Library.makeForest(ambiguityLibrary);
     }
  catch (    Exception e) {
-      LIBRARYLOG.warning("init ambiguity  error :" + new File(ambiguityLibrary).getAbsolutePath() + " because : not find that file or can not to read !");
+      LIBRARYLOG.warn("init ambiguity  error :" + new File(ambiguityLibrary).getAbsolutePath() + " because : not find that file or can not to read !");
       e.printStackTrace();
     }
     LIBRARYLOG.info("init ambiguityLibrary ok!");
   }
  else {
-    LIBRARYLOG.warning("init ambiguity  warning :" + new File(ambiguityLibrary).getAbsolutePath() + " because : file not found or failed to read !");
+    LIBRARYLOG.warn("init ambiguity  warning :" + new File(ambiguityLibrary).getAbsolutePath() + " because : file not found or failed to read !");
   }
 }

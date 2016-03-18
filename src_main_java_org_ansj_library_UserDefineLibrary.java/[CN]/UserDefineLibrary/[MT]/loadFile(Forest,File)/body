@@ -1,6 +1,6 @@
 {
   if (!file.canRead()) {
-    LIBRARYLOG.warning("file in path " + file.getAbsolutePath() + " can not to read!");
+    LIBRARYLOG.warn("file in path " + file.getAbsolutePath() + " can not to read!");
     return;
   }
   String temp=null;

@@ -56,7 +56,7 @@
         }
       }
  else {
-        MyStaticValue.LIBRARYLOG.warning("not find crf model you can run DownLibrary.main(null) to down !\n or you can visit http://maven.nlpcn.org/down/library.zip to down it ! ");
+        MyStaticValue.LIBRARYLOG.warn("not find crf model you can run DownLibrary.main(null) to down !\n or you can visit http://maven.nlpcn.org/down/library.zip to down it ! ");
       }
       graph.walkPath(mc.get());
       if (graph.hasNum) {
