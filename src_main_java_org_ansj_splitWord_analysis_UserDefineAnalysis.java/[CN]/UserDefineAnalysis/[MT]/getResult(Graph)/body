@@ -17,7 +17,7 @@
       return getResult();
     }
     private void userDefineRecognition(    final Graph graph,    Forest... forests){
-      new UserDefineRecognition(graph.terms,1,forests).recognition();
+      new UserDefineRecognition(graph.terms,InsertTermType.REPLACE,forests).recognition();
       graph.rmLittlePath();
       graph.walkPathByScore();
       graph.rmLittlePath();

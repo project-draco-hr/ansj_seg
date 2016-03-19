@@ -34,7 +34,7 @@
               term=new Term(word,tempOff,TermNatures.NW);
             }
           }
-          TermUtil.insertTerm(graph.terms,term,2);
+          TermUtil.insertTerm(graph.terms,term,InsertTermType.SCORE_ADD_SORT);
           tempOff+=word.length();
           if (temp != null) {
             if (tempTermNatures != TermNatures.NW && term.termNatures() != TermNatures.NW) {
@@ -63,7 +63,7 @@
         NumRecognition.recognition(graph.terms);
       }
       List<Term> result=getResult();
-      new UserDefineRecognition(graph.terms,2,forests).recognition();
+      new UserDefineRecognition(graph.terms,InsertTermType.SCORE_ADD_SORT,forests).recognition();
       graph.rmLittlePath();
       graph.walkPathByScore();
       new NewWordRecognition(graph.terms,learn).recognition();

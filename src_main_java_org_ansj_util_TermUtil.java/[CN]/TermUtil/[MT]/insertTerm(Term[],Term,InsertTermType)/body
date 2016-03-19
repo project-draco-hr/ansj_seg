@@ -6,11 +6,11 @@
   }
   int len=term.getName().length();
   if (self.getName().length() == len) {
-    if (type == 1) {
+    if (type == InsertTermType.REPLACE) {
       term.setNext(self.next());
       terms[term.getOffe()]=term;
     }
- else     if (type == 2) {
+ else     if (type == InsertTermType.SCORE_ADD_SORT) {
       self.score(self.score() + term.score());
       self.selfScore(self.selfScore() + term.selfScore());
     }
@@ -25,11 +25,11 @@
   Term before=self;
   while ((next=before.next()) != null) {
     if (next.getName().length() == len) {
-      if (type == 1) {
+      if (type == InsertTermType.REPLACE) {
         term.setNext(next.next());
         before.setNext(term);
       }
- else       if (type == 2) {
+ else       if (type == InsertTermType.SCORE_ADD_SORT) {
         next.score(next.score() + term.score());
         next.selfScore(next.selfScore() + term.selfScore());
       }

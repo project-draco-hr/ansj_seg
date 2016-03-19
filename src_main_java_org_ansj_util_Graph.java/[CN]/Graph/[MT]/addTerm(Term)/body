@@ -5,5 +5,5 @@
   if (!hasPerson && term.termNatures().personAttr.flag) {
     hasPerson=true;
   }
-  TermUtil.insertTerm(terms,term,1);
+  TermUtil.insertTerm(terms,term,InsertTermType.REPLACE);
 }
