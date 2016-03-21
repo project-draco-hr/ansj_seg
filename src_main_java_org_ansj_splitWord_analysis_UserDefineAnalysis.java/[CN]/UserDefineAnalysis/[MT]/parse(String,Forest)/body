@@ -1,3 +1,0 @@
-{
-  return new UserDefineAnalysis(forests).parseStr(str);
-}
