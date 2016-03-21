@@ -1,7 +1,7 @@
 {
   Map<String,Keyword> tm=new HashMap<String,Keyword>();
   List<Term> parse=NlpAnalysis.parse(content);
-  parse=FilterModifWord.modifResult(parse);
+  parse=FilterModifWord.updateNature(parse);
   for (  Term term : parse) {
     double weight=getWeight(term,content.length(),titleLength);
     if (weight == 0)     continue;

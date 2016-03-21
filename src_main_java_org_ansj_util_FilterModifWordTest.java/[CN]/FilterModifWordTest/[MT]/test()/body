@@ -1,0 +1,31 @@
+{
+  String str="?????????????????????!";
+  List<Term> parse=ToAnalysis.parse(str);
+  System.out.println(parse);
+  UserDefineLibrary.insertWord("???","d1",1000);
+  FilterModifWord.insertStopNatures("uj");
+  FilterModifWord.insertStopNatures("ul");
+  FilterModifWord.insertStopNatures("null");
+  FilterModifWord.insertStopWord("???");
+  FilterModifWord.insertStopRegex("???.*?");
+  List<Term> modifResult=FilterModifWord.modifResult(parse);
+  for (  Term term : modifResult) {
+    Assert.assertNotSame(term.getNatureStr(),"uj");
+    Assert.assertNotSame(term.getNatureStr(),"ul");
+    Assert.assertNotSame(term.getNatureStr(),"null");
+    Assert.assertNotSame(term.getName(),"???");
+    Assert.assertNotSame(term.getName(),"?????????");
+    Assert.assertSame("d1",term.getNatureStr());
+  }
+  UserDefineLibrary.insertWord("???","d2",1000);
+  modifResult=FilterModifWord.modifResult(modifResult);
+  for (  Term term : modifResult) {
+    Assert.assertNotSame(term.getNatureStr(),"uj");
+    Assert.assertNotSame(term.getNatureStr(),"ul");
+    Assert.assertNotSame(term.getNatureStr(),"null");
+    Assert.assertNotSame(term.getName(),"???");
+    Assert.assertNotSame(term.getName(),"?????????");
+    Assert.assertSame("d2",term.getNatureStr());
+  }
+  System.out.println(modifResult);
+}
