@@ -19,6 +19,12 @@
         String temp=null;
         TermNatures tempTermNatures=null;
         int tempOff=0;
+        if (words.size() > 0) {
+          String word=words.get(0);
+          if (!isRuleWord(word)) {
+            mc.add("???##???" + TAB + word,CRF_WEIGHT);
+          }
+        }
         for (        String word : words) {
           AnsjItem item=DATDictionary.getItem(word);
           Term term=null;
@@ -34,6 +40,10 @@
               term=new Term(word,tempOff,TermNatures.NW);
             }
           }
+          if (isRuleWord(word)) {
+            temp=null;
+            continue;
+          }
           TermUtil.insertTerm(graph.terms,term,InsertTermType.SCORE_ADD_SORT);
           tempOff+=word.length();
           if (temp != null) {
@@ -41,12 +51,9 @@
               mc.add(temp + TAB + word,CRF_WEIGHT);
             }
           }
- else           if (term.termNatures() != TermNatures.NW) {
-            mc.add("???##???" + TAB + word,CRF_WEIGHT);
-          }
           temp=word;
           tempTermNatures=term.termNatures();
-          if (term.termNatures() != TermNatures.NW || word.length() < 2 || isRuleWord(word)) {
+          if (term.termNatures() != TermNatures.NW || word.length() < 2) {
             continue;
           }
           learn.addTerm(new NewWord(word,Nature.NW));
