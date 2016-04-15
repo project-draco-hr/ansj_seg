@@ -1,0 +1,19 @@
+{
+  Tokenizer tokenizer;
+switch (type) {
+case index:
+    tokenizer=new AnsjTokenizer(new IndexAnalysis(reader),filter);
+  break;
+case dic:
+case user:
+tokenizer=new AnsjTokenizer(new DicAnalysis(reader),filter);
+break;
+case to:
+case query:
+tokenizer=new AnsjTokenizer(new ToAnalysis(reader),filter);
+break;
+default :
+tokenizer=new AnsjTokenizer(new ToAnalysis(reader),filter);
+}
+return tokenizer;
+}
