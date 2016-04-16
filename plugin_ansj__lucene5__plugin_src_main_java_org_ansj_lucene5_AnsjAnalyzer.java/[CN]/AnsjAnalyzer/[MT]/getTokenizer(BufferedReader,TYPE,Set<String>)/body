@@ -10,6 +10,7 @@ tokenizer=new AnsjTokenizer(new DicAnalysis(reader),filter);
 break;
 case to:
 case query:
+case search:
 tokenizer=new AnsjTokenizer(new ToAnalysis(reader),filter);
 break;
 default :
