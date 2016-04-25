@@ -1,0 +1,14 @@
+{
+  if (StringUtil.isBlank(stopwordsDir)) {
+    return null;
+  }
+  try {
+    List<String> readFile2List=IOUtil.readFile2List(stopwordsDir,IOUtil.UTF8);
+    return new HashSet<String>(readFile2List);
+  }
+ catch (  Exception e) {
+    System.err.println("not foun stop word path by " + new File(stopwordsDir).getAbsolutePath());
+    e.printStackTrace();
+  }
+  return null;
+}

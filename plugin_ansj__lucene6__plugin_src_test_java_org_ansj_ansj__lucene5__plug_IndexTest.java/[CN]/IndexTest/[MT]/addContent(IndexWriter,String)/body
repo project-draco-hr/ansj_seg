@@ -1,0 +1,7 @@
+{
+  Document doc=new Document();
+  FieldType fieldType=new FieldType();
+  fieldType.setStored(true);
+  doc.add(new Field("text",text,fieldType));
+  iwriter.addDocument(doc);
+}

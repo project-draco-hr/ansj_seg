@@ -1,0 +1,6 @@
+{
+  BufferedReader reader=new BufferedReader(new StringReader(text));
+  Tokenizer tokenizer=null;
+  tokenizer=getTokenizer(reader,this.type,this.filter);
+  return new TokenStreamComponents(tokenizer);
+}

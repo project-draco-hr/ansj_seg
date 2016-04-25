@@ -1,0 +1,3 @@
+BufferedReader reader
+TYPE type
+Set<String> filter
