@@ -10,10 +10,16 @@
       loadFile(forest,file);
     }
  else     if (file.isDirectory()) {
-      File[] files=file.listFiles();
-      for (int i=0; i < files.length; i++) {
-        if (files[i].getName().trim().endsWith(".dic")) {
-          loadFile(forest,files[i]);
+      List<File> fileList=Arrays.asList(file.listFiles());
+      Collections.sort(fileList,new Comparator<File>(){
+        @Override public int compare(        File target,        File source){
+          return target.getName().compareTo(source.getName());
+        }
+      }
+);
+      for (      File dicFile : fileList) {
+        if (dicFile.getName().trim().endsWith(".dic")) {
+          loadFile(forest,dicFile);
         }
       }
     }
