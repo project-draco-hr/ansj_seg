@@ -1,0 +1,8 @@
+{
+  Document doc=new Document();
+  IndexWriter iwriter=new IndexWriter(directory,new IndexWriterConfig(analysis));
+  doc.add(new Field("text",content,Field.Store.YES,Field.Index.ANALYZED));
+  iwriter.addDocument(doc);
+  iwriter.commit();
+  iwriter.close();
+}

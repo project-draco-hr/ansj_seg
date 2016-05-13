@@ -1,0 +1,17 @@
+{
+  String field="text";
+  try {
+    SimpleHTMLFormatter simpleHtmlFormatter=new SimpleHTMLFormatter("<font color=\"red\">","</font>");
+    Highlighter highlighter=new Highlighter(simpleHtmlFormatter,new QueryScorer(query));
+    TokenStream tokenStream1=indexAnalyzer.tokenStream("text",new StringReader(doc.get(field)));
+    String highlighterStr=highlighter.getBestFragment(tokenStream1,doc.get(field));
+    return highlighterStr == null ? doc.get(field) : highlighterStr;
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+catch (  InvalidTokenOffsetsException e) {
+    e.printStackTrace();
+  }
+  return null;
+}

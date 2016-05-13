@@ -51,6 +51,17 @@
         }
       }
       result.addAll(last);
+      Collections.sort(result,new Comparator<Term>(){
+        @Override public int compare(        Term o1,        Term o2){
+          if (o1.getOffe() == o2.getOffe()) {
+            return o2.getName().length() - o1.getName().length();
+          }
+ else {
+            return o1.getOffe() - o2.getOffe();
+          }
+        }
+      }
+);
       setRealName(graph,result);
       return result;
     }

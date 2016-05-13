@@ -1,5 +1,6 @@
 {
   clearAttributes();
+  skippedPositions=0;
   int position=0;
   Term term=null;
   String name=null;
@@ -25,6 +26,7 @@
     positionAttr.setPositionIncrement(position);
     termAtt.setEmpty().append(term.getName());
     offsetAtt.setOffset(term.getOffe(),term.getOffe() + length);
+    typeAtt.setType(term.getNatureStr());
     return true;
   }
  else {
