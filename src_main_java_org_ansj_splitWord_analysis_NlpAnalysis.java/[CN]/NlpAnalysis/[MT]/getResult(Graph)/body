@@ -42,6 +42,7 @@
           }
           if (isRuleWord(word)) {
             temp=null;
+            tempOff+=word.length();
             continue;
           }
           TermUtil.insertTerm(graph.terms,term,InsertTermType.SCORE_ADD_SORT);
