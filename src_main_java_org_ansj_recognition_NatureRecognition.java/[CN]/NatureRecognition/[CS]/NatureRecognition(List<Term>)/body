@@ -1,5 +1,0 @@
-{
-  this.terms=terms;
-  natureTermTable=new NatureTerm[terms.size() + 1][];
-  natureTermTable[terms.size()]=end;
-}

@@ -2,7 +2,7 @@
   MyStaticValue.userLibrary="/home/ansj/workspace/ansj_seg/library/default.dic";
   HashSet<String> hs=new HashSet<String>();
   hs.add("???");
-  Analyzer analyzer=new AnsjAnalyzer(TYPE.dic);
+  PerFieldAnalyzerWrapper analyzer=new PerFieldAnalyzerWrapper(new AnsjAnalyzer(TYPE.dic));
   Directory directory=null;
   IndexWriter iwriter=null;
   String text="?????????????????? 10???*6??? ";

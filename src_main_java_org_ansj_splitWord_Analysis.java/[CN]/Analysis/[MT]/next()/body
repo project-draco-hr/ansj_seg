@@ -15,7 +15,7 @@
       temp=br.readLine();
     }
   }
-  analysisStr(temp);
+  fullTerms(temp);
   if (!terms.isEmpty()) {
     term=terms.poll();
     term.updateOffe(offe);

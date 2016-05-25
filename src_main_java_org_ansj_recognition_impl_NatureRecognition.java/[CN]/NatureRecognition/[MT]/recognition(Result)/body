@@ -1,0 +1,10 @@
+{
+  this.terms=result.getTerms();
+  natureTermTable=new NatureTerm[terms.size() + 1][];
+  natureTermTable[terms.size()]=end;
+  int length=terms.size();
+  for (int i=0; i < length; i++) {
+    natureTermTable[i]=getNatureTermArr(terms.get(i).termNatures().termNatures);
+  }
+  walk();
+}

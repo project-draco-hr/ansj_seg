@@ -1,0 +1,4 @@
+{
+  List<Term> result=analysisStr(temp);
+  terms.addAll(result);
+}

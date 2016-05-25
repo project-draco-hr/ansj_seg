@@ -1,0 +1,13 @@
+{
+  Object temp=DIC.get(key);
+  if (temp == null) {
+    LIBRARYLOG.warn("dic " + key + " not found in config ");
+    return null;
+  }
+ else   if (temp instanceof String) {
+    return initForest(key,(String)temp);
+  }
+ else {
+    return (Forest)temp;
+  }
+}

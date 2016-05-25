@@ -1,3 +1,0 @@
-{
-  return new FastIndexAnalysis().parseStr(str);
-}

@@ -1,8 +1,6 @@
 {
   try {
-    FOREST=new Forest();
-    String userLibrary=MyStaticValue.userLibrary;
-    loadLibrary(FOREST,userLibrary);
+    FOREST=MyStaticValue.getDicForest();
   }
  catch (  Exception e) {
     e.printStackTrace();

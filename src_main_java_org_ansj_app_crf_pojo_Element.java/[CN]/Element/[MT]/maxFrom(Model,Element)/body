@@ -1,16 +1,12 @@
 {
   if (from == null) {
-    from=new int[this.tagScore.length];
+    from=new int[Config.TAG_NUM];
   }
-  double[] pTagScore=element.tagScore;
-  double rate=0;
-  for (int i=0; i < this.tagScore.length; i++) {
-    double maxValue=MIN;
-    for (int j=0; j < pTagScore.length; j++) {
-      if ((rate=model.tagRate(j,i)) == Double.MIN_VALUE) {
-        continue;
-      }
-      double value=(pTagScore[j] + tagScore[i]) + rate;
+  float[] pTagScore=element.tagScore;
+  for (int i=0; i < Config.TAG_NUM; i++) {
+    float maxValue=0;
+    for (int j=0; j < Config.TAG_NUM; j++) {
+      float value=(pTagScore[j] + tagScore[i]) + tagScore[Config.TAG_NUM + j * Config.TAG_NUM + i];
       if (value > maxValue) {
         maxValue=value;
         from[i]=j;

@@ -1,0 +1,19 @@
+{
+  BufferedReader br=IOUtil.getReader(modelPath,IOUtil.UTF8);
+  long start=System.currentTimeMillis();
+  LOG.info("load wapiti model begin!");
+  String temp=br.readLine();
+  LOG.info(temp);
+  loadConfig(br);
+  StringBuilder sb=new StringBuilder();
+  for (  int[] t1 : config.getTemplate()) {
+    sb.append(Arrays.toString(t1) + " ");
+  }
+  LOG.info("load template ok template : " + sb);
+  int[] statusCoven=loadTagCoven(br);
+  List<char[]> loadFeatureName=loadFeatureName(br);
+  LOG.info("load feature ok feature size : " + loadFeatureName.size() + " it use memory about "+ ((loadFeatureName.size() * Config.W_NUM * 4) / 1024 / 1024)+ "m");
+  featureTree=new SmartForest<float[]>();
+  loadFeatureWeight(br,statusCoven,loadFeatureName);
+  LOG.info("load wapiti model ok ! use time :" + (System.currentTimeMillis() - start));
+}

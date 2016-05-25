@@ -5,19 +5,19 @@
       graph.walkPath();
       userDefineRecognition(graph,forests);
       if (MyStaticValue.isNumRecognition && graph.hasNum) {
-        NumRecognition.recognition(graph.terms);
+        new NumRecognition().recognition(graph.terms);
       }
       if (graph.hasPerson && MyStaticValue.isNameRecognition) {
-        new AsianPersonRecognition(graph.terms).recognition();
+        new AsianPersonRecognition().recognition(graph.terms);
         graph.walkPathByScore();
         NameFix.nameAmbiguity(graph.terms);
-        new ForeignPersonRecognition(graph.terms).recognition();
+        new ForeignPersonRecognition().recognition(graph.terms);
         graph.walkPathByScore();
       }
       return getResult();
     }
     private void userDefineRecognition(    final Graph graph,    Forest... forests){
-      new UserDefineRecognition(graph.terms,InsertTermType.REPLACE,forests).recognition();
+      new UserDefineRecognition(InsertTermType.REPLACE,forests).recognition(graph.terms);
       graph.rmLittlePath();
       graph.walkPathByScore();
       graph.rmLittlePath();

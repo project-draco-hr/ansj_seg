@@ -1,5 +1,6 @@
 {
   Document doc=new Document();
-  doc.add(new Field("text",text,Field.Store.YES,Field.Index.ANALYZED));
+  IndexableField field=new TextField("text",text,Store.YES);
+  doc.add(field);
   iwriter.addDocument(doc);
 }

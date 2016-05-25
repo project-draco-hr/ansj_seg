@@ -1,0 +1,14 @@
+{
+  String temp=br.readLine();
+  int featureNum=ObjConver.getIntValue(StringUtil.matcherFirst("\\d+",temp));
+  int[][] template=new int[featureNum][0];
+  for (int i=0; i < template.length; i++) {
+    temp=br.readLine();
+    List<String> matcherAll=StringUtil.matcherAll("\\[.*?\\]",temp);
+    template[i]=new int[matcherAll.size()];
+    for (int j=0; j < template[i].length; j++) {
+      template[i][j]=ObjConver.getIntValue(StringUtil.matcherFirst("[-\\d]+",matcherAll.get(j)));
+    }
+  }
+  config=new Config(template);
+}

@@ -1,0 +1,11 @@
+{
+  if (index < 0) {
+    return Config.BEGIN;
+  }
+ else   if (index >= list.size()) {
+    return Config.END;
+  }
+ else {
+    return list.get(index).name;
+  }
+}

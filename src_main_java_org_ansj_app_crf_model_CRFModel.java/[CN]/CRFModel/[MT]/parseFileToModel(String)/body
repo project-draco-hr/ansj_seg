@@ -1,5 +1,0 @@
-{
-  CRFModel model=new CRFModel();
-  model.parseFile(modelPath);
-  return model;
-}

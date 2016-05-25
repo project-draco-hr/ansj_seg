@@ -1,26 +1,3 @@
 {
   this.model=model;
-  tagConver=new int[model.template.tagNum];
-  revTagConver=new int[model.template.tagNum];
-  Set<Entry<String,Integer>> entrySet=model.template.statusMap.entrySet();
-  for (  Entry<String,Integer> entry : entrySet) {
-    if ("S".equals(entry.getKey())) {
-      tagConver[entry.getValue()]=0;
-      revTagConver[0]=entry.getValue();
-    }
- else     if ("B".equals(entry.getKey())) {
-      tagConver[entry.getValue()]=1;
-      revTagConver[1]=entry.getValue();
-    }
- else     if ("M".equals(entry.getKey())) {
-      tagConver[entry.getValue()]=2;
-      revTagConver[2]=entry.getValue();
-    }
- else     if ("E".equals(entry.getKey())) {
-      tagConver[entry.getValue()]=3;
-      revTagConver[3]=entry.getValue();
-    }
-  }
-  model.end1=model.template.statusMap.get("S");
-  model.end2=model.template.statusMap.get("E");
 }

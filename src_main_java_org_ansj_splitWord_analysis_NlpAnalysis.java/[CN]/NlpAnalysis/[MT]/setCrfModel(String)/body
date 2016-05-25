@@ -1,0 +1,4 @@
+{
+  this.splitWord=MyStaticValue.getCRFSplitWord(key);
+  return this;
+}

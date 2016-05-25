@@ -1,0 +1,8 @@
+{
+  if (str.length() > 9) {
+    return EN_BEGIN;
+  }
+ else {
+    return (char)(EN_BEGIN + str.length());
+  }
+}

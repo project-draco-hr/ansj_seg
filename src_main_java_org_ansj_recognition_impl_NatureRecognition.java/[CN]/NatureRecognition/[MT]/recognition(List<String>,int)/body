@@ -1,0 +1,11 @@
+{
+  List<Term> terms=new ArrayList<Term>(words.size());
+  int tempOffe=0;
+  for (  String word : words) {
+    TermNatures tn=getTermNatures(word);
+    terms.add(new Term(word,offe + tempOffe,tn));
+    tempOffe+=word.length();
+  }
+  new NatureRecognition().recognition(new Result(terms));
+  return terms;
+}

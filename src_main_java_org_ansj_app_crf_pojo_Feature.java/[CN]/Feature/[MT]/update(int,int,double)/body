@@ -1,7 +1,0 @@
-{
-  value+=step;
-  if (w[fIndex].length == 0) {
-    w[fIndex]=new double[tagNum];
-  }
-  w[fIndex][sta]+=step;
-}

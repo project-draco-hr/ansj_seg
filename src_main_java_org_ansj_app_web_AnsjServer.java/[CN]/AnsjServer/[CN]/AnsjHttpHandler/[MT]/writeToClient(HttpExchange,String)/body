@@ -1,7 +1,0 @@
-{
-  byte[] bytes=responseMsg.getBytes();
-  httpExchange.sendResponseHeaders(200,bytes.length);
-  OutputStream out=httpExchange.getResponseBody();
-  out.write(bytes);
-  out.flush();
-}

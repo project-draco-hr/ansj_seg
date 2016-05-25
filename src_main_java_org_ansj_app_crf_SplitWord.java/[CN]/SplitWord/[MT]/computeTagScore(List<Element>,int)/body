@@ -1,13 +1,8 @@
 {
-  double[] tagScore=new double[model.template.tagNum];
-  Template t=model.template;
-  char[] chars=null;
-  for (int i=0; i < t.ft.length; i++) {
-    chars=new char[t.ft[i].length];
-    for (int j=0; j < chars.length; j++) {
-      chars[j]=getElement(elements,index + t.ft[i][j]).name;
-    }
-    MatrixUtil.dot(tagScore,model.getFeature(i,chars));
+  float[] tagScore=new float[Config.W_NUM];
+  char[][] feautres=model.getConfig().makeFeatureArr(elements,index);
+  for (int i=0; i < feautres.length; i++) {
+    MatrixUtil.dot(tagScore,model.getFeature(feautres[i]));
   }
   elements.get(index).tagScore=tagScore;
 }

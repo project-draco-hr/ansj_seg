@@ -1,5 +1,5 @@
 {
-  List<Term> parse=NlpAnalysis.parse(query);
+  List<Term> parse=NlpAnalysis.parse(query).getTerms();
   List<Keyword> keywords=new ArrayList<Keyword>();
   for (  Term term : parse) {
     if (FILTER_SET.contains(term.natrue().natureStr)) {

@@ -1,0 +1,8 @@
+{
+  if (index < 0 || index >= list.size()) {
+    return 0;
+  }
+ else {
+    return (char)list.get(index).getTag();
+  }
+}

@@ -1,0 +1,24 @@
+{
+  String[] split=temp.split(splitStr);
+  List<Element> list=new ArrayList<Element>(temp.length());
+  for (  String word : split) {
+    List<Element> wordAlert=wordAlert(word);
+    int len=wordAlert.size();
+    if (len == 1) {
+      wordAlert.get(0).updateTag(Config.S);
+    }
+ else     if (len == 2) {
+      wordAlert.get(0).updateTag(Config.B);
+      wordAlert.get(1).updateTag(Config.E);
+    }
+ else     if (len > 2) {
+      wordAlert.get(0).updateTag(Config.B);
+      for (int i=1; i < len - 1; i++) {
+        wordAlert.get(i).updateTag(Config.M);
+      }
+      wordAlert.get(len - 1).updateTag(Config.E);
+    }
+    list.addAll(wordAlert);
+  }
+  return list;
+}

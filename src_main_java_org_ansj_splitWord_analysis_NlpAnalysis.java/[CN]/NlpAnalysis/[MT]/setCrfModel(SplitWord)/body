@@ -1,0 +1,4 @@
+{
+  this.splitWord=splitWord;
+  return this;
+}

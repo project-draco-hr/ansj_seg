@@ -20,5 +20,5 @@
     analysis(gp,startOffe,gp.chars.length);
   }
   List<Term> result=this.getResult(gp);
-  terms.addAll(result);
+  return result;
 }

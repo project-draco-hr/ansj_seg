@@ -1,9 +1,0 @@
-{
-  MyStaticValue.LIBRARYLOG.info("starting ansj http server");
-  HttpServerProvider provider=HttpServerProvider.provider();
-  HttpServer httpserver=provider.createHttpServer(new InetSocketAddress(serverPort),100);
-  httpserver.createContext("/",new AnsjHttpHandler());
-  httpserver.setExecutor(null);
-  httpserver.start();
-  System.out.println("server started");
-}

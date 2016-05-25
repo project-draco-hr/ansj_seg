@@ -1,22 +1,3 @@
 {
-  if (crfSplitWord != null) {
-    return crfSplitWord;
-  }
-  LOCK.lock();
-  if (crfSplitWord != null || StringUtil.isBlank(crfModel)) {
-    return crfSplitWord;
-  }
-  try {
-    long start=System.currentTimeMillis();
-    LIBRARYLOG.info("begin init crf model!");
-    crfSplitWord=new SplitWord(Model.loadModel(crfModel));
-    LIBRARYLOG.info("load crf crf use time:" + (System.currentTimeMillis() - start));
-  }
- catch (  Exception e) {
-    LIBRARYLOG.warn("!!!!!!!!!!  not find crf model you can run DownLibrary.main(null) to down !\n or you can visit http://maven.nlpcn.org/down/library.zip to down it ! ");
-  }
- finally {
-    LOCK.unlock();
-  }
-  return crfSplitWord;
+  return getCRFSplitWord(CRF_DEFAULT);
 }

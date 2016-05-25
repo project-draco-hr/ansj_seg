@@ -1,8 +1,0 @@
-{
-  SmartForest<double[][]> sf=smartForest;
-  sf=sf.getBranch(chars);
-  if (sf == null || sf.getParam() == null) {
-    return null;
-  }
-  return sf.getParam()[featureIndex];
-}

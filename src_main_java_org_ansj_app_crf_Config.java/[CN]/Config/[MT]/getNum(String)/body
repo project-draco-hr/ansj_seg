@@ -1,0 +1,8 @@
+{
+  if (str.length() > 9) {
+    return NUM_BEGIN;
+  }
+ else {
+    return (char)(NUM_BEGIN + str.length());
+  }
+}

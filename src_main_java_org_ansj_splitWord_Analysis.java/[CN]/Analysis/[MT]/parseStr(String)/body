@@ -1,4 +1,3 @@
 {
-  analysisStr(temp);
-  return terms;
+  return new Result(analysisStr(temp));
 }

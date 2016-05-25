@@ -5,17 +5,17 @@
         learn=new LearnTool();
       }
       graph.walkPath();
-      learn.learn(graph,DEFAULT_SLITWORD);
+      learn.learn(graph,splitWord);
       if (graph.hasPerson && MyStaticValue.isNameRecognition) {
-        new AsianPersonRecognition(graph.terms).recognition();
+        new AsianPersonRecognition().recognition(graph.terms);
         graph.walkPathByScore();
         NameFix.nameAmbiguity(graph.terms);
-        new ForeignPersonRecognition(graph.terms).recognition();
+        new ForeignPersonRecognition().recognition(graph.terms);
         graph.walkPathByScore();
       }
-      if (DEFAULT_SLITWORD != null) {
+      if (splitWord != null) {
         MapCount<String> mc=new MapCount<String>();
-        List<String> words=DEFAULT_SLITWORD.cut(graph.chars);
+        List<String> words=splitWord.cut(graph.chars);
         String temp=null;
         TermNatures tempTermNatures=null;
         int tempOff=0;
@@ -66,14 +66,14 @@
  else {
         MyStaticValue.LIBRARYLOG.warn("not find crf model you can run DownLibrary.main(null) to down !\n or you can visit http://maven.nlpcn.org/down/library.zip to down it ! ");
       }
-      if (graph.hasNum) {
-        NumRecognition.recognition(graph.terms);
+      if (graph.hasNum && MyStaticValue.isNumRecognition) {
+        new NumRecognition().recognition(graph.terms);
       }
       List<Term> result=getResult();
-      new UserDefineRecognition(graph.terms,InsertTermType.SCORE_ADD_SORT,forests).recognition();
+      new UserDefineRecognition(InsertTermType.SCORE_ADD_SORT,forests).recognition(graph.terms);
       graph.rmLittlePath();
       graph.walkPathByScore();
-      new NewWordRecognition(graph.terms,learn).recognition();
+      new NewWordRecognition(learn).recognition(graph.terms);
       graph.walkPathByScore();
       result=getResult();
       for (      Term term : result) {

@@ -1,7 +1,7 @@
 {
   MyStaticValue.isNumRecognition=true;
   MyStaticValue.isQuantifierRecognition=false;
-  MyStaticValue.userLibrary=null;
+  MyStaticValue.DIC.put("dic",null);
   UserDefineLibrary.insertWord("?????????","n",1000);
   UserDefineLibrary.insertWord("??????","n",1000);
   UserDefineLibrary.insertWord("??????","n",1000);

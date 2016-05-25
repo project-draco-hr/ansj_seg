@@ -2,16 +2,16 @@
   if (word.length() == 0) {
     return Integer.MIN_VALUE;
   }
-  List<Element> elements=str2Elements(word);
+  List<Element> elements=Config.wordAlert(word);
   for (int i=0; i < elements.size(); i++) {
     computeTagScore(elements,i);
   }
-  double value=elements.get(0).tagScore[revTagConver[1]];
+  float value=elements.get(0).tagScore[1];
   int len=elements.size() - 1;
   for (int i=1; i < len; i++) {
-    value+=elements.get(i).tagScore[revTagConver[2]];
+    value+=elements.get(i).tagScore[2];
   }
-  value+=elements.get(len).tagScore[revTagConver[3]];
+  value+=elements.get(len).tagScore[3];
   if (value < 0) {
     return 1;
   }

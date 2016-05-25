@@ -1,0 +1,13 @@
+{
+  Object temp=CRF.get(key);
+  if (temp == null) {
+    LIBRARYLOG.warn("crf " + key + " not found in config ");
+    return null;
+  }
+ else   if (temp instanceof String) {
+    return initCRFModel(key,(String)temp);
+  }
+ else {
+    return (SplitWord)temp;
+  }
+}

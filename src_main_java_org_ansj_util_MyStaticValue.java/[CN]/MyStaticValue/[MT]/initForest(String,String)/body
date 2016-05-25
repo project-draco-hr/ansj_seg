@@ -1,0 +1,10 @@
+{
+  Object obj=CRF.get(key);
+  if (obj != null && obj instanceof Forest) {
+    return (Forest)obj;
+  }
+  Forest forest=new Forest();
+  UserDefineLibrary.loadLibrary(forest,dicPath);
+  DIC.put(key,forest);
+  return forest;
+}
