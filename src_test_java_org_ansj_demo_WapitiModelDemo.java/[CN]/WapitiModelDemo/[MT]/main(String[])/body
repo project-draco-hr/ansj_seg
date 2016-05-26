@@ -1,3 +1,0 @@
-{
-  Model model=WapitiCRFModel.parseFileToModel("/Users/sunjian/Documents/src/Wapiti/test/model.dat","/Users/sunjian/Documents/src/Wapiti/test/pattern.txt",0);
-}
