@@ -1,0 +1,22 @@
+{
+  List<Term> list=result.getTerms();
+  f:   for (Iterator<Term> iterator=list.iterator(); iterator.hasNext(); ) {
+    Term term=iterator.next();
+    if (filter.size() > 0 && (filter.contains(term.getName()))) {
+      iterator.remove();
+      continue f;
+    }
+    if (natureFilter.size() > 0 && (natureFilter.contains(term.natrue().natureStr))) {
+      iterator.remove();
+      continue f;
+    }
+    if (regexList.size() > 0) {
+      for (      Pattern stopwordPattern : regexList) {
+        if (stopwordPattern.matcher(term.getName()).matches()) {
+          iterator.remove();
+          continue f;
+        }
+      }
+    }
+  }
+}

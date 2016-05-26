@@ -1,0 +1,32 @@
+{
+  String temp=br.readLine();
+  int featureNum=ObjConver.getIntValue(StringUtil.matcherFirst("\\d+",temp));
+  List<Pair<String,String>> featureNames=new ArrayList<Pair<String,String>>();
+  for (int i=0; i < featureNum; i++) {
+    temp=br.readLine();
+    String[] split=temp.split(":");
+    if (split.length == 2) {
+      featureNames.add(Pair.with(split[1],""));
+      continue;
+    }
+ else {
+      String name=split[2];
+      if (split.length > 3) {
+        for (int j=3; j < split.length; j++) {
+          name+=":" + split[j];
+        }
+      }
+      name=name.substring(0,name.length() - 1);
+      int lastFeatureId=featureIndex.get(split[1]);
+      if ("/".equals(name)) {
+        name="//";
+      }
+      if (name.contains("//")) {
+        name=name.replaceAll("//","/XIEGANG/");
+      }
+      String featureName=toFeatureName(name.trim().split("/"),lastFeatureId);
+      featureNames.add(Pair.with(split[1],featureName));
+    }
+  }
+  return featureNames;
+}

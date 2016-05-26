@@ -2,7 +2,11 @@
   if (feature1 == null) {
     return;
   }
-  for (int i=0; i < feature1.length; i++) {
+  if (feature == null) {
+    return;
+  }
+  int min=Math.min(feature.length,feature1.length);
+  for (int i=0; i < min; i++) {
     feature[i]+=feature1[i];
   }
 }

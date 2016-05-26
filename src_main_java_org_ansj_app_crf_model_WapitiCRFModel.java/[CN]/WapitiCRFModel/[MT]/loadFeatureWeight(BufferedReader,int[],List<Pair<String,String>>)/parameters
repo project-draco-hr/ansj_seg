@@ -1,0 +1,3 @@
+BufferedReader br
+int[] statusCoven
+List<Pair<String,String>> featureNames

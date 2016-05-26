@@ -1,0 +1,20 @@
+{
+  String str="?????????????????????!";
+  Result parse=ToAnalysis.parse(str);
+  System.out.println(parse);
+  FilterRecognition fitler=new FilterRecognition();
+  fitler.insertStopNatures("uj");
+  fitler.insertStopNatures("ul");
+  fitler.insertStopNatures("null");
+  fitler.insertStopWord("???");
+  fitler.insertStopRegex("???.*?");
+  Result modifResult=parse.recognition(fitler);
+  for (  Term term : modifResult) {
+    Assert.assertNotSame(term.getNatureStr(),"uj");
+    Assert.assertNotSame(term.getNatureStr(),"ul");
+    Assert.assertNotSame(term.getNatureStr(),"null");
+    Assert.assertNotSame(term.getName(),"???");
+    Assert.assertNotSame(term.getName(),"?????????");
+  }
+  System.out.println(modifResult);
+}

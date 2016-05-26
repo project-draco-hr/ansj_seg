@@ -1,4 +1,0 @@
-{
-  args=new String[]{"8888"};
-  AnsjServer.main(args);
-}

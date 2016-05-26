@@ -31,7 +31,6 @@
         }
       }
       setRealName(graph,result);
-      FilterModifWord.updateNature(result,forests);
       return result;
     }
   }

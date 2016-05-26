@@ -1,7 +1,0 @@
-{
-  String str="java@ID:6321-000301@??????";
-  Result parse=BaseAnalysis.parse(str);
-  new NatureRecognition(parse).recognition();
-  parse=mergerId(parse);
-  System.out.println(parse);
-}

@@ -1,14 +1,25 @@
 {
+  Map<String,Integer> featureIndex=new HashMap<String,Integer>();
   String temp=br.readLine();
   int featureNum=ObjConver.getIntValue(StringUtil.matcherFirst("\\d+",temp));
-  int[][] template=new int[featureNum][0];
-  for (int i=0; i < template.length; i++) {
+  List<int[]> list=new ArrayList<int[]>();
+  for (int i=0; i < featureNum; i++) {
     temp=br.readLine();
     List<String> matcherAll=StringUtil.matcherAll("\\[.*?\\]",temp);
-    template[i]=new int[matcherAll.size()];
-    for (int j=0; j < template[i].length; j++) {
-      template[i][j]=ObjConver.getIntValue(StringUtil.matcherFirst("[-\\d]+",matcherAll.get(j)));
+    if (matcherAll.size() == 0) {
+      continue;
     }
+    int[] is=new int[matcherAll.size()];
+    for (int j=0; j < is.length; j++) {
+      is[j]=ObjConver.getIntValue(StringUtil.matcherFirst("[-\\d]+",matcherAll.get(j)));
+    }
+    featureIndex.put(temp.split(":")[1],list.size());
+    list.add(is);
+  }
+  int[][] template=new int[list.size()][0];
+  for (int i=0; i < template.length; i++) {
+    template[i]=list.get(i);
   }
   config=new Config(template);
+  return featureIndex;
 }

@@ -1,4 +1,7 @@
 {
+  if (chars == null) {
+    return null;
+  }
   SmartForest<float[]> sf=featureTree;
   sf=sf.getBranch(chars);
   if (sf == null || sf.getParam() == null) {

@@ -1,5 +1,5 @@
 {
-  int[] conver=new int[Config.TAG_NUM];
+  int[] conver=new int[Config.TAG_NUM + Config.TAG_NUM * Config.TAG_NUM];
   String temp=br.readLine();
   for (int i=0; i < Config.TAG_NUM; i++) {
     char c=br.readLine().split(":")[1].charAt(0);
@@ -19,6 +19,9 @@ break;
 default :
 throw new Exception("err tag named " + c + " in model "+ temp);
 }
+}
+for (int i=Config.TAG_NUM; i < conver.length; i++) {
+conver[i]=conver[(i - 4) / Config.TAG_NUM] * Config.TAG_NUM + conver[i % Config.TAG_NUM] + Config.TAG_NUM;
 }
 return conver;
 }

@@ -1,0 +1,48 @@
+{
+  int key=0;
+  int offe=0;
+  int tag=0;
+  int len=0;
+  int min, max=0;
+  String name=null;
+  float[] tempW=null;
+  String temp=br.readLine();
+  for (  Pair<String,String> pair : featureNames) {
+    if (temp == null) {
+      LOG.warning(pair.getValue0() + "\t" + pair.getValue1()+ " not have any weight ,so skip it !");
+      continue;
+    }
+    char fc=Character.toUpperCase(pair.getValue0().charAt(0));
+    len=fc == 'B' ? Config.TAG_NUM * Config.TAG_NUM : fc == 'U' ? Config.TAG_NUM : fc == '*' ? (Config.TAG_NUM + Config.TAG_NUM * Config.TAG_NUM) : 0;
+    if (len == 0) {
+      throw new Exception("unknow feature type " + pair.getValue0());
+    }
+    min=max;
+    max+=len;
+    if (fc == 'B') {
+      for (int i=0; i < len; i++) {
+        String[] split=temp.split("=");
+        int from=statusCoven[i / Config.TAG_NUM];
+        int to=statusCoven[i % Config.TAG_NUM];
+        status[from][to]=ObjConver.getFloatValue(split[1]);
+        temp=br.readLine();
+      }
+    }
+ else {
+      name=pair.getValue1();
+      tempW=new float[len];
+      do {
+        String[] split=temp.split("=");
+        key=ObjConver.getIntValue(split[0]);
+        if (key >= max) {
+          break;
+        }
+        offe=key - min;
+        tag=statusCoven[offe];
+        tempW[tag]=ObjConver.getFloatValue(split[1]);
+      }
+ while ((temp=br.readLine()) != null);
+      this.featureTree.add(name,tempW);
+    }
+  }
+}

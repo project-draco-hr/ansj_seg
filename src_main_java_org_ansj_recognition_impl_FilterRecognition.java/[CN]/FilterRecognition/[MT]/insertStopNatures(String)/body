@@ -1,0 +1,5 @@
+{
+  for (  String natureStr : filterNatures) {
+    natureFilter.add(natureStr);
+  }
+}
