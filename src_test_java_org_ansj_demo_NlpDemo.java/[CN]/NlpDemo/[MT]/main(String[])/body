@@ -6,7 +6,7 @@
   learn.isAsianName=true;
   learn.isForeignName=true;
   for (  String string : value) {
-    List<Term> parse=NlpAnalysis.parse(string,learn);
+    Result parse=new NlpAnalysis().setLearnTool(learn).parseStr(string);
     System.out.println(parse);
   }
   System.out.println("???????????????????????????: " + learn.count + " ??????!");
