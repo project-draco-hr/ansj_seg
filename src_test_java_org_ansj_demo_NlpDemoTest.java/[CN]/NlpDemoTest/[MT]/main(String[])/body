@@ -1,0 +1,10 @@
+{
+  Forest systemDefault=UserDefineLibrary.FOREST;
+  NlpAnalysis nlp=new NlpAnalysis(new Forest[]{systemDefault});
+  nlp.resetContent(new StringReader("2015??????????????????????????????"));
+  Term term=nlp.next();
+  while (term != null) {
+    System.out.println(term.getRealName() + "\t|\t" + term.getName());
+    term=nlp.next();
+  }
+}
