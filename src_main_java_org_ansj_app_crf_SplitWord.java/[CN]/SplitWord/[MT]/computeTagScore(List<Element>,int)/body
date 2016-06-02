@@ -1,17 +1,7 @@
 {
   char[][] feautres=model.getConfig().makeFeatureArr(elements,index);
-  int i=0;
-  float[] tagScore=null;
-  float[] feature=null;
-  for (; i < feautres.length; i++) {
-    feature=model.getFeature(feautres[i]);
-    if (feature != null) {
-      tagScore=feature.clone();
-      i++;
-      break;
-    }
-  }
-  for (; i < feautres.length; i++) {
+  float[] tagScore=new float[20];
+  for (int i=0; i < feautres.length; i++) {
     MatrixUtil.dot(tagScore,model.getFeature(feautres[i]));
   }
   elements.get(index).tagScore=tagScore;

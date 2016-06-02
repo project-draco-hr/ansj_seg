@@ -1,0 +1,20 @@
+{
+  long start=System.currentTimeMillis();
+  BufferedReader reader=IOUtil.getReader(modelPath,IOUtil.UTF8);
+  reader.readLine();
+  reader.readLine();
+  int maxId=Integer.parseInt(reader.readLine().split(":")[1].trim());
+  reader.readLine();
+  reader.readLine();
+  int[] statusCoven=loadTagCoven(reader);
+  Map<String,Integer> featureIndex=loadConfig(reader);
+  StringBuilder sb=new StringBuilder();
+  for (  int[] t1 : config.getTemplate()) {
+    sb.append(Arrays.toString(t1) + " ");
+  }
+  LOG.info("load template ok template : " + sb);
+  TreeMap<Integer,Pair<String,String>> featureNames=loadFeatureName(featureIndex,reader);
+  LOG.info("load feature ok feature size : " + featureNames.size());
+  loadFeatureWeight(reader,statusCoven,featureNames);
+  LOG.info("load crfpp model ok ! use time :" + (System.currentTimeMillis() - start));
+}

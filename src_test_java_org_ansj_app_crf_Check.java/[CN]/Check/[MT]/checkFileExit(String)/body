@@ -1,0 +1,9 @@
+{
+  if (new File(path).exists()) {
+    return true;
+  }
+ else {
+    LOG.warning("check " + path + " not in !");
+    return false;
+  }
+}

@@ -1,0 +1,3 @@
+BufferedReader br
+int[] statusCoven
+TreeMap<Integer,Pair<String,String>> featureNames

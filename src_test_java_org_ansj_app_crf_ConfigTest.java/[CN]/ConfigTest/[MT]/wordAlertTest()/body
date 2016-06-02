@@ -1,0 +1,4 @@
+{
+  List<Element> wordAlert=Config.wordAlert("??????1???");
+  System.out.println(wordAlert);
+}

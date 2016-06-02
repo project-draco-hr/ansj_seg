@@ -1,0 +1,33 @@
+{
+  TreeMap<Integer,Pair<String,String>> featureNames=new TreeMap<Integer,Pair<String,String>>();
+  String temp=null;
+  while (StringUtil.isNotBlank(temp=br.readLine().trim())) {
+    int indexOf=temp.indexOf(" ");
+    int id=ObjConver.getIntValue(temp.substring(0,indexOf));
+    if (indexOf > 0) {
+      temp=temp.substring(indexOf);
+    }
+    String[] split=temp.split(":");
+    if (split.length == 1) {
+      featureNames.put(id,Pair.with(temp.trim(),""));
+    }
+ else {
+      String name=split[1];
+      if (split.length > 2) {
+        for (int j=2; j < split.length; j++) {
+          name+=":" + split[j];
+        }
+      }
+      int lastFeatureId=featureIndex.get(split[0].trim());
+      if ("/".equals(name)) {
+        name="//";
+      }
+      if (name.contains("//")) {
+        name=name.replaceAll("//","/XIEGANG/");
+      }
+      String featureName=toFeatureName(name.trim().split("/"),lastFeatureId);
+      featureNames.put(id,Pair.with(split[0].trim(),featureName));
+    }
+  }
+  return featureNames;
+}

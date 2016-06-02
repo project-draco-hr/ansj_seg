@@ -18,7 +18,7 @@ case 0:
 break;
 case 1:
 end+=e.len;
-while (i < size - 1 && (e=elements.get(++i)).getTag() != 3) {
+while (i < size && (e=elements.get(++i)).getTag() != 3) {
 end+=e.len;
 }
 end+=e.len;

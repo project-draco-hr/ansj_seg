@@ -1,0 +1,6 @@
+{
+  if (!Check.checkFileExit(modelPath)) {
+    return;
+  }
+  model.loadModel(modelPath);
+}

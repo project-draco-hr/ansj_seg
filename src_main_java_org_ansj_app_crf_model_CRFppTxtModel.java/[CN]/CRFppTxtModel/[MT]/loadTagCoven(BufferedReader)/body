@@ -1,0 +1,27 @@
+{
+  int[] conver=new int[Config.TAG_NUM + Config.TAG_NUM * Config.TAG_NUM];
+  String temp=null;
+  for (int i=0; i < Config.TAG_NUM; i++) {
+    char c=br.readLine().charAt(0);
+switch (c) {
+case 'S':
+      conver[i]=Config.S;
+    break;
+case 'B':
+  conver[i]=Config.B;
+break;
+case 'M':
+conver[i]=Config.M;
+break;
+case 'E':
+conver[i]=Config.E;
+break;
+default :
+throw new Exception("err tag named " + c + " in model "+ temp);
+}
+}
+for (int i=Config.TAG_NUM; i < conver.length; i++) {
+conver[i]=conver[(i - 4) / Config.TAG_NUM] * Config.TAG_NUM + conver[i % Config.TAG_NUM] + Config.TAG_NUM;
+}
+return conver;
+}

@@ -1,0 +1,6 @@
+{
+  SplitWord sw=new SplitWord(model);
+  for (  String line : lines) {
+    System.out.println(sw.cut(line));
+  }
+}

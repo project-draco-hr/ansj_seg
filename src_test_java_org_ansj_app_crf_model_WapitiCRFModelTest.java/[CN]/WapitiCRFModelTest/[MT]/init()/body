@@ -1,0 +1,7 @@
+{
+  if (!Check.checkFileExit(modelPath)) {
+    return;
+  }
+  model=new WapitiCRFModel("test");
+  model.loadModel(modelPath);
+}

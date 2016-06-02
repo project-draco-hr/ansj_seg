@@ -7,7 +7,7 @@
   for (int i=0; i < chars.length; i++) {
     if (chars[i] >= '0' && chars[i] <= '9') {
       if (status == 2) {
-        element=new Element(Config.getEn(tempSb.toString()));
+        element=new Element(Config.getNum(tempSb.toString()));
         element.len=tempSb.length();
         list.add(element);
         tempSb=new StringBuilder();
@@ -17,7 +17,7 @@
     }
  else     if (chars[i] >= 'A' && chars[i] <= 'z') {
       if (status == 1) {
-        element=new Element(Config.getNum(tempSb.toString()));
+        element=new Element(Config.getEn(tempSb.toString()));
         element.len=tempSb.length();
         list.add(element);
         tempSb=new StringBuilder();

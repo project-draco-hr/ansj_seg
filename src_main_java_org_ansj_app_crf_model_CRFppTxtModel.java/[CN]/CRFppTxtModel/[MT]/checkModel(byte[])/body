@@ -1,0 +1,9 @@
+{
+  String string=new String(bytes);
+  if (string.startsWith("version")) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}

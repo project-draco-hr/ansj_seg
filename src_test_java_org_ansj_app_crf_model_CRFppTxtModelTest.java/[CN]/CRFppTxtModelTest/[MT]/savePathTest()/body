@@ -1,0 +1,7 @@
+{
+  if (!Check.checkFileExit(modelPath)) {
+    return;
+  }
+  model.writeModel("crf.model");
+  new File("crf.model").delete();
+}

@@ -1,0 +1,71 @@
+{
+  if (!Check.checkFileExit(modelPath)) {
+    return;
+  }
+  BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(testPath)));
+  WapitiCRFModel model=new WapitiCRFModel("test");
+  model.loadModel(modelPath);
+  SplitWord sw=new SplitWord(model);
+  String temp_str=null;
+  int line_number=0;
+  int ansj_term_number=0;
+  int result_num=0;
+  double P=0.0;
+  double R=0.0;
+  double F=0.0;
+  int allError=0;
+  int allSuccess=0;
+  String[] had_words_array=null;
+  String body=null;
+  while ((temp_str=br.readLine()) != null) {
+    if (StringUtil.isBlank(temp_str)) {
+      continue;
+    }
+    int error=0;
+    int success=0;
+    temp_str=temp_str.trim();
+    body=temp_str.replaceAll("\t","");
+    had_words_array=new String[body.length()];
+    int offe=0;
+    List<String> paser=sw.cut(body);
+    String[] result=temp_str.split("\t");
+    for (int i=0; i < result.length; i++) {
+      try {
+        had_words_array[offe]=result[i];
+        offe+=result[i].length();
+      }
+ catch (      Exception e) {
+      }
+    }
+    offe=0;
+    for (    String word : paser) {
+      if (had_words_array[offe] == null) {
+        error++;
+      }
+ else       if (had_words_array[offe].equalsIgnoreCase(word)) {
+        success++;
+      }
+ else {
+        success++;
+      }
+      offe+=word.length();
+    }
+    ansj_term_number+=paser.size();
+    result_num+=result.length;
+    allError+=error;
+    allSuccess+=success;
+    if (error > 0) {
+      System.out.println("example:" + temp_str);
+      System.out.println(" result:" + paser.toString().replace("[","").replace("]","").replace(", ","\t"));
+    }
+    System.out.println("[" + line_number + "]---?????????P:--"+ ((double)success / paser.size()));
+    line_number++;
+  }
+  P=allSuccess / (double)ansj_term_number;
+  R=allSuccess / (double)result_num;
+  F=(2 * P * R) / (P + R);
+  System.out.println("P:" + P);
+  System.out.println("R:" + R);
+  System.out.println("?????????????????????--" + F);
+  br.close();
+}
