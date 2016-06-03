@@ -1,6 +1,6 @@
 {
   MyStaticValue.LIBRARYLOG.info("to down library ! please wait a moment");
-  URL url=new URL("http://maven.nlpcn.org/down/library.zip");
+  URL url=new URL(file);
   URLConnection conn=url.openConnection();
   long length=conn.getContentLength();
   InputStream openStream=conn.getInputStream();
