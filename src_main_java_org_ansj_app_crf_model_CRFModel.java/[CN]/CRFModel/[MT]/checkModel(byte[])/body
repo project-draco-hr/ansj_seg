@@ -1,10 +1,8 @@
 {
   try {
-    InputStream inputStream=new ObjectInputStream(new GZIPInputStream(new ByteArrayInputStream(bytes)));
-    byte[] b=new byte[bytes.length];
-    inputStream.read(b);
-    String string=new String(b);
-    if (string.startsWith("ansj1")) {
+    ObjectInputStream inputStream=new ObjectInputStream(new GZIPInputStream(new ByteArrayInputStream(bytes)));
+    String version=inputStream.readUTF();
+    if (version.equals("ansj1")) {
       return true;
     }
  else {
