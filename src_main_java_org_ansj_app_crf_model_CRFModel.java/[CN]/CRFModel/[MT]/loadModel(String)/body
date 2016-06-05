@@ -1,35 +1,3 @@
 {
-  ObjectInputStream ois=null;
-  long start=System.currentTimeMillis();
-  try {
-    ois=new ObjectInputStream(new GZIPInputStream(new FileInputStream(new File(modelPath))));
-    ois.read(new byte[20]);
-    this.status=(float[][])ois.readObject();
-    int[][] template=(int[][])ois.readObject();
-    this.config=new Config(template);
-    int win=0;
-    int size=0;
-    String name=null;
-    featureTree=new SmartForest<float[]>();
-    float[] value=null;
-    do {
-      win=ois.readInt();
-      size=ois.readInt();
-      for (int i=0; i < size; i++) {
-        name=ois.readUTF();
-        value=new float[win];
-        for (int j=0; j < value.length; j++) {
-          value[j]=ois.readFloat();
-        }
-        featureTree.add(name,value);
-      }
-    }
- while (win == 0 || size == 0);
-    LOG.info("load crf model ok ! use time :" + (System.currentTimeMillis() - start));
-  }
-  finally {
-    if (ois != null) {
-      ois.close();
-    }
-  }
+  loadModel(IOUtil.getInputStream(modelPath));
 }

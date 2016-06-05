@@ -1,0 +1,19 @@
+{
+  Object obj=CRF.get(CRF_DEFAULT);
+  if (obj != null && obj instanceof SplitWord) {
+    return (SplitWord)obj;
+  }
+  try {
+    LIBRARYLOG.info("init deafult crf model begin !");
+    CRFModel model=new CRFModel(CRF_DEFAULT);
+    model.loadModel(DicReader.getInputStream("crf.model"));
+    SplitWord splitWord=new SplitWord(model);
+    CRF.put(CRF_DEFAULT,splitWord);
+    return splitWord;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    LIBRARYLOG.error("init err!",e);
+  }
+  return null;
+}
