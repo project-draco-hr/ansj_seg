@@ -1,3 +1,0 @@
-String zipFilePath
-String unzipFilePath
-boolean includeZipFileName
