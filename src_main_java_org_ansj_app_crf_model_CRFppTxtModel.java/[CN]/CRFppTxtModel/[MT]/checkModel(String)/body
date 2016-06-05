@@ -1,0 +1,21 @@
+{
+  InputStream is=null;
+  try {
+    is=IOUtil.getInputStream(modelPath);
+    byte[] bytes=new byte[100];
+    is.read(bytes);
+    String string=new String(bytes);
+    if (string.startsWith("version")) {
+      return true;
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+ finally {
+    if (is != null) {
+      is.close();
+    }
+  }
+  return false;
+}

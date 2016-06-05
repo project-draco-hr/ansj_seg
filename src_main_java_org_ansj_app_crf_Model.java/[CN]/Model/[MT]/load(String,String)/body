@@ -1,21 +1,18 @@
 {
   InputStream is=null;
   try {
-    is=IOUtil.getInputStream(modelPath);
-    byte[] bytes=new byte[100];
-    is.read(bytes);
     Model model=new CRFModel(name);
-    if (model.checkModel(bytes)) {
+    if (model.checkModel(modelPath)) {
       model.loadModel(modelPath);
       return model;
     }
     model=new CRFppTxtModel(name);
-    if (model.checkModel(bytes)) {
+    if (model.checkModel(modelPath)) {
       model.loadModel(modelPath);
       return model;
     }
     model=new WapitiCRFModel(name);
-    if (model.checkModel(bytes)) {
+    if (model.checkModel(modelPath)) {
       model.loadModel(modelPath);
       return model;
     }

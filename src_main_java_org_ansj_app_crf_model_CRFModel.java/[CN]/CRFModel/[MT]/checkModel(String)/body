@@ -1,0 +1,21 @@
+{
+  ObjectInputStream inputStream=null;
+  try {
+    inputStream=new ObjectInputStream(new GZIPInputStream(new FileInputStream(modelPath)));
+    String version=inputStream.readUTF();
+    if (version.equals("ansj1")) {
+      return true;
+    }
+  }
+ catch (  ZipException ze) {
+  }
+catch (  Exception e) {
+    e.printStackTrace();
+  }
+ finally {
+    if (inputStream != null) {
+      inputStream.close();
+    }
+  }
+  return false;
+}

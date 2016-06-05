@@ -1,9 +1,0 @@
-{
-  String string=new String(bytes);
-  if (string.startsWith("#mdl#")) {
-    return true;
-  }
- else {
-    return false;
-  }
-}
