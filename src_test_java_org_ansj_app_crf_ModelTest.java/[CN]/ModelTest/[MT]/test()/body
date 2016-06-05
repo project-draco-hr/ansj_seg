@@ -1,5 +1,5 @@
 {
-  Model model=Model.load("ansj","library/crf.model");
+  Model model=Model.load("ansj","src/main/resources/crf.model");
   System.out.println(new SplitWord(model).cut("???????????????????????????"));
   String path="/Users/sunjian/Documents/src/CRF++-0.58/test/model.txt";
   if (Check.checkFileExit(path)) {
