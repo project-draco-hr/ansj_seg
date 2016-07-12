@@ -1,0 +1,6 @@
+{
+  SplitWord crfSplitWord=MyStaticValue.getCRFSplitWord();
+  for (  String string : lines) {
+    System.out.println(crfSplitWord.cut(string));
+  }
+}

@@ -1,0 +1,8 @@
+{
+  for (  Term term : result) {
+    String[] params=UserDefineLibrary.getParams(term.getName());
+    if (params != null) {
+      term.setNature(new Nature(params[0]));
+    }
+  }
+}
