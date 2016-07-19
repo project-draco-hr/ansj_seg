@@ -1,0 +1,21 @@
+{
+  MyStaticValue.userLibrary="../../library/default.dic";
+  PerFieldAnalyzerWrapper analyzer=new PerFieldAnalyzerWrapper(new AnsjAnalyzer(TYPE.index));
+  Directory directory=null;
+  IndexWriter iwriter=null;
+  IndexWriterConfig ic=new IndexWriterConfig(analyzer);
+  String text="???????????????????????????";
+  System.out.println(IndexAnalysis.parse(text));
+  directory=new RAMDirectory();
+  iwriter=new IndexWriter(directory,ic);
+  addContent(iwriter,text);
+  iwriter.commit();
+  iwriter.close();
+  System.out.println("??????????????????");
+  Analyzer queryAnalyzer=new AnsjAnalyzer(AnsjAnalyzer.TYPE.index);
+  System.out.println("index ok to search!");
+  for (  Term t : IndexAnalysis.parse(text)) {
+    System.out.println(t.getName());
+    search(queryAnalyzer,directory,"\"" + t.getName() + "\"");
+  }
+}
