@@ -1,0 +1,4 @@
+{
+  this.termNatures=termNatures;
+  this.nature=termNatures.nature;
+}
