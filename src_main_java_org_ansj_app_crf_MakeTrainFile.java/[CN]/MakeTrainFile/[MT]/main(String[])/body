@@ -1,6 +1,6 @@
 {
-  String inputPath="/Users/sunjian/Documents/workspace/ansj_crf/result_n.txt";
-  String outputPath="/Users/sunjian/Documents/src/Wapiti/test/train.txt";
+  String inputPath="corpus.txt";
+  String outputPath="train.txt";
   if (args != null && args.length == 2) {
     inputPath=args[0];
     outputPath=args[1];
@@ -15,7 +15,6 @@
     reader=IOUtil.getReader(inputPath,"utf-8");
     fos=new FileOutputStream(outputPath);
     String temp=null;
-    Config config=new Config(null);
     int i=0;
     while ((temp=reader.readLine()) != null) {
       StringBuilder sb=new StringBuilder("\n");
@@ -25,7 +24,7 @@
       if (i == 0) {
         temp=StringUtil.trim(temp);
       }
-      List<Element> list=config.makeToElementList(temp,"\\s+");
+      List<Element> list=Config.makeToElementList(temp,"\\s+");
       for (      Element element : list) {
         sb.append(element.nameStr() + " " + Config.getTagName(element.getTag()));
         sb.append("\n");

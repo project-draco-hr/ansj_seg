@@ -16,8 +16,7 @@
       if (splitWord != null) {
         MapCount<String> mc=new MapCount<String>();
         List<String> words=splitWord.cut(graph.chars);
-        String temp=null;
-        TermNatures tempTermNatures=null;
+        Term tempTerm=null;
         int tempOff=0;
         if (words.size() > 0) {
           String word=words.get(0);
@@ -26,46 +25,40 @@
           }
         }
         for (        String word : words) {
-          AnsjItem item=DATDictionary.getItem(word);
+          TermNatures termNatures=NatureRecognition.getTermNatures(word);
           Term term=null;
-          if (item != AnsjItem.NULL) {
-            term=new Term(word,tempOff,DATDictionary.getItem(word));
+          if (termNatures != TermNatures.NULL) {
+            term=new Term(word,tempOff,termNatures);
           }
  else {
-            TermNatures termNatures=NatureRecognition.getTermNatures(word);
-            if (termNatures != TermNatures.NULL) {
-              term=new Term(word,tempOff,termNatures);
-            }
- else {
-              term=new Term(word,tempOff,TermNatures.NW);
-            }
+            term=new Term(word,tempOff,TermNatures.NW);
+            term.setNewWord(true);
           }
-          if (isRuleWord(word)) {
-            temp=null;
-            tempOff+=word.length();
+          tempOff+=word.length();
+          if (term.isNewWord() && isRuleWord(word)) {
+            tempTerm=null;
             continue;
+          }
+          if (term.isNewWord()) {
+            termNatures=NatureRecognition.guessNature(word);
+            term.updateTermNaturesAndNature(termNatures);
           }
           TermUtil.insertTerm(graph.terms,term,InsertTermType.SCORE_ADD_SORT);
-          tempOff+=word.length();
-          if (temp != null) {
-            if (tempTermNatures != TermNatures.NW && term.termNatures() != TermNatures.NW) {
-              mc.add(temp + TAB + word,CRF_WEIGHT);
-            }
+          if (tempTerm != null && !tempTerm.isNewWord() && !term.isNewWord()) {
+            mc.add(tempTerm.getName() + TAB + word,CRF_WEIGHT);
           }
-          temp=word;
-          tempTermNatures=term.termNatures();
-          if (term.termNatures() != TermNatures.NW || word.length() < 2) {
-            continue;
+          tempTerm=term;
+          if (term.isNewWord()) {
+            learn.addTerm(new NewWord(word,Nature.NW));
           }
-          learn.addTerm(new NewWord(word,Nature.NW));
         }
-        if (tempTermNatures != TermNatures.NW) {
-          mc.add(temp + TAB + "???##???",CRF_WEIGHT);
+        if (tempTerm != null && !tempTerm.isNewWord()) {
+          mc.add(tempTerm.getName() + TAB + "???##???",CRF_WEIGHT);
         }
         graph.walkPath(mc.get());
       }
  else {
-        MyStaticValue.LIBRARYLOG.warn("not find crf model you can you can visit " + DownLibrary.file + " to down it ! ");
+        MyStaticValue.LIBRARYLOG.warn("not find any crf model, make sure your config right? ");
       }
       if (graph.hasNum && MyStaticValue.isNumRecognition) {
         new NumRecognition().recognition(graph.terms);

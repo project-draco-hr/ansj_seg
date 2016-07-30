@@ -1,0 +1,37 @@
+{
+  String nature=null;
+  SmartForest<String[]> smartForest=SUFFIX_FOREST;
+  int len=0;
+  for (int i=word.length() - 1; i >= 0; i--) {
+    smartForest=smartForest.get(word.charAt(i));
+    if (smartForest == null) {
+      break;
+    }
+    len++;
+    if (smartForest.getStatus() == 2) {
+      nature=smartForest.getParam()[0];
+    }
+ else     if (smartForest.getStatus() == 3) {
+      nature=smartForest.getParam()[0];
+      break;
+    }
+  }
+  if ("nt".equals(nature) && (len > 1 || word.length() > 3)) {
+    return TermNatures.NT;
+  }
+ else   if ("ns".equals(nature)) {
+    return TermNatures.NS;
+  }
+ else   if (word.length() < 5) {
+    Result parse=ToAnalysis.parse(word);
+    for (    Term term : parse.getTerms()) {
+      if ("nr".equals(term.getNatureStr())) {
+        return TermNatures.NR;
+      }
+    }
+  }
+ else   if (ForeignPersonRecognition.isFName(word)) {
+    return TermNatures.NRF;
+  }
+  return TermNatures.NW;
+}
