@@ -1,0 +1,8 @@
+{
+  System.out.println(MyStaticValue.ambiguityLibrary);
+  System.out.println(Arrays.toString(UserDefineLibrary.ambiguityForest.getBranch("?????????").getParam()));
+  System.out.println(Arrays.toString(UserDefineLibrary.ambiguityForest.getBranch("????????????").getParam()));
+  System.out.println(Arrays.toString(UserDefineLibrary.ambiguityForest.getBranch("????????????").getParam()));
+  System.out.println(Arrays.toString(UserDefineLibrary.ambiguityForest.getBranch("???????????????").getParam()));
+  System.out.println(Arrays.toString(UserDefineLibrary.ambiguityForest.getBranch("????????????").getParam()));
+}
