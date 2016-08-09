@@ -1,4 +1,4 @@
 {
   model.writeModel(testModelPath);
-  new File("test.model").delete();
+  Assert.assertEquals(true,new File(testModelPath).delete());
 }
