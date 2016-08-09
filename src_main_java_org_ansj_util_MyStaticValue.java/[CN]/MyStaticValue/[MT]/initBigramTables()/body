@@ -1,7 +1,5 @@
 {
-  BufferedReader reader=null;
-  try {
-    reader=IOUtil.getReader(DicReader.getInputStream("bigramdict.dic"),"UTF-8");
+  try (BufferedReader reader=IOUtil.getReader(DicReader.getInputStream("bigramdict.dic"),"UTF-8")){
     String temp=null;
     String[] strs=null;
     int freq=0;
@@ -30,15 +28,12 @@
     }
   }
  catch (  NumberFormatException e) {
-    e.printStackTrace();
+    LIBRARYLOG.warn("??????????????????",e);
   }
 catch (  UnsupportedEncodingException e) {
-    e.printStackTrace();
+    LIBRARYLOG.warn("??????????????????",e);
   }
 catch (  IOException e) {
-    e.printStackTrace();
-  }
- finally {
-    IOUtil.close(reader);
+    LIBRARYLOG.warn("IO??????",e);
   }
 }

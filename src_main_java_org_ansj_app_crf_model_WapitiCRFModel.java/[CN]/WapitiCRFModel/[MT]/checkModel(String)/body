@@ -1,7 +1,5 @@
 {
-  InputStream is=null;
-  try {
-    is=IOUtil.getInputStream(modelPath);
+  try (InputStream is=IOUtil.getInputStream(modelPath)){
     byte[] bytes=new byte[100];
     is.read(bytes);
     String string=new String(bytes);
@@ -9,13 +7,8 @@
       return true;
     }
   }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
- finally {
-    if (is != null) {
-      is.close();
-    }
+ catch (  IOException e) {
+    logger.warn("IO??????",e);
   }
   return false;
 }

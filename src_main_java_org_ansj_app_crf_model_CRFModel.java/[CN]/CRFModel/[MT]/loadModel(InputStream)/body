@@ -1,8 +1,6 @@
 {
-  ObjectInputStream ois=null;
   long start=System.currentTimeMillis();
-  try {
-    ois=new ObjectInputStream(new GZIPInputStream(is));
+  try (ObjectInputStream ois=new ObjectInputStream(new GZIPInputStream(is))){
     ois.readUTF();
     this.status=(float[][])ois.readObject();
     int[][] template=(int[][])ois.readObject();
@@ -25,14 +23,6 @@
       }
     }
  while (win == 0 || size == 0);
-    LOG.info("load crf model ok ! use time :" + (System.currentTimeMillis() - start));
+    logger.info("load crf model ok ! use time :{}",System.currentTimeMillis() - start);
   }
-  finally {
-    if (is != null) {
-      is.close();
-    }
-    if (ois != null) {
-      ois.close();
-    }
-  }
-}
+ }

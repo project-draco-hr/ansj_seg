@@ -9,16 +9,15 @@
       LIBRARYLOG.info("begin init crf model!");
       SplitWord crfSplitWord=new SplitWord(Model.load(key,modelPath));
       CRF.put(key,crfSplitWord);
-      LIBRARYLOG.info("load crf use time:" + (System.currentTimeMillis() - start) + " path is : "+ modelPath);
+      LIBRARYLOG.info("load crf use time:{} path is : {}",System.currentTimeMillis() - start,modelPath);
       return crfSplitWord;
     }
  else {
-      LIBRARYLOG.info(key + " file  not found ,please make sure it is exists : " + modelPath);
+      LIBRARYLOG.info("{} file  not found ,please make sure it is exists : {}",key,modelPath);
     }
   }
  catch (  Exception e) {
-    e.printStackTrace();
-    LIBRARYLOG.info(key + " file : " + modelPath+ " load err "+ e.getMessage());
+    LIBRARYLOG.info("{} file : {} load err {}",key,modelPath,e.getMessage());
   }
   return null;
 }

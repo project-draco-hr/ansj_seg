@@ -1,53 +1,40 @@
 {
   String ambiguityLibrary=MyStaticValue.ambiguityLibrary;
   if (StringUtil.isBlank(ambiguityLibrary)) {
-    LIBRARYLOG.warn("init ambiguity  warning :" + ambiguityLibrary + " because : file not found or failed to read !");
+    LIBRARYLOG.warn("init ambiguity  warning :{} because : file not found or failed to read !",ambiguityLibrary);
     return;
   }
   ambiguityLibrary=MyStaticValue.ambiguityLibrary;
-  File file=new File(ambiguityLibrary);
-  if (file.isFile() && file.canRead()) {
-    try {
-      ambiguityForest=new Forest();
-      BufferedReader br=null;
-      try {
-        br=IOUtil.getReader(ambiguityLibrary,"utf-8");
-        String temp=null;
-        boolean first=true;
-        while ((temp=br.readLine()) != null) {
-          if (StringUtil.isBlank(temp)) {
-            continue;
-          }
-          if (first) {
-            temp=StringUtil.trim(temp);
-          }
-          String[] split=temp.split("\t");
-          StringBuilder sb=new StringBuilder();
-          if (split.length % 2 != 0) {
-            LIBRARYLOG.error("init ambiguity  error in line :" + temp + " format err !");
-          }
-          for (int i=0; i < split.length; i+=2) {
-            sb.append(split[i]);
-          }
-          ambiguityForest.addBranch(sb.toString(),split);
-        }
+  ambiguityForest=new Forest();
+  try (BufferedReader br=IOUtil.getReader(ambiguityLibrary,"utf-8")){
+    String temp=null;
+    boolean first=true;
+    while ((temp=br.readLine()) != null) {
+      if (StringUtil.isBlank(temp)) {
+        continue;
       }
- catch (      Exception e) {
-        e.printStackTrace();
+      if (first) {
+        temp=StringUtil.trim(temp);
       }
- finally {
-        if (br != null) {
-          br.close();
-        }
+      String[] split=temp.split("\t");
+      StringBuilder sb=new StringBuilder();
+      if (split.length % 2 != 0) {
+        LIBRARYLOG.error("init ambiguity  error in line :" + temp + " format err !");
       }
-    }
- catch (    Exception e) {
-      LIBRARYLOG.warn("init ambiguity  error :" + new File(ambiguityLibrary).getAbsolutePath() + " because : not find that file or can not to read !");
-      e.printStackTrace();
+      for (int i=0; i < split.length; i+=2) {
+        sb.append(split[i]);
+      }
+      ambiguityForest.addBranch(sb.toString(),split);
     }
     LIBRARYLOG.info("init ambiguityLibrary ok!");
   }
- else {
-    LIBRARYLOG.warn("init ambiguity  warning :" + new File(ambiguityLibrary).getAbsolutePath() + " because : file not found or failed to read !");
+ catch (  FileNotFoundException e) {
+    LIBRARYLOG.warn("init ambiguity  error :{} because : not find that file or can not found!",new File(ambiguityLibrary).getAbsolutePath());
+  }
+catch (  UnsupportedEncodingException e) {
+    LIBRARYLOG.warn("??????????????????",e);
+  }
+catch (  IOException e) {
+    LIBRARYLOG.warn("init ambiguity  error :{} because : not find that file or can not to read!",new File(ambiguityLibrary).getAbsolutePath());
   }
 }

@@ -1,7 +1,6 @@
 {
-  ObjectOutputStream oos=null;
-  try {
-    oos=new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(new File(path))));
+  try (FileOutputStream fso=new FileOutputStream(path)){
+    ObjectOutputStream oos=new ObjectOutputStream(new GZIPOutputStream(fso));
     oos.writeUTF(CRFModel.version);
     oos.writeObject(status);
     oos.writeObject(config.getTemplate());
@@ -26,14 +25,12 @@
     }
     oos.writeInt(0);
     oos.writeInt(0);
+    oos.flush();
   }
- catch (  Exception e) {
-    e.printStackTrace();
+ catch (  FileNotFoundException e) {
+    logger.warn("??????????????????",e);
   }
- finally {
-    if (oos != null) {
-      oos.flush();
-      oos.close();
-    }
+catch (  IOException e) {
+    logger.warn("IO??????",e);
   }
 }

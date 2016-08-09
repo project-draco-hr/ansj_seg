@@ -12,7 +12,6 @@
     return splitWord;
   }
  catch (  Exception e) {
-    e.printStackTrace();
     LIBRARYLOG.error("init err!",e);
   }
   return null;

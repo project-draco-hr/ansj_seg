@@ -1,21 +1,19 @@
 {
-  ObjectInputStream inputStream=null;
-  try {
-    inputStream=new ObjectInputStream(new GZIPInputStream(new FileInputStream(modelPath)));
+  try (FileInputStream fis=new FileInputStream(modelPath)){
+    ObjectInputStream inputStream=new ObjectInputStream(new GZIPInputStream(fis));
     String version=inputStream.readUTF();
     if (version.equals("ansj1")) {
       return true;
     }
   }
  catch (  ZipException ze) {
+    logger.warn("????????????",ze);
   }
-catch (  Exception e) {
-    e.printStackTrace();
+catch (  FileNotFoundException e) {
+    logger.warn("??????????????????",e);
   }
- finally {
-    if (inputStream != null) {
-      inputStream.close();
-    }
+catch (  IOException e) {
+    logger.warn("IO??????",e);
   }
   return false;
 }

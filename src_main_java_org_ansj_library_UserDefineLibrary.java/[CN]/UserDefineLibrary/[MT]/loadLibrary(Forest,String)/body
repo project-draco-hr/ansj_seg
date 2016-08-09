@@ -9,7 +9,7 @@
       }
     }
     if (!file.canRead() || file.isHidden()) {
-      LIBRARYLOG.warn("init userLibrary  warning :" + new File(path).getAbsolutePath() + " because : file not found or failed to read !");
+      LIBRARYLOG.warn("init userLibrary  warning :{} because : file not found or failed to read !",file.getAbsolutePath());
       return;
     }
     if (file.isFile()) {
@@ -34,7 +34,7 @@
       }
     }
  else {
-      LIBRARYLOG.warn("init user library  error :" + new File(path).getAbsolutePath() + " because : not find that file !");
+      LIBRARYLOG.warn("init user library  error :{} because : not find that file !",file.getAbsolutePath());
     }
   }
 }
