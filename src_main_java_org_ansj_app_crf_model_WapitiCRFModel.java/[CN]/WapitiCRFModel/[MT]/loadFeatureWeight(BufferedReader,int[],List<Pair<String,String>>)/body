@@ -9,7 +9,7 @@
   String temp=br.readLine();
   for (  Pair<String,String> pair : featureNames) {
     if (temp == null) {
-      LOG.warning(pair.getValue0() + "\t" + pair.getValue1()+ " not have any weight ,so skip it !");
+      logger.warn("{}\t{} not have any weight ,so skip it !",pair.getValue0(),pair.getValue1());
       continue;
     }
     char fc=Character.toUpperCase(pair.getValue0().charAt(0));

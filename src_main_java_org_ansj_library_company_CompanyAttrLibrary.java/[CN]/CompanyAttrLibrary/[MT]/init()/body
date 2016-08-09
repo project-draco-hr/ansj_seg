@@ -1,8 +1,6 @@
 {
-  BufferedReader br=null;
-  try {
+  try (BufferedReader br=MyStaticValue.getCompanReader()){
     cnMap=new HashMap<String,int[]>();
-    br=MyStaticValue.getCompanReader();
     String temp=null;
     String[] strs=null;
     int[] cna=null;
@@ -14,7 +12,7 @@
       cnMap.put(strs[0],cna);
     }
   }
-  finally {
-    if (br != null)     br.close();
+ catch (  IOException e) {
+    logger.warn("IO??????",e);
   }
 }

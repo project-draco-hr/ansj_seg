@@ -1,4 +1,4 @@
 {
-  model.writeModel(modelPath);
-  new File("crf.model").delete();
+  model.writeModel(testModelPath);
+  new File("test.model").delete();
 }

@@ -5,7 +5,7 @@
       return initDefaultModel();
     }
  else {
-      LIBRARYLOG.warn("crf " + key + " not found in config ");
+      LIBRARYLOG.warn("crf {} not found in config ",key);
       return null;
     }
   }

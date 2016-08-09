@@ -4,11 +4,9 @@
     return;
   }
   String temp=null;
-  BufferedReader br=null;
   String[] strs=null;
   Value value=null;
-  try {
-    br=IOUtil.getReader(new FileInputStream(file),"UTF-8");
+  try (BufferedReader br=IOUtil.getReader(new FileInputStream(file),"UTF-8")){
     while ((temp=br.readLine()) != null) {
       if (StringUtil.isBlank(temp)) {
         continue;
@@ -28,16 +26,12 @@
         Library.insertWord(forest,value);
       }
     }
-    LIBRARYLOG.info("init user userLibrary ok path is : " + file.getAbsolutePath());
+    LIBRARYLOG.info("init user userLibrary ok path is : {}",file.getAbsolutePath());
   }
  catch (  UnsupportedEncodingException e) {
-    e.printStackTrace();
+    LIBRARYLOG.warn("??????????????????",e);
   }
 catch (  IOException e) {
-    e.printStackTrace();
-  }
- finally {
-    IOUtil.close(br);
-    br=null;
+    LIBRARYLOG.warn("IO??????",e);
   }
 }

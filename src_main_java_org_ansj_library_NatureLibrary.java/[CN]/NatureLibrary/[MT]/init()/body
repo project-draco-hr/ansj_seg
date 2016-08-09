@@ -1,32 +1,38 @@
 {
   String split="\t";
-  BufferedReader reader=MyStaticValue.getNatureMapReader();
+  int maxLength=0;
   String temp=null;
   String[] strs=null;
-  int maxLength=0;
-  int p0=0;
-  int p1=0;
-  int p2=0;
-  while ((temp=reader.readLine()) != null) {
-    strs=temp.split(split);
-    if (strs.length != 4)     continue;
-    p0=Integer.parseInt(strs[0]);
-    p1=Integer.parseInt(strs[1]);
-    p2=Integer.parseInt(strs[3]);
-    NATUREMAP.put(strs[2],new Nature(strs[2],p0,p1,p2));
-    maxLength=Math.max(maxLength,p1);
-  }
-  reader.close();
-  NATURETABLE=new int[maxLength + 1][maxLength + 1];
-  reader=MyStaticValue.getNatureTableReader();
-  int j=0;
-  while ((temp=reader.readLine()) != null) {
-    if (StringUtil.isBlank(temp))     continue;
-    strs=temp.split(split);
-    for (int i=0; i < strs.length; i++) {
-      NATURETABLE[j][i]=Integer.parseInt(strs[i]);
+  try (BufferedReader reader=MyStaticValue.getNatureMapReader()){
+    int p0=0;
+    int p1=0;
+    int p2=0;
+    while ((temp=reader.readLine()) != null) {
+      strs=temp.split(split);
+      if (strs.length != 4)       continue;
+      p0=Integer.parseInt(strs[0]);
+      p1=Integer.parseInt(strs[1]);
+      p2=Integer.parseInt(strs[3]);
+      NATUREMAP.put(strs[2],new Nature(strs[2],p0,p1,p2));
+      maxLength=Math.max(maxLength,p1);
     }
-    j++;
   }
-  reader.close();
+ catch (  IOException e) {
+    logger.warn("????????????????????????!",e);
+  }
+  try (BufferedReader reader=MyStaticValue.getNatureTableReader()){
+    NATURETABLE=new int[maxLength + 1][maxLength + 1];
+    int j=0;
+    while ((temp=reader.readLine()) != null) {
+      if (StringUtil.isBlank(temp))       continue;
+      strs=temp.split(split);
+      for (int i=0; i < strs.length; i++) {
+        NATURETABLE[j][i]=Integer.parseInt(strs[i]);
+      }
+      j++;
+    }
+  }
+ catch (  IOException e) {
+    logger.warn("????????????????????????!",e);
+  }
 }

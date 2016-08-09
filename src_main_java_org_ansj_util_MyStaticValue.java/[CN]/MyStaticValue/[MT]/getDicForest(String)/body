@@ -1,7 +1,7 @@
 {
   Object temp=DIC.get(key);
   if (temp == null) {
-    LIBRARYLOG.warn("dic " + key + " not found in config ");
+    LIBRARYLOG.warn("dic {} not found in config ",key);
     return null;
   }
  else   if (temp instanceof String) {

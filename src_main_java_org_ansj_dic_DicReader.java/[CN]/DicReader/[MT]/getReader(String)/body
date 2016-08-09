@@ -4,7 +4,7 @@
     return new BufferedReader(new InputStreamReader(in,"UTF-8"));
   }
  catch (  UnsupportedEncodingException e) {
-    e.printStackTrace();
+    logger.warn("??????????????????",e);
   }
   return null;
 }

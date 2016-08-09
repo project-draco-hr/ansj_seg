@@ -6,14 +6,10 @@
     outputPath=args[1];
   }
   if (StringUtil.isBlank(inputPath) || StringUtil.isBlank(outputPath)) {
-    System.out.println("org.ansj.app.crf.MakeTrainFile [inputPath] [outputPath]");
+    logger.info("org.ansj.app.crf.MakeTrainFile [inputPath] [outputPath]");
     return;
   }
-  BufferedReader reader=null;
-  FileOutputStream fos=null;
-  try {
-    reader=IOUtil.getReader(inputPath,"utf-8");
-    fos=new FileOutputStream(outputPath);
+  try (BufferedReader reader=IOUtil.getReader(inputPath,"utf-8");FileOutputStream fos=new FileOutputStream(outputPath)){
     String temp=null;
     int i=0;
     while ((temp=reader.readLine()) != null) {
@@ -34,25 +30,6 @@
     }
   }
  catch (  Exception e) {
-    e.printStackTrace();
-  }
- finally {
-    if (reader != null) {
-      try {
-        reader.close();
-      }
- catch (      Exception e1) {
-        e1.printStackTrace();
-      }
-    }
-    if (fos != null) {
-      try {
-        fos.flush();
-        fos.close();
-      }
- catch (      IOException e) {
-        e.printStackTrace();
-      }
-    }
+    logger.info("????????????",e);
   }
 }

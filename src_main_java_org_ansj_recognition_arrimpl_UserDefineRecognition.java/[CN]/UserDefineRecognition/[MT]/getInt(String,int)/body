@@ -3,7 +3,7 @@
     return Integer.parseInt(str);
   }
  catch (  NumberFormatException e) {
-    e.printStackTrace();
+    logger.warn("{}??????????????????",str,e);
     return def;
   }
 }

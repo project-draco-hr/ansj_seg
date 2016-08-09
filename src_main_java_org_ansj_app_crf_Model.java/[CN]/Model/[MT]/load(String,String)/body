@@ -1,26 +1,18 @@
 {
-  InputStream is=null;
-  try {
-    Model model=new CRFModel(name);
-    if (model.checkModel(modelPath)) {
-      model.loadModel(modelPath);
-      return model;
-    }
-    model=new CRFppTxtModel(name);
-    if (model.checkModel(modelPath)) {
-      model.loadModel(modelPath);
-      return model;
-    }
-    model=new WapitiCRFModel(name);
-    if (model.checkModel(modelPath)) {
-      model.loadModel(modelPath);
-      return model;
-    }
+  Model model=new CRFModel(name);
+  if (model.checkModel(modelPath)) {
+    model.loadModel(modelPath);
+    return model;
   }
-  finally {
-    if (is != null) {
-      is.close();
-    }
+  model=new CRFppTxtModel(name);
+  if (model.checkModel(modelPath)) {
+    model.loadModel(modelPath);
+    return model;
   }
-  throw new Exception("I did not know waht type of model by file " + modelPath);
+  model=new WapitiCRFModel(name);
+  if (model.checkModel(modelPath)) {
+    model.loadModel(modelPath);
+    return model;
+  }
+  throw new Exception("I did not know what type of model by file " + modelPath);
 }
