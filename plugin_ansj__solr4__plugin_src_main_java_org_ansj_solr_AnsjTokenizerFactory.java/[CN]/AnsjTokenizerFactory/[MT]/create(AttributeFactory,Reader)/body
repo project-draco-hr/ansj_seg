@@ -1,0 +1,8 @@
+{
+  if (isQuery == true) {
+    return new AnsjTokenizer(new ToAnalysis(input),input,filter,pstemming);
+  }
+ else {
+    return new AnsjTokenizer(new IndexAnalysis(input),input,filter,pstemming);
+  }
+}

@@ -1,8 +1,6 @@
 {
-  BufferedReader br=null;
-  try {
+  try (BufferedReader br=MyStaticValue.getPersonReader()){
     pnMap=new HashMap<String,PersonNatureAttr>();
-    br=MyStaticValue.getPersonReader();
     String temp=null;
     String[] strs=null;
     PersonNatureAttr pna=null;
@@ -17,7 +15,10 @@
       pnMap.put(strs[0],pna);
     }
   }
-  finally {
-    if (br != null)     br.close();
+ catch (  NumberFormatException e) {
+    logger.warn("?????????????????????",e);
+  }
+catch (  IOException e) {
+    logger.warn("IO??????",e);
   }
 }

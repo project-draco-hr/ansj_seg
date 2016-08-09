@@ -6,9 +6,11 @@
     List<String> readFile2List=IOUtil.readFile2List(stopwordsDir,IOUtil.UTF8);
     return new HashSet<String>(readFile2List);
   }
- catch (  Exception e) {
-    System.err.println("not foun stop word path by " + new File(stopwordsDir).getAbsolutePath());
-    e.printStackTrace();
+ catch (  FileNotFoundException e) {
+    logger.warn("??????????????????",e);
+  }
+catch (  UnsupportedEncodingException e) {
+    logger.warn("???????????????",e);
   }
   return null;
 }

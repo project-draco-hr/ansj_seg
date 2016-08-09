@@ -1,0 +1,24 @@
+{
+  if (dir == null) {
+    logger.info("no stopwords dir");
+    return;
+  }
+  logger.info("stopwords: {}",dir);
+  filter=new HashSet<String>();
+  File file=new File(dir);
+  try (FileInputStream fis=new FileInputStream(file)){
+    InputStreamReader reader=new InputStreamReader(fis,"UTF-8");
+    BufferedReader br=new BufferedReader(reader);
+    String word=br.readLine();
+    while (word != null) {
+      filter.add(word);
+      word=br.readLine();
+    }
+  }
+ catch (  FileNotFoundException e) {
+    logger.info("No stopword file found");
+  }
+catch (  IOException e) {
+    logger.info("stopword file io exception");
+  }
+}

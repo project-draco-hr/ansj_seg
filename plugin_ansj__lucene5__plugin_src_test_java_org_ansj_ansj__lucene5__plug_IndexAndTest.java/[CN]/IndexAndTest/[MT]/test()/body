@@ -1,5 +1,5 @@
 {
-  MyStaticValue.userLibrary="../../library/default.dic";
+  MyStaticValue.DIC.put(MyStaticValue.DIC_DEFAULT,"../../library/default.dic");
   PerFieldAnalyzerWrapper analyzer=new PerFieldAnalyzerWrapper(new AnsjAnalyzer(TYPE.index));
   Directory directory=null;
   IndexWriter iwriter=null;

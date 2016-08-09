@@ -1,0 +1,8 @@
+{
+  super(args);
+  assureMatchVersion();
+  isQuery=getBoolean(args,"isQuery",true);
+  pstemming=getBoolean(args,"pstemming",false);
+  stopwordsDir=get(args,"words");
+  addStopwords(stopwordsDir);
+}
