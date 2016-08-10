@@ -26,12 +26,8 @@
       List<String> paser=sw.cut(body);
       String[] result=temp_str.split("\t");
       for (int i=0; i < result.length; i++) {
-        try {
-          had_words_array[offe]=result[i];
-          offe+=result[i].length();
-        }
- catch (        Exception e) {
-        }
+        had_words_array[offe]=result[i];
+        offe+=result[i].length();
       }
       offe=0;
       for (      String word : paser) {

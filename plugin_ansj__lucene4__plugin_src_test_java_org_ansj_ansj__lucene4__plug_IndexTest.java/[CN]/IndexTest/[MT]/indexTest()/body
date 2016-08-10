@@ -1,5 +1,5 @@
 {
-  MyStaticValue.userLibrary="/home/ansj/workspace/ansj_seg/library/default.dic";
+  MyStaticValue.DIC.put(MyStaticValue.DIC_DEFAULT,"../../library/default.dic");
   HashSet<String> hs=new HashSet<String>();
   hs.add("???");
   Analyzer analyzer=new AnsjIndexAnalysis(hs,false);
