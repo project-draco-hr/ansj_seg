@@ -1,0 +1,5 @@
+{
+  mc.add(name);
+  Double size=mc.get().get(name);
+  this.score+=score / size;
+}

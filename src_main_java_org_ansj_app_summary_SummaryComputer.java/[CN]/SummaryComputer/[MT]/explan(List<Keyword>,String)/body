@@ -9,33 +9,42 @@
   }
   double maxScore=0;
   int maxIndex=0;
+  MapCount<String> mc=new MapCount<>();
   for (int i=0; i < sentences.size(); i++) {
     double tempScore=sentences.get(i).score;
     int tempLength=sentences.get(i).value.length();
+    mc.addAll(sentences.get(i).mc.get());
     if (tempLength >= len) {
+      tempScore=tempScore * mc.get().size();
       if (maxScore < tempScore) {
         maxScore=tempScore;
         maxIndex=i;
         continue;
       }
+      mc.get().clear();
     }
     for (int j=i + 1; j < sentences.size(); j++) {
       tempScore+=sentences.get(j).score;
       tempLength+=sentences.get(j).value.length();
+      mc.addAll(sentences.get(j).mc.get());
       if (tempLength >= len) {
+        tempScore=tempScore * mc.get().size();
         if (maxScore < tempScore) {
           maxScore=tempScore;
           maxIndex=i;
-          break;
         }
+        mc.get().clear();
+        break;
       }
     }
     if (tempLength < len) {
+      tempScore=tempScore * mc.get().size();
       if (maxScore < tempScore) {
         maxScore=tempScore;
         maxIndex=i;
         break;
       }
+      mc.get().clear();
     }
   }
   StringBuilder sb=new StringBuilder();
