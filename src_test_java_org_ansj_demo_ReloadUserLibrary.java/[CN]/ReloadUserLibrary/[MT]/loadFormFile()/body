@@ -1,5 +1,5 @@
 {
   Forest forest=new Forest();
-  UserDefineLibrary.loadFile(forest,new File("new_Library_Path"));
+  UserDefineLibrary.loadLibrary(forest,new File("new_Library_Path").getPath());
   UserDefineLibrary.FOREST=forest;
 }
