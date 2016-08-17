@@ -6,7 +6,7 @@
       try (BufferedReader br=IOUtil.getReader(file,"utf-8")){
         String temp;
         while ((temp=br.readLine()) != null) {
-          if (StringUtils.isNotBlank(temp)) {
+          if (StringUtil.isNotBlank(temp)) {
             temp=StringUtil.trim(temp);
             String[] split=temp.split("\t");
             StringBuilder sb=new StringBuilder();
