@@ -1,40 +1,39 @@
 {
-  File file;
-  if (path != null) {
-    file=new File(path);
-    if (!file.exists()) {
-      URL url=UserDefineLibrary.class.getClassLoader().getResource(path);
-      if (url != null) {
-        file=new File(url.getPath());
-      }
-    }
-    if (!file.canRead() || file.isHidden()) {
-      LIBRARYLOG.warn("init userLibrary  warning :{} because : file not found or failed to read !",file.getAbsolutePath());
-      return;
-    }
-    if (file.isFile()) {
-      loadFile(forest,file);
-    }
- else     if (file.isDirectory()) {
-      File[] files=file.listFiles();
-      if (files == null) {
-        return;
-      }
-      List<File> fileList=Arrays.asList(files);
-      Collections.sort(fileList,new Comparator<File>(){
-        @Override public int compare(        File target,        File source){
-          return target.getName().compareTo(source.getName());
-        }
-      }
-);
-      for (      File dicFile : fileList) {
-        if (dicFile.getName().trim().endsWith(".dic")) {
-          loadFile(forest,dicFile);
-        }
-      }
-    }
+  File[] lib=findLibrary(path);
+  if (lib.length > 0) {
+    for (    File file : lib) {
+      String temp;
+      String[] strs;
+      Value value;
+      try (BufferedReader br=IOUtil.getReader(new FileInputStream(file),"UTF-8")){
+        while ((temp=br.readLine()) != null) {
+          if (StringUtils.isNotBlank(temp)) {
+            temp=StringUtil.trim(temp);
+            strs=temp.split("\t");
+            strs[0]=strs[0].toLowerCase();
+            if (MyStaticValue.isSkipUserDefine && DATDictionary.getId(strs[0]) > 0) {
+              continue;
+            }
+            if (strs.length != 3) {
+              value=new Value(strs[0],DEFAULT_NATURE,DEFAULT_FREQ_STR);
+            }
  else {
-      LIBRARYLOG.warn("init user library  error :{} because : not find that file !",file.getAbsolutePath());
+              value=new Value(strs[0],strs[1],strs[2]);
+            }
+            Library.insertWord(forest,value);
+          }
+        }
+      }
+ catch (      UnsupportedEncodingException e) {
+        LIBRARYLOG.warn("??????????????????",e);
+      }
+catch (      IOException e) {
+        LIBRARYLOG.warn("Init user library error :{}, path: {}",e.getMessage(),file.getPath());
+      }
     }
+    LIBRARYLOG.info("Init user library ok!");
+  }
+ else {
+    LIBRARYLOG.warn("Init user library  error :{} because : not find that file !",path);
   }
 }

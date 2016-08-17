@@ -1,0 +1,32 @@
+{
+  File[] libs=new File[1];
+  File file=new File(path);
+  if (!file.exists()) {
+    URL url=UserDefineLibrary.class.getClassLoader().getResource(path);
+    if (url != null) {
+      file=new File(url.getPath());
+    }
+  }
+  if (file.canRead()) {
+    if (file.isFile()) {
+      libs[0]=file;
+    }
+ else     if (file.isDirectory()) {
+      File[] files=file.listFiles(new FilenameFilter(){
+        @Override public boolean accept(        File dir,        String name){
+          if (name.endsWith(".dic") && dir.canRead()) {
+            return true;
+          }
+ else {
+            return false;
+          }
+        }
+      }
+);
+      if (files != null && files.length > 0) {
+        libs=files;
+      }
+    }
+  }
+  return libs;
+}

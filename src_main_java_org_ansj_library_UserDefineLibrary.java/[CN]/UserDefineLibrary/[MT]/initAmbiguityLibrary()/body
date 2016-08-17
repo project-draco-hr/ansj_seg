@@ -1,40 +1,35 @@
 {
-  String ambiguityLibrary=MyStaticValue.ambiguityLibrary;
-  if (StringUtil.isBlank(ambiguityLibrary)) {
-    LIBRARYLOG.warn("init ambiguity  warning :{} because : file not found or failed to read !",ambiguityLibrary);
-    return;
-  }
-  ambiguityLibrary=MyStaticValue.ambiguityLibrary;
-  ambiguityForest=new Forest();
-  try (BufferedReader br=IOUtil.getReader(ambiguityLibrary,"utf-8")){
-    String temp=null;
-    boolean first=true;
-    while ((temp=br.readLine()) != null) {
-      if (StringUtil.isBlank(temp)) {
-        continue;
+  File[] lib=findLibrary(MyStaticValue.ambiguityLibrary);
+  if (lib.length > 0) {
+    ambiguityForest=new Forest();
+    for (    File file : lib) {
+      try (BufferedReader br=IOUtil.getReader(file,"utf-8")){
+        String temp;
+        while ((temp=br.readLine()) != null) {
+          if (StringUtils.isNotBlank(temp)) {
+            temp=StringUtil.trim(temp);
+            String[] split=temp.split("\t");
+            StringBuilder sb=new StringBuilder();
+            if (split.length % 2 != 0) {
+              LIBRARYLOG.error("init ambiguity  error in line :" + temp + " format err !");
+            }
+            for (int i=0; i < split.length; i+=2) {
+              sb.append(split[i]);
+            }
+            ambiguityForest.addBranch(sb.toString(),split);
+          }
+        }
       }
-      if (first) {
-        temp=StringUtil.trim(temp);
+ catch (      UnsupportedEncodingException e) {
+        LIBRARYLOG.warn("??????????????????",e);
       }
-      String[] split=temp.split("\t");
-      StringBuilder sb=new StringBuilder();
-      if (split.length % 2 != 0) {
-        LIBRARYLOG.error("init ambiguity  error in line :" + temp + " format err !");
+catch (      IOException e) {
+        LIBRARYLOG.warn("Init ambiguity library error :{}, path: {}",e.getMessage(),file.getPath());
       }
-      for (int i=0; i < split.length; i+=2) {
-        sb.append(split[i]);
-      }
-      ambiguityForest.addBranch(sb.toString(),split);
     }
-    LIBRARYLOG.info("init ambiguityLibrary ok!");
+    LIBRARYLOG.info("Init ambiguity library ok!");
   }
- catch (  FileNotFoundException e) {
-    LIBRARYLOG.warn("init ambiguity  error :{} because : not find that file or can not found!",new File(ambiguityLibrary).getAbsolutePath());
-  }
-catch (  UnsupportedEncodingException e) {
-    LIBRARYLOG.warn("??????????????????",e);
-  }
-catch (  IOException e) {
-    LIBRARYLOG.warn("init ambiguity  error :{} because : not find that file or can not to read!",new File(ambiguityLibrary).getAbsolutePath());
+ else {
+    LIBRARYLOG.warn("Init ambiguity library warning :{} because : file not found or failed to read !",MyStaticValue.ambiguityLibrary);
   }
 }
