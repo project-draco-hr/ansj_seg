@@ -2,7 +2,12 @@
   int[] conver=new int[Config.TAG_NUM + Config.TAG_NUM * Config.TAG_NUM];
   String temp=null;
   for (int i=0; i < Config.TAG_NUM; i++) {
-    char c=br.readLine().charAt(0);
+    String line=br.readLine();
+    if (StringUtil.isBlank(line)) {
+      i--;
+      continue;
+    }
+    char c=line.charAt(0);
 switch (c) {
 case 'S':
       conver[i]=Config.S;
