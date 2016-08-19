@@ -1,5 +1,5 @@
 {
-  File[] libs=new File[1];
+  File[] libs=new File[0];
   File file=new File(path);
   if (!file.exists()) {
     URL url=UserDefineLibrary.class.getClassLoader().getResource(path);
@@ -9,6 +9,7 @@
   }
   if (file.canRead()) {
     if (file.isFile()) {
+      libs=new File[1];
       libs[0]=file;
     }
  else     if (file.isDirectory()) {
