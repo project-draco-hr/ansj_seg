@@ -1,0 +1,20 @@
+{
+  UserDefineLibrary.insertWord("?????????");
+  UserDefineLibrary.insertWord("??????");
+  AnsjAnalyzer ansjAnalyzer=new AnsjAnalyzer(AnsjAnalyzer.TYPE.index);
+  TokenStream tokenStream=ansjAnalyzer.tokenStream("??????????????????","test");
+  while (tokenStream.incrementToken()) {
+    System.out.println(tokenStream.getAttribute(CharTermAttribute.class));
+  }
+  IndexWriterConfig config=new IndexWriterConfig(ansjAnalyzer);
+  IndexWriter writer=new IndexWriter(new RAMDirectory(),config);
+  Document doc=new Document();
+  doc.add(new TextField("test","??????????????????",Field.Store.YES));
+  writer.addDocument(doc);
+  writer.commit();
+  IndexSearcher searcher=new IndexSearcher(DirectoryReader.open(writer));
+  System.out.println(searcher.count(new TermQuery(new Term("test","??????"))));
+  Query q=new QueryParser("test",new AnsjAnalyzer(AnsjAnalyzer.TYPE.index)).parse("\"?????????\"");
+  System.out.println(q);
+  System.out.println(searcher.count(q));
+}
