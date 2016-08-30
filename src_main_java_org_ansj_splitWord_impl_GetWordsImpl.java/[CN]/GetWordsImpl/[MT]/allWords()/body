@@ -14,8 +14,8 @@ case 0:
         return str;
       }
  else {
-        i=start;
-        start++;
+        start=i;
+        i--;
         end=0;
         baseValue=0;
         break;
