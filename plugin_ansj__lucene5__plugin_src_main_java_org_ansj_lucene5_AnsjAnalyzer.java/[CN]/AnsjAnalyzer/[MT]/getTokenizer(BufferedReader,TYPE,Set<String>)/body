@@ -1,21 +1,29 @@
 {
   Tokenizer tokenizer;
 switch (type) {
-case index:
+case base:
     if (reader == null) {
-      tokenizer=new AnsjTokenizer(new IndexAnalysis(),filter);
+      tokenizer=new AnsjTokenizer(new BaseAnalysis(),filter);
     }
  else {
-      tokenizer=new AnsjTokenizer(new IndexAnalysis(reader),filter);
+      tokenizer=new AnsjTokenizer(new BaseAnalysis(reader),filter);
     }
   break;
+case index:
+if (reader == null) {
+  tokenizer=new AnsjTokenizer(new IndexAnalysis(),filter);
+}
+ else {
+  tokenizer=new AnsjTokenizer(new IndexAnalysis(reader),filter);
+}
+break;
 case dic:
 case user:
 if (reader == null) {
-  tokenizer=new AnsjTokenizer(new DicAnalysis(),filter);
+tokenizer=new AnsjTokenizer(new DicAnalysis(),filter);
 }
  else {
-  tokenizer=new AnsjTokenizer(new DicAnalysis(reader),filter);
+tokenizer=new AnsjTokenizer(new DicAnalysis(reader),filter);
 }
 break;
 case to:
