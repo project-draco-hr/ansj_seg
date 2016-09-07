@@ -1,0 +1,6 @@
+{
+  super(args);
+  stopwordsDir=get(args,"words");
+  type=get(args,"type");
+  addStopwords(stopwordsDir);
+}

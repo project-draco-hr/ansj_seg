@@ -1,0 +1,3 @@
+{
+  return AnsjAnalyzer.getTokenizer(null,AnsjAnalyzer.TYPE.valueOf(type),filter);
+}

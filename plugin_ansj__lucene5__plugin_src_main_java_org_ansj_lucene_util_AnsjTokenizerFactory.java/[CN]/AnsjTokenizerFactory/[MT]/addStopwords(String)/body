@@ -1,0 +1,33 @@
+{
+  if (dir == null) {
+    logger.info("no stopwords dir");
+    return;
+  }
+  logger.info("stopwords: {}",dir);
+  filter=new HashSet<String>();
+  BufferedReader br=null;
+  try {
+    br=IOUtil.getReader(dir,"uf-8");
+    String word=br.readLine();
+    while (word != null) {
+      filter.add(word);
+      word=br.readLine();
+    }
+  }
+ catch (  FileNotFoundException e) {
+    logger.info("No stopword file found");
+  }
+catch (  IOException e) {
+    logger.info("stopword file io exception");
+  }
+ finally {
+    if (br != null) {
+      try {
+        br.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+}
